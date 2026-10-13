@@ -37,8 +37,8 @@ const meta = {
   args: {"Type": "Plain", "Text": "Tooltip label"},
   parameters: {
     figma: { name: "Tooltip", page: "➜ Tooltips", tier: "Molecule", order: 2 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Tooltip` on page `➜ Tooltips` (Data Display). [Open in Figma]()\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Short help text on long press or focus; Rich adds a title and longer text.  \n> Usage rules: Explaining an icon-only control. Not for essential instructions or errors (show them on screen).  \n> Accessibility: Text: 4.5:1 (WCAG 1.4.3) in Light, Dark. Also reachable by keyboard focus.  \n> Keywords: tooltip, help, hint  \n\n**When to use:** Explaining an icon-only control\n\n**When not to use:** Essential instructions or errors (show them on screen)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-719" },
+    docs: { description: { component: "**Figma:** `Tooltip` on page `➜ Tooltips` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-719)\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Short help text on long press or focus; Rich adds a title and longer text.  \n> Usage rules: Explaining an icon-only control. Not for essential instructions or errors (show them on screen).  \n> Accessibility: Text: 4.5:1 (WCAG 1.4.3) in Light, Dark. Also reachable by keyboard focus.  \n> Keywords: tooltip, help, hint  \n\n**When to use:** Explaining an icon-only control\n\n**When not to use:** Essential instructions or errors (show them on screen)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof Tooltip>;
 export default meta;

@@ -55,8 +55,8 @@ const meta = {
   args: {"Title": "Track title", "Subtitle": "Artist · Album", "Show Subtitle Icon": false, "Subtitle Icon": "Icon/cloud_done"},
   parameters: {
     figma: { name: "Track Metadata", page: "➜ Lists", tier: "Molecule", order: 2 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Track Metadata` on page `➜ Lists` (Data Display). [Open in Figma]()\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Title and subtitle of a track or playlist, with an optional downloaded icon.  \n> Usage rules: Inside Mini Player, Media Card and list items. Not for section titles (use Section Header).  \n> Accessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. Truncated text stays fully readable by the screen reader.  \n> Keywords: metadata, title, artist, subtitle  \n\n**When to use:** Inside Mini Player, Media Card and list items\n\n**When not to use:** Section titles (use Section Header)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-370" },
+    docs: { description: { component: "**Figma:** `Track Metadata` on page `➜ Lists` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-370)\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Title and subtitle of a track or playlist, with an optional downloaded icon.  \n> Usage rules: Inside Mini Player, Media Card and list items. Not for section titles (use Section Header).  \n> Accessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. Truncated text stays fully readable by the screen reader.  \n> Keywords: metadata, title, artist, subtitle  \n\n**When to use:** Inside Mini Player, Media Card and list items\n\n**When not to use:** Section titles (use Section Header)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof TrackMetadata>;
 export default meta;

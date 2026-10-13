@@ -23,8 +23,8 @@ const meta = {
   args: {"Time": "5:00"},
   parameters: {
     figma: { name: "Status Bar", page: "➜ Utilities", tier: "Atom", order: 1 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Status Bar` on page `➜ Utilities` (Setup). [Open in Figma]()\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Android system status bar used in screen mockups (time, Wi-Fi, signal, battery).  \n> Usage rules: First full-bleed row of every 375 dp screen. Not for app actions or content.  \n> Accessibility: Decorative system chrome, not interactive. Time: 4.5:1 (WCAG 1.4.3) in Light, Dark.  \n> Keywords: status bar, system, mockup  \n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=16-801" },
+    docs: { description: { component: "**Figma:** `Status Bar` on page `➜ Utilities` (Setup). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=16-801)\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Android system status bar used in screen mockups (time, Wi-Fi, signal, battery).  \n> Usage rules: First full-bleed row of every 375 dp screen. Not for app actions or content.  \n> Accessibility: Decorative system chrome, not interactive. Time: 4.5:1 (WCAG 1.4.3) in Light, Dark.  \n> Keywords: status bar, system, mockup  \n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof StatusBar>;
 export default meta;

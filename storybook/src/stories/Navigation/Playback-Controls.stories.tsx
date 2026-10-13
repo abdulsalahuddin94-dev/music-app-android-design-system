@@ -12,8 +12,8 @@ const meta = {
   args: {},
   parameters: {
     figma: { name: "Playback Controls", page: "➜ Player Controls", tier: "Organism", order: 3 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Playback Controls` on page `➜ Player Controls` (Navigation). [Open in Figma]()\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Main player controls: Like, Previous, Play/Pause, Next and Download.  \n> Usage rules: Full player (Now Playing and Lyrics). Not for compact contexts (use Mini Player).  \n> Accessibility: Every control has an accessible name; Play switches to Pause. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: player, controls, play, pause, next  \n\n**When to use:** Full player (Now Playing and Lyrics)\n\n**When not to use:** Compact contexts (use Mini Player)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-472" },
+    docs: { description: { component: "**Figma:** `Playback Controls` on page `➜ Player Controls` (Navigation). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-472)\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Main player controls: Like, Previous, Play/Pause, Next and Download.  \n> Usage rules: Full player (Now Playing and Lyrics). Not for compact contexts (use Mini Player).  \n> Accessibility: Every control has an accessible name; Play switches to Pause. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: player, controls, play, pause, next  \n\n**When to use:** Full player (Now Playing and Lyrics)\n\n**When not to use:** Compact contexts (use Mini Player)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof PlaybackControls>;
 export default meta;

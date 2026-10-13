@@ -46,8 +46,8 @@ const meta = {
   args: {"Placeholder": "Search in your library", "Icon search": "Icon/search", "Icon mic": "Icon/mic"},
   parameters: {
     figma: { name: "Search Bar", page: "➜ Search", tier: "Molecule", order: 2 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Search Bar` on page `➜ Search` (Form Elements). [Open in Figma]()\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Entry point to search the library or catalog, with an optional voice search mic.  \n> Usage rules: Top of Library and Search screens. Not for form fields (use Text Field).  \n> Accessibility: Placeholder: 4.5:1 (WCAG 1.4.3) in Light, Dark. Mic has its own accessible name (Voice search). Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: search, find, voice  \n\n**When to use:** Top of Library and Search screens\n\n**When not to use:** Form fields (use Text Field)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-421" },
+    docs: { description: { component: "**Figma:** `Search Bar` on page `➜ Search` (Form Elements). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-421)\n\n**Tier:** Molecule\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Entry point to search the library or catalog, with an optional voice search mic.  \n> Usage rules: Top of Library and Search screens. Not for form fields (use Text Field).  \n> Accessibility: Placeholder: 4.5:1 (WCAG 1.4.3) in Light, Dark. Mic has its own accessible name (Voice search). Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: search, find, voice  \n\n**When to use:** Top of Library and Search screens\n\n**When not to use:** Form fields (use Text Field)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof SearchBar>;
 export default meta;

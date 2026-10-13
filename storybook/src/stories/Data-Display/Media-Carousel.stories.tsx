@@ -47,8 +47,8 @@ const meta = {
   args: {"First Card": "Size=Default", "Second Card": "Size=Default", "Third Card": "Size=Default"},
   parameters: {
     figma: { name: "Media Carousel", page: "➜ Cards & Carousels", tier: "Organism", order: 3 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Media Carousel` on page `➜ Cards & Carousels` (Data Display). [Open in Figma]()\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Horizontal rail of Media Cards that scrolls and clips at the screen edge.  \n> Usage rules: Explore rails such as Your new music and For You. Not for vertical lists (use Playlist List Item).  \n> Accessibility: Cards stay reachable in reading order; the rail scrolls with the screen reader.  \n> Keywords: carousel, rail, horizontal list  \n\n**When to use:** Explore rails such as Your new music and For You\n\n**When not to use:** Vertical lists (use Playlist List Item)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-404" },
+    docs: { description: { component: "**Figma:** `Media Carousel` on page `➜ Cards & Carousels` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-404)\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Horizontal rail of Media Cards that scrolls and clips at the screen edge.  \n> Usage rules: Explore rails such as Your new music and For You. Not for vertical lists (use Playlist List Item).  \n> Accessibility: Cards stay reachable in reading order; the rail scrolls with the screen reader.  \n> Keywords: carousel, rail, horizontal list  \n\n**When to use:** Explore rails such as Your new music and For You\n\n**When not to use:** Vertical lists (use Playlist List Item)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof MediaCarousel>;
 export default meta;

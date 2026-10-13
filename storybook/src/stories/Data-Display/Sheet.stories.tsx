@@ -37,8 +37,8 @@ const meta = {
   args: {"Position": "Bottom", "Title": "Sheet title"},
   parameters: {
     figma: { name: "Sheet", page: "➜ Dialogs & Sheets", tier: "Organism", order: 3 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Sheet` on page `➜ Dialogs & Sheets` (Data Display). [Open in Figma]()\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Bottom or side surface for supplemental tasks such as the queue or a track menu.  \n> Usage rules: Bottom on phones for menus and details. Side on large screens. Not for blocking confirmations (use Dialog).  \n> Accessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Has a visible close or drag handle and closes with Back.  \n> Keywords: sheet, bottom sheet, menu  \n\n**When to use:** Bottom on phones for menus and details; Side on large screens\n\n**When not to use:** Blocking confirmations (use Dialog)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=11-744" },
+    docs: { description: { component: "**Figma:** `Sheet` on page `➜ Dialogs & Sheets` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=11-744)\n\n**Tier:** Organism\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Bottom or side surface for supplemental tasks such as the queue or a track menu.  \n> Usage rules: Bottom on phones for menus and details. Side on large screens. Not for blocking confirmations (use Dialog).  \n> Accessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Has a visible close or drag handle and closes with Back.  \n> Keywords: sheet, bottom sheet, menu  \n\n**When to use:** Bottom on phones for menus and details; Side on large screens\n\n**When not to use:** Blocking confirmations (use Dialog)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof Sheet>;
 export default meta;

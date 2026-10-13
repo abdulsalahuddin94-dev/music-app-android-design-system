@@ -12,8 +12,8 @@ const meta = {
   args: {},
   parameters: {
     figma: { name: "Divider", page: "➜ Dividers", tier: "Atom", order: 1 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Divider` on page `➜ Dividers` (Data Display). [Open in Figma]()\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Thin line that separates groups of content.  \n> Usage rules: Between groups that spacing alone does not separate. Not for between every list row (use spacing).  \n> Accessibility: Decorative; hidden from screen readers.  \n> Keywords: divider, separator, line  \n\n**When to use:** Between groups that spacing alone does not separate\n\n**When not to use:** Between every list row (use spacing)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-376" },
+    docs: { description: { component: "**Figma:** `Divider` on page `➜ Dividers` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-376)\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Thin line that separates groups of content.  \n> Usage rules: Between groups that spacing alone does not separate. Not for between every list row (use spacing).  \n> Accessibility: Decorative; hidden from screen readers.  \n> Keywords: divider, separator, line  \n\n**When to use:** Between groups that spacing alone does not separate\n\n**When not to use:** Between every list row (use spacing)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof Divider>;
 export default meta;

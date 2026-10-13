@@ -12,8 +12,8 @@ const meta = {
   args: {},
   parameters: {
     figma: { name: "Artwork", page: "➜ Avatars & upload image", tier: "Atom", order: 1 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Artwork` on page `➜ Avatars & upload image` (Data Display). [Open in Figma]()\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Square cover image for a song, album, playlist or podcast.  \n> Usage rules: Inside cards, list items and players. Not for people (use Avatar).  \n> Accessibility: Decorative when the title is next to it; otherwise give alt text with the title.  \n> Keywords: artwork, cover, album art, image  \n\n**When to use:** Inside cards, list items and players\n\n**When not to use:** People (use Avatar)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-369" },
+    docs: { description: { component: "**Figma:** `Artwork` on page `➜ Avatars & upload image` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-369)\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Square cover image for a song, album, playlist or podcast.  \n> Usage rules: Inside cards, list items and players. Not for people (use Avatar).  \n> Accessibility: Decorative when the title is next to it; otherwise give alt text with the title.  \n> Keywords: artwork, cover, album art, image  \n\n**When to use:** Inside cards, list items and players\n\n**When not to use:** People (use Avatar)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof Artwork>;
 export default meta;

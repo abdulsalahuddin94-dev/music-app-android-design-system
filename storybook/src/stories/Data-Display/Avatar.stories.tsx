@@ -12,8 +12,8 @@ const meta = {
   args: {},
   parameters: {
     figma: { name: "Avatar", page: "➜ Avatars & upload image", tier: "Atom", order: 1 },
-    design: { type: 'figma', url: "" },
-    docs: { description: { component: "**Figma:** `Avatar` on page `➜ Avatars & upload image` (Data Display). [Open in Figma]()\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Round picture of the signed-in user or an artist.  \n> Usage rules: Profile entry in Top App Bar. Artist rows. Not for album or playlist covers (use Artwork).  \n> Accessibility: Accessible name is the person name or Profile. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: avatar, profile, user  \n\n**When to use:** Profile entry in Top App Bar; Artist rows\n\n**When not to use:** Album or playlist covers (use Artwork)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
+    design: { type: 'figma', url: "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-373" },
+    docs: { description: { component: "**Figma:** `Avatar` on page `➜ Avatars & upload image` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-373)\n\n**Tier:** Atom\n\n**Use:** \n\n**Figma description:**\n\n> Purpose: Round picture of the signed-in user or an artist.  \n> Usage rules: Profile entry in Top App Bar. Artist rows. Not for album or playlist covers (use Artwork).  \n> Accessibility: Accessible name is the person name or Profile. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  \n> Keywords: avatar, profile, user  \n\n**When to use:** Profile entry in Top App Bar; Artist rows\n\n**When not to use:** Album or playlist covers (use Artwork)\n\nControls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar." } },
   },
 } satisfies Meta<typeof Avatar>;
 export default meta;
