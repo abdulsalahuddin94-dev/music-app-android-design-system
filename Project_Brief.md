@@ -14,7 +14,7 @@ Order asked: 0.0-0.2, then Platform 1.1-1.4, then 0.3-0.8, then Path.
 | 0.5 | Arabic / RTL | No RTL layout (Arabic content only), from Brownfield DS, confirmed 2026-10-13 |
 | 0.6 | Fonts (Latin / Arabic) | Roboto + Roboto Condensed Bold (emphasized headlines), from the DS text styles, confirmed 2026-10-13 |
 | 0.6b | Icon library (platform default / existing set in the Figma project / Phosphor / Tabler / Heroicons / Remix Icon / other) | Existing set on → Icons (37 Material Symbols names), confirmed 2026-10-13. Token references: none |
-| 0.7 | Storybook (Yes / Later, ask at: ... / No) | Yes after components, published on GitHub Pages (Abdul's first message) |
+| 0.7 | Storybook (Yes / Later, ask at: ... / No) | Published: https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/ (repo abdulsalahuddin94-dev/music-app-android-design-system, gh-pages branch); local `storybook` on port 6009 |
 | 0.8 | Example screens (Yes after components / No) | Skipped: Brownfield, the flow in Brownfield Design is organized and rebuilt from the DS |
 
 ## Platform
@@ -61,7 +61,7 @@ Inputs found: Brand <n files / empty>, Inspiration <n / empty>, Screens <n / lin
 Direction: <style, corner/density/elevation, brand contrast result and fix>
 Screens: <Yes after components / No>
 Storybook: <Yes after components / Later (ask at: ...) / No>
-Next step: Storybook in progress (storybook/ scaffolded: config, tokens.css, text-styles.css, effects.css, Welcome + Foundations docs, lib/Icon.tsx with 38 icons; node_modules is a junction to ClinicSoft). Next: write React replicas per group (brief: component replicas, FormElements / Navigation / DataDisplay), component-map.json, tools/storybook_stories.py, parity + style checks, then ask before creating the public GitHub repo + Pages, then add the Brownfield card to docs/presentation (Live demos slide) via the presentation thread.
+Next step: done. Optional follow-ups: drop the app icon into ➜ App Icon; progress thumb, downloading icon and lyrics fade (registry gaps); move docs/ci workflows to .github/workflows after `gh auth refresh -s workflow`.
 ```
 
 ## Figma
