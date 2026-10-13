@@ -1,0 +1,20 @@
+{
+  "Button": { "module": "Navigation", "export": "Button", "matrix": ["Style", "State"] },
+  "Icon Button": { "module": "Navigation", "export": "IconButton", "matrix": ["Style", "State"] },
+  "Filter Chip": { "module": "Navigation", "export": "FilterChip", "matrix": ["Selected", "State"], "example": "<FilterChipInUse />", "example_imports": ["FilterChipInUse"] },
+  "Tab Item": { "module": "Navigation", "export": "TabItem", "matrix": ["Selected", "State"] },
+  "Navigation Item": { "module": "Navigation", "export": "NavigationItem", "matrix": ["Selected", "State"] },
+  "Primary Tabs": { "module": "Navigation", "export": "PrimaryTabs", "example": "<PrimaryTabsInUse />", "example_imports": ["PrimaryTabsInUse"] },
+  "Bottom Navigation": { "module": "Navigation", "export": "BottomNavigation", "example": "<BottomNavigationInUse />", "example_imports": ["BottomNavigationInUse"] },
+  "Top App Bar": { "module": "Navigation", "export": "TopAppBar" },
+  "Playlist App Bar": { "module": "Navigation", "export": "PlaylistAppBar", "example": "<PlayerInUse />", "example_imports": ["PlayerInUse"] },
+  "Mini Player": { "module": "Navigation", "export": "MiniPlayer", "example": "<BottomNavigationInUse />", "example_imports": ["BottomNavigationInUse"] },
+  "Playback Progress": { "module": "Navigation", "export": "PlaybackProgress" },
+  "Playback Controls": { "module": "Navigation", "export": "PlaybackControls", "example": "<PlayerInUse />", "example_imports": ["PlayerInUse"] },
+  "Player Utility Bar": { "module": "Navigation", "export": "PlayerUtilityBar", "matrix": ["Active"] },
+  "Artwork": { "module": "DataDisplayAtoms", "export": "Artwork" },
+  "Avatar": { "module": "DataDisplayAtoms", "export": "Avatar" },
+  "Badge": { "module": "DataDisplayAtoms", "export": "Badge", "matrix": ["Type"] },
+  "Track Metadata": { "module": "DataDisplayAtoms", "export": "TrackMetadata" },
+  "Progress Indicator": { "module": "DataDisplayAtoms", "export": "ProgressIndicator", "matrix": ["Value"] }
+}

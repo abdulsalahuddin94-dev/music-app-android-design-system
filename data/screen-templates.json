@@ -1,0 +1,617 @@
+{
+ "meta": {
+  "platform": "Android",
+  "rule": "Screens are assembled only from components in component-registry.json and tokens in tokens.json. Source over Material 3 in this project (Foundation_Skill section 1): match the source screenshots; sizes stay as built.",
+  "skills": [
+   "figma-generate-design",
+   "figma-use",
+   "ui-ux-pro-max",
+   "audit-design-system"
+  ],
+  "frames": {
+   "Mobile": [
+    375,
+    812
+   ],
+   "Mobile (kept as built)": [
+    375,
+    813
+   ]
+  },
+  "figma": {
+   "file": "Brownfield Design",
+   "page": "Listen",
+   "sections": "Listen / <Screen>, each with the source screenshot and the Dark and Light frames named \"Listen / <Screen> / Dark\" and \"... / Light\""
+  },
+  "dark_mode": "duplicate the frame and pin Semantic to Dark on the frame itself (not on the section); never duplicate components. Dark and Light share one layout.",
+  "flow": "Listen (audits/2026-10-13-flow-map-listen.md); approved screens: audits/2026-10-13-screens-listen-round3.md (16 frames, readiness 82 to 90)",
+  "not_in_source": [
+   "Connect tab",
+   "Queue and Audio views",
+   "search results and no results",
+   "offline and loading states",
+   "empty library",
+   "album and playlist detail"
+  ]
+ },
+ "templates": {
+  "explore": {
+   "tier": "Pattern",
+   "use": "Home of the app: browse rails of new and recommended music and podcasts, with shortcuts to recent items. Built as Explore - Full (long scroll) and Explore - Viewport.",
+   "frames": {
+    "Explore - Full": [
+     375,
+     1725
+    ],
+    "Explore - Viewport": [
+     375,
+     813
+    ]
+   },
+   "layout": "single column, 375 dp, gutter 16, vertical scroll; Status Bar, Bottom Navigation and Mini Player pinned",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 4:59"
+    },
+    {
+     "name": "Title",
+     "components": [
+      "Top App Bar (Show Actions on)"
+     ],
+     "pinned": "top",
+     "content": "EXPLORE; Notifications, Community (Icon Buttons) and Profile (Avatar + Badge Type Plan \"plus\")"
+    },
+    {
+     "name": "Filters",
+     "components": [
+      "Filter Chip x4 (first Selected)"
+     ],
+     "scroll": "horizontal chips row, 48 dp tall",
+     "content": "All (selected), Arabic, International, Podcasts"
+    },
+    {
+     "name": "Shortcuts",
+     "components": [
+      "Shortcut Card x2"
+     ],
+     "scroll": "vertical",
+     "content": "Music Mix, Recently Played; two columns, 56 dp tall"
+    },
+    {
+     "name": "Your new music",
+     "components": [
+      "Section Header (Show More on)",
+      "Media Carousel / Media Card Default x3",
+      "Badge Type Explicit"
+     ],
+     "scroll": "vertical; rail scrolls horizontally and clips at the edge",
+     "content": "Rail title \"Your new music\" + More; cards: ليالى (Song · سمر طارق), The shadow beyond the... (Album · Yawn), ماتمشيش (Song · عمرو دياب)"
+    },
+    {
+     "name": "For You",
+     "components": [
+      "Section Header (Show More on)",
+      "Media Card Size=Large x3 (Description)"
+     ],
+     "content": "Your next favorite songs are in here; Songs you loved but haven't heard in...; Throwback hits from your past"
+    },
+    {
+     "name": "Dance Floor Egyptian Pop",
+     "components": [
+      "Section Header (Show More on)",
+      "Media Card Default x3",
+      "Badge Type Explicit"
+     ],
+     "content": "بالضحكة دى, ونعيش, ومحمد... (عمرو دياب)"
+    },
+    {
+     "name": "Just You",
+     "components": [
+      "Section Header (Show More on, Show Supporting Text on)",
+      "Media Card Default x3"
+     ],
+     "content": "Supporting text \"Discover music based on your recent activity\"; يا حبيبى, مفهوش غلطة, انى خليك..."
+    },
+    {
+     "name": "Melancholic Egyptian Pop",
+     "components": [
+      "Section Header (Show More on)",
+      "Media Card Default x3"
+     ],
+     "content": "كنت فى بالى, معرفش حد بالأسم ده, ...يتى معاك"
+    },
+    {
+     "name": "Discover What's New",
+     "components": [
+      "Section Header (Show More on)",
+      "Media Card Size=Large x3"
+     ],
+     "content": "New releases picked for you; Fresh this week; Trending now"
+    },
+    {
+     "name": "Mini player",
+     "components": [
+      "Mini Player"
+     ],
+     "pinned": "bottom, 12 dp inset, 351 x 56, 4 dp above Bottom Navigation",
+     "content": "Track: لو كنت غالى / مصطفى قمر (Arabic title, artist)"
+    },
+    {
+     "name": "Bottom navigation",
+     "components": [
+      "Bottom Navigation (Explore selected)"
+     ],
+     "pinned": "bottom, full-bleed, 58 dp, docked to the frame bottom",
+     "content": "Explore, Search, Connect, Your Library"
+    }
+   ],
+   "states": [
+    "default (built)",
+    "filter selected (built: chip Selected=True)",
+    "loading (not in source)",
+    "offline (not in source)"
+   ],
+   "tokens": {
+    "background": "md/sys/color/surface",
+    "gutter": "md/sys/spacing/16",
+    "title": "M3/headline_small_emphasized",
+    "mode": "Semantic mode pinned on the frame: Listen / Explore - Full / Dark and / Light"
+   },
+   "ux_rules": [
+    "One Bottom Navigation per top-level screen",
+    "Mini Player above Bottom Navigation while playing"
+   ]
+  },
+  "search_discover": {
+   "tier": "Pattern",
+   "use": "Search tab: search the catalog, start Radar, browse Popular and Moods & Genres tiles. Built as a 375 x 1424 long-scroll frame and a 375 x 812 viewport.",
+   "frames": {
+    "Search & Discover - Full": [
+     375,
+     1424
+    ],
+    "Search & Discover - Viewport": [
+     375,
+     812
+    ]
+   },
+   "layout": "single column, gutter 16; Genre Cards in a 2-column grid; Status Bar, Mini Player and Bottom Navigation pinned",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 11:58"
+    },
+    {
+     "name": "Title",
+     "components": [
+      "Top App Bar (Show Actions off)"
+     ],
+     "pinned": "top",
+     "content": "SEARCH & DISCOVER"
+    },
+    {
+     "name": "Search",
+     "components": [
+      "Search Bar (343 x 42)"
+     ],
+     "content": "Placeholder \"Songs, artists, lyrics, playlists...\"; search and mic icons"
+    },
+    {
+     "name": "Radar",
+     "components": [
+      "Button Style=Outlined Accent, Show Leading Icon on (radar)"
+     ],
+     "content": "Radar songs around you; full width 343 x 48"
+    },
+    {
+     "name": "Popular",
+     "components": [
+      "Section Header (Show More off)",
+      "Genre Card x2 (Color Magenta, Blue)"
+     ],
+     "content": "Popular; TOP (magenta), NEW MUSIC (blue)"
+    },
+    {
+     "name": "Moods & Genres",
+     "components": [
+      "Section Header (Show More off)",
+      "Genre Card x18, 2 columns, row pitch 96"
+     ],
+     "scroll": "vertical",
+     "content": "ALTERNATIVE blue, ELITE cyan, ARABIC HIP HOP green, ARABIC INDIE cyan, CHILLING blue, DANCE / ELECTRONIC red, DECADES magenta, DRIVING blue, EGYPTIAN yellow, FEELING GOOD red, FOCUS purple, FRENCH blue, HIP-HOP/ RAP green, INDIE blue, IRAQI green, ISLAMIC purple, K-POP magenta, KHALEEJI green"
+    },
+    {
+     "name": "Mini player",
+     "components": [
+      "Mini Player"
+     ],
+     "pinned": "bottom, 12 dp inset, 351 x 56",
+     "content": "Track: ولا بعد سنين / اليسا"
+    },
+    {
+     "name": "Bottom navigation",
+     "components": [
+      "Bottom Navigation (Search selected)"
+     ],
+     "pinned": "bottom, full-bleed, 58 dp, docked to the frame bottom",
+     "content": "Explore, Search, Connect, Your Library"
+    }
+   ],
+   "states": [
+    "default (built)",
+    "typing / results (not in source)",
+    "no results (not in source)",
+    "offline (not in source)"
+   ],
+   "tokens": {
+    "background": "md/sys/color/surface",
+    "genre colors": "md/sys/color/category_<color> (Light tone 40, Dark tone 80)",
+    "genre label": "M3/headline_small_emphasized on on_primary"
+   },
+   "ux_rules": [
+    "Neighbouring Genre Cards use different colors",
+    "One Radar entry point"
+   ]
+  },
+  "library_music": {
+   "tier": "Pattern",
+   "use": "Your Library, Music tab: shortcuts and the list of playlists, albums and artists.",
+   "frames": {
+    "Library - Music": [
+     375,
+     1132
+    ]
+   },
+   "layout": "single column, gutter 16; Search Bar, Primary Tabs and chips at the top; list scrolls; Mini Player and Bottom Navigation pinned",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 5:00"
+    },
+    {
+     "name": "Search",
+     "components": [
+      "Search Bar (351 x 42)"
+     ],
+     "content": "Search in your library"
+    },
+    {
+     "name": "Tabs",
+     "components": [
+      "Primary Tabs (first Tab Item selected)",
+      "Divider"
+     ],
+     "content": "MUSIC (selected), PODCASTS"
+    },
+    {
+     "name": "Filters",
+     "components": [
+      "Filter Chip x3 (first Selected)"
+     ],
+     "content": "Playlists (selected), Albums, Artists"
+    },
+    {
+     "name": "Shortcuts",
+     "components": [
+      "Library Shortcut Tile x4 (Color Purple, Cyan, Magenta, Yellow)"
+     ],
+     "content": "Likes, Downloads, Created for you, Your uploads; 80 x 80 each"
+    },
+    {
+     "name": "Playlists header",
+     "components": [
+      "List Header (Show Action on)",
+      "Button Style=Outlined"
+     ],
+     "content": "Playlists; sort control; New playlist"
+    },
+    {
+     "name": "Playlists",
+     "components": [
+      "Playlist List Item x8 (72 dp)",
+      "Track Metadata"
+     ],
+     "scroll": "vertical",
+     "content": "Arabic Music Mix (469 songs · By you), Music Mix (541 songs · By you), Farah (46 songs · by Nourhan Bahey), Amr diab (101 songs · By you), Fayrouz (28 songs · By you), Massar Egbari - Maba'etsh Aktar (10 songs · By you), نجوم تغنى كوكب الشرق (36 songs), Music & OST (105 songs · By you)"
+    },
+    {
+     "name": "Mini player",
+     "components": [
+      "Mini Player"
+     ],
+     "pinned": "bottom, 12 dp inset, 351 x 56, 4 dp above Bottom Navigation",
+     "content": "Track: لو كنت غالى / مصطفى قمر (Arabic title, artist)"
+    },
+    {
+     "name": "Bottom navigation",
+     "components": [
+      "Bottom Navigation (Your Library selected)"
+     ],
+     "pinned": "bottom, full-bleed, 58 dp, docked to the frame bottom",
+     "content": "Explore, Search, Connect, Your Library"
+    }
+   ],
+   "states": [
+    "default (built)",
+    "chip selected (built)",
+    "empty library (not in source)"
+   ],
+   "tokens": {
+    "background": "md/sys/color/surface",
+    "category icons": "md/sys/color/category_* through Library Shortcut Tile Color"
+   },
+   "ux_rules": [
+    "The tab is named Your Library; the title word Library is not repeated on the tab"
+   ]
+  },
+  "library_podcasts": {
+   "tier": "Pattern",
+   "use": "Your Library, Podcasts tab: shortcuts and Continue playing episodes with listened progress.",
+   "frames": {
+    "Library - Podcasts": [
+     375,
+     1132
+    ]
+   },
+   "layout": "same shell as Library - Music with the PODCASTS tab selected",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 5:00"
+    },
+    {
+     "name": "Search",
+     "components": [
+      "Search Bar (351 x 42)"
+     ],
+     "content": "Search in your library"
+    },
+    {
+     "name": "Tabs",
+     "components": [
+      "Primary Tabs (second Tab Item selected)",
+      "Divider"
+     ],
+     "content": "MUSIC, PODCASTS (selected)"
+    },
+    {
+     "name": "Filters",
+     "components": [
+      "Filter Chip x2 (first Selected)"
+     ],
+     "content": "Episodes (selected), Shows"
+    },
+    {
+     "name": "Shortcuts",
+     "components": [
+      "Library Shortcut Tile x3 (Color Purple, Cyan, Magenta)"
+     ],
+     "content": "Saved, Downloads, Your New Podcasts; 109 x 80 each"
+    },
+    {
+     "name": "Continue playing",
+     "components": [
+      "Section Header (Show More on)"
+     ],
+     "content": "Continue playing; More"
+    },
+    {
+     "name": "Episodes",
+     "components": [
+      "Podcast Episode Card x3",
+      "Progress Indicator (Value 10, 10, 40)",
+      "Icon Button Download"
+     ],
+     "scroll": "vertical",
+     "content": "Harry Potter and the One Direction - ... (1h 42min left); Broccoli Guts Pt. 2 (1h 2min left); GHR - Show 426 - LIVE from Coachella (56min left)"
+    },
+    {
+     "name": "Mini player",
+     "components": [
+      "Mini Player"
+     ],
+     "pinned": "bottom, 12 dp inset, 351 x 56, 4 dp above Bottom Navigation",
+     "content": "Track: لو كنت غالى / مصطفى قمر (Arabic title, artist)"
+    },
+    {
+     "name": "Bottom navigation",
+     "components": [
+      "Bottom Navigation (Your Library selected)"
+     ],
+     "pinned": "bottom, full-bleed, 58 dp, docked to the frame bottom",
+     "content": "Explore, Search, Connect, Your Library"
+    }
+   ],
+   "states": [
+    "default (built)",
+    "empty library (not in source)"
+   ],
+   "tokens": {
+    "card border": "md/sys/color/outline_variant",
+    "background": "md/sys/color/surface"
+   },
+   "ux_rules": [
+    "Progress is announced as time left"
+   ]
+  },
+  "now_playing": {
+   "tier": "Pattern",
+   "use": "Full player: artwork, track title, progress, playback controls and the Lyrics / Queue / Audio row.",
+   "frames": {
+    "Now Playing": [
+     375,
+     813
+    ]
+   },
+   "layout": "single column, gutter 16, no scroll; Status Bar and app bar pinned at the top, progress, controls and utility bar block at the bottom",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 5:00"
+    },
+    {
+     "name": "App bar",
+     "components": [
+      "Playlist App Bar (Collapse 40 dp, Source Label, Switch)"
+     ],
+     "pinned": "top",
+     "content": "PLAYLIST; Arabic Music Mix; AI MIX with sparkle; Switch (AI Mix)"
+    },
+    {
+     "name": "Artwork",
+     "components": [
+      "Artwork (288 x 288)"
+     ],
+     "content": "Album cover, centered"
+    },
+    {
+     "name": "Track header",
+     "components": [
+      "Track Metadata (239 wide)",
+      "Icon Button Tonal (Share)",
+      "Icon Button Standard (More)"
+     ],
+     "content": "كيفك ع فراقى / محمد شاكر وفضل شاكر - كيفك ع فراقى"
+    },
+    {
+     "name": "Progress",
+     "components": [
+      "Playback Progress (343 x 36)",
+      "Progress Indicator"
+     ],
+     "content": "00:03 / 03:48; value 2"
+    },
+    {
+     "name": "Controls",
+     "components": [
+      "Playback Controls (343 x 72)",
+      "Icon Button Inverse (Play 64)"
+     ],
+     "content": "Like, Previous, Play, Next, Download"
+    },
+    {
+     "name": "Utility bar",
+     "components": [
+      "Player Utility Bar Active=None"
+     ],
+     "pinned": "bottom, full-bleed",
+     "content": "LYRICS, QUEUE, AUDIO (Audio icon settings)"
+    }
+   ],
+   "states": [
+    "playing (Play icon swapped to pause)",
+    "paused (Play shows play_arrow)",
+    "AI Mix on (Switch Selected=True)"
+   ],
+   "tokens": {
+    "background": "md/sys/color/surface (the source tints it from the artwork at runtime; not reproduced)"
+   },
+   "ux_rules": [
+    "Collapse returns to the tab the player opened from",
+    "Lyrics / Queue / Audio labels match between Now Playing and Lyrics"
+   ]
+  },
+  "lyrics": {
+   "tier": "Pattern",
+   "use": "Full player in lyrics view: synced lyric lines with playback controls.",
+   "frames": {
+    "Lyrics": [
+     375,
+     812
+    ]
+   },
+   "layout": "single column, gutter 16; track header and controls pinned, lyric lines scroll; lines right-aligned for Arabic",
+   "sections": [
+    {
+     "name": "Status bar",
+     "components": [
+      "Status Bar"
+     ],
+     "pinned": "top, full-bleed",
+     "content": "Time 12:00"
+    },
+    {
+     "name": "Collapse",
+     "components": [
+      "Icon Button Standard (expand_more, Close player)"
+     ],
+     "pinned": "top",
+     "content": "accessible name \"Close player\""
+    },
+    {
+     "name": "Track header",
+     "components": [
+      "Lyrics Header (Artwork 80, Track Metadata, Share Tonal, More Standard)"
+     ],
+     "pinned": "top",
+     "content": "كيفك ع فراقى / محمد شاكر وفضل شاكر - كيفك ع فراقى"
+    },
+    {
+     "name": "Lyrics",
+     "components": [
+      "Lyrics Line x7 (Align=End)"
+     ],
+     "scroll": "vertical",
+     "content": "Past: كذبه وصدقتا; Current: كانت أكبر كذبه عشته; Upcoming: إنى انساك ومن وقته, ما اقدرت نسيت, عم عائد ماضى, بضحك وبقول عادى عادى, والميه كله ع الفاضى"
+    },
+    {
+     "name": "Progress",
+     "components": [
+      "Playback Progress"
+     ],
+     "pinned": "bottom block",
+     "content": "00:29 / 03:48"
+    },
+    {
+     "name": "Controls",
+     "components": [
+      "Playback Controls"
+     ],
+     "pinned": "bottom block",
+     "content": "Like, Previous, Play, Next, Download"
+    },
+    {
+     "name": "Utility bar",
+     "components": [
+      "Player Utility Bar Active=Lyrics"
+     ],
+     "pinned": "bottom, full-bleed",
+     "content": "LYRICS (selected, inverse pill), QUEUE, AUDIO"
+    }
+   ],
+   "states": [
+    "synced (built)",
+    "no lyrics (not in source: \"Lyrics not available\")"
+   ],
+   "tokens": {
+    "current line": "md/sys/color/on_surface",
+    "past and upcoming lines": "md/sys/color/outline",
+    "line style": "M3/headline_small_emphasized"
+   },
+   "ux_rules": [
+    "Past and next lines are dimmed on purpose; the screen reader reads every line"
+   ]
+  }
+ }
+}

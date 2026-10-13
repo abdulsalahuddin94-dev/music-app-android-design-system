@@ -1,0 +1,2 @@
+// read-only
+(async()=>{await figma.loadAllPagesAsync();const pg=figma.root.children.find(p=>p.name==='Listen');await pg.loadAsync();const out=[];for(const s of pg.children){out.push(s.type+' '+s.id+' '+s.name+' '+Math.round(s.width)+'x'+Math.round(s.height));if(s.children)for(const c of s.children)out.push('   '+c.type+' '+c.id+' '+c.name+' '+Math.round(c.width)+'x'+Math.round(c.height))}return out.join('\n')})()

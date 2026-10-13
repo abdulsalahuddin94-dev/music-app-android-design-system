@@ -1,0 +1,763 @@
+{
+ "primitives": {
+  "md": {
+   "ref": {
+    "palette": {
+     "neutral": {
+      "0": {
+       "$type": "color",
+       "$value": "#000000",
+       "$description": "Primitive neutral tone 0.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_0"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#000000"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:3"
+        }
+       }
+      },
+      "10": {
+       "$type": "color",
+       "$value": "#101010",
+       "$description": "Primitive neutral tone 10.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_10"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#101010"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:4"
+        }
+       }
+      },
+      "20": {
+       "$type": "color",
+       "$value": "#181818",
+       "$description": "Primitive neutral tone 20.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_20"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#181818"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:5"
+        }
+       }
+      },
+      "30": {
+       "$type": "color",
+       "$value": "#202020",
+       "$description": "Primitive neutral tone 30.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_30"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#202020"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:6"
+        }
+       }
+      },
+      "40": {
+       "$type": "color",
+       "$value": "#303030",
+       "$description": "Primitive neutral tone 40.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_40"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#303030"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:7"
+        }
+       }
+      },
+      "50": {
+       "$type": "color",
+       "$value": "#484848",
+       "$description": "Primitive neutral tone 50.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_50"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#484848"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:8"
+        }
+       }
+      },
+      "60": {
+       "$type": "color",
+       "$value": "#606060",
+       "$description": "Primitive neutral tone 60.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_60"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#606060"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:9"
+        }
+       }
+      },
+      "70": {
+       "$type": "color",
+       "$value": "#787878",
+       "$description": "Primitive neutral tone 70.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_70"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#787878"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:10"
+        }
+       }
+      },
+      "80": {
+       "$type": "color",
+       "$value": "#A8AAAD",
+       "$description": "Primitive neutral tone 80.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_80"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#A8AAAD"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:11"
+        }
+       }
+      },
+      "95": {
+       "$type": "color",
+       "$value": "#F5F5F5",
+       "$description": "Primitive neutral tone 95.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_95"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#F5F5F5"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:12"
+        }
+       }
+      },
+      "100": {
+       "$type": "color",
+       "$value": "#FFFFFF",
+       "$description": "Primitive neutral tone 100.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_neutral_100"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FFFFFF"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:13"
+        }
+       }
+      }
+     },
+     "primary": {
+      "0": {
+       "$type": "color",
+       "$value": "#000000",
+       "$description": "Primitive primary tone 0.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_0"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#000000"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:14"
+        }
+       }
+      },
+      "10": {
+       "$type": "color",
+       "$value": "#232900",
+       "$description": "Primitive primary tone 10.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_10"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#232900"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:15"
+        }
+       }
+      },
+      "20": {
+       "$type": "color",
+       "$value": "#434C00",
+       "$description": "Primitive primary tone 20.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_20"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#434C00"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:16"
+        }
+       }
+      },
+      "30": {
+       "$type": "color",
+       "$value": "#535C00",
+       "$description": "Primitive primary tone 30.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_30"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#535C00"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:17"
+        }
+       }
+      },
+      "40": {
+       "$type": "color",
+       "$value": "#6B7400",
+       "$description": "Primitive primary tone 40.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_40"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#6B7400"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:18"
+        }
+       }
+      },
+      "50": {
+       "$type": "color",
+       "$value": "#8A9300",
+       "$description": "Primitive primary tone 50.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_50"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#8A9300"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:19"
+        }
+       }
+      },
+      "60": {
+       "$type": "color",
+       "$value": "#A7B200",
+       "$description": "Primitive primary tone 60.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_60"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#A7B200"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:20"
+        }
+       }
+      },
+      "70": {
+       "$type": "color",
+       "$value": "#BBCE00",
+       "$description": "Primitive primary tone 70.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_70"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#BBCE00"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:21"
+        }
+       }
+      },
+      "80": {
+       "$type": "color",
+       "$value": "#D7FF00",
+       "$description": "Primitive primary tone 80.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_80"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#D7FF00"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:22"
+        }
+       }
+      },
+      "95": {
+       "$type": "color",
+       "$value": "#F4FFD9",
+       "$description": "Primitive primary tone 95.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_95"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#F4FFD9"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:23"
+        }
+       }
+      },
+      "100": {
+       "$type": "color",
+       "$value": "#FFFFFF",
+       "$description": "Primitive primary tone 100.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_primary_100"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FFFFFF"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:24"
+        }
+       }
+      }
+     },
+     "error": {
+      "0": {
+       "$type": "color",
+       "$value": "#000000",
+       "$description": "Primitive error tone 0.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_0"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#000000"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:25"
+        }
+       }
+      },
+      "10": {
+       "$type": "color",
+       "$value": "#450A0A",
+       "$description": "Primitive error tone 10.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_10"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#450A0A"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:26"
+        }
+       }
+      },
+      "20": {
+       "$type": "color",
+       "$value": "#7F1D1D",
+       "$description": "Primitive error tone 20.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_20"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#7F1D1D"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:27"
+        }
+       }
+      },
+      "30": {
+       "$type": "color",
+       "$value": "#991B1B",
+       "$description": "Primitive error tone 30.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_30"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#991B1B"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:28"
+        }
+       }
+      },
+      "40": {
+       "$type": "color",
+       "$value": "#B91C1C",
+       "$description": "Primitive error tone 40.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_40"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#B91C1C"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:29"
+        }
+       }
+      },
+      "50": {
+       "$type": "color",
+       "$value": "#DC2626",
+       "$description": "Primitive error tone 50.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_50"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#DC2626"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:30"
+        }
+       }
+      },
+      "60": {
+       "$type": "color",
+       "$value": "#EF4444",
+       "$description": "Primitive error tone 60.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_60"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#EF4444"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:31"
+        }
+       }
+      },
+      "70": {
+       "$type": "color",
+       "$value": "#FCA5A5",
+       "$description": "Primitive error tone 70.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_70"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FCA5A5"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:32"
+        }
+       }
+      },
+      "80": {
+       "$type": "color",
+       "$value": "#FECACA",
+       "$description": "Primitive error tone 80.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_80"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FECACA"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:33"
+        }
+       }
+      },
+      "95": {
+       "$type": "color",
+       "$value": "#FEF2F2",
+       "$description": "Primitive error tone 95.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_95"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FEF2F2"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:34"
+        }
+       }
+      },
+      "100": {
+       "$type": "color",
+       "$value": "#FFFFFF",
+       "$description": "Primitive error tone 100.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_error_100"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#FFFFFF"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:35"
+        }
+       }
+      }
+     },
+     "purple": {
+      "0": {
+       "$type": "color",
+       "$value": "#000000",
+       "$description": "Primitive purple tone 0.",
+       "$extensions": {
+        "figma-console-mcp": {
+         "codeSyntax": {
+          "ANDROID": "md_ref_palette_purple_0"
+         },
+         "collectionId": "VariableCollectionId:5:2",
+         "figmaResolvedType": "COLOR",
+         "lastSyncedValue": {
+          "Value": {
+           "literal": "#000000"
+          }
+         },
+         "primaryMode": "Value",
+         "scopes": [],
+         "variableId": "VariableID:5:36"
+        }
+       }
+      },
+      "10": {
+    
+… output cut at 20000 of 147049 characters. Return counts, a filtered list or .slice(0, N) instead. For an image of a node use figma-cli verify <id> --scale 2 (saves a PNG).

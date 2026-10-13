@@ -1,0 +1,31 @@
+{
+  "name": "music-app-android-storybook",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Living documentation for the Music App Android Design System (Figma: Brownfield DS). Documentation only, not production code.",
+  "type": "module",
+  "scripts": {
+    "tokens": "cd ../../.. && python tools/tokens_to_css.py \"My Projects/Music_App_Android\"",
+    "docs": "cd ../../.. && python tools/storybook_docs.py \"My Projects/Music_App_Android\"",
+    "stories": "cd ../../.. && python tools/storybook_stories.py \"My Projects/Music_App_Android\"",
+    "parity": "cd ../../.. && python tools/storybook_parity.py \"My Projects/Music_App_Android\"",
+    "storybook": "storybook dev -p 6009",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "10.6.1",
+    "@storybook/addon-designs": "11.1.4",
+    "@storybook/addon-docs": "10.6.1",
+    "@storybook/addon-mcp": "10.6.1",
+    "@storybook/react-vite": "10.6.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "playwright-core": "^1.64.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "storybook": "10.6.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.1"
+  }
+}

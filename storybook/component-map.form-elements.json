@@ -1,0 +1,8 @@
+{
+  "Text Field": { "module": "FormElements", "export": "TextField", "matrix": ["Type", "State"] },
+  "Text Area": { "module": "FormElements", "export": "TextArea", "matrix": ["State"] },
+  "Checkbox": { "module": "FormElements", "export": "Checkbox", "matrix": ["Selected", "State"], "example": "<CheckboxInUse />", "example_imports": ["CheckboxInUse"] },
+  "Switch": { "module": "FormElements", "export": "Switch", "matrix": ["Selected", "State"], "example": "<SwitchInUse />", "example_imports": ["SwitchInUse"] },
+  "Radio": { "module": "FormElements", "export": "Radio", "matrix": ["Selected", "State"], "example": "<RadioInUse />", "example_imports": ["RadioInUse"] },
+  "Search Bar": { "module": "FormElements", "export": "SearchBar" }
+}

@@ -1,0 +1,229 @@
+/* ⭐Data display components (and Status Bar from ⭐Setup > ➜ Utilities), Music App Android (Brownfield DS), rendered as
+   web for documentation. Token variables only; px only for 0, 1px hairlines and Figma geometry without a token (each
+   commented "Figma <n>"). Nested atoms keep their own styles (data-display-atoms.css, navigation.css); this file only
+   sizes the resized instances. Light / Dark come from [data-semantic] on a parent. */
+
+/* ---------- shared ---------- */
+.dd-shortcut-card, .dd-library-tile, .dd-media-card, .dd-genre-card, .dd-list-header__sort {
+  font: inherit; margin: 0; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent;
+}
+.dd-shortcut-card:hover, .dd-library-tile:hover, .dd-media-card:hover, .dd-genre-card:hover, .dd-list-item:hover, .dd-list-header__sort:hover { opacity: 0.88; /* Figma 0.88 (file hover opacity) */ }
+.dd-shortcut-card:active, .dd-library-tile:active, .dd-media-card:active, .dd-genre-card:active, .dd-list-item:active, .dd-list-header__sort:active { opacity: 0.82; /* Figma 0.82 (file pressed opacity) */ }
+.dd-shortcut-card:focus-visible, .dd-library-tile:focus-visible, .dd-media-card:focus-visible, .dd-genre-card:focus-visible,
+.dd-list-item:focus-visible, .dd-list-header__sort:focus-visible, .dd-lyrics-line:focus-visible, .dd-dialog__list li:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary); outline-offset: 0; /* Figma 3 focus stroke */
+}
+
+/* ---------- Status Bar (Atom) ---------- */
+/* Figma: 375 x 32, padding 0 24, space between, centered; icons 16, gap 4, on_surface. */
+.dd-status-bar {
+  display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;
+  width: 375px; /* Figma 375 */ max-width: 100%; height: var(--md-sys-size-control-xsmall); /* Figma 32 */
+  padding: 0 var(--md-sys-spacing-24); color: var(--md-sys-color-on_surface);
+}
+.dd-status-bar__time { white-space: nowrap; }
+.dd-status-bar__icons { display: flex; align-items: center; gap: var(--md-sys-spacing-4); }
+.dd-status-bar__icons .icon { flex: none; width: 16px; height: 16px; /* Figma 16 */ }
+
+/* ---------- Tooltip (Molecule) ---------- */
+/* Figma: vertical, centered on the main axis, start aligned; padding 8 12, gap 4, corner small. Plain 160 x 40, Rich 280 x 88. */
+.dd-tooltip {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; box-sizing: border-box;
+  width: 160px; height: var(--md-sys-size-control-small); /* Figma 160 x 40 */
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-12); gap: var(--md-sys-spacing-4);
+  border-radius: var(--md-sys-shape-corner-small);
+  background: var(--md-sys-color-inverse_surface); color: var(--md-sys-color-inverse_on_surface);
+}
+.dd-tooltip[data-type="Rich"] { width: 280px; height: 88px; /* Figma 280 x 88 */ }
+
+/* ---------- Section Header (Molecule) ---------- */
+/* Figma: fill width x 36, space between, centered, gap 8; Title Stack vertical gap 4; More = Button Neutral 36 high. */
+.dd-section-header {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--md-sys-spacing-8);
+  width: 340px; /* Figma 340 (fills its parent in screens) */ max-width: 100%; min-height: 36px; /* Figma 36 */
+}
+.dd-section-header__titles { display: flex; flex-direction: column; gap: var(--md-sys-spacing-4); flex: 1 1 0; min-width: 0; }
+.dd-section-header__title { margin: 0; color: var(--md-sys-color-on_surface); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dd-section-header__supporting { margin: 0; color: var(--md-sys-color-on_surface_variant); }
+.dd-section-header .nav-btn { height: 36px; /* Figma 36 (resized Button instance) */ flex: none; }
+.dd-section-header .nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { height: calc(36px - 6px); /* Figma 36 minus the 3px focus stroke */ }
+
+/* ---------- Shortcut Card (Molecule) ---------- */
+/* Figma: 164 x 56, padding 4 12, gap 12, corner medium, surface_container_high; Artwork 48; M3/label_large on_surface. */
+.dd-shortcut-card {
+  display: inline-flex; align-items: center; box-sizing: border-box; border: 0; flex: none;
+  width: 164px; /* Figma 164 */ height: var(--md-sys-size-control-medium); /* Figma 56 */
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-12); gap: var(--md-sys-spacing-12);
+  border-radius: var(--md-sys-shape-corner-medium);
+  background: var(--md-sys-color-surface_container_high); color: var(--md-sys-color-on_surface);
+}
+.dd-shortcut-card__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* ---------- Library Shortcut Tile (Molecule) ---------- */
+/* Figma: 80 x 80, vertical, centered, padding 12 4, gap 8, corner medium, surface_container, 1px inside outline_variant. */
+.dd-library-tile {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; flex: none;
+  width: 80px; height: 80px; /* Figma 80 */
+  padding: var(--md-sys-spacing-12) var(--md-sys-spacing-4); gap: var(--md-sys-spacing-8);
+  border: 0; box-shadow: inset 0 0 0 1px var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
+  background: var(--md-sys-color-surface_container); color: var(--md-sys-color-on_surface);
+}
+.dd-library-tile__icon { flex: none; width: 28px; height: 28px; /* Figma 28 */ color: var(--md-sys-color-tertiary); }
+.dd-library-tile[data-color="Cyan"] .dd-library-tile__icon { color: var(--md-sys-color-category_cyan); }
+.dd-library-tile[data-color="Magenta"] .dd-library-tile__icon { color: var(--md-sys-color-category_magenta); }
+.dd-library-tile[data-color="Yellow"] .dd-library-tile__icon { color: var(--md-sys-color-category_yellow); }
+.dd-library-tile__label { align-self: stretch; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Media Card (Molecule) ---------- */
+/* Figma: vertical, gap 8, corner medium; Default 136 wide, Large 156 wide; Explicit Badge 4 from the artwork corner. */
+.dd-media-card {
+  display: inline-flex; flex-direction: column; align-items: flex-start; box-sizing: border-box; flex: none;
+  width: 136px; /* Figma 136 */ padding: 0; gap: var(--md-sys-spacing-8); border: 0;
+  border-radius: var(--md-sys-shape-corner-medium); background: transparent; color: var(--md-sys-color-on_surface);
+}
+.dd-media-card[data-size="Large"] { width: 156px; /* Figma 156 */ }
+.dd-media-card__art { position: relative; display: block; flex: none; }
+.dd-media-card__badge { position: absolute; right: var(--md-sys-spacing-4); bottom: var(--md-sys-spacing-4); /* Figma x 112 / 132 */ }
+.dd-media-card .dd-track-meta { width: 100%; }
+.dd-media-card__description {
+  display: block; width: 100%; color: var(--md-sys-color-on_surface_variant);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---------- Media Carousel (Organism) ---------- */
+/* Figma: 520 x 244, horizontal, start aligned, gap 16; scrolls when the cards overflow. */
+.dd-media-carousel {
+  display: flex; align-items: flex-start; gap: var(--md-sys-spacing-16); box-sizing: border-box;
+  width: 520px; /* Figma 520 */ max-width: 100%; height: 244px; /* Figma 244 */
+  overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+}
+.dd-media-carousel > [role="listitem"] { flex: none; scroll-snap-align: start; }
+
+/* ---------- Genre Card (Molecule) ---------- */
+/* Figma: 164 x 80, horizontal, centered, padding 0 4 0 0, gap 4, corner extra_small, clips; Genre Artwork 56 x 80 corner
+   medium; Label M3/title_small_emphasized on_primary, centered, fills. */
+.dd-genre-card {
+  display: inline-flex; align-items: center; box-sizing: border-box; flex: none; overflow: hidden; border: 0;
+  width: 164px; /* Figma 164 */ height: 80px; /* Figma 80 */
+  padding: 0 var(--md-sys-spacing-4) 0 0; gap: var(--md-sys-spacing-4);
+  border-radius: var(--md-sys-shape-corner-extra_small);
+  background: var(--md-sys-color-category_magenta); color: var(--md-sys-color-on_primary);
+}
+.dd-genre-card[data-color="Blue"] { background: var(--md-sys-color-category_blue); }
+.dd-genre-card[data-color="Cyan"] { background: var(--md-sys-color-category_cyan); }
+.dd-genre-card[data-color="Green"] { background: var(--md-sys-color-category_green); }
+.dd-genre-card[data-color="Red"] { background: var(--md-sys-color-category_red); }
+.dd-genre-card[data-color="Purple"] { background: var(--md-sys-color-category_purple); }
+.dd-genre-card[data-color="Yellow"] { background: var(--md-sys-color-category_yellow); }
+.dd-genre-card__art { display: block; flex: none; }
+.dd-genre-card__art .dd-artwork { width: var(--md-sys-size-control-medium); height: 80px; /* Figma 56 x 80 */ }
+.dd-genre-card__label { flex: 1 1 0; min-width: 0; text-align: center; overflow-wrap: anywhere; }
+
+/* ---------- Playlist List Item (Molecule) ---------- */
+/* Figma: 360 x 72 (size/list_item/two_line), padding 8, gap 12, centered, corner small; Artwork 56; Track Metadata fills. */
+.dd-list-item {
+  display: flex; align-items: center; box-sizing: border-box; cursor: pointer;
+  width: 360px; /* Figma 360 */ max-width: 100%; height: var(--md-sys-size-list_item-two_line);
+  padding: var(--md-sys-spacing-8); gap: var(--md-sys-spacing-12);
+  border-radius: var(--md-sys-shape-corner-small); color: var(--md-sys-color-on_surface);
+}
+.dd-list-item__more { display: inline-flex; flex: none; }
+
+/* ---------- Podcast Episode Card (Organism) ---------- */
+/* Figma: 360 wide, vertical, padding 12, gap 4, corner medium, surface_container, 1px inside outline_variant. */
+.dd-episode {
+  display: flex; flex-direction: column; box-sizing: border-box;
+  width: 360px; /* Figma 360 */ max-width: 100%;
+  padding: var(--md-sys-spacing-12); gap: var(--md-sys-spacing-4);
+  border: 0; box-shadow: inset 0 0 0 1px var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
+  background: var(--md-sys-color-surface_container); color: var(--md-sys-color-on_surface);
+}
+.dd-episode__header { display: flex; align-items: center; gap: var(--md-sys-spacing-12); min-width: 0; }
+.dd-episode__description {
+  margin: 0; color: var(--md-sys-color-on_surface_variant);
+  display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; /* Figma max 2 lines */
+}
+.dd-episode__footer { display: flex; align-items: center; justify-content: space-between; height: var(--md-sys-size-touch_target); }
+.dd-episode__progress { display: flex; align-items: center; gap: var(--md-sys-spacing-8); color: var(--md-sys-color-on_surface_variant); white-space: nowrap; }
+.dd-episode__progress .dd-progress { width: 100px; /* Figma 100 (resized Progress Indicator) */ }
+.dd-episode__actions { display: flex; align-items: center; gap: var(--md-sys-spacing-0); }
+
+/* ---------- List Header (Molecule) ---------- */
+/* Figma: 343 x 48, space between, centered; Sort Control gap 4 (sort 24, Title, arrow_drop_down 24); Action = Button Outlined. */
+.dd-list-header {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 343px; /* Figma 343 */ max-width: 100%; height: var(--md-sys-size-touch_target);
+}
+.dd-list-header__sort {
+  display: inline-flex; align-items: center; gap: var(--md-sys-spacing-4); height: 100%; padding: 0; border: 0;
+  background: transparent; color: var(--md-sys-color-on_surface); white-space: nowrap;
+}
+.dd-list-header__sort .icon { flex: none; }
+
+/* ---------- Dialog (Organism) ---------- */
+/* Figma: 320 x 240 (Basic) / 320 x 320 (List), vertical, padding 24, gap 16, corner extra_large, surface_container_high;
+   Dialog Actions 272 x 48 aligned end, gap 8. */
+.dd-dialog {
+  display: flex; flex-direction: column; align-items: flex-start; box-sizing: border-box;
+  width: 320px; /* Figma 320 */ height: 240px; /* Figma 240 */
+  padding: var(--md-sys-spacing-24); gap: var(--md-sys-spacing-16);
+  border-radius: var(--md-sys-shape-corner-extra_large); background: var(--md-sys-color-surface_container_high);
+}
+.dd-dialog[data-type="List"] { height: 320px; /* Figma 320 */ }
+.dd-dialog__title { margin: 0; color: var(--md-sys-color-on_surface); }
+.dd-dialog__body { margin: 0; color: var(--md-sys-color-on_surface_variant); }
+.dd-dialog__list { margin: 0; padding: 0; list-style: none; color: var(--md-sys-color-on_surface_variant); }
+.dd-dialog__list li { cursor: pointer; }
+.dd-dialog__list li[data-selected="True"] { color: var(--md-sys-color-on_surface); text-decoration: underline; }
+.dd-dialog__actions {
+  display: flex; align-items: flex-start; justify-content: flex-end; flex: none; align-self: stretch;
+  height: var(--md-sys-size-touch_target); gap: var(--md-sys-spacing-8); background: var(--md-sys-color-surface_container_high);
+}
+
+/* ---------- Sheet (Organism) ---------- */
+/* Figma: Bottom 360 x 280, Side 320 x 520; vertical, padding 24, gap 16, corner extra_large, surface_container. */
+.dd-sheet {
+  display: flex; flex-direction: column; align-items: flex-start; box-sizing: border-box;
+  width: 360px; /* Figma 360 */ max-width: 100%; height: 280px; /* Figma 280 */
+  padding: var(--md-sys-spacing-24); gap: var(--md-sys-spacing-16);
+  border-radius: var(--md-sys-shape-corner-extra_large); background: var(--md-sys-color-surface_container);
+}
+.dd-sheet[data-position="Side"] { width: 320px; height: 520px; /* Figma 320 x 520 */ }
+.dd-sheet__title { margin: 0; color: var(--md-sys-color-on_surface); }
+.dd-sheet__content { color: var(--md-sys-color-on_surface_variant); }
+
+/* ---------- Divider (Atom) ---------- */
+/* Figma: 320 x 1, outline_variant. */
+.dd-divider { width: 320px; /* Figma 320 */ max-width: 100%; height: 1px; margin: 0; border: 0; background: var(--md-sys-color-outline_variant); }
+
+/* ---------- Lyrics Line (Atom) ---------- */
+/* Figma: 343 x 40, padding 8 0; M3/headline_small_emphasized; Current on_surface, Past / Upcoming outline. */
+.dd-lyrics-line {
+  box-sizing: border-box; margin: 0; width: 343px; /* Figma 343 */ max-width: 100%;
+  padding: var(--md-sys-spacing-8) 0; text-align: left; color: var(--md-sys-color-outline); cursor: default;
+}
+.dd-lyrics-line[data-align="End"] { text-align: right; }
+.dd-lyrics-line[data-state="Current"] { color: var(--md-sys-color-on_surface); }
+
+/* ---------- Lyrics Header (Molecule) ---------- */
+/* Figma: 343 x 80, gap 12, centered; Artwork 80; Track Metadata fills; Share (Tonal) + More (Standard). */
+.dd-lyrics-header {
+  display: flex; align-items: center; gap: var(--md-sys-spacing-12);
+  width: 343px; /* Figma 343 */ max-width: 100%; height: 80px; /* Figma 80 */
+}
+
+/* ---------- In use examples ---------- */
+.dd-demo { display: flex; gap: var(--md-sys-spacing-8); color: var(--md-sys-color-on_surface); }
+.dd-demo--column { flex-direction: column; align-items: flex-start; gap: var(--md-sys-spacing-16); }
+.dd-demo__note { color: var(--md-sys-color-on_surface_variant); }
+.dd-demo--tooltip { position: relative; display: inline-flex; flex-direction: column; align-items: center; padding-bottom: var(--md-sys-spacing-48); }
+.dd-demo__tooltip { position: absolute; top: calc(var(--md-sys-size-touch_target) + var(--md-sys-spacing-4)); }
+.dd-demo__shortcuts { display: grid; grid-template-columns: repeat(2, auto); gap: var(--md-sys-spacing-8); }
+.dd-demo__genre-grid { display: grid; grid-template-columns: repeat(2, auto); gap: var(--md-sys-spacing-8); }
+.dd-demo__tiles { display: flex; flex-wrap: wrap; gap: var(--md-sys-spacing-8); }
+.dd-demo .dd-lyrics-line { cursor: pointer; }
+.dd-demo__scrim {
+  position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--md-sys-color-scrim) 32%, transparent); /* M3 scrim @0.32 */
+}
+.dd-demo__scrim--bottom { align-items: flex-end; }

@@ -1,0 +1,145 @@
+/* ⭐Form Elements (Music App Android, Brownfield DS), rendered as web for documentation. Tokens only (var(--...));
+   px only for 0, hairlines and Figma geometry without a token (commented). Strokes are INSIDE in Figma, so they are
+   drawn as inset box-shadows. States: Hovered 0.88, Pressed 0.82, Disabled 0.38 whole-component opacity (Figma),
+   Focused = 3px stroke, Error = error stroke (and error label on Text Field). */
+
+/* ---------- Text Field (Molecule) ---------- */
+.fe-field-wrap { position: relative; display: inline-block; }
+.fe-field {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: var(--md-sys-spacing-4);
+  box-sizing: border-box; width: 320px; /* Figma 320 */ height: 64px; /* Figma 64 */
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-16);
+  border: 0; border-radius: var(--md-sys-shape-corner-extra_small);
+  background: transparent; box-shadow: inset 0 0 0 1px var(--md-sys-color-outline);
+  color: var(--md-sys-color-on_surface); text-align: left; cursor: text; font: inherit;
+}
+.fe-field[data-type="Filled"] { background: var(--md-sys-color-surface_container_high); box-shadow: none; }
+.fe-field[data-type="Dropdown"] { cursor: pointer; }
+.fe-field__label { color: var(--md-sys-color-on_surface_variant); }
+.fe-field__value { color: var(--md-sys-color-on_surface); }
+.fe-field__input {
+  width: 100%; min-width: 0; padding: 0; border: 0; margin: 0; outline: none; background: transparent; color: var(--md-sys-color-on_surface);
+}
+/* Hovered / Disabled */
+.fe-field:hover:not([data-state="Disabled"]):not(:focus-within):not(:focus-visible), .fe-field[data-state="Hovered"] { opacity: 0.88; }
+.fe-field[data-state="Disabled"] { opacity: 0.38; cursor: default; }
+/* Focused: 3px primary stroke on every Type (Figma 3) */
+.fe-field:focus-within, .fe-field:focus-visible, .fe-field[data-state="Focused"] {
+  outline: none; box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 */
+}
+/* Error: 1px error stroke, error label */
+.fe-field[data-state="Error"] { box-shadow: inset 0 0 0 1px var(--md-sys-color-error); }
+.fe-field[data-state="Error"]:focus-within, .fe-field[data-state="Error"]:focus-visible { box-shadow: inset 0 0 0 3px var(--md-sys-color-error); /* Figma 3 */ }
+.fe-field[data-state="Error"] .fe-field__label { color: var(--md-sys-color-error); }
+
+/* Dropdown options (documentation helper for Type=Dropdown) */
+.fe-menu {
+  position: absolute; z-index: 10; left: 0; right: 0; top: 100%; margin: var(--md-sys-spacing-4) 0 0; padding: var(--md-sys-spacing-8) 0;
+  list-style: none; background: var(--md-sys-color-surface_container); border-radius: var(--md-sys-shape-corner-extra_small);
+  box-shadow: var(--m3-elevation-2); max-height: calc(var(--md-sys-size-touch_target) * 5 + var(--md-sys-spacing-16)); overflow: auto;
+}
+.fe-menu__item {
+  display: flex; align-items: center; min-height: var(--md-sys-size-touch_target); padding: 0 var(--md-sys-spacing-16);
+  color: var(--md-sys-color-on_surface); cursor: pointer;
+}
+.fe-menu__item:hover { background: var(--md-sys-color-surface_container_highest); }
+.fe-menu__item[aria-selected="true"] { background: var(--md-sys-color-secondary_container); color: var(--md-sys-color-on_secondary_container); }
+
+/* ---------- Text Area (Molecule) ---------- */
+.fe-textarea {
+  display: flex; flex-direction: column; gap: var(--md-sys-spacing-8);
+  box-sizing: border-box; width: 320px; /* Figma 320 */ height: 128px; /* Figma 128 */
+  padding: var(--md-sys-spacing-12) var(--md-sys-spacing-16);
+  border-radius: var(--md-sys-shape-corner-extra_small); box-shadow: inset 0 0 0 1px var(--md-sys-color-outline);
+}
+.fe-textarea__input {
+  flex: 1; width: 100%; padding: 0; margin: 0; border: 0; outline: none; resize: none; background: transparent;
+  color: var(--md-sys-color-on_surface);
+}
+.fe-textarea__input::placeholder { color: var(--md-sys-color-on_surface_variant); opacity: 1; }
+.fe-textarea:hover:not([data-state="Disabled"]):not(:focus-within), .fe-textarea[data-state="Hovered"] { opacity: 0.88; }
+.fe-textarea[data-state="Disabled"] { opacity: 0.38; }
+.fe-textarea:focus-within, .fe-textarea[data-state="Focused"] { box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 */ }
+.fe-textarea[data-state="Error"] { box-shadow: inset 0 0 0 1px var(--md-sys-color-error); }
+.fe-textarea[data-state="Error"]:focus-within { box-shadow: inset 0 0 0 3px var(--md-sys-color-error); /* Figma 3 */ }
+
+/* ---------- Checkbox / Radio / Switch: shared control (48 touch target) ---------- */
+.fe-control {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: var(--md-sys-size-touch_target); height: var(--md-sys-size-touch_target); cursor: pointer;
+}
+.fe-control__native { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
+.fe-control:hover:not([data-state="Disabled"]), .fe-control[data-state="Hovered"] { opacity: 0.88; }
+.fe-control:active:not([data-state="Disabled"]), .fe-control[data-state="Pressed"] { opacity: 0.82; }
+.fe-control[data-state="Disabled"] { opacity: 0.38; cursor: default; }
+
+/* Checkbox (Atom): 24 box, 2px stroke, corner extra_small; Icon/check 18 on_primary */
+.fe-checkbox__box {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  width: var(--md-sys-size-icon); height: var(--md-sys-size-icon); border-radius: var(--md-sys-shape-corner-extra_small);
+  background: var(--md-sys-color-surface); box-shadow: inset 0 0 0 2px var(--md-sys-color-outline); /* Figma 2 */
+  pointer-events: none;
+}
+.fe-checkbox__check { color: var(--md-sys-color-on_primary); }
+.fe-control[data-selected="True"] .fe-checkbox__box { background: var(--md-sys-color-primary); box-shadow: inset 0 0 0 2px var(--md-sys-color-primary); /* Figma 2 */ }
+
+/* Radio (Atom): 24 circle, 2px stroke; selected = primary fill + 10 on_primary dot */
+.fe-radio__circle {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  width: var(--md-sys-size-icon); height: var(--md-sys-size-icon); border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-surface); box-shadow: inset 0 0 0 2px var(--md-sys-color-outline); /* Figma 2 */
+  pointer-events: none;
+}
+.fe-radio__dot { width: 10px; height: 10px; /* Figma 10 */ border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-on_primary); }
+.fe-control[data-selected="True"] .fe-radio__circle { background: var(--md-sys-color-primary); box-shadow: inset 0 0 0 2px var(--md-sys-color-primary); /* Figma 2 */ }
+
+/* Checkbox + Radio Focused (3px stroke) and Error (error stroke) */
+.fe-control:has(.fe-control__native:focus-visible) :is(.fe-checkbox__box, .fe-radio__circle),
+.fe-control[data-state="Focused"] :is(.fe-checkbox__box, .fe-radio__circle) { box-shadow: inset 0 0 0 3px var(--md-sys-color-outline); /* Figma 3 */ }
+.fe-control[data-selected="True"]:has(.fe-control__native:focus-visible) :is(.fe-checkbox__box, .fe-radio__circle),
+.fe-control[data-selected="True"][data-state="Focused"] :is(.fe-checkbox__box, .fe-radio__circle) { box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 */ }
+.fe-control[data-state="Error"] :is(.fe-checkbox__box, .fe-radio__circle) { box-shadow: inset 0 0 0 2px var(--md-sys-color-error); /* Figma 2 */ }
+
+/* Switch (Atom): 44 x 24 track (corner full, 4 vertical padding), 18 thumb; off = outline track + on_surface thumb at start,
+   on = primary track + on_primary thumb at end. Focused + Selected adds a 3px primary stroke (Figma). */
+.fe-switch { width: 44px; /* Figma 44 */ }
+.fe-switch__track {
+  display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box;
+  width: 44px; /* Figma 44 */ height: var(--md-sys-size-icon);
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-0);
+  border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-outline); pointer-events: none;
+}
+.fe-switch__thumb { width: 18px; height: 18px; /* Figma 18 */ border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-on_surface); }
+.fe-switch[data-selected="True"] .fe-switch__track { justify-content: flex-end; background: var(--md-sys-color-primary); }
+.fe-switch[data-selected="True"] .fe-switch__thumb { background: var(--md-sys-color-on_primary); }
+.fe-switch[data-selected="True"]:has(.fe-control__native:focus-visible) .fe-switch__track,
+.fe-switch[data-selected="True"][data-state="Focused"] .fe-switch__track { box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 */ }
+.fe-switch:has(.fe-control__native:focus-visible):not([data-selected="True"]) .fe-switch__track { outline: 3px solid var(--md-sys-color-primary); /* keyboard focus only, Figma has none for Selected=False */ outline-offset: 1px; }
+
+/* ---------- Search Bar (Molecule) ---------- */
+.fe-search {
+  display: flex; flex-direction: row; align-items: center; gap: var(--md-sys-spacing-12);
+  box-sizing: border-box; width: 360px; /* Figma 360 */ max-width: 100%; height: 42px; /* Figma 42 */
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-16);
+  border-radius: var(--md-sys-shape-corner-medium); background: var(--md-sys-color-surface_container_high);
+}
+.fe-search__icon { flex: none; color: var(--md-sys-color-on_surface); }
+.fe-search__input {
+  flex: 1; min-width: 0; padding: 0; margin: 0; border: 0; outline: none; background: transparent; color: var(--md-sys-color-on_surface);
+  -webkit-appearance: none; appearance: none;
+}
+.fe-search__input::placeholder { color: var(--md-sys-color-on_surface_variant); opacity: 1; }
+.fe-search__input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.fe-search:focus-within { box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 (focus ring, same as fields) */ }
+.fe-search__mic {
+  display: inline-flex; flex: none; padding: 0; margin: 0; border: 0; background: transparent; color: inherit; cursor: pointer;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+.fe-search__mic:hover { opacity: 0.88; }
+.fe-search__mic:active { opacity: 0.82; }
+.fe-search__mic:focus-visible { outline: 3px solid var(--md-sys-color-primary); /* Figma 3 */ }
+
+/* ---------- In use examples ---------- */
+.fe-list { display: flex; flex-direction: column; width: 320px; /* Figma 320 */ color: var(--md-sys-color-on_surface); }
+.fe-list__row { display: flex; align-items: center; gap: var(--md-sys-spacing-8); min-height: var(--md-sys-size-list_item-one_line); }
+.fe-list__row--between { justify-content: space-between; padding: 0 var(--md-sys-spacing-4) 0 0; }

@@ -1,0 +1,317 @@
+{
+ "note": "Figma component name -> React export that renders it. Used by tools/storybook_stories.py.",
+ "Text Field": {
+  "module": "FormElements",
+  "export": "TextField",
+  "matrix": [
+   "Type",
+   "State"
+  ]
+ },
+ "Text Area": {
+  "module": "FormElements",
+  "export": "TextArea",
+  "matrix": [
+   "State"
+  ]
+ },
+ "Checkbox": {
+  "module": "FormElements",
+  "export": "Checkbox",
+  "matrix": [
+   "Selected",
+   "State"
+  ],
+  "example": "<CheckboxInUse />",
+  "example_imports": [
+   "CheckboxInUse"
+  ]
+ },
+ "Switch": {
+  "module": "FormElements",
+  "export": "Switch",
+  "matrix": [
+   "Selected",
+   "State"
+  ],
+  "example": "<SwitchInUse />",
+  "example_imports": [
+   "SwitchInUse"
+  ]
+ },
+ "Radio": {
+  "module": "FormElements",
+  "export": "Radio",
+  "matrix": [
+   "Selected",
+   "State"
+  ],
+  "example": "<RadioInUse />",
+  "example_imports": [
+   "RadioInUse"
+  ]
+ },
+ "Search Bar": {
+  "module": "FormElements",
+  "export": "SearchBar"
+ },
+ "Button": {
+  "module": "Navigation",
+  "export": "Button",
+  "matrix": [
+   "Style",
+   "State"
+  ]
+ },
+ "Icon Button": {
+  "module": "Navigation",
+  "export": "IconButton",
+  "matrix": [
+   "Style",
+   "State"
+  ]
+ },
+ "Filter Chip": {
+  "module": "Navigation",
+  "export": "FilterChip",
+  "matrix": [
+   "Selected",
+   "State"
+  ],
+  "example": "<FilterChipInUse />",
+  "example_imports": [
+   "FilterChipInUse"
+  ]
+ },
+ "Tab Item": {
+  "module": "Navigation",
+  "export": "TabItem",
+  "matrix": [
+   "Selected",
+   "State"
+  ]
+ },
+ "Navigation Item": {
+  "module": "Navigation",
+  "export": "NavigationItem",
+  "matrix": [
+   "Selected",
+   "State"
+  ]
+ },
+ "Primary Tabs": {
+  "module": "Navigation",
+  "export": "PrimaryTabs",
+  "example": "<PrimaryTabsInUse />",
+  "example_imports": [
+   "PrimaryTabsInUse"
+  ]
+ },
+ "Bottom Navigation": {
+  "module": "Navigation",
+  "export": "BottomNavigation",
+  "example": "<BottomNavigationInUse />",
+  "example_imports": [
+   "BottomNavigationInUse"
+  ]
+ },
+ "Top App Bar": {
+  "module": "Navigation",
+  "export": "TopAppBar"
+ },
+ "Playlist App Bar": {
+  "module": "Navigation",
+  "export": "PlaylistAppBar",
+  "example": "<PlayerInUse />",
+  "example_imports": [
+   "PlayerInUse"
+  ]
+ },
+ "Mini Player": {
+  "module": "Navigation",
+  "export": "MiniPlayer",
+  "example": "<BottomNavigationInUse />",
+  "example_imports": [
+   "BottomNavigationInUse"
+  ]
+ },
+ "Playback Progress": {
+  "module": "Navigation",
+  "export": "PlaybackProgress"
+ },
+ "Playback Controls": {
+  "module": "Navigation",
+  "export": "PlaybackControls",
+  "example": "<PlayerInUse />",
+  "example_imports": [
+   "PlayerInUse"
+  ]
+ },
+ "Player Utility Bar": {
+  "module": "Navigation",
+  "export": "PlayerUtilityBar",
+  "matrix": [
+   "Active"
+  ]
+ },
+ "Artwork": {
+  "module": "DataDisplayAtoms",
+  "export": "Artwork"
+ },
+ "Avatar": {
+  "module": "DataDisplayAtoms",
+  "export": "Avatar"
+ },
+ "Badge": {
+  "module": "DataDisplayAtoms",
+  "export": "Badge",
+  "matrix": [
+   "Type"
+  ]
+ },
+ "Track Metadata": {
+  "module": "DataDisplayAtoms",
+  "export": "TrackMetadata"
+ },
+ "Progress Indicator": {
+  "module": "DataDisplayAtoms",
+  "export": "ProgressIndicator",
+  "matrix": [
+   "Value"
+  ]
+ },
+ "Status Bar": {
+  "module": "DataDisplay",
+  "export": "StatusBar"
+ },
+ "Tooltip": {
+  "module": "DataDisplay",
+  "export": "Tooltip",
+  "matrix": [
+   "Type"
+  ],
+  "example": "<TooltipInUse />",
+  "example_imports": [
+   "TooltipInUse"
+  ]
+ },
+ "Section Header": {
+  "module": "DataDisplay",
+  "export": "SectionHeader",
+  "example": "<ExploreRailInUse />",
+  "example_imports": [
+   "ExploreRailInUse"
+  ]
+ },
+ "Shortcut Card": {
+  "module": "DataDisplay",
+  "export": "ShortcutCard",
+  "example": "<ExploreRailInUse />",
+  "example_imports": [
+   "ExploreRailInUse"
+  ]
+ },
+ "Media Carousel": {
+  "module": "DataDisplay",
+  "export": "MediaCarousel",
+  "example": "<ExploreRailInUse />",
+  "example_imports": [
+   "ExploreRailInUse"
+  ]
+ },
+ "Library Shortcut Tile": {
+  "module": "DataDisplay",
+  "export": "LibraryShortcutTile",
+  "matrix": [
+   "Color"
+  ],
+  "example": "<LibraryInUse />",
+  "example_imports": [
+   "LibraryInUse"
+  ]
+ },
+ "Media Card": {
+  "module": "DataDisplay",
+  "export": "MediaCard",
+  "matrix": [
+   "Size"
+  ]
+ },
+ "Playlist List Item": {
+  "module": "DataDisplay",
+  "export": "PlaylistListItem",
+  "example": "<LibraryInUse />",
+  "example_imports": [
+   "LibraryInUse"
+  ]
+ },
+ "Podcast Episode Card": {
+  "module": "DataDisplay",
+  "export": "PodcastEpisodeCard"
+ },
+ "List Header": {
+  "module": "DataDisplay",
+  "export": "ListHeader",
+  "example": "<LibraryInUse />",
+  "example_imports": [
+   "LibraryInUse"
+  ]
+ },
+ "Dialog": {
+  "module": "DataDisplay",
+  "export": "Dialog",
+  "matrix": [
+   "Type"
+  ],
+  "example": "<DialogInUse />",
+  "example_imports": [
+   "DialogInUse"
+  ]
+ },
+ "Sheet": {
+  "module": "DataDisplay",
+  "export": "Sheet",
+  "matrix": [
+   "Position"
+  ],
+  "example": "<SheetInUse />",
+  "example_imports": [
+   "SheetInUse"
+  ]
+ },
+ "Divider": {
+  "module": "DataDisplay",
+  "export": "Divider"
+ },
+ "Lyrics Line": {
+  "module": "DataDisplay",
+  "export": "LyricsLine",
+  "matrix": [
+   "Align",
+   "State"
+  ],
+  "example": "<LyricsInUse />",
+  "example_imports": [
+   "LyricsInUse"
+  ]
+ },
+ "Lyrics Header": {
+  "module": "DataDisplay",
+  "export": "LyricsHeader",
+  "example": "<LyricsInUse />",
+  "example_imports": [
+   "LyricsInUse"
+  ]
+ },
+ "Genre Card": {
+  "module": "DataDisplay",
+  "export": "GenreCard",
+  "matrix": [
+   "Color"
+  ],
+  "example": "<GenreGridInUse />",
+  "example_imports": [
+   "GenreGridInUse"
+  ]
+ }
+}

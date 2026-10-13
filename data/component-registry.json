@@ -1,0 +1,3148 @@
+{
+ "meta": {
+  "project": "Music App",
+  "platform": "Android",
+  "figma_file": "Brownfield DS",
+  "source": "data/source/components-figma.json (Figma read 2026-10-13) + docs blocks written in the Components phase"
+ },
+ "components": [
+  {
+   "name": "Text Field",
+   "group": "Form Elements",
+   "page": "➜ Input Fields and Dropdown",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Type": [
+     "Filled",
+     "Outlined",
+     "Dropdown"
+    ],
+    "State": [
+     "Enabled",
+     "Hovered",
+     "Focused",
+     "Error",
+     "Disabled"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT",
+    "Value": "TEXT"
+   },
+   "variant_count": 15,
+   "nested": [],
+   "docs": {
+    "overview": "Single-line input for short values; Type Dropdown picks one value from 7 or more options",
+    "when_to_use": [
+     "Filled for text entry in forms",
+     "Outlined where a form sits on a busy surface",
+     "Dropdown to pick one value from 7 or more options"
+    ],
+    "when_not_to_use": [
+     "Long, multi-line text (use Text Area)",
+     "Searching the library or catalog (use Search Bar)",
+     "2 to 6 visible choices (use Radio)"
+    ],
+    "anatomy": [
+     "Container",
+     "Label",
+     "Value",
+     "Trailing icon (Dropdown)",
+     "Active indicator",
+     "Supporting text (Error)"
+    ],
+    "accessibility": [
+     {
+      "part": "Label and value",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Container border / indicator",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Keep a persistent label; never use the placeholder as the only label",
+     "Error state shows a text message, not only the red color",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "behavior": [
+     "Focused shows the 2 dp active indicator in primary",
+     "Error replaces the supporting text with the error message"
+    ],
+    "content": [
+     "Label in sentence case, 1 to 3 words",
+     "Error text says how to fix the value"
+    ],
+    "keywords": [
+     "input",
+     "text field",
+     "form",
+     "dropdown",
+     "select"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for filled for text entry in forms.",
+      "dont": "Use it for long, multi-line text (use Text Area)."
+     },
+     {
+      "do": "Use it for outlined where a form sits on a busy surface.",
+      "dont": "Use it for searching the library or catalog (use Search Bar)."
+     }
+    ],
+    "use_cases": [
+     "Filled for text entry in forms",
+     "Outlined where a form sits on a busy surface",
+     "Dropdown to pick one value from 7 or more options"
+    ]
+   }
+  },
+  {
+   "name": "Text Area",
+   "group": "Form Elements",
+   "page": "➜ Text Area",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "State": [
+     "Enabled",
+     "Hovered",
+     "Focused",
+     "Error",
+     "Disabled"
+    ]
+   },
+   "properties": {
+    "Placeholder": "TEXT"
+   },
+   "variant_count": 5,
+   "nested": [],
+   "docs": {
+    "overview": "Multi-line text input for comments, descriptions and notes",
+    "when_to_use": [
+     "Free text longer than one line, such as a playlist description or feedback"
+    ],
+    "when_not_to_use": [
+     "Short single values like a name or email (use Text Field)"
+    ],
+    "anatomy": [
+     "Container",
+     "Placeholder or value",
+     "Active indicator"
+    ],
+    "accessibility": [
+     {
+      "part": "Text",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Container border",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Pair it with a visible label above it",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "content": [
+     "Placeholder hints at the content, never replaces the label"
+    ],
+    "keywords": [
+     "textarea",
+     "multi-line",
+     "comment",
+     "description"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for free text longer than one line, such as a playlist description or feedback.",
+      "dont": "Use it for short single values like a name or email (use Text Field)."
+     }
+    ],
+    "use_cases": [
+     "Free text longer than one line, such as a playlist description or feedback"
+    ]
+   }
+  },
+  {
+   "name": "Checkbox",
+   "group": "Form Elements",
+   "page": "➜ Checkbox",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Hovered",
+     "Focused",
+     "Pressed",
+     "Disabled",
+     "Error"
+    ]
+   },
+   "properties": {},
+   "variant_count": 12,
+   "nested": [],
+   "docs": {
+    "overview": "Independent on/off choice in a list of options, or a single consent",
+    "when_to_use": [
+     "Selecting several items at once",
+     "One consent or opt-in line"
+    ],
+    "when_not_to_use": [
+     "Settings that apply immediately (use Switch)",
+     "Exactly one choice from a list (use Radio)"
+    ],
+    "accessibility": [
+     {
+      "part": "Box border and check",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Label the whole row, not only the box",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "behavior": [
+     "Error state marks a required choice that is missing"
+    ],
+    "keywords": [
+     "checkbox",
+     "multi-select",
+     "consent"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for selecting several items at once.",
+      "dont": "Use it for settings that apply immediately (use Switch)."
+     },
+     {
+      "do": "Use it for one consent or opt-in line.",
+      "dont": "Use it for exactly one choice from a list (use Radio)."
+     }
+    ],
+    "use_cases": [
+     "Selecting several items at once",
+     "One consent or opt-in line"
+    ]
+   }
+  },
+  {
+   "name": "Switch",
+   "group": "Form Elements",
+   "page": "➜ Toggles",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Pressed",
+     "Disabled",
+     "Hovered",
+     "Focused"
+    ]
+   },
+   "properties": {},
+   "variant_count": 10,
+   "nested": [],
+   "docs": {
+    "overview": "Turns one setting on or off immediately, such as AI Mix in the player",
+    "when_to_use": [
+     "A binary setting that applies at once, without a Save button"
+    ],
+    "when_not_to_use": [
+     "Choices that need a confirm step (use Checkbox)",
+     "Picking one of several options (use Radio or Filter Chip)"
+    ],
+    "accessibility": [
+     {
+      "part": "Track and handle",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Announce the setting name and its on/off state",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "switch",
+     "toggle",
+     "on off",
+     "setting"
+    ],
+    "behavior": [
+     "Track 44 x 24 with an 18 dp thumb (source app size); the component stays 48 dp tall as the hit area",
+     "Off: on_surface thumb on an outline track; On: the brand track"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for a binary setting that applies at once, without a Save button.",
+      "dont": "Use it for choices that need a confirm step (use Checkbox)."
+     },
+     {
+      "do": "Use it for a binary setting that applies at once, without a Save button.",
+      "dont": "Use it for picking one of several options (use Radio or Filter Chip)."
+     }
+    ],
+    "use_cases": [
+     "A binary setting that applies at once, without a Save button"
+    ]
+   }
+  },
+  {
+   "name": "Radio",
+   "group": "Form Elements",
+   "page": "➜ Radio Buttons",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Hovered",
+     "Focused",
+     "Pressed",
+     "Disabled",
+     "Error"
+    ]
+   },
+   "properties": {},
+   "variant_count": 12,
+   "nested": [],
+   "docs": {
+    "overview": "Single choice from 2 to 6 visible options",
+    "when_to_use": [
+     "2 to 6 mutually exclusive options that should all stay visible"
+    ],
+    "when_not_to_use": [
+     "7 or more options (use Text Field with Type Dropdown)",
+     "Several answers allowed (use Checkbox)"
+    ],
+    "accessibility": [
+     {
+      "part": "Ring and dot",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Group the options under one visible question",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "radio",
+     "single choice",
+     "option"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for 2 to 6 mutually exclusive options that should all stay visible.",
+      "dont": "Use it for 7 or more options (use Text Field with Type Dropdown)."
+     },
+     {
+      "do": "Use it for 2 to 6 mutually exclusive options that should all stay visible.",
+      "dont": "Use it for several answers allowed (use Checkbox)."
+     }
+    ],
+    "use_cases": [
+     "2 to 6 mutually exclusive options that should all stay visible"
+    ]
+   }
+  },
+  {
+   "name": "Button",
+   "group": "Navigation",
+   "page": "➜ Buttons & links",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Style": [
+     "Filled",
+     "Tonal",
+     "Outlined",
+     "Text",
+     "Neutral",
+     "Outlined Accent"
+    ],
+    "State": [
+     "Enabled",
+     "Pressed",
+     "Disabled",
+     "Hovered",
+     "Focused"
+    ]
+   },
+   "properties": {
+    "Label text": "TEXT",
+    "Show Leading Icon": "BOOLEAN",
+    "Leading Icon": "INSTANCE_SWAP"
+   },
+   "variant_count": 30,
+   "nested": [],
+   "docs": {
+    "overview": "Starts an action; Style sets the emphasis",
+    "when_to_use": [
+     "Filled for the one main action of a screen",
+     "Tonal for secondary actions",
+     "Outlined for alternatives such as New playlist",
+     "Text for low-emphasis actions in dialogs",
+     "Neutral (gray pill) for More in section headers",
+     "Outlined Accent (tertiary purple) for a featured discovery action such as Radar songs around you"
+    ],
+    "when_not_to_use": [
+     "Icon-only actions (use Icon Button)",
+     "Filtering content (use Filter Chip)",
+     "Moving between top-level destinations (use Bottom Navigation)"
+    ],
+    "anatomy": [
+     "Container",
+     "Leading icon (optional, 18 dp)",
+     "Label"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Outlined border",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "behavior": [
+     "Show Leading Icon turns the icon on; pick it with the Leading Icon swap",
+     "Disabled uses on_surface at 38% for the label"
+    ],
+    "content": [
+     "Sentence case",
+     "Start with a verb",
+     "1 to 3 words"
+    ],
+    "keywords": [
+     "button",
+     "action",
+     "cta"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for filled for the one main action of a screen.",
+      "dont": "Use it for icon-only actions (use Icon Button)."
+     },
+     {
+      "do": "Use it for tonal for secondary actions.",
+      "dont": "Use it for filtering content (use Filter Chip)."
+     }
+    ],
+    "use_cases": [
+     "Filled for the one main action of a screen",
+     "Tonal for secondary actions",
+     "Outlined for alternatives such as New playlist"
+    ]
+   }
+  },
+  {
+   "name": "Icon Button",
+   "group": "Navigation",
+   "page": "➜ Buttons & links",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Style": [
+     "Standard",
+     "Filled",
+     "Tonal",
+     "Inverse"
+    ],
+    "State": [
+     "Enabled",
+     "Pressed",
+     "Disabled",
+     "Hovered",
+     "Focused"
+    ]
+   },
+   "properties": {
+    "Icon": "INSTANCE_SWAP"
+   },
+   "variant_count": 20,
+   "nested": [],
+   "docs": {
+    "overview": "Compact action shown as an icon only, such as Like, Share, More or Play",
+    "when_to_use": [
+     "Standard for toolbar and row actions (more_vert, favorite)",
+     "Tonal for secondary actions such as Share on the player",
+     "Inverse for the main Play action",
+     "Filled for a strong single action on media"
+    ],
+    "when_not_to_use": [
+     "Actions that need a text label to be understood (use Button)"
+    ],
+    "anatomy": [
+     "Container",
+     "Icon (swap)"
+    ],
+    "accessibility": [
+     {
+      "part": "Icon on its container",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Give every instance an accessible name (Like, Share, Play)",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "behavior": [
+     "Swap play_arrow to pause while playing",
+     "The icon fills the container minus its padding: resize the instance and set its padding to size the glyph (Play 64 dp with spacing/8 padding, Mini Player Play 40 dp with spacing/4)"
+    ],
+    "keywords": [
+     "icon button",
+     "action",
+     "play",
+     "like",
+     "more"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for standard for toolbar and row actions (more_vert, favorite).",
+      "dont": "Use it for actions that need a text label to be understood (use Button)."
+     },
+     {
+      "do": "Use it for tonal for secondary actions such as Share on the player.",
+      "dont": "Use it for actions that need a text label to be understood (use Button)."
+     }
+    ],
+    "use_cases": [
+     "Standard for toolbar and row actions (more_vert, favorite)",
+     "Tonal for secondary actions such as Share on the player",
+     "Inverse for the main Play action"
+    ]
+   }
+  },
+  {
+   "name": "Filter Chip",
+   "group": "Navigation",
+   "page": "➜ Pagination & Tabs",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Pressed",
+     "Disabled",
+     "Hovered",
+     "Focused"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT"
+   },
+   "variant_count": 10,
+   "nested": [],
+   "docs": {
+    "overview": "Filters content in place, such as All / Arabic / International / Podcasts on Explore",
+    "when_to_use": [
+     "2 to 6 visible filters above a feed or list",
+     "Switching Playlists / Albums / Artists in the Library"
+    ],
+    "when_not_to_use": [
+     "7 or more filters (use Text Field with Type Dropdown)",
+     "Starting an action (use Button)"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Announce the selected state",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "chip",
+     "filter",
+     "segment"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for 2 to 6 visible filters above a feed or list.",
+      "dont": "Use it for 7 or more filters (use Text Field with Type Dropdown)."
+     },
+     {
+      "do": "Use it for switching Playlists / Albums / Artists in the Library.",
+      "dont": "Use it for starting an action (use Button)."
+     }
+    ],
+    "use_cases": [
+     "2 to 6 visible filters above a feed or list",
+     "Switching Playlists / Albums / Artists in the Library"
+    ]
+   }
+  },
+  {
+   "name": "Tab Item",
+   "group": "Navigation",
+   "page": "➜ Pagination & Tabs",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Hovered",
+     "Focused",
+     "Pressed",
+     "Disabled"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT"
+   },
+   "variant_count": 10,
+   "nested": [],
+   "docs": {
+    "overview": "One tab label inside Primary Tabs",
+    "when_to_use": [
+     "Inside Primary Tabs only, for Music / Podcasts style switching"
+    ],
+    "when_not_to_use": [
+     "On its own (use Primary Tabs)",
+     "Filtering a list (use Filter Chip)"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Selected tab is announced as selected",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "tab",
+     "segment"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for inside Primary Tabs only, for Music / Podcasts style switching.",
+      "dont": "Use it for on its own (use Primary Tabs)."
+     },
+     {
+      "do": "Use it for inside Primary Tabs only, for Music / Podcasts style switching.",
+      "dont": "Use it for filtering a list (use Filter Chip)."
+     }
+    ],
+    "use_cases": [
+     "Inside Primary Tabs only, for Music / Podcasts style switching"
+    ]
+   }
+  },
+  {
+   "name": "Navigation Item",
+   "group": "Navigation",
+   "page": "➜ Pagination & Tabs",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Selected": [
+     "False",
+     "True"
+    ],
+    "State": [
+     "Enabled",
+     "Pressed",
+     "Disabled"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT",
+    "Icon": "INSTANCE_SWAP"
+   },
+   "variant_count": 6,
+   "nested": [],
+   "docs": {
+    "overview": "One destination inside Bottom Navigation: icon plus label",
+    "when_to_use": [
+     "Inside Bottom Navigation only"
+    ],
+    "when_not_to_use": [
+     "Actions on the current screen (use Icon Button)"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Selected item is announced as selected",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "navigation",
+     "tab bar",
+     "destination"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for inside Bottom Navigation only.",
+      "dont": "Use it for actions on the current screen (use Icon Button)."
+     }
+    ],
+    "use_cases": [
+     "Inside Bottom Navigation only"
+    ]
+   }
+  },
+  {
+   "name": "Primary Tabs",
+   "group": "Navigation",
+   "page": "➜ Pagination & Tabs",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "First Tab": "INSTANCE_SWAP",
+    "Second Tab": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Tab Item"
+   ],
+   "docs": {
+    "overview": "Two large condensed tabs that switch the Library between Music and Podcasts",
+    "when_to_use": [
+     "Top-level content switch inside one destination"
+    ],
+    "when_not_to_use": [
+     "Moving between app destinations (use Bottom Navigation)",
+     "More than 2 small filters (use Filter Chip)"
+    ],
+    "anatomy": [
+     "First Tab (Tab Item)",
+     "Second Tab (Tab Item)"
+    ],
+    "accessibility": [
+     "Tabs are a tab list; the selected tab is announced",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "tabs",
+     "music",
+     "podcasts"
+    ],
+    "content": [
+     "Tab labels in capitals as in the source: MUSIC, PODCASTS"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for top-level content switch inside one destination.",
+      "dont": "Use it for moving between app destinations (use Bottom Navigation)."
+     },
+     {
+      "do": "Use it for top-level content switch inside one destination.",
+      "dont": "Use it for more than 2 small filters (use Filter Chip)."
+     }
+    ],
+    "use_cases": [
+     "Top-level content switch inside one destination"
+    ]
+   }
+  },
+  {
+   "name": "Bottom Navigation",
+   "group": "Navigation",
+   "page": "➜ Pagination & Tabs",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "First Item": "INSTANCE_SWAP",
+    "Second Item": "INSTANCE_SWAP",
+    "Third Item": "INSTANCE_SWAP",
+    "Fourth Item": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Navigation Item"
+   ],
+   "docs": {
+    "overview": "App navigation bar with the four destinations Explore, Search, Connect and Your Library",
+    "when_to_use": [
+     "Bottom of every top-level screen on compact windows"
+    ],
+    "when_not_to_use": [
+     "Actions on the current screen",
+     "Fewer than 3 destinations"
+    ],
+    "anatomy": [
+     "Container",
+     "First to Fourth Item (Navigation Item)"
+    ],
+    "accessibility": [
+     "Each item has a visible label",
+     "Selected destination is announced",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "bottom navigation",
+     "navigation bar",
+     "tab bar"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for bottom of every top-level screen on compact windows.",
+      "dont": "Use it for actions on the current screen."
+     },
+     {
+      "do": "Use it for bottom of every top-level screen on compact windows.",
+      "dont": "Use it for fewer than 3 destinations."
+     }
+    ],
+    "use_cases": [
+     "Bottom of every top-level screen on compact windows"
+    ]
+   }
+  },
+  {
+   "name": "Search Bar",
+   "group": "Form Elements",
+   "page": "➜ Search",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Placeholder": "TEXT",
+    "Icon search": "INSTANCE_SWAP",
+    "Icon mic": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Entry point to search the library or catalog, with an optional voice search mic",
+    "when_to_use": [
+     "Top of Library and Search screens"
+    ],
+    "when_not_to_use": [
+     "Form fields (use Text Field)"
+    ],
+    "anatomy": [
+     "Container",
+     "Leading search icon",
+     "Placeholder",
+     "Trailing mic icon"
+    ],
+    "accessibility": [
+     {
+      "part": "Placeholder",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Mic has its own accessible name (Voice search)",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "content": [
+     "Placeholder says what is searched: Search in your library"
+    ],
+    "keywords": [
+     "search",
+     "find",
+     "voice"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for top of Library and Search screens.",
+      "dont": "Use it for form fields (use Text Field)."
+     }
+    ],
+    "use_cases": [
+     "Top of Library and Search screens"
+    ]
+   }
+  },
+  {
+   "name": "Top App Bar",
+   "group": "Navigation",
+   "page": "➜ App Bar",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Title": "TEXT",
+    "Show Actions": "BOOLEAN"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Icon Button",
+    "Avatar",
+    "Badge"
+   ],
+   "docs": {
+    "overview": "Screen header with a condensed title and the Notifications, Community and Profile actions",
+    "when_to_use": [
+     "Top of top-level screens such as Explore",
+     "Show Actions off for screens with a title only, such as Search & Discover"
+    ],
+    "when_not_to_use": [
+     "The full player (use Playlist App Bar)"
+    ],
+    "anatomy": [
+     "Title",
+     "Notifications (Icon Button)",
+     "Community (Icon Button)",
+     "Profile (Avatar + Badge)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Every action has an accessible name",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "app bar",
+     "header",
+     "top bar"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for top of top-level screens such as Explore.",
+      "dont": "Use it for the full player (use Playlist App Bar)."
+     },
+     {
+      "do": "Use it for show Actions off for screens with a title only, such as Search & Discover.",
+      "dont": "Use it for the full player (use Playlist App Bar)."
+     }
+    ],
+    "use_cases": [
+     "Top of top-level screens such as Explore",
+     "Show Actions off for screens with a title only, such as Search & Discover"
+    ]
+   }
+  },
+  {
+   "name": "Playlist App Bar",
+   "group": "Navigation",
+   "page": "➜ App Bar",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Title": "TEXT",
+    "Switch": "INSTANCE_SWAP",
+    "AI Mix Label": "TEXT",
+    "Source Label": "TEXT"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Icon Button",
+    "Switch"
+   ],
+   "docs": {
+    "overview": "Header of the full player: collapse, the playing source and the AI Mix switch",
+    "when_to_use": [
+     "Top of the Now Playing and Lyrics screens"
+    ],
+    "when_not_to_use": [
+     "Top-level screens (use Top App Bar)"
+    ],
+    "anatomy": [
+     "Collapse (Icon Button 40 dp, expand_more)",
+     "Source Label (M3/label_medium_emphasized, e.g. PLAYLIST)",
+     "Title (M3/body_small)",
+     "AI Mix label (M3/label_medium_emphasized) + sparkle under its end",
+     "Switch"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and AI Mix label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Collapse is announced as Close player",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "player header",
+     "now playing",
+     "ai mix"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for top of the Now Playing and Lyrics screens.",
+      "dont": "Use it for top-level screens (use Top App Bar)."
+     }
+    ],
+    "use_cases": [
+     "Top of the Now Playing and Lyrics screens"
+    ]
+   }
+  },
+  {
+   "name": "Status Bar",
+   "group": "Setup",
+   "page": "➜ Utilities",
+   "tier": "Atom",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Time": "TEXT"
+   },
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Android system status bar used in screen mockups (time, Wi-Fi, signal, battery)",
+    "when_to_use": [
+     "First full-bleed row of every 375 dp screen"
+    ],
+    "when_not_to_use": [
+     "App actions or content"
+    ],
+    "accessibility": [
+     "Decorative system chrome, not interactive",
+     {
+      "part": "Time",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     }
+    ],
+    "keywords": [
+     "status bar",
+     "system",
+     "mockup"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for first full-bleed row of every 375 dp screen.",
+      "dont": "Use it for app actions or content."
+     }
+    ],
+    "use_cases": [
+     "First full-bleed row of every 375 dp screen"
+    ]
+   }
+  },
+  {
+   "name": "Mini Player",
+   "group": "Navigation",
+   "page": "➜ Player Controls",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Artwork": "INSTANCE_SWAP",
+    "Track Metadata": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Artwork",
+    "Track Metadata",
+    "Icon Button"
+   ],
+   "docs": {
+    "overview": "Persistent bar above Bottom Navigation showing the playing track with Like and Play",
+    "when_to_use": [
+     "Every top-level screen while something is playing"
+    ],
+    "when_not_to_use": [
+     "Inside the full player"
+    ],
+    "anatomy": [
+     "Artwork",
+     "Track Metadata",
+     "Like (Icon Button)",
+     "Play (Icon Button, Inverse)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and artist",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Tapping the bar opens Now Playing; Like and Play are separate targets",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "mini player",
+     "now playing",
+     "playback"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for every top-level screen while something is playing.",
+      "dont": "Use it for inside the full player."
+     }
+    ],
+    "use_cases": [
+     "Every top-level screen while something is playing"
+    ]
+   }
+  },
+  {
+   "name": "Playback Progress",
+   "group": "Navigation",
+   "page": "➜ Player Controls",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Elapsed Time": "TEXT",
+    "Total Time": "TEXT",
+    "Progress Indicator": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Progress Indicator"
+   ],
+   "docs": {
+    "overview": "Track position bar with elapsed and total time",
+    "when_to_use": [
+     "Full player, under the track title"
+    ],
+    "when_not_to_use": [
+     "Loading states (use Progress Indicator alone)"
+    ],
+    "anatomy": [
+     "Progress Indicator",
+     "Elapsed Time",
+     "Total Time"
+    ],
+    "accessibility": [
+     {
+      "part": "Times",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Announce position as elapsed of total; seeking needs a 48 dp tall hit area",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "progress",
+     "seek",
+     "scrubber",
+     "timeline"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for full player, under the track title.",
+      "dont": "Use it for loading states (use Progress Indicator alone)."
+     }
+    ],
+    "use_cases": [
+     "Full player, under the track title"
+    ]
+   }
+  },
+  {
+   "name": "Playback Controls",
+   "group": "Navigation",
+   "page": "➜ Player Controls",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {},
+   "variant_count": 1,
+   "nested": [
+    "Icon Button"
+   ],
+   "docs": {
+    "overview": "Main player controls: Like, Previous, Play/Pause, Next and Download",
+    "when_to_use": [
+     "Full player (Now Playing and Lyrics)"
+    ],
+    "when_not_to_use": [
+     "Compact contexts (use Mini Player)"
+    ],
+    "anatomy": [
+     "Like",
+     "Previous",
+     "Play (Inverse, 64 dp)",
+     "Next",
+     "Download"
+    ],
+    "accessibility": [
+     "Every control has an accessible name; Play switches to Pause",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "player",
+     "controls",
+     "play",
+     "pause",
+     "next"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for full player (Now Playing and Lyrics).",
+      "dont": "Use it for compact contexts (use Mini Player)."
+     }
+    ],
+    "use_cases": [
+     "Full player (Now Playing and Lyrics)"
+    ]
+   }
+  },
+  {
+   "name": "Player Utility Bar",
+   "group": "Navigation",
+   "page": "➜ Player Controls",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Active": [
+     "None",
+     "Lyrics",
+     "Queue",
+     "Audio"
+    ]
+   },
+   "properties": {
+    "Lyrics Label": "TEXT",
+    "Queue Label": "TEXT",
+    "Audio Label": "TEXT",
+    "Icon lyrics": "INSTANCE_SWAP",
+    "Icon queue music": "INSTANCE_SWAP",
+    "Icon graphic eq": "INSTANCE_SWAP"
+   },
+   "variant_count": 4,
+   "nested": [],
+   "docs": {
+    "overview": "Bottom row of the full player opening Lyrics, Queue and Audio settings",
+    "when_to_use": [
+     "Bottom of the Now Playing and Lyrics screens"
+    ],
+    "when_not_to_use": [
+     "Primary playback actions (use Playback Controls)"
+    ],
+    "anatomy": [
+     "Lyrics (icon + label)",
+     "Queue (icon + label)",
+     "Audio (icon + label)"
+    ],
+    "accessibility": [
+     {
+      "part": "Labels",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "lyrics",
+     "queue",
+     "audio",
+     "player"
+    ],
+    "behavior": [
+     "Active marks the open view with an inverse pill (Lyrics on the Lyrics screen); None on Now Playing"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for bottom of the Now Playing and Lyrics screens.",
+      "dont": "Use it for primary playback actions (use Playback Controls)."
+     }
+    ],
+    "use_cases": [
+     "Bottom of the Now Playing and Lyrics screens"
+    ]
+   }
+  },
+  {
+   "name": "Artwork",
+   "group": "Data Display",
+   "page": "➜ Avatars & upload image",
+   "tier": "Atom",
+   "type": "component",
+   "variants": {},
+   "properties": {},
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Square cover image for a song, album, playlist or podcast",
+    "when_to_use": [
+     "Inside cards, list items and players"
+    ],
+    "when_not_to_use": [
+     "People (use Avatar)"
+    ],
+    "accessibility": [
+     "Decorative when the title is next to it; otherwise give alt text with the title"
+    ],
+    "keywords": [
+     "artwork",
+     "cover",
+     "album art",
+     "image"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for inside cards, list items and players.",
+      "dont": "Use it for people (use Avatar)."
+     }
+    ],
+    "use_cases": [
+     "Inside cards, list items and players"
+    ]
+   }
+  },
+  {
+   "name": "Avatar",
+   "group": "Data Display",
+   "page": "➜ Avatars & upload image",
+   "tier": "Atom",
+   "type": "component",
+   "variants": {},
+   "properties": {},
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Round picture of the signed-in user or an artist",
+    "when_to_use": [
+     "Profile entry in Top App Bar",
+     "Artist rows"
+    ],
+    "when_not_to_use": [
+     "Album or playlist covers (use Artwork)"
+    ],
+    "accessibility": [
+     "Accessible name is the person name or Profile",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "avatar",
+     "profile",
+     "user"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for profile entry in Top App Bar.",
+      "dont": "Use it for album or playlist covers (use Artwork)."
+     },
+     {
+      "do": "Use it for artist rows.",
+      "dont": "Use it for album or playlist covers (use Artwork)."
+     }
+    ],
+    "use_cases": [
+     "Profile entry in Top App Bar",
+     "Artist rows"
+    ]
+   }
+  },
+  {
+   "name": "Tooltip",
+   "group": "Data Display",
+   "page": "➜ Tooltips",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Type": [
+     "Plain",
+     "Rich"
+    ]
+   },
+   "properties": {
+    "Text": "TEXT"
+   },
+   "variant_count": 2,
+   "nested": [],
+   "docs": {
+    "overview": "Short help text on long press or focus; Rich adds a title and longer text",
+    "when_to_use": [
+     "Explaining an icon-only control"
+    ],
+    "when_not_to_use": [
+     "Essential instructions or errors (show them on screen)"
+    ],
+    "anatomy": [
+     "Container",
+     "Text"
+    ],
+    "accessibility": [
+     {
+      "part": "Text",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Also reachable by keyboard focus"
+    ],
+    "keywords": [
+     "tooltip",
+     "help",
+     "hint"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for explaining an icon-only control.",
+      "dont": "Use it for essential instructions or errors (show them on screen)."
+     }
+    ],
+    "use_cases": [
+     "Explaining an icon-only control"
+    ]
+   }
+  },
+  {
+   "name": "Badge",
+   "group": "Data Display",
+   "page": "➜ Banners & Badges",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Type": [
+     "Plan",
+     "Explicit"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT"
+   },
+   "variant_count": 2,
+   "nested": [],
+   "docs": {
+    "overview": "Small label on artwork or an avatar: Plan shows the subscription plan, Explicit marks explicit content",
+    "when_to_use": [
+     "Type Plan: plan label (plus) on the profile avatar",
+     "Type Explicit: the \"E\" marker on explicit songs and albums"
+    ],
+    "when_not_to_use": [
+     "Long text or actions"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Include the meaning in the parent accessible name (Explicit)"
+    ],
+    "keywords": [
+     "badge",
+     "explicit",
+     "label"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for type Plan: plan label (plus) on the profile avatar.",
+      "dont": "Use it for long text or actions."
+     },
+     {
+      "do": "Use it for type Explicit: the \"E\" marker on explicit songs and albums.",
+      "dont": "Use it for long text or actions."
+     }
+    ],
+    "use_cases": [
+     "Type Plan: plan label (plus) on the profile avatar",
+     "Type Explicit: the \"E\" marker on explicit songs and albums"
+    ]
+   }
+  },
+  {
+   "name": "Section Header",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Title": "TEXT",
+    "Show More": "BOOLEAN",
+    "Show Supporting Text": "BOOLEAN",
+    "Supporting Text": "TEXT"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Button"
+   ],
+   "docs": {
+    "overview": "Title of a content rail with optional supporting text and a More button",
+    "when_to_use": [
+     "Above every horizontal rail on Explore"
+    ],
+    "when_not_to_use": [
+     "Above sortable lists (use List Header)"
+    ],
+    "anatomy": [
+     "Title",
+     "Supporting text (optional)",
+     "More (Button, Neutral)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Title is a heading for screen readers",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "content": [
+     "Title in sentence case, 1 to 4 words"
+    ],
+    "keywords": [
+     "section",
+     "header",
+     "rail title"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for above every horizontal rail on Explore.",
+      "dont": "Use it for above sortable lists (use List Header)."
+     }
+    ],
+    "use_cases": [
+     "Above every horizontal rail on Explore"
+    ]
+   }
+  },
+  {
+   "name": "Shortcut Card",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Label": "TEXT",
+    "Artwork": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Artwork"
+   ],
+   "docs": {
+    "overview": "Compact card with artwork and label for quick access, such as Music Mix or Recently Played",
+    "when_to_use": [
+     "Two-column shortcut grid at the top of Explore"
+    ],
+    "when_not_to_use": [
+     "Category tiles without artwork (use Library Shortcut Tile)"
+    ],
+    "anatomy": [
+     "Container",
+     "Artwork",
+     "Label"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "The whole card is one target",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "shortcut",
+     "card",
+     "quick access"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for two-column shortcut grid at the top of Explore.",
+      "dont": "Use it for category tiles without artwork (use Library Shortcut Tile)."
+     }
+    ],
+    "use_cases": [
+     "Two-column shortcut grid at the top of Explore"
+    ]
+   }
+  },
+  {
+   "name": "Media Carousel",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "First Card": "INSTANCE_SWAP",
+    "Second Card": "INSTANCE_SWAP",
+    "Third Card": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Media Card",
+    "Artwork",
+    "Track Metadata",
+    "Badge"
+   ],
+   "docs": {
+    "overview": "Horizontal rail of Media Cards that scrolls and clips at the screen edge",
+    "when_to_use": [
+     "Explore rails such as Your new music and For You"
+    ],
+    "when_not_to_use": [
+     "Vertical lists (use Playlist List Item)"
+    ],
+    "anatomy": [
+     "First to Third Card (Media Card)"
+    ],
+    "accessibility": [
+     "Cards stay reachable in reading order; the rail scrolls with the screen reader"
+    ],
+    "keywords": [
+     "carousel",
+     "rail",
+     "horizontal list"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for explore rails such as Your new music and For You.",
+      "dont": "Use it for vertical lists (use Playlist List Item)."
+     }
+    ],
+    "use_cases": [
+     "Explore rails such as Your new music and For You"
+    ]
+   }
+  },
+  {
+   "name": "Library Shortcut Tile",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Color": [
+     "Purple",
+     "Cyan",
+     "Magenta",
+     "Yellow"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT",
+    "Icon": "INSTANCE_SWAP"
+   },
+   "variant_count": 4,
+   "nested": [],
+   "docs": {
+    "overview": "Category tile with a colored icon and label, such as Likes, Downloads or Saved",
+    "when_to_use": [
+     "3 or 4 equal-width tiles in a row at the top of the Library"
+    ],
+    "when_not_to_use": [
+     "Media with artwork (use Shortcut Card)"
+    ],
+    "anatomy": [
+     "Container",
+     "Icon (Color picks the accent)",
+     "Label"
+    ],
+    "accessibility": [
+     {
+      "part": "Label",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     {
+      "part": "Icon",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Whole tile is the target, at least 80 x 80 dp",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "library",
+     "shortcut",
+     "category",
+     "tile"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for 3 or 4 equal-width tiles in a row at the top of the Library.",
+      "dont": "Use it for media with artwork (use Shortcut Card)."
+     }
+    ],
+    "use_cases": [
+     "3 or 4 equal-width tiles in a row at the top of the Library"
+    ]
+   }
+  },
+  {
+   "name": "Media Card",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Size": [
+     "Default",
+     "Large"
+    ]
+   },
+   "properties": {
+    "Artwork": "INSTANCE_SWAP",
+    "Show Badge": "BOOLEAN",
+    "Description": "TEXT"
+   },
+   "variant_count": 2,
+   "nested": [
+    "Artwork",
+    "Track Metadata",
+    "Badge"
+   ],
+   "docs": {
+    "overview": "One item in a media rail: artwork with title and subtitle, or a mix with a description",
+    "when_to_use": [
+     "Size Default for songs, albums and artists",
+     "Size Large for mixes such as Your Weekly Mixtape"
+    ],
+    "when_not_to_use": [
+     "Vertical lists (use Playlist List Item)"
+    ],
+    "anatomy": [
+     "Artwork",
+     "Badge (optional)",
+     "Track Metadata or Description"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and subtitle",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "The card is one target; title is its accessible name",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "media card",
+     "song",
+     "album",
+     "mix"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for size Default for songs, albums and artists.",
+      "dont": "Use it for vertical lists (use Playlist List Item)."
+     },
+     {
+      "do": "Use it for size Large for mixes such as Your Weekly Mixtape.",
+      "dont": "Use it for vertical lists (use Playlist List Item)."
+     }
+    ],
+    "use_cases": [
+     "Size Default for songs, albums and artists",
+     "Size Large for mixes such as Your Weekly Mixtape"
+    ]
+   }
+  },
+  {
+   "name": "Track Metadata",
+   "group": "Data Display",
+   "page": "➜ Lists",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Title": "TEXT",
+    "Subtitle": "TEXT",
+    "Show Subtitle Icon": "BOOLEAN",
+    "Subtitle Icon": "INSTANCE_SWAP"
+   },
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Title and subtitle of a track or playlist, with an optional downloaded icon",
+    "when_to_use": [
+     "Inside Mini Player, Media Card and list items"
+    ],
+    "when_not_to_use": [
+     "Section titles (use Section Header)"
+    ],
+    "anatomy": [
+     "Title",
+     "Subtitle icon (optional, 16 dp)",
+     "Subtitle"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and subtitle",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Truncated text stays fully readable by the screen reader"
+    ],
+    "keywords": [
+     "metadata",
+     "title",
+     "artist",
+     "subtitle"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for inside Mini Player, Media Card and list items.",
+      "dont": "Use it for section titles (use Section Header)."
+     }
+    ],
+    "use_cases": [
+     "Inside Mini Player, Media Card and list items"
+    ]
+   }
+  },
+  {
+   "name": "Playlist List Item",
+   "group": "Data Display",
+   "page": "➜ Lists",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Artwork": "INSTANCE_SWAP",
+    "Track Metadata": "INSTANCE_SWAP",
+    "Show More": "BOOLEAN"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Artwork",
+    "Track Metadata",
+    "Icon Button"
+   ],
+   "docs": {
+    "overview": "Row for a playlist, album or artist with artwork, metadata and a More action",
+    "when_to_use": [
+     "Library lists of playlists, albums and artists"
+    ],
+    "when_not_to_use": [
+     "Podcast episodes (use Podcast Episode Card)"
+    ],
+    "anatomy": [
+     "Artwork",
+     "Track Metadata",
+     "More (Icon Button)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and subtitle",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "The row and More are separate targets",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "list item",
+     "playlist",
+     "row"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for library lists of playlists, albums and artists.",
+      "dont": "Use it for podcast episodes (use Podcast Episode Card)."
+     }
+    ],
+    "use_cases": [
+     "Library lists of playlists, albums and artists"
+    ]
+   }
+  },
+  {
+   "name": "Podcast Episode Card",
+   "group": "Data Display",
+   "page": "➜ Lists",
+   "tier": "Organism",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Description": "TEXT",
+    "Artwork": "INSTANCE_SWAP",
+    "Track Metadata": "INSTANCE_SWAP",
+    "Progress Indicator": "INSTANCE_SWAP",
+    "Time Left": "TEXT",
+    "Show Download": "BOOLEAN"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Artwork",
+    "Track Metadata",
+    "Progress Indicator",
+    "Icon Button"
+   ],
+   "docs": {
+    "overview": "Episode card with artwork, title, description, listened progress, Download and More",
+    "when_to_use": [
+     "Continue playing and episode lists in Podcasts"
+    ],
+    "when_not_to_use": [
+     "Music playlists (use Playlist List Item)"
+    ],
+    "anatomy": [
+     "Artwork",
+     "Track Metadata",
+     "Description (2 lines)",
+     "Progress Indicator + Time Left",
+     "Download (optional)",
+     "More"
+    ],
+    "accessibility": [
+     {
+      "part": "Texts",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Progress is announced as time left",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "podcast",
+     "episode",
+     "card"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for continue playing and episode lists in Podcasts.",
+      "dont": "Use it for music playlists (use Playlist List Item)."
+     }
+    ],
+    "use_cases": [
+     "Continue playing and episode lists in Podcasts"
+    ]
+   }
+  },
+  {
+   "name": "List Header",
+   "group": "Data Display",
+   "page": "➜ Lists",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {
+    "Title": "TEXT",
+    "Show Action": "BOOLEAN"
+   },
+   "variant_count": 1,
+   "nested": [
+    "Button"
+   ],
+   "docs": {
+    "overview": "Header above a sortable list with a sort control and an optional main action",
+    "when_to_use": [
+     "Above Playlists in the Library, with New playlist"
+    ],
+    "when_not_to_use": [
+     "Above content rails (use Section Header)"
+    ],
+    "anatomy": [
+     "Sort icon + Title + dropdown icon",
+     "Action (Button, Outlined)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Sort control announces the current sort",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "list header",
+     "sort",
+     "new playlist"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for above Playlists in the Library, with New playlist.",
+      "dont": "Use it for above content rails (use Section Header)."
+     }
+    ],
+    "use_cases": [
+     "Above Playlists in the Library, with New playlist"
+    ]
+   }
+  },
+  {
+   "name": "Dialog",
+   "group": "Data Display",
+   "page": "➜ Dialogs & Sheets",
+   "tier": "Organism",
+   "type": "set",
+   "variants": {
+    "Type": [
+     "Basic",
+     "List"
+    ]
+   },
+   "properties": {
+    "Title": "TEXT"
+   },
+   "variant_count": 2,
+   "nested": [
+    "Button"
+   ],
+   "docs": {
+    "overview": "Modal window for a focused decision that blocks the screen until answered",
+    "when_to_use": [
+     "Basic for confirmations",
+     "List to pick from a short list"
+    ],
+    "when_not_to_use": [
+     "Non-blocking messages",
+     "Supplemental tasks (use Sheet)"
+    ],
+    "anatomy": [
+     "Container",
+     "Title",
+     "Body or list",
+     "Actions (Button)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and body",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Focus moves into the dialog and returns on close",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "dialog",
+     "modal",
+     "confirm"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for basic for confirmations.",
+      "dont": "Use it for non-blocking messages."
+     },
+     {
+      "do": "Use it for list to pick from a short list.",
+      "dont": "Use it for supplemental tasks (use Sheet)."
+     }
+    ],
+    "use_cases": [
+     "Basic for confirmations",
+     "List to pick from a short list"
+    ]
+   }
+  },
+  {
+   "name": "Sheet",
+   "group": "Data Display",
+   "page": "➜ Dialogs & Sheets",
+   "tier": "Organism",
+   "type": "set",
+   "variants": {
+    "Position": [
+     "Bottom",
+     "Side"
+    ]
+   },
+   "properties": {
+    "Title": "TEXT"
+   },
+   "variant_count": 2,
+   "nested": [],
+   "docs": {
+    "overview": "Bottom or side surface for supplemental tasks such as the queue or a track menu",
+    "when_to_use": [
+     "Bottom on phones for menus and details",
+     "Side on large screens"
+    ],
+    "when_not_to_use": [
+     "Blocking confirmations (use Dialog)"
+    ],
+    "anatomy": [
+     "Container",
+     "Title",
+     "Content"
+    ],
+    "accessibility": [
+     {
+      "part": "Title",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Has a visible close or drag handle and closes with Back"
+    ],
+    "keywords": [
+     "sheet",
+     "bottom sheet",
+     "menu"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for bottom on phones for menus and details.",
+      "dont": "Use it for blocking confirmations (use Dialog)."
+     },
+     {
+      "do": "Use it for side on large screens.",
+      "dont": "Use it for blocking confirmations (use Dialog)."
+     }
+    ],
+    "use_cases": [
+     "Bottom on phones for menus and details",
+     "Side on large screens"
+    ]
+   }
+  },
+  {
+   "name": "Progress Indicator",
+   "group": "Data Display",
+   "page": "➜ Progress & Loading",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "Value": [
+     "2",
+     "10",
+     "25",
+     "40",
+     "50",
+     "75",
+     "100"
+    ]
+   },
+   "properties": {},
+   "variant_count": 7,
+   "nested": [],
+   "docs": {
+    "overview": "Linear bar showing determinate progress, such as the listened part of an episode",
+    "when_to_use": [
+     "Episode progress",
+     "Inside Playback Progress"
+    ],
+    "when_not_to_use": [
+     "Seeking on its own (use Playback Progress)"
+    ],
+    "accessibility": [
+     {
+      "part": "Active track",
+      "criterion": "1.4.11",
+      "requirement": "3:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Announce the value as a percentage or time"
+    ],
+    "keywords": [
+     "progress",
+     "linear",
+     "loading"
+    ],
+    "behavior": [
+     "Value sets the active track as a percent; the active track scales with the instance width"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for episode progress.",
+      "dont": "Use it for seeking on its own (use Playback Progress)."
+     },
+     {
+      "do": "Use it for inside Playback Progress.",
+      "dont": "Use it for seeking on its own (use Playback Progress)."
+     }
+    ],
+    "use_cases": [
+     "Episode progress",
+     "Inside Playback Progress"
+    ]
+   }
+  },
+  {
+   "name": "Divider",
+   "group": "Data Display",
+   "page": "➜ Dividers",
+   "tier": "Atom",
+   "type": "component",
+   "variants": {},
+   "properties": {},
+   "variant_count": 1,
+   "nested": [],
+   "docs": {
+    "overview": "Thin line that separates groups of content",
+    "when_to_use": [
+     "Between groups that spacing alone does not separate"
+    ],
+    "when_not_to_use": [
+     "Between every list row (use spacing)"
+    ],
+    "accessibility": [
+     "Decorative; hidden from screen readers"
+    ],
+    "keywords": [
+     "divider",
+     "separator",
+     "line"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for between groups that spacing alone does not separate.",
+      "dont": "Use it for between every list row (use spacing)."
+     }
+    ],
+    "use_cases": [
+     "Between groups that spacing alone does not separate"
+    ]
+   }
+  },
+  {
+   "name": "Lyrics Line",
+   "group": "Data Display",
+   "page": "➜ Lyrics",
+   "tier": "Atom",
+   "type": "set",
+   "variants": {
+    "State": [
+     "Past",
+     "Current",
+     "Upcoming"
+    ],
+    "Align": [
+     "Start",
+     "End"
+    ]
+   },
+   "properties": {
+    "Line": "TEXT"
+   },
+   "variant_count": 6,
+   "nested": [],
+   "docs": {
+    "overview": "One line of synced lyrics; State shows where playback is",
+    "when_to_use": [
+     "Lyrics screen, one instance per line",
+     "Align End for right-to-left lines (Arabic), Start for left-to-right"
+    ],
+    "when_not_to_use": [
+     "Body text or descriptions (use the text styles)"
+    ],
+    "accessibility": [
+     {
+      "part": "Current line",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Past and Upcoming lines are dimmed on purpose; the screen reader reads every line",
+     "Respect the system font size; lines wrap"
+    ],
+    "behavior": [
+     "Current is on_surface; Past and Upcoming are outline (dimmed)"
+    ],
+    "content": [
+     "Keep the original language and line breaks of the song"
+    ],
+    "keywords": [
+     "lyrics",
+     "line",
+     "karaoke",
+     "synced"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for lyrics screen, one instance per line.",
+      "dont": "Use it for body text or descriptions (use the text styles)."
+     },
+     {
+      "do": "Use it for align End for right-to-left lines (Arabic), Start for left-to-right.",
+      "dont": "Use it for body text or descriptions (use the text styles)."
+     }
+    ],
+    "use_cases": [
+     "Lyrics screen, one instance per line",
+     "Align End for right-to-left lines (Arabic), Start for left-to-right"
+    ]
+   }
+  },
+  {
+   "name": "Lyrics Header",
+   "group": "Data Display",
+   "page": "➜ Lyrics",
+   "tier": "Molecule",
+   "type": "component",
+   "variants": {},
+   "properties": {},
+   "variant_count": 1,
+   "nested": [
+    "Artwork",
+    "Track Metadata",
+    "Icon Button"
+   ],
+   "docs": {
+    "overview": "Track header at the top of the Lyrics screen: artwork, title, artist, Share and More",
+    "when_to_use": [
+     "Top of the Lyrics screen, under the collapse button"
+    ],
+    "when_not_to_use": [
+     "Now Playing (artwork is large there)",
+     "Lists (use Playlist List Item)"
+    ],
+    "anatomy": [
+     "Artwork (80 dp)",
+     "Track Metadata (exposed)",
+     "Share (Icon Button Tonal, exposed)",
+     "More (Icon Button Standard, exposed)"
+    ],
+    "accessibility": [
+     {
+      "part": "Title and artist",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "Share and More have accessible names",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "keywords": [
+     "lyrics",
+     "header",
+     "track"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for top of the Lyrics screen, under the collapse button.",
+      "dont": "Use it for now Playing (artwork is large there)."
+     },
+     {
+      "do": "Use it for top of the Lyrics screen, under the collapse button.",
+      "dont": "Use it for lists (use Playlist List Item)."
+     }
+    ],
+    "use_cases": [
+     "Top of the Lyrics screen, under the collapse button"
+    ]
+   }
+  },
+  {
+   "name": "Genre Card",
+   "group": "Data Display",
+   "page": "➜ Cards & Carousels",
+   "tier": "Molecule",
+   "type": "set",
+   "variants": {
+    "Color": [
+     "Magenta",
+     "Blue",
+     "Cyan",
+     "Green",
+     "Red",
+     "Purple",
+     "Yellow"
+    ]
+   },
+   "properties": {
+    "Label": "TEXT"
+   },
+   "variant_count": 7,
+   "nested": [
+    "Artwork"
+   ],
+   "docs": {
+    "overview": "Tile that opens a genre, mood or chart: artist photo on a category color with the genre name",
+    "when_to_use": [
+     "Search & Discover grids (Popular, Moods & Genres), two per row",
+     "Color picks the category accent; neighbours use different colors"
+    ],
+    "when_not_to_use": [
+     "Library shortcuts with an icon (use Library Shortcut Tile)",
+     "Songs or albums (use Media Card)"
+    ],
+    "anatomy": [
+     "Container (category color)",
+     "Artwork (56 x 80, image fill set per genre)",
+     "Label"
+    ],
+    "accessibility": [
+     {
+      "part": "Label on the category color",
+      "criterion": "1.4.3",
+      "requirement": "4.5:1",
+      "states": [
+       "Light",
+       "Dark"
+      ]
+     },
+     "The whole card is one target; the label is its accessible name",
+     {
+      "part": "Touch target",
+      "criterion": "2.5.8",
+      "requirement": "48 x 48 dp",
+      "detail": "Visual size may be smaller; the hit area stays 48 dp"
+     }
+    ],
+    "content": [
+     "Genre name in capitals, 1 to 3 words, may wrap to 2 lines"
+    ],
+    "keywords": [
+     "genre",
+     "mood",
+     "category",
+     "browse",
+     "search"
+    ],
+    "guidelines": [
+     {
+      "do": "Use it for search & Discover grids (Popular, Moods & Genres), two per row.",
+      "dont": "Use it for library shortcuts with an icon (use Library Shortcut Tile)."
+     },
+     {
+      "do": "Use it for color picks the category accent; neighbours use different colors.",
+      "dont": "Use it for songs or albums (use Media Card)."
+     }
+    ],
+    "use_cases": [
+     "Search & Discover grids (Popular, Moods & Genres), two per row",
+     "Color picks the category accent; neighbours use different colors"
+    ]
+   }
+  }
+ ],
+ "icons": {
+  "page": "➜ Icons",
+  "set": "Material Symbols names (existing set in the file)",
+  "naming": "Icon/<name>",
+  "size": "24 dp",
+  "color": "Glyph fill bound to md/sys/color/on_surface, recolored per component",
+  "names": [
+   "play_arrow",
+   "pause",
+   "skip_previous",
+   "skip_next",
+   "favorite",
+   "favorite_outline",
+   "download",
+   "more_vert",
+   "search",
+   "mic",
+   "notifications",
+   "queue_music",
+   "lyrics",
+   "graphic_eq",
+   "explore",
+   "library_music",
+   "groups",
+   "arrow_back",
+   "share",
+   "expand_more",
+   "settings",
+   "help",
+   "bookmark",
+   "podcasts",
+   "cloud_download",
+   "upload",
+   "album",
+   "sort",
+   "add",
+   "arrow_drop_down",
+   "history",
+   "auto_awesome",
+   "cloud_done",
+   "wifi",
+   "signal_cellular_alt",
+   "battery_full",
+   "check",
+   "radar"
+  ]
+ },
+ "text_styles": [
+  {
+   "name": "M3/display_large",
+   "description": "Material 3 display large.",
+   "font": "Roboto Regular",
+   "size": 57,
+   "line_height": 64,
+   "letter_spacing": -0.25,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/display_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/display_large/size",
+    "fontFamily": "Typography::md/sys/typescale/display_large/font",
+    "lineHeight": "Typography::md/sys/typescale/display_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/display_large/weight"
+   }
+  },
+  {
+   "name": "M3/display_medium",
+   "description": "Material 3 display medium.",
+   "font": "Roboto Regular",
+   "size": 45,
+   "line_height": 52,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/display_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/display_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/display_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/display_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/display_medium/weight"
+   }
+  },
+  {
+   "name": "M3/display_small",
+   "description": "Material 3 display small.",
+   "font": "Roboto Regular",
+   "size": 36,
+   "line_height": 44,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/display_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/display_small/size",
+    "fontFamily": "Typography::md/sys/typescale/display_small/font",
+    "lineHeight": "Typography::md/sys/typescale/display_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/display_small/weight"
+   }
+  },
+  {
+   "name": "M3/headline_large",
+   "description": "Material 3 headline large.",
+   "font": "Roboto Regular",
+   "size": 32,
+   "line_height": 40,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/headline_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/headline_large/size",
+    "fontFamily": "Typography::md/sys/typescale/headline_large/font",
+    "lineHeight": "Typography::md/sys/typescale/headline_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/headline_large/weight"
+   }
+  },
+  {
+   "name": "M3/headline_medium",
+   "description": "Material 3 headline medium.",
+   "font": "Roboto Regular",
+   "size": 28,
+   "line_height": 36,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/headline_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/headline_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/headline_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/headline_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/headline_medium/weight"
+   }
+  },
+  {
+   "name": "M3/headline_small",
+   "description": "Material 3 headline small.",
+   "font": "Roboto Regular",
+   "size": 24,
+   "line_height": 32,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/headline_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/headline_small/size",
+    "fontFamily": "Typography::md/sys/typescale/headline_small/font",
+    "lineHeight": "Typography::md/sys/typescale/headline_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/headline_small/weight"
+   }
+  },
+  {
+   "name": "M3/title_large",
+   "description": "Material 3 title large.",
+   "font": "Roboto Regular",
+   "size": 22,
+   "line_height": 28,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_large/size",
+    "fontFamily": "Typography::md/sys/typescale/title_large/font",
+    "lineHeight": "Typography::md/sys/typescale/title_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/title_large/weight"
+   }
+  },
+  {
+   "name": "M3/title_medium",
+   "description": "Material 3 title medium.",
+   "font": "Roboto Medium",
+   "size": 16,
+   "line_height": 24,
+   "letter_spacing": 0.15,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/title_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/title_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/title_medium/weight"
+   }
+  },
+  {
+   "name": "M3/title_small",
+   "description": "Material 3 title small.",
+   "font": "Roboto Medium",
+   "size": 14,
+   "line_height": 20,
+   "letter_spacing": 0.1,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_small/size",
+    "fontFamily": "Typography::md/sys/typescale/title_small/font",
+    "lineHeight": "Typography::md/sys/typescale/title_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/title_small/weight"
+   }
+  },
+  {
+   "name": "M3/body_large",
+   "description": "Material 3 body large.",
+   "font": "Roboto Regular",
+   "size": 16,
+   "line_height": 24,
+   "letter_spacing": 0.5,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/body_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/body_large/size",
+    "fontFamily": "Typography::md/sys/typescale/body_large/font",
+    "lineHeight": "Typography::md/sys/typescale/body_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/body_large/weight"
+   }
+  },
+  {
+   "name": "M3/body_medium",
+   "description": "Material 3 body medium.",
+   "font": "Roboto Regular",
+   "size": 14,
+   "line_height": 20,
+   "letter_spacing": 0.25,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/body_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/body_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/body_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/body_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/body_medium/weight"
+   }
+  },
+  {
+   "name": "M3/body_small",
+   "description": "Material 3 body small.",
+   "font": "Roboto Regular",
+   "size": 12,
+   "line_height": 16,
+   "letter_spacing": 0.4,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/body_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/body_small/size",
+    "fontFamily": "Typography::md/sys/typescale/body_small/font",
+    "lineHeight": "Typography::md/sys/typescale/body_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/body_small/weight"
+   }
+  },
+  {
+   "name": "M3/label_large",
+   "description": "Material 3 label large.",
+   "font": "Roboto Medium",
+   "size": 14,
+   "line_height": 20,
+   "letter_spacing": 0.1,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/label_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/label_large/size",
+    "fontFamily": "Typography::md/sys/typescale/label_large/font",
+    "lineHeight": "Typography::md/sys/typescale/label_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/label_large/weight"
+   }
+  },
+  {
+   "name": "M3/label_medium",
+   "description": "Material 3 label medium.",
+   "font": "Roboto Medium",
+   "size": 12,
+   "line_height": 16,
+   "letter_spacing": 0.5,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/label_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/label_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/label_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/label_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/label_medium/weight"
+   }
+  },
+  {
+   "name": "M3/label_small",
+   "description": "Material 3 label small.",
+   "font": "Roboto Medium",
+   "size": 11,
+   "line_height": 16,
+   "letter_spacing": 0.5,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/label_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/label_small/size",
+    "fontFamily": "Typography::md/sys/typescale/label_small/font",
+    "lineHeight": "Typography::md/sys/typescale/label_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/label_small/weight"
+   }
+  },
+  {
+   "name": "M3/title_large_emphasized",
+   "description": "M3 Expressive emphasized title large: bold for section titles, list and card titles. Same size and line height as M3/title_large.",
+   "font": "Roboto Bold",
+   "size": 22,
+   "line_height": 28,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_large/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_large/size",
+    "fontFamily": "Typography::md/sys/typescale/title_large/font",
+    "lineHeight": "Typography::md/sys/typescale/title_large/line_height",
+    "fontWeight": "Typography::md/sys/typescale/emphasized/weight"
+   }
+  },
+  {
+   "name": "M3/title_medium_emphasized",
+   "description": "M3 Expressive emphasized title medium: bold for section titles, list and card titles. Same size and line height as M3/title_medium.",
+   "font": "Roboto Bold",
+   "size": 16,
+   "line_height": 24,
+   "letter_spacing": 0.15,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/title_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/title_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/emphasized/weight"
+   }
+  },
+  {
+   "name": "M3/title_small_emphasized",
+   "description": "M3 Expressive emphasized title small: bold for section titles, list and card titles. Same size and line height as M3/title_small.",
+   "font": "Roboto Bold",
+   "size": 14,
+   "line_height": 20,
+   "letter_spacing": 0.1,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/title_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/title_small/size",
+    "fontFamily": "Typography::md/sys/typescale/title_small/font",
+    "lineHeight": "Typography::md/sys/typescale/title_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/emphasized/weight"
+   }
+  },
+  {
+   "name": "M3/headline_small_emphasized",
+   "description": "M3 Expressive emphasized headline small: bold condensed for screen titles and primary tabs (EXPLORE, MUSIC / PODCASTS). Same size and line height as M3/headline_small.",
+   "font": "Roboto Condensed Bold",
+   "size": 24,
+   "line_height": 32,
+   "letter_spacing": 0,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/headline_small/tracking",
+    "fontSize": "Typography::md/sys/typescale/headline_small/size",
+    "fontFamily": "Typography::md/sys/typescale/emphasized/condensed_font",
+    "lineHeight": "Typography::md/sys/typescale/headline_small/line_height",
+    "fontWeight": "Typography::md/sys/typescale/emphasized/weight"
+   }
+  },
+  {
+   "name": "M3/label_medium_emphasized",
+   "description": "12sp / 16sp / 700 · emphasized label (player header source label)",
+   "font": "Roboto Bold",
+   "size": 12,
+   "line_height": 16,
+   "letter_spacing": 0.5,
+   "bound": {
+    "letterSpacing": "Typography::md/sys/typescale/label_medium/tracking",
+    "fontSize": "Typography::md/sys/typescale/label_medium/size",
+    "fontFamily": "Typography::md/sys/typescale/label_medium/font",
+    "lineHeight": "Typography::md/sys/typescale/label_medium/line_height",
+    "fontWeight": "Typography::md/sys/typescale/emphasized/weight"
+   }
+  }
+ ],
+ "effect_styles": [
+  {
+   "name": "M3/Elevation/0",
+   "description": "Material 3 elevation level 0.",
+   "effects": []
+  },
+  {
+   "name": "M3/Elevation/1",
+   "description": "Material 3 elevation level 1.",
+   "effects": [
+    {
+     "type": "DROP_SHADOW",
+     "radius": 2,
+     "offset": {
+      "x": 0,
+      "y": 1
+     },
+     "spread": 0,
+     "color": "#000000ff"
+    }
+   ]
+  },
+  {
+   "name": "M3/Elevation/2",
+   "description": "Material 3 elevation level 2.",
+   "effects": [
+    {
+     "type": "DROP_SHADOW",
+     "radius": 6,
+     "offset": {
+      "x": 0,
+      "y": 2
+     },
+     "spread": 0,
+     "color": "#000000ff"
+    }
+   ]
+  },
+  {
+   "name": "M3/Elevation/3",
+   "description": "Material 3 elevation level 3.",
+   "effects": [
+    {
+     "type": "DROP_SHADOW",
+     "radius": 8,
+     "offset": {
+      "x": 0,
+      "y": 4
+     },
+     "spread": 0,
+     "color": "#000000ff"
+    }
+   ]
+  },
+  {
+   "name": "M3/Elevation/4",
+   "description": "Material 3 elevation level 4.",
+   "effects": [
+    {
+     "type": "DROP_SHADOW",
+     "radius": 10,
+     "offset": {
+      "x": 0,
+      "y": 6
+     },
+     "spread": 0,
+     "color": "#000000ff"
+    }
+   ]
+  },
+  {
+   "name": "M3/Elevation/5",
+   "description": "Material 3 elevation level 5.",
+   "effects": [
+    {
+     "type": "DROP_SHADOW",
+     "radius": 12,
+     "offset": {
+      "x": 0,
+      "y": 8
+     },
+     "spread": 0,
+     "color": "#000000ff"
+    }
+   ]
+  }
+ ],
+ "slots": {},
+ "gaps": [
+  "Media Card: Description is used only by Size=Large (Default shows Track Metadata) - by design",
+  "States use whole-variant opacity (file convention) instead of M3 state-layer frames; state-layer tokens were not approved",
+  "Search Bar has no Focused / Hovered state (tapping it opens the Search screen)",
+  "Tooltip Rich has no title or actions yet",
+  "Library Shortcut Tile variants share the default label and icon (Likes, favorite); instances set them",
+  "12 icon instances without a swap property (Status Bar 3, Checkbox 6, Playlist App Bar 1, List Header 2): fixed system or control glyphs",
+  "Navigation Item has no M3 active-indicator pill; the source app marks the selected item with color only",
+  "Sizes follow the source app over Material 3 (Abdul, 2026-10-13): Search Bar 42, Bottom Navigation 58 (items 52), Mini Player 56, Shortcut Card 56, Podcast Episode Card 186 with an outline_variant border; hit areas stay 48 dp through the item width and row height",
+  "Playback Progress: no thumb and inset bar (source: full-bleed 4 dp with a round thumb)",
+  "Download state: no cloud-with-pause (downloading) icon",
+  "Lyrics: no top/bottom fade on the lyric lines",
+  "Explore / Library: header offsets of 5-20 px vs the source screenshots"
+ ]
+}

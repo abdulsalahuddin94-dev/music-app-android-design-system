@@ -1,0 +1,211 @@
+/* ⭐Navigation components, Music App Android (Brownfield DS), rendered as web for documentation. Token variables only;
+   px only for 0, hairlines and Figma geometry without a token (each commented "Figma <n>"). State layers with alpha are
+   written as color-mix() of a token with the Figma opacity. Light / Dark come from [data-semantic] on a parent. */
+
+/* ---------- shared ---------- */
+.nav-btn, .nav-icon-btn, .nav-chip, .nav-tab, .nav-item, .nav-utility-bar__action, .nav-top-bar__profile {
+  font: inherit; margin: 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.nav-btn:disabled, .nav-icon-btn:disabled, .nav-chip:disabled, .nav-tab:disabled, .nav-item:disabled { cursor: not-allowed; }
+.nav-btn .icon, .nav-icon-btn .icon, .nav-item .icon, .nav-utility-bar__action .icon { flex: none; }
+
+/* ---------- Button (Atom) ---------- */
+/* Figma: height 48, padding 0 24, gap 8, corner full, M3/label_large, leading icon 18. */
+.nav-btn {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: content-box;
+  height: var(--md-sys-size-touch_target); padding: 0 var(--md-sys-spacing-24); gap: var(--md-sys-spacing-8);
+  border-radius: var(--md-sys-shape-corner-full); border: 0; white-space: nowrap;
+  background: var(--md-sys-color-primary); color: var(--md-sys-color-on_primary);
+}
+.nav-btn .icon { width: 18px; height: 18px; /* Figma 18 */ }
+.nav-btn[data-style="Tonal"] { background: var(--md-sys-color-primary_container); color: var(--md-sys-color-on_primary_container); }
+.nav-btn[data-style="Outlined"] { background: transparent; color: var(--md-sys-color-primary); box-shadow: inset 0 0 0 1px var(--md-sys-color-outline); }
+.nav-btn[data-style="Text"] { background: transparent; color: var(--md-sys-color-primary); }
+.nav-btn[data-style="Neutral"] { background: var(--md-sys-color-surface_container_highest); color: var(--md-sys-color-on_surface); }
+.nav-btn[data-style="Outlined Accent"] { background: transparent; color: var(--md-sys-color-tertiary); box-shadow: inset 0 0 0 1px var(--md-sys-color-tertiary); }
+
+/* Hovered: Filled / Tonal / Neutral opacity 0.88; Outlined / Text / Outlined Accent primary layer 8% */
+.nav-btn:is([data-style="Filled"], [data-style="Tonal"], [data-style="Neutral"]):is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
+.nav-btn:is([data-style="Outlined"], [data-style="Text"], [data-style="Outlined Accent"]):is([data-state="Hovered"], [data-state="Enabled"]:hover) {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent); /* Figma primary @0.08 */
+}
+/* Pressed: Filled / Neutral 0.9, Tonal 0.86; Outlined / Text / Outlined Accent primary layer 10% */
+.nav-btn:is([data-style="Filled"], [data-style="Neutral"]):is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.9; /* Figma 0.9 */ }
+.nav-btn[data-style="Tonal"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.86; /* Figma 0.86 */ }
+.nav-btn:is([data-style="Outlined"], [data-style="Text"], [data-style="Outlined Accent"]):is([data-state="Pressed"], [data-state="Enabled"]:active) {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent); /* Figma primary @0.1 */
+}
+/* Focused: 3px inside stroke included in the layout (primary; tertiary on Outlined Accent) */
+.nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ height: calc(var(--md-sys-size-touch_target) - 6px); }
+.nav-btn[data-style="Outlined Accent"]:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { border-color: var(--md-sys-color-tertiary); box-shadow: none; }
+.nav-btn[data-style="Outlined"]:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { box-shadow: none; }
+/* Disabled: opacity 0.38 */
+.nav-btn[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
+.nav-btn:is([data-style="Filled"], [data-style="Tonal"])[data-state="Disabled"] { background: var(--md-sys-color-surface_container_high); color: var(--md-sys-color-on_surface_variant); }
+.nav-btn:is([data-style="Outlined"], [data-style="Text"])[data-state="Disabled"] { color: var(--md-sys-color-on_surface_variant); }
+.nav-btn[data-style="Neutral"][data-state="Disabled"] { background: var(--md-sys-color-on_surface); }
+
+/* ---------- Icon Button (Atom) ---------- */
+/* Figma: 48 x 48, padding 12, corner full, icon 24. Resized instances set width / height / --nav-icon-size inline. */
+.nav-icon-btn {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none; padding: 0;
+  width: var(--md-sys-size-touch_target); height: var(--md-sys-size-touch_target);
+  border-radius: var(--md-sys-shape-corner-full); border: 0; background: transparent; color: var(--md-sys-color-on_surface);
+}
+.nav-icon-btn .icon { width: var(--nav-icon-size, var(--md-sys-size-icon)); height: var(--nav-icon-size, var(--md-sys-size-icon)); }
+.nav-icon-btn[data-style="Filled"] { background: var(--md-sys-color-primary); color: var(--md-sys-color-on_primary); }
+.nav-icon-btn[data-style="Tonal"] { background: var(--md-sys-color-surface_container_highest); color: var(--md-sys-color-on_surface); }
+.nav-icon-btn[data-style="Inverse"] { background: var(--md-sys-color-on_surface); color: var(--md-sys-color-surface); }
+
+.nav-icon-btn[data-style="Standard"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 8%, transparent); /* Figma @0.08 */ }
+.nav-icon-btn[data-style="Standard"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 10%, transparent); /* Figma @0.1 */ }
+.nav-icon-btn[data-style="Filled"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
+.nav-icon-btn[data-style="Filled"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
+.nav-icon-btn[data-style="Tonal"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-surface_container_highest) 92%, transparent); /* Figma @0.92 */ }
+.nav-icon-btn[data-style="Tonal"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-surface_container_highest) 88%, transparent); /* Figma @0.88 */ }
+.nav-icon-btn[data-style="Inverse"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 92%, transparent); /* Figma @0.92 */ }
+.nav-icon-btn[data-style="Inverse"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 88%, transparent); /* Figma @0.88 */ }
+/* Focused: 3px inside stroke, the icon shrinks to 18 inside the fixed 48 box (Figma) */
+.nav-icon-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ }
+.nav-icon-btn[data-state="Focused"]:not([style]) .icon { width: 18px; height: 18px; /* Figma 18 */ }
+/* Disabled: Standard / Filled opacity 0.38; Tonal / Inverse on_surface layer 12% with an on_surface icon */
+.nav-icon-btn:is([data-style="Standard"], [data-style="Filled"])[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
+.nav-icon-btn:is([data-style="Tonal"], [data-style="Inverse"])[data-state="Disabled"] {
+  background: color-mix(in srgb, var(--md-sys-color-on_surface) 12%, transparent); /* Figma @0.12 */ color: var(--md-sys-color-on_surface);
+}
+
+/* ---------- Filter Chip (Atom) ---------- */
+/* Figma: 48 touch target, Chip Container 32 high, padding 0 16, corner full, M3/label_large. */
+.nav-chip {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 0; border: 0; background: transparent;
+  height: var(--md-sys-size-touch_target); border-radius: var(--md-sys-shape-corner-full);
+}
+.nav-chip__container {
+  display: inline-flex; align-items: center; box-sizing: content-box; white-space: nowrap;
+  height: var(--md-sys-size-control-xsmall); padding: 0 var(--md-sys-spacing-16); border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-surface_container_high); color: var(--md-sys-color-on_surface);
+}
+.nav-chip[data-selected="True"] .nav-chip__container { background: var(--md-sys-color-primary); color: var(--md-sys-color-on_primary); }
+.nav-chip:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
+.nav-chip:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
+.nav-chip[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
+.nav-chip:focus-visible { outline: none; }
+.nav-chip:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) .nav-chip__container { border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ height: calc(var(--md-sys-size-control-xsmall) - 6px); }
+
+/* ---------- Tab Item (Atom) ---------- */
+/* Figma: vertical, height 48, padding 8, gap 4, M3/headline_small_emphasized, Active Indicator 3 high in primary. */
+.nav-tab {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; flex: none;
+  height: var(--md-sys-size-touch_target); padding: var(--md-sys-spacing-8); gap: var(--md-sys-spacing-4);
+  border: 0; border-radius: var(--md-sys-shape-corner-none); background: transparent; color: var(--md-sys-color-on_surface_variant);
+}
+.nav-tab__label { white-space: nowrap; }
+.nav-tab[data-selected="True"] { color: var(--md-sys-color-on_surface); }
+.nav-tab__indicator { display: block; align-self: stretch; flex: none; height: 3px; /* Figma 3 */ background: var(--md-sys-color-primary); }
+.nav-tab:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
+.nav-tab:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
+.nav-tab[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
+.nav-tab:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) {
+  outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ padding: calc(var(--md-sys-spacing-8) - 3px) var(--md-sys-spacing-8);
+}
+
+/* ---------- Navigation Item (Atom) ---------- */
+/* Figma: 80 wide, vertical, padding 4 0, gap 4, corner medium, icon 24 on_surface, M3/label_small. */
+.nav-item {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; flex: none;
+  width: 80px; /* Figma 80 */ padding: var(--md-sys-spacing-4) var(--md-sys-spacing-0); gap: var(--md-sys-spacing-4);
+  border: 0; border-radius: var(--md-sys-shape-corner-medium); background: transparent; color: var(--md-sys-color-on_surface);
+}
+.nav-item__label { color: var(--md-sys-color-on_surface_variant); white-space: nowrap; }
+.nav-item[data-selected="True"] .nav-item__label { color: var(--md-sys-color-primary); }
+.nav-item:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
+.nav-item[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
+.nav-item:focus-visible { outline: 3px solid var(--md-sys-color-primary); outline-offset: -3px; /* Figma 3 focus stroke */ }
+
+/* ---------- Primary Tabs (Molecule) ---------- */
+.nav-primary-tabs { display: inline-flex; align-items: flex-start; gap: var(--md-sys-spacing-0); height: var(--md-sys-size-control-medium); /* Figma 56 */ }
+
+/* ---------- Bottom Navigation (Organism) ---------- */
+.nav-bottom {
+  display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box;
+  width: 375px; /* Figma 375 */ max-width: 100%; height: 58px; /* Figma 58 */
+  gap: var(--md-sys-spacing-8); padding: var(--md-sys-spacing-0); background: var(--md-sys-color-surface);
+}
+
+/* ---------- Top App Bar (Organism) ---------- */
+.nav-top-bar {
+  display: flex; align-items: center; box-sizing: border-box; margin: 0;
+  width: 375px; /* Figma 375 */ max-width: 100%; height: 64px; /* Figma 64 */
+  padding: var(--md-sys-spacing-16); gap: var(--md-sys-spacing-16); background: transparent;
+}
+.nav-top-bar__title { margin: 0; color: var(--md-sys-color-on_surface); white-space: nowrap; }
+.nav-top-bar__actions { display: flex; align-items: center; gap: var(--md-sys-spacing-4); }
+.nav-top-bar__profile {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 0; border: 0; background: transparent;
+  width: var(--md-sys-size-touch_target); height: var(--md-sys-size-touch_target); border-radius: var(--md-sys-shape-corner-full);
+}
+.nav-top-bar__profile:focus-visible { outline: 3px solid var(--md-sys-color-primary); outline-offset: -3px; /* Figma 3 focus stroke */ }
+.nav-top-bar__plan { position: absolute; left: 9px; top: 30px; /* Figma x 9, y 30 */ }
+
+/* ---------- Playlist App Bar (Organism) ---------- */
+.nav-playlist-bar {
+  display: flex; align-items: center; box-sizing: border-box; margin: 0;
+  width: 375px; /* Figma 375 */ max-width: 100%; height: 64px; /* Figma 64 */
+  padding: var(--md-sys-spacing-0) var(--md-sys-spacing-16) var(--md-sys-spacing-0) var(--md-sys-spacing-8); gap: var(--md-sys-spacing-4);
+}
+.nav-playlist-bar__title { display: flex; align-items: center; gap: var(--md-sys-spacing-4); flex: 1 1 0; min-width: 0; color: var(--md-sys-color-on_surface); }
+.nav-playlist-bar__source { flex: none; white-space: nowrap; }
+.nav-playlist-bar__name { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav-playlist-bar__ai { display: flex; align-items: center; gap: var(--md-sys-spacing-8); flex: none; color: var(--md-sys-color-on_surface); }
+.nav-playlist-bar__ai-label { position: relative; display: inline-flex; white-space: nowrap; }
+.nav-playlist-bar__sparkle { position: absolute; left: 33px; top: 14px; /* Figma x 33, y 14 */ display: inline-flex; color: var(--md-sys-color-category_yellow); }
+.nav-playlist-bar__sparkle .icon { width: 12px; height: 12px; /* Figma 12 */ }
+
+/* ---------- Mini Player (Organism) ---------- */
+.nav-mini-player {
+  display: flex; align-items: center; box-sizing: border-box; cursor: pointer;
+  width: 351px; /* Figma 351 */ max-width: 100%; height: var(--md-sys-size-control-medium); /* Figma 56 */
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-8); gap: var(--md-sys-spacing-8);
+  border-radius: var(--md-sys-shape-corner-medium); background: var(--md-sys-color-surface_container);
+}
+.nav-mini-player__actions { display: contents; }
+
+/* ---------- Playback Progress (Molecule) ---------- */
+.nav-progress { display: flex; flex-direction: column; gap: var(--md-sys-spacing-4); width: 343px; /* Figma 343 */ max-width: 100%; height: 36px; /* Figma 36 */ }
+.nav-progress__bar { cursor: pointer; padding: 0; }
+.nav-progress__times { display: flex; justify-content: space-between; align-items: flex-start; color: var(--md-sys-color-on_surface_variant); }
+
+/* ---------- Playback Controls (Organism) ---------- */
+.nav-controls {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--md-sys-spacing-20);
+  width: 343px; /* Figma 343 */ max-width: 100%; height: 72px; /* Figma 72 */
+}
+
+/* ---------- Player Utility Bar (Molecule) ---------- */
+.nav-utility-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--md-sys-spacing-16);
+  width: 343px; /* Figma 343 */ max-width: 100%; height: var(--md-sys-size-control-medium); /* Figma 56 */
+}
+.nav-utility-bar__action {
+  display: inline-flex; align-items: center; gap: var(--md-sys-spacing-4); padding: 0; border: 0;
+  border-radius: var(--md-sys-shape-corner-full); background: transparent; color: var(--md-sys-color-on_surface); white-space: nowrap;
+}
+.nav-utility-bar__action[data-active="True"] {
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-12);
+  background: var(--md-sys-color-inverse_surface); color: var(--md-sys-color-inverse_on_surface);
+}
+.nav-utility-bar__action:hover { opacity: 0.88; /* Figma 0.88 (file hover opacity) */ }
+.nav-utility-bar__action:active { opacity: 0.82; /* Figma 0.82 */ }
+.nav-utility-bar__action:focus-visible { outline: 3px solid var(--md-sys-color-primary); outline-offset: 0; /* Figma 3 focus stroke */ }
+
+/* ---------- In use examples ---------- */
+.nav-demo { display: flex; flex-direction: column; gap: var(--md-sys-spacing-8); color: var(--md-sys-color-on_surface); }
+.nav-demo--row { flex-direction: row; flex-wrap: wrap; gap: var(--md-sys-spacing-8); }
+.nav-demo__note { color: var(--md-sys-color-on_surface_variant); }
+.nav-demo--screen {
+  width: 375px; /* Figma 375 */ max-width: 100%; height: 812px; /* Figma 812 */ box-sizing: border-box; gap: var(--md-sys-spacing-0);
+  align-items: center; background: var(--md-sys-color-surface); overflow: hidden;
+}
+.nav-demo--screen > .nav-mini-player { margin-bottom: var(--md-sys-spacing-4); }
+.nav-demo__spacer { flex: 1 1 0; }
+.nav-demo__player-body { display: flex; flex-direction: column; gap: var(--md-sys-spacing-24); width: 343px; /* Figma 343 */ max-width: 100%; padding-top: var(--md-sys-spacing-16); }

@@ -1,0 +1,36 @@
+{
+  "platform": "Android",
+  "figma_file": "Brownfield DS",
+  "figma_url": "https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS",
+  "collections": {
+    "VariableCollectionId:5:2": {
+      "name": "Primitives",
+      "role": "primitive"
+    },
+    "VariableCollectionId:5:80": {
+      "name": "Semantic",
+      "role": "semantic"
+    },
+    "VariableCollectionId:5:116": {
+      "name": "Spacing",
+      "role": "spacing"
+    },
+    "VariableCollectionId:5:128": {
+      "name": "Shape",
+      "role": "radius"
+    },
+    "VariableCollectionId:5:136": {
+      "name": "Typography",
+      "role": "typography"
+    },
+    "VariableCollectionId:60:394": {
+      "name": "Size",
+      "role": "size"
+    }
+  },
+  "ramp": {
+    "method": "m3-tone",
+    "base_step": "40",
+    "order": "ascending"
+  }
+}

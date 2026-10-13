@@ -1,0 +1,651 @@
+{
+ "components": [
+  {
+   "name": "Text Field",
+   "description": "Purpose: Single-line input for short values; Type Dropdown picks one value from 7 or more options.\nUsage rules: Filled for text entry in forms. Outlined where a form sits on a busy surface. Dropdown to pick one value from 7 or more options. Not for long, multi-line text (use Text Area). Not for searching the library or catalog (use Search Bar). Not for 2 to 6 visible choices (use Radio).\nAccessibility: Label and value: 4.5:1 (WCAG 1.4.3) in Light, Dark. Container border / indicator: 3:1 (WCAG 1.4.11) in Light, Dark. Keep a persistent label; never use the placeholder as the only label. Error state shows a text message, not only the red color. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nBehavior: Focused shows the 2 dp active indicator in primary. Error replaces the supporting text with the error message.\nKeywords: input, text field, form, dropdown, select",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "Label"
+    },
+    "Value": {
+     "type": "TEXT",
+     "default": "Value"
+    },
+    "Type": {
+     "type": "VARIANT",
+     "default": "Filled"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Text Area",
+   "description": "Purpose: Multi-line text input for comments, descriptions and notes.\nUsage rules: Free text longer than one line, such as a playlist description or feedback. Not for short single values like a name or email (use Text Field).\nAccessibility: Text: 4.5:1 (WCAG 1.4.3) in Light, Dark. Container border: 3:1 (WCAG 1.4.11) in Light, Dark. Pair it with a visible label above it. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: textarea, multi-line, comment, description",
+   "properties": {
+    "Placeholder": {
+     "type": "TEXT",
+     "default": "Write a message"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Checkbox",
+   "description": "Purpose: Independent on/off choice in a list of options, or a single consent.\nUsage rules: Selecting several items at once. One consent or opt-in line. Not for settings that apply immediately (use Switch). Not for exactly one choice from a list (use Radio).\nAccessibility: Box border and check: 3:1 (WCAG 1.4.11) in Light, Dark. Label the whole row, not only the box. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nBehavior: Error state marks a required choice that is missing.\nKeywords: checkbox, multi-select, consent",
+   "properties": {
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Switch",
+   "description": "Purpose: Turns one setting on or off immediately, such as AI Mix in the player.\nUsage rules: A binary setting that applies at once, without a Save button. Not for choices that need a confirm step (use Checkbox). Not for picking one of several options (use Radio or Filter Chip).\nAccessibility: Track and handle: 3:1 (WCAG 1.4.11) in Light, Dark. Announce the setting name and its on/off state. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: switch, toggle, on off, setting",
+   "properties": {
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Radio",
+   "description": "Purpose: Single choice from 2 to 6 visible options.\nUsage rules: 2 to 6 mutually exclusive options that should all stay visible. Not for 7 or more options (use Text Field with Type Dropdown). Not for several answers allowed (use Checkbox).\nAccessibility: Ring and dot: 3:1 (WCAG 1.4.11) in Light, Dark. Group the options under one visible question. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: radio, single choice, option",
+   "properties": {
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Button",
+   "description": "Purpose: Starts an action; Style sets the emphasis.\nUsage rules: Filled for the one main action of a screen. Tonal for secondary actions. Outlined for alternatives such as New playlist. Text for low-emphasis actions in dialogs. Neutral (gray pill) for More in section headers. Outlined Accent (tertiary purple) for a featured discovery action such as Radar songs around you. Not for icon-only actions (use Icon Button). Not for filtering content (use Filter Chip). Not for moving between top-level destinations (use Bottom Navigation).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Outlined border: 3:1 (WCAG 1.4.11) in Light, Dark. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nBehavior: Show Leading Icon turns the icon on; pick it with the Leading Icon swap. Disabled uses on_surface at 38% for the label.\nKeywords: button, action, cta",
+   "properties": {
+    "Label text": {
+     "type": "TEXT",
+     "default": "Button"
+    },
+    "Show Leading Icon": {
+     "type": "BOOLEAN",
+     "default": false
+    },
+    "Leading Icon": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/add"
+    },
+    "Style": {
+     "type": "VARIANT",
+     "default": "Filled"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Icon Button",
+   "description": "Purpose: Compact action shown as an icon only, such as Like, Share, More or Play.\nUsage rules: Standard for toolbar and row actions (more_vert, favorite). Tonal for secondary actions such as Share on the player. Inverse for the main Play action. Filled for a strong single action on media. Not for actions that need a text label to be understood (use Button).\nAccessibility: Icon on its container: 3:1 (WCAG 1.4.11) in Light, Dark. Give every instance an accessible name (Like, Share, Play). Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nBehavior: Swap play_arrow to pause while playing. The icon fills the container minus its padding: resize the instance and set its padding to size the glyph (Play 64 dp with spacing/8 padding, Mini Player Play 40 dp with spacing/4).\nKeywords: icon button, action, play, like, more",
+   "properties": {
+    "Icon": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/play_arrow"
+    },
+    "Style": {
+     "type": "VARIANT",
+     "default": "Standard"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Filter Chip",
+   "description": "Purpose: Filters content in place, such as All / Arabic / International / Podcasts on Explore.\nUsage rules: 2 to 6 visible filters above a feed or list. Switching Playlists / Albums / Artists in the Library. Not for 7 or more filters (use Text Field with Type Dropdown). Not for starting an action (use Button).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Announce the selected state. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: chip, filter, segment",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "Filter"
+    },
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Tab Item",
+   "description": "Purpose: One tab label inside Primary Tabs.\nUsage rules: Inside Primary Tabs only, for Music / Podcasts style switching. Not for on its own (use Primary Tabs). Not for filtering a list (use Filter Chip).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Selected tab is announced as selected. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: tab, segment",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "MUSIC"
+    },
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Navigation Item",
+   "description": "Purpose: One destination inside Bottom Navigation: icon plus label.\nUsage rules: Inside Bottom Navigation only. Not for actions on the current screen (use Icon Button).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Selected item is announced as selected. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: navigation, tab bar, destination",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "Explore"
+    },
+    "Icon": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/explore"
+    },
+    "Selected": {
+     "type": "VARIANT",
+     "default": "False"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Enabled"
+    }
+   }
+  },
+  {
+   "name": "Primary Tabs",
+   "description": "Purpose: Two large condensed tabs that switch the Library between Music and Podcasts.\nUsage rules: Top-level content switch inside one destination. Not for moving between app destinations (use Bottom Navigation). Not for more than 2 small filters (use Filter Chip).\nAccessibility: Tabs are a tab list; the selected tab is announced. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: tabs, music, podcasts",
+   "properties": {
+    "First Tab": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=True, State=Enabled"
+    },
+    "Second Tab": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=False, State=Enabled"
+    }
+   }
+  },
+  {
+   "name": "Bottom Navigation",
+   "description": "Purpose: App navigation bar with the four destinations Explore, Search, Connect and Your Library.\nUsage rules: Bottom of every top-level screen on compact windows. Not for actions on the current screen. Not for fewer than 3 destinations.\nAccessibility: Each item has a visible label. Selected destination is announced. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: bottom navigation, navigation bar, tab bar",
+   "properties": {
+    "First Item": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=True, State=Enabled"
+    },
+    "Second Item": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=False, State=Enabled"
+    },
+    "Third Item": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=False, State=Enabled"
+    },
+    "Fourth Item": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=False, State=Enabled"
+    }
+   }
+  },
+  {
+   "name": "Search Bar",
+   "description": "Purpose: Entry point to search the library or catalog, with an optional voice search mic.\nUsage rules: Top of Library and Search screens. Not for form fields (use Text Field).\nAccessibility: Placeholder: 4.5:1 (WCAG 1.4.3) in Light, Dark. Mic has its own accessible name (Voice search). Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: search, find, voice",
+   "properties": {
+    "Placeholder": {
+     "type": "TEXT",
+     "default": "Search in your library"
+    },
+    "Icon search": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/search"
+    },
+    "Icon mic": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/mic"
+    }
+   }
+  },
+  {
+   "name": "Top App Bar",
+   "description": "Purpose: Screen header with a condensed title and the Notifications, Community and Profile actions.\nUsage rules: Top of top-level screens such as Explore. Show Actions off for screens with a title only, such as Search & Discover. Not for the full player (use Playlist App Bar).\nAccessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Every action has an accessible name. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: app bar, header, top bar",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "EXPLORE"
+    },
+    "Show Actions": {
+     "type": "BOOLEAN",
+     "default": true
+    }
+   }
+  },
+  {
+   "name": "Playlist App Bar",
+   "description": "Purpose: Header of the full player: collapse, the playing source and the AI Mix switch.\nUsage rules: Top of the Now Playing and Lyrics screens. Not for top-level screens (use Top App Bar).\nAccessibility: Title and AI Mix label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Collapse is announced as Close player. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: player header, now playing, ai mix",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Arabic Music Mix"
+    },
+    "Switch": {
+     "type": "INSTANCE_SWAP",
+     "default": "Selected=False, State=Enabled"
+    },
+    "AI Mix Label": {
+     "type": "TEXT",
+     "default": "AI MIX"
+    },
+    "Source Label": {
+     "type": "TEXT",
+     "default": "PLAYLIST"
+    }
+   }
+  },
+  {
+   "name": "Status Bar",
+   "description": "Purpose: Android system status bar used in screen mockups (time, Wi-Fi, signal, battery).\nUsage rules: First full-bleed row of every 375 dp screen. Not for app actions or content.\nAccessibility: Decorative system chrome, not interactive. Time: 4.5:1 (WCAG 1.4.3) in Light, Dark.\nKeywords: status bar, system, mockup",
+   "properties": {
+    "Time": {
+     "type": "TEXT",
+     "default": "5:00"
+    }
+   }
+  },
+  {
+   "name": "Mini Player",
+   "description": "Purpose: Persistent bar above Bottom Navigation showing the playing track with Like and Play.\nUsage rules: Every top-level screen while something is playing. Not for inside the full player.\nAccessibility: Title and artist: 4.5:1 (WCAG 1.4.3) in Light, Dark. Tapping the bar opens Now Playing; Like and Play are separate targets. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: mini player, now playing, playback",
+   "properties": {
+    "Artwork": {
+     "type": "INSTANCE_SWAP",
+     "default": "Artwork"
+    },
+    "Track Metadata": {
+     "type": "INSTANCE_SWAP",
+     "default": "Track Metadata"
+    }
+   }
+  },
+  {
+   "name": "Playback Progress",
+   "description": "Purpose: Track position bar with elapsed and total time.\nUsage rules: Full player, under the track title. Not for loading states (use Progress Indicator alone).\nAccessibility: Times: 4.5:1 (WCAG 1.4.3) in Light, Dark. Announce position as elapsed of total; seeking needs a 48 dp tall hit area. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: progress, seek, scrubber, timeline",
+   "properties": {
+    "Elapsed Time": {
+     "type": "TEXT",
+     "default": "00:03"
+    },
+    "Total Time": {
+     "type": "TEXT",
+     "default": "03:48"
+    },
+    "Progress Indicator": {
+     "type": "INSTANCE_SWAP",
+     "default": "Value=40"
+    }
+   }
+  },
+  {
+   "name": "Playback Controls",
+   "description": "Purpose: Main player controls: Like, Previous, Play/Pause, Next and Download.\nUsage rules: Full player (Now Playing and Lyrics). Not for compact contexts (use Mini Player).\nAccessibility: Every control has an accessible name; Play switches to Pause. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: player, controls, play, pause, next",
+   "properties": {}
+  },
+  {
+   "name": "Player Utility Bar",
+   "description": "Purpose: Bottom row of the full player opening Lyrics, Queue and Audio settings.\nUsage rules: Bottom of the Now Playing and Lyrics screens. Not for primary playback actions (use Playback Controls).\nAccessibility: Labels: 4.5:1 (WCAG 1.4.3) in Light, Dark. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nBehavior: Active marks the open view with an inverse pill (Lyrics on the Lyrics screen); None on Now Playing.\nKeywords: lyrics, queue, audio, player",
+   "properties": {
+    "Lyrics Label": {
+     "type": "TEXT",
+     "default": "LYRICS"
+    },
+    "Queue Label": {
+     "type": "TEXT",
+     "default": "QUEUE"
+    },
+    "Audio Label": {
+     "type": "TEXT",
+     "default": "AUDIO"
+    },
+    "Icon lyrics": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/lyrics"
+    },
+    "Icon queue music": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/queue_music"
+    },
+    "Icon graphic eq": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/graphic_eq"
+    },
+    "Active": {
+     "type": "VARIANT",
+     "default": "None"
+    }
+   }
+  },
+  {
+   "name": "Artwork",
+   "description": "Purpose: Square cover image for a song, album, playlist or podcast.\nUsage rules: Inside cards, list items and players. Not for people (use Avatar).\nAccessibility: Decorative when the title is next to it; otherwise give alt text with the title.\nKeywords: artwork, cover, album art, image",
+   "properties": {}
+  },
+  {
+   "name": "Avatar",
+   "description": "Purpose: Round picture of the signed-in user or an artist.\nUsage rules: Profile entry in Top App Bar. Artist rows. Not for album or playlist covers (use Artwork).\nAccessibility: Accessible name is the person name or Profile. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: avatar, profile, user",
+   "properties": {}
+  },
+  {
+   "name": "Tooltip",
+   "description": "Purpose: Short help text on long press or focus; Rich adds a title and longer text.\nUsage rules: Explaining an icon-only control. Not for essential instructions or errors (show them on screen).\nAccessibility: Text: 4.5:1 (WCAG 1.4.3) in Light, Dark. Also reachable by keyboard focus.\nKeywords: tooltip, help, hint",
+   "properties": {
+    "Text": {
+     "type": "TEXT",
+     "default": "Tooltip label"
+    },
+    "Type": {
+     "type": "VARIANT",
+     "default": "Plain"
+    }
+   }
+  },
+  {
+   "name": "Badge",
+   "description": "Purpose: Small label on artwork or an avatar: Plan shows the subscription plan, Explicit marks explicit content.\nUsage rules: Type Plan: plan label (plus) on the profile avatar. Type Explicit: the \"E\" marker on explicit songs and albums. Not for long text or actions.\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Include the meaning in the parent accessible name (Explicit).\nKeywords: badge, explicit, label",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "E"
+    },
+    "Type": {
+     "type": "VARIANT",
+     "default": "Plan"
+    }
+   }
+  },
+  {
+   "name": "Section Header",
+   "description": "Purpose: Title of a content rail with optional supporting text and a More button.\nUsage rules: Above every horizontal rail on Explore. Not for above sortable lists (use List Header).\nAccessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Title is a heading for screen readers. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: section, header, rail title",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Your new music"
+    },
+    "Show More": {
+     "type": "BOOLEAN",
+     "default": true
+    },
+    "Show Supporting Text": {
+     "type": "BOOLEAN",
+     "default": false
+    },
+    "Supporting Text": {
+     "type": "TEXT",
+     "default": "Discover music based on your recent activity"
+    }
+   }
+  },
+  {
+   "name": "Shortcut Card",
+   "description": "Purpose: Compact card with artwork and label for quick access, such as Music Mix or Recently Played.\nUsage rules: Two-column shortcut grid at the top of Explore. Not for category tiles without artwork (use Library Shortcut Tile).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. The whole card is one target. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: shortcut, card, quick access",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "Music Mix"
+    },
+    "Artwork": {
+     "type": "INSTANCE_SWAP",
+     "default": "Artwork"
+    }
+   }
+  },
+  {
+   "name": "Media Carousel",
+   "description": "Purpose: Horizontal rail of Media Cards that scrolls and clips at the screen edge.\nUsage rules: Explore rails such as Your new music and For You. Not for vertical lists (use Playlist List Item).\nAccessibility: Cards stay reachable in reading order; the rail scrolls with the screen reader.\nKeywords: carousel, rail, horizontal list",
+   "properties": {
+    "First Card": {
+     "type": "INSTANCE_SWAP",
+     "default": "Size=Default"
+    },
+    "Second Card": {
+     "type": "INSTANCE_SWAP",
+     "default": "Size=Default"
+    },
+    "Third Card": {
+     "type": "INSTANCE_SWAP",
+     "default": "Size=Default"
+    }
+   }
+  },
+  {
+   "name": "Library Shortcut Tile",
+   "description": "Purpose: Category tile with a colored icon and label, such as Likes, Downloads or Saved.\nUsage rules: 3 or 4 equal-width tiles in a row at the top of the Library. Not for media with artwork (use Shortcut Card).\nAccessibility: Label: 4.5:1 (WCAG 1.4.3) in Light, Dark. Icon: 3:1 (WCAG 1.4.11) in Light, Dark. Whole tile is the target, at least 80 x 80 dp. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: library, shortcut, category, tile",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "Likes"
+    },
+    "Icon": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/favorite"
+    },
+    "Color": {
+     "type": "VARIANT",
+     "default": "Purple"
+    }
+   }
+  },
+  {
+   "name": "Media Card",
+   "description": "Purpose: One item in a media rail: artwork with title and subtitle, or a mix with a description.\nUsage rules: Size Default for songs, albums and artists. Size Large for mixes such as Your Weekly Mixtape. Not for vertical lists (use Playlist List Item).\nAccessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. The card is one target; title is its accessible name. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: media card, song, album, mix",
+   "properties": {
+    "Artwork": {
+     "type": "INSTANCE_SWAP",
+     "default": "Artwork"
+    },
+    "Show Badge": {
+     "type": "BOOLEAN",
+     "default": false
+    },
+    "Description": {
+     "type": "TEXT",
+     "default": "Your next favorite songs are in here"
+    },
+    "Size": {
+     "type": "VARIANT",
+     "default": "Default"
+    }
+   }
+  },
+  {
+   "name": "Track Metadata",
+   "description": "Purpose: Title and subtitle of a track or playlist, with an optional downloaded icon.\nUsage rules: Inside Mini Player, Media Card and list items. Not for section titles (use Section Header).\nAccessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. Truncated text stays fully readable by the screen reader.\nKeywords: metadata, title, artist, subtitle",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Track title"
+    },
+    "Subtitle": {
+     "type": "TEXT",
+     "default": "Artist · Album"
+    },
+    "Show Subtitle Icon": {
+     "type": "BOOLEAN",
+     "default": false
+    },
+    "Subtitle Icon": {
+     "type": "INSTANCE_SWAP",
+     "default": "Icon/cloud_done"
+    }
+   }
+  },
+  {
+   "name": "Playlist List Item",
+   "description": "Purpose: Row for a playlist, album or artist with artwork, metadata and a More action.\nUsage rules: Library lists of playlists, albums and artists. Not for podcast episodes (use Podcast Episode Card).\nAccessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. The row and More are separate targets. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: list item, playlist, row",
+   "properties": {
+    "Artwork": {
+     "type": "INSTANCE_SWAP",
+     "default": "Artwork"
+    },
+    "Track Metadata": {
+     "type": "INSTANCE_SWAP",
+     "default": "Track Metadata"
+    },
+    "Show More": {
+     "type": "BOOLEAN",
+     "default": true
+    }
+   }
+  },
+  {
+   "name": "Podcast Episode Card",
+   "description": "Purpose: Episode card with artwork, title, description, listened progress, Download and More.\nUsage rules: Continue playing and episode lists in Podcasts. Not for music playlists (use Playlist List Item).\nAccessibility: Texts: 4.5:1 (WCAG 1.4.3) in Light, Dark. Progress is announced as time left. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: podcast, episode, card",
+   "properties": {
+    "Description": {
+     "type": "TEXT",
+     "default": "Episode description continues across two concise lines."
+    },
+    "Artwork": {
+     "type": "INSTANCE_SWAP",
+     "default": "Artwork"
+    },
+    "Track Metadata": {
+     "type": "INSTANCE_SWAP",
+     "default": "Track Metadata"
+    },
+    "Progress Indicator": {
+     "type": "INSTANCE_SWAP",
+     "default": "Value=40"
+    },
+    "Time Left": {
+     "type": "TEXT",
+     "default": "1h 42min left"
+    },
+    "Show Download": {
+     "type": "BOOLEAN",
+     "default": true
+    }
+   }
+  },
+  {
+   "name": "List Header",
+   "description": "Purpose: Header above a sortable list with a sort control and an optional main action.\nUsage rules: Above Playlists in the Library, with New playlist. Not for above content rails (use Section Header).\nAccessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Sort control announces the current sort. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: list header, sort, new playlist",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Playlists"
+    },
+    "Show Action": {
+     "type": "BOOLEAN",
+     "default": true
+    }
+   }
+  },
+  {
+   "name": "Dialog",
+   "description": "Purpose: Modal window for a focused decision that blocks the screen until answered.\nUsage rules: Basic for confirmations. List to pick from a short list. Not for non-blocking messages. Not for supplemental tasks (use Sheet).\nAccessibility: Title and body: 4.5:1 (WCAG 1.4.3) in Light, Dark. Focus moves into the dialog and returns on close. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: dialog, modal, confirm",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Confirm action"
+    },
+    "Type": {
+     "type": "VARIANT",
+     "default": "Basic"
+    }
+   }
+  },
+  {
+   "name": "Sheet",
+   "description": "Purpose: Bottom or side surface for supplemental tasks such as the queue or a track menu.\nUsage rules: Bottom on phones for menus and details. Side on large screens. Not for blocking confirmations (use Dialog).\nAccessibility: Title: 4.5:1 (WCAG 1.4.3) in Light, Dark. Has a visible close or drag handle and closes with Back.\nKeywords: sheet, bottom sheet, menu",
+   "properties": {
+    "Title": {
+     "type": "TEXT",
+     "default": "Sheet title"
+    },
+    "Position": {
+     "type": "VARIANT",
+     "default": "Bottom"
+    }
+   }
+  },
+  {
+   "name": "Progress Indicator",
+   "description": "Purpose: Linear bar showing determinate progress, such as the listened part of an episode.\nUsage rules: Episode progress. Inside Playback Progress. Not for seeking on its own (use Playback Progress).\nAccessibility: Active track: 3:1 (WCAG 1.4.11) in Light, Dark. Announce the value as a percentage or time.\nBehavior: Value sets the active track as a percent; the active track scales with the instance width.\nKeywords: progress, linear, loading",
+   "properties": {
+    "Value": {
+     "type": "VARIANT",
+     "default": "2"
+    }
+   }
+  },
+  {
+   "name": "Divider",
+   "description": "Purpose: Thin line that separates groups of content.\nUsage rules: Between groups that spacing alone does not separate. Not for between every list row (use spacing).\nAccessibility: Decorative; hidden from screen readers.\nKeywords: divider, separator, line",
+   "properties": {}
+  },
+  {
+   "name": "Lyrics Line",
+   "description": "Purpose: One line of synced lyrics; State shows where playback is.\nUsage rules: Lyrics screen, one instance per line. Align End for right-to-left lines (Arabic), Start for left-to-right. Not for body text or descriptions (use the text styles).\nAccessibility: Current line: 4.5:1 (WCAG 1.4.3) in Light, Dark. Past and Upcoming lines are dimmed on purpose; the screen reader reads every line. Respect the system font size; lines wrap.\nBehavior: Current is on_surface; Past and Upcoming are outline (dimmed).\nKeywords: lyrics, line, karaoke, synced",
+   "properties": {
+    "Line": {
+     "type": "TEXT",
+     "default": "كانت أكبر كذبه عشته"
+    },
+    "State": {
+     "type": "VARIANT",
+     "default": "Past"
+    },
+    "Align": {
+     "type": "VARIANT",
+     "default": "Start"
+    }
+   }
+  },
+  {
+   "name": "Lyrics Header",
+   "description": "Purpose: Track header at the top of the Lyrics screen: artwork, title, artist, Share and More.\nUsage rules: Top of the Lyrics screen, under the collapse button. Not for now Playing (artwork is large there). Not for lists (use Playlist List Item).\nAccessibility: Title and artist: 4.5:1 (WCAG 1.4.3) in Light, Dark. Share and More have accessible names. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: lyrics, header, track",
+   "properties": {}
+  },
+  {
+   "name": "Genre Card",
+   "description": "Purpose: Tile that opens a genre, mood or chart: artist photo on a category color with the genre name.\nUsage rules: Search & Discover grids (Popular, Moods & Genres), two per row. Color picks the category accent; neighbours use different colors. Not for library shortcuts with an icon (use Library Shortcut Tile). Not for songs or albums (use Media Card).\nAccessibility: Label on the category color: 4.5:1 (WCAG 1.4.3) in Light, Dark. The whole card is one target; the label is its accessible name. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.\nKeywords: genre, mood, category, browse, search",
+   "properties": {
+    "Label": {
+     "type": "TEXT",
+     "default": "ALTERNATIVE"
+    },
+    "Color": {
+     "type": "VARIANT",
+     "default": "Magenta"
+    }
+   }
+  }
+ ]
+}
