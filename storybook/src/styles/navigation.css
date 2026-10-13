@@ -3,7 +3,8 @@
    written as color-mix() of a token with the Figma opacity. Light / Dark come from [data-semantic] on a parent. */
 
 /* ---------- shared ---------- */
-.nav-btn, .nav-icon-btn, .nav-chip, .nav-tab, .nav-item, .nav-utility-bar__action, .nav-top-bar__profile {
+/* :where() keeps this reset at 0 specificity so the .ts-m3-* text style classes win. */
+:where(.nav-btn, .nav-icon-btn, .nav-chip, .nav-tab, .nav-item, .nav-utility-bar__action, .nav-top-bar__profile) {
   font: inherit; margin: 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
 }
 .nav-btn:disabled, .nav-icon-btn:disabled, .nav-chip:disabled, .nav-tab:disabled, .nav-item:disabled { cursor: not-allowed; }
@@ -12,17 +13,19 @@
 /* ---------- Button (Atom) ---------- */
 /* Figma: height 48, padding 0 24, gap 8, corner full, M3/label_large, leading icon 18. */
 .nav-btn {
-  display: inline-flex; align-items: center; justify-content: center; box-sizing: content-box;
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
   height: var(--md-sys-size-touch_target); padding: 0 var(--md-sys-spacing-24); gap: var(--md-sys-spacing-8);
   border-radius: var(--md-sys-shape-corner-full); border: 0; white-space: nowrap;
   background: var(--md-sys-color-primary); color: var(--md-sys-color-on_primary);
 }
 .nav-btn .icon { width: 18px; height: 18px; /* Figma 18 */ }
 .nav-btn[data-style="Tonal"] { background: var(--md-sys-color-primary_container); color: var(--md-sys-color-on_primary_container); }
-.nav-btn[data-style="Outlined"] { background: transparent; color: var(--md-sys-color-primary); box-shadow: inset 0 0 0 1px var(--md-sys-color-outline); }
+.nav-btn[data-style="Outlined"] { background: transparent; color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline); padding: 0 calc(var(--md-sys-spacing-24) - 1px); /* Figma 1 inside stroke; padding + border = 24 */ }
 .nav-btn[data-style="Text"] { background: transparent; color: var(--md-sys-color-primary); }
 .nav-btn[data-style="Neutral"] { background: var(--md-sys-color-surface_container_highest); color: var(--md-sys-color-on_surface); }
-.nav-btn[data-style="Outlined Accent"] { background: transparent; color: var(--md-sys-color-tertiary); box-shadow: inset 0 0 0 1px var(--md-sys-color-tertiary); }
+.nav-btn[data-style="Outlined Accent"] { background: transparent; color: var(--md-sys-color-tertiary);
+  border: 1px solid var(--md-sys-color-tertiary); padding: 0 calc(var(--md-sys-spacing-24) - 1px); /* Figma 1 inside stroke; padding + border = 24 */ }
 
 /* Hovered: Filled / Tonal / Neutral opacity 0.88; Outlined / Text / Outlined Accent primary layer 8% */
 .nav-btn:is([data-style="Filled"], [data-style="Tonal"], [data-style="Neutral"]):is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
@@ -35,10 +38,14 @@
 .nav-btn:is([data-style="Outlined"], [data-style="Text"], [data-style="Outlined Accent"]):is([data-state="Pressed"], [data-state="Enabled"]:active) {
   background: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent); /* Figma primary @0.1 */
 }
-/* Focused: 3px inside stroke included in the layout (primary; tertiary on Outlined Accent) */
-.nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ height: calc(var(--md-sys-size-touch_target) - 6px); }
-.nav-btn[data-style="Outlined Accent"]:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { border-color: var(--md-sys-color-tertiary); box-shadow: none; }
-.nav-btn[data-style="Outlined"]:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { box-shadow: none; }
+/* Focused: 3px stroke included in the layout (primary; tertiary on Outlined Accent). Figma keeps padding 24 inside the
+   stroke (width grows 91 -> 97): CSS padding 21 + border 3 = 24, and the first / last child take the other 3. */
+.nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) {
+  outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ padding: 0 calc(var(--md-sys-spacing-24) - 3px);
+}
+.nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) > :first-child { margin-inline-start: 3px; /* Figma 3 (stroke in layout) */ }
+.nav-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) > :last-child { margin-inline-end: 3px; /* Figma 3 (stroke in layout) */ }
+.nav-btn[data-style="Outlined Accent"]:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { border-color: var(--md-sys-color-tertiary); }
 /* Disabled: opacity 0.38 */
 .nav-btn[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
 .nav-btn:is([data-style="Filled"], [data-style="Tonal"])[data-state="Disabled"] { background: var(--md-sys-color-surface_container_high); color: var(--md-sys-color-on_surface_variant); }
@@ -48,7 +55,7 @@
 /* ---------- Icon Button (Atom) ---------- */
 /* Figma: 48 x 48, padding 12, corner full, icon 24. Resized instances set width / height / --nav-icon-size inline. */
 .nav-icon-btn {
-  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none; padding: var(--md-sys-spacing-12);
   width: var(--md-sys-size-touch_target); height: var(--md-sys-size-touch_target);
   border-radius: var(--md-sys-shape-corner-full); border: 0; background: transparent; color: var(--md-sys-color-on_surface);
 }
@@ -67,6 +74,7 @@
 .nav-icon-btn[data-style="Inverse"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 88%, transparent); /* Figma @0.88 */ }
 /* Focused: 3px inside stroke, the icon shrinks to 18 inside the fixed 48 box (Figma) */
 .nav-icon-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ }
+.nav-icon-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible):not([style]) { padding: calc(var(--md-sys-spacing-12) - 3px); /* padding + border = 12 */ }
 .nav-icon-btn[data-state="Focused"]:not([style]) .icon { width: 18px; height: 18px; /* Figma 18 */ }
 /* Disabled: Standard / Filled opacity 0.38; Tonal / Inverse on_surface layer 12% with an on_surface icon */
 .nav-icon-btn:is([data-style="Standard"], [data-style="Filled"])[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
@@ -106,8 +114,10 @@
 .nav-tab:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
 .nav-tab[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
 .nav-tab:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) {
-  outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ padding: calc(var(--md-sys-spacing-8) - 3px) var(--md-sys-spacing-8);
+  outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ padding: calc(var(--md-sys-spacing-8) - 3px); /* padding + border = 8 */
 }
+/* Figma keeps the stroke in the layout (width 82 -> 88): the children take the other 3 on each side. */
+.nav-tab:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) > * { margin-inline: 3px; /* Figma 3 (stroke in layout) */ }
 
 /* ---------- Navigation Item (Atom) ---------- */
 /* Figma: 80 wide, vertical, padding 4 0, gap 4, corner medium, icon 24 on_surface, M3/label_small. */

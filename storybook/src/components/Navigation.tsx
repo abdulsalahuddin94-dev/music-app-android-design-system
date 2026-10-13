@@ -55,7 +55,10 @@ export type IconButtonProps = {
   label?: string; size?: number; iconSize?: number; pressed?: boolean; onClick?: () => void;
 };
 export function IconButton({ Style = 'Standard', State = 'Enabled', Icon: icon = 'Icon/play_arrow', label, size, iconSize, pressed, onClick }: IconButtonProps) {
-  const style = size ? ({ width: size, height: size, '--nav-icon-size': `${iconSize ?? 24}px` } as React.CSSProperties) : iconSize ? ({ '--nav-icon-size': `${iconSize}px` } as React.CSSProperties) : undefined;
+  // Resized instances keep the icon centred: padding = (size - icon) / 2, like the Figma auto layout.
+  const style = size
+    ? ({ width: size, height: size, padding: Math.max(0, (size - (iconSize ?? 24)) / 2), '--nav-icon-size': `${iconSize ?? 24}px` } as React.CSSProperties)
+    : iconSize ? ({ '--nav-icon-size': `${iconSize}px` } as React.CSSProperties) : undefined;
   return (
     <button
       type="button" className="nav-icon-btn" data-style={Style} data-state={State} disabled={State === 'Disabled'} style={style}
@@ -72,7 +75,7 @@ export function FilterChip({ Selected = 'False', State = 'Enabled', Label = 'Fil
   const [on, setOn] = useSynced(Selected === 'True');
   return (
     <button
-      type="button" className="nav-chip" data-selected={on ? 'True' : 'False'} data-state={State} aria-pressed={on} disabled={State === 'Disabled'}
+      type="button" className="nav-chip" data-figma-component="Filter Chip" data-selected={on ? 'True' : 'False'} data-state={State} aria-pressed={on} disabled={State === 'Disabled'}
       onClick={() => { setOn(!on); onChange?.(!on); }}
     >
       <span className="nav-chip__container ts-m3-label_large">{Label}</span>

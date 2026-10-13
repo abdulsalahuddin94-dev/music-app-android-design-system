@@ -4,7 +4,8 @@
    sizes the resized instances. Light / Dark come from [data-semantic] on a parent. */
 
 /* ---------- shared ---------- */
-.dd-shortcut-card, .dd-library-tile, .dd-media-card, .dd-genre-card, .dd-list-header__sort {
+/* :where() keeps this reset at 0 specificity so the .ts-m3-* text style classes win. */
+:where(.dd-shortcut-card, .dd-library-tile, .dd-media-card, .dd-genre-card, .dd-list-header__sort) {
   font: inherit; margin: 0; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent;
 }
 .dd-shortcut-card:hover, .dd-library-tile:hover, .dd-media-card:hover, .dd-genre-card:hover, .dd-list-item:hover, .dd-list-header__sort:hover { opacity: 0.88; /* Figma 0.88 (file hover opacity) */ }
@@ -64,8 +65,8 @@
 .dd-library-tile {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; flex: none;
   width: 80px; height: 80px; /* Figma 80 */
-  padding: var(--md-sys-spacing-12) var(--md-sys-spacing-4); gap: var(--md-sys-spacing-8);
-  border: 0; box-shadow: inset 0 0 0 1px var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
+  padding: calc(var(--md-sys-spacing-12) - 1px) calc(var(--md-sys-spacing-4) - 1px); gap: var(--md-sys-spacing-8); /* padding + border = 12 4 */
+  border: 1px solid var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
   background: var(--md-sys-color-surface_container); color: var(--md-sys-color-on_surface);
 }
 .dd-library-tile__icon { flex: none; width: 28px; height: 28px; /* Figma 28 */ color: var(--md-sys-color-tertiary); }
@@ -134,8 +135,8 @@
 .dd-episode {
   display: flex; flex-direction: column; box-sizing: border-box;
   width: 360px; /* Figma 360 */ max-width: 100%;
-  padding: var(--md-sys-spacing-12); gap: var(--md-sys-spacing-4);
-  border: 0; box-shadow: inset 0 0 0 1px var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
+  padding: calc(var(--md-sys-spacing-12) - 1px); gap: var(--md-sys-spacing-4); /* padding + border = 12 */
+  border: 1px solid var(--md-sys-color-outline_variant); /* Figma 1px inside stroke */ border-radius: var(--md-sys-shape-corner-medium);
   background: var(--md-sys-color-surface_container); color: var(--md-sys-color-on_surface);
 }
 .dd-episode__header { display: flex; align-items: center; gap: var(--md-sys-spacing-12); min-width: 0; }
@@ -199,7 +200,7 @@
 /* ---------- Lyrics Line (Atom) ---------- */
 /* Figma: 343 x 40, padding 8 0; M3/headline_small_emphasized; Current on_surface, Past / Upcoming outline. */
 .dd-lyrics-line {
-  box-sizing: border-box; margin: 0; width: 343px; /* Figma 343 */ max-width: 100%;
+  box-sizing: border-box; margin: 0; width: 343px; /* Figma 343 */ max-width: 100%; height: 40px; /* Figma 40 (fixed; the 32 line overflows the padding like in Figma) */
   padding: var(--md-sys-spacing-8) 0; text-align: left; color: var(--md-sys-color-outline); cursor: default;
 }
 .dd-lyrics-line[data-align="End"] { text-align: right; }
