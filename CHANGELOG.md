@@ -6,7 +6,7 @@ Entry format:
 
 ```
 ## YYYY-MM-DD - <what, e.g. Components: Button, Input Field>
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: <Claude Code / Codex / Cursor / Antigravity / ...>
 - Changed: <components, variables or styles added, changed or removed>
 - Figma file: <name>
@@ -18,8 +18,15 @@ Entry format:
 - Deprecated / Removed: <name -> replacement, usage count> (only when something was deprecated or removed; `Workflow_References/governance/deprecation.md`)
 ```
 
+## 2026-10-13 - Storybook: built and published
+- Storybook synced: yes
+- Tool: Claude Code
+- Changed: storybook/ (React + Storybook 10, Android Material look in web): 40 components with stories and Docs pages, Welcome, Foundations (Colors, Typography, Sizing, Effects, Icons, Code with Jetpack Compose names and DesignTokens.kt), Light / Dark toolbar.
+- Checks: parity 40/40, 0 name problems, 0 docs pages with missing sections; build passes; style check 98.9% (5224/5280), the 56 left are Button padding under a stroke, listed in storybook/README.md
+- Published: https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/ (repo abdulsalahuddin94-dev/music-app-android-design-system, gh-pages branch; CI workflows kept in docs/ci until the GitHub login has the workflow permission)
+
 ## 2026-10-13 - Finish: final audit, project skills, prototype
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Final DS audit: 0 remote, 0 raw values (3979 nodes), 1 known property exception (Media Card Description), 78/78 descriptions, contrast 68/68 pairs pass in Light and Dark, registry = Figma (40 components, 38 icons), readiness 98 (audits/2026-10-13-final-audit.md). Icon Library boards now show all 38 icons.
 - Project skills: Foundation_Skill, Form_Elements / Navigation / Data_Display skills, gaps, data/screen-templates.json, DESIGN.md + AGENTS.md block; component_docs check 40/40, token lint 0 errors, recolor ready.
@@ -28,7 +35,7 @@ Entry format:
 - Figma files: Brownfield DS (description fix none), Brownfield Design (prototype)
 
 ## 2026-10-13 - Screens fidelity round 3 (Abdul's review): source over Material 3
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Changed (Brownfield DS): Button / Icon Button height unbound (it forced resized instances to 48); Icon Button icon fills the container minus padding; Playback Controls icons and Play glyph enlarged, Play 64 and Mini Player Play 40 round; Playlist App Bar (Source Label property, 12 px bold / regular, Collapse 40, AI MIX sparkle under the label); new text style M3/label_medium_emphasized; Switch 44 x 24, thumb 18; Search Bar 42; Bottom Navigation 58 (items 52); Mini Player 56; Shortcut Card 56; Podcast Episode Card 186 with an outline_variant border.
 - Changed (Brownfield Design): bottom bars re-docked; Search Bar / Shortcut Card instance heights reset; Now Playing title "Arabic Music Mix"; Now Playing controls fill to the bottom.
@@ -38,7 +45,7 @@ Entry format:
 - Tokens / Time (whole project so far): 141.3M, 2h 33m active
 
 ## 2026-10-13 - Screens: Listen flow organized, Lyrics + Search & Discover built
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Changed (Brownfield Design): Page 1 -> Listen, one section per screen (`Listen / <Screen>`) with its source screenshot and Dark / Light frames named `Listen / <Screen> / <Mode>`; Semantic mode pinned on every frame. Now Playing: Audio icon -> settings, progress Value 2. Library - Podcasts: progress values 10 / 10 / 40. New screens: Lyrics (Dark, Light, 375 x 812) and Search & Discover (Full 375 x 1424 and Viewport 375 x 812, Dark and Light; 20 Genre Cards with photos cropped from the source).
 - Changed (Brownfield DS): Progress Indicator became a set (Value 2-100, active track scales); Icon/radar added; Lyrics Line Past uses outline.
@@ -51,7 +58,7 @@ Entry format:
 - Time: 47m active (2h 03m total)
 
 ## 2026-10-13 - Screens prep: Listen flow components and tokens (DS file)
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Changed: flow map (audits/2026-10-13-flow-map-listen.md) and gap table + specs (audits/2026-10-13-flow-listen.md) approved. New Primitives md/ref/palette/blue and green (11 tones each, curve of the cyan ramp); new Semantic md/sys/color/category_blue, category_green, category_red (error palette), category_purple. New components Lyrics Line (6 variants), Lyrics Header, Genre Card (7 colors), new page ➜ Lyrics. Badge became a set (Type Plan / Explicit; Media Card uses Explicit); Button Style Outlined Accent (5 states); Top App Bar Show Actions; Player Utility Bar became a set (Active None / Lyrics / Queue / Audio). Descriptions from the registry (40 components). Light & Dark previews refreshed.
 - Figma file: Brownfield DS
@@ -60,7 +67,7 @@ Entry format:
 - Existing screens audit: 10 frames, 0 raw values, 0 detached, readiness 82-90; fidelity fixes approved (audits/2026-10-13-screens-brownfield-design.md)
 
 ## 2026-10-13 - Components: docs, states, Size bindings, Light/Dark previews
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Changed: component registry written (37 components, docs blocks); Purpose / Usage rules / Accessibility descriptions applied to 37 components (tools/component_docs.py + apply_descriptions) and to 37 Icon/* components. State Default -> Enabled (Text Field, Text Area, Checkbox, Radio); Hovered added (Text Field 3, Text Area, Checkbox 2, Radio 2, Tab Item 2); Navigation Item gets State Enabled / Pressed / Disabled; Button Neutral Disabled / Hovered / Pressed fixed. Heights bound to Size tokens on 101 variants. Search Bar moved to ⭐Form Elements ➜ Search, Status Bar to ⭐Setup ➜ Utilities, ➜ App Bar & Search renamed ➜ App Bar. Media Card Badge and Dialog Buttons exposed; Primary Tabs second tab reads PODCASTS. Component set frames resized, padding / gap / radius bound. Light & Dark Preview boards on all 19 component pages.
 - Figma file: Brownfield DS
@@ -72,7 +79,7 @@ Entry format:
 - Time: 18m active (session total 1h 16m)
 
 ## 2026-10-13 - Intake + Foundation: Variable Map, safe fixes, Size tokens, linked ⭐Setup pages
-- Storybook synced: no
+- Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo)
 - Changed: Variable Map written and approved (audits/2026-10-13-variable-map.md). Typography scopes set on 45 variables. Removed md/sys/color/danger, on_danger, danger_container, on_danger_container, surface_variant (DR-001, 0 uses). New collection Size (11 variables, DR-002). 22 pages renamed to ⭐Setup / ➜ convention. New linked pages ➜ Color, ➜ Typography, ➜ Shape, ➜ Spacing (spacing + size), ➜ Elevation, ➜ App Icon (drop zones), Icon Library boards on ➜ Icons; the static Setup preview (96 raw values) replaced by a linked Foundation Overview (Light/Dark).
 - Figma file: Brownfield DS

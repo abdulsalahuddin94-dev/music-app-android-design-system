@@ -6,9 +6,9 @@
   "storybook_plan": "yes",
   "storybook_ask_at": null,
   "last_change": "2026-10-13",
-  "unsynced_entries": 6,
-  "unsynced_since": "2026-10-13",
-  "last_storybook_sync": null,
+  "unsynced_entries": 0,
+  "unsynced_since": null,
+  "last_storybook_sync": "2026-10-13",
   "mobile_setup": null,
   "sibling_project": null,
   "reference": null,
@@ -35,7 +35,10 @@
       "last_publish": "2026-10-13",
       "shared": false,
       "editable_pages": [],
-      "storybook_synced_version": null,
+      "storybook_synced_version": {
+        "id": "2409876029259853742",
+        "created_at": "2026-10-13T15:56:28Z"
+      },
       "tool": "figcli"
     },
     "brand_foundation": null,
