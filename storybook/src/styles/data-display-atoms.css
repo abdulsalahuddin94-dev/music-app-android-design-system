@@ -48,3 +48,7 @@
 }
 .dd-progress--fill { width: 100%; }
 .dd-progress__active { position: absolute; left: 0; top: 0; bottom: 0; background: var(--md-sys-color-primary); }
+/* Instance override: Figma lets the title wrap to `titleLines` lines, then ends with an ellipsis. */
+.dd-track-meta__title[data-lines] {
+  white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--dd-title-lines);
+}

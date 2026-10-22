@@ -36,16 +36,24 @@ export function Badge({ Type = 'Plan', Label = 'E', className }: BadgeProps) {
 }
 
 // ---------- Track Metadata (Molecule) ----------
-export type TrackMetadataProps = { Title?: string; Subtitle?: string; 'Show Subtitle Icon'?: boolean; 'Subtitle Icon'?: string; fill?: boolean };
+// `titleStyle` / `subtitleStyle` (Figma text style names) and `titleLines` are instance overrides used in screens and
+// organisms (Now Playing sets M3/title_large_emphasized; Podcast Episode Card allows 2 title lines), not Figma properties.
+export type TrackMetadataProps = {
+  Title?: string; Subtitle?: string; 'Show Subtitle Icon'?: boolean; 'Subtitle Icon'?: string; fill?: boolean;
+  titleStyle?: string; subtitleStyle?: string; titleLines?: number;
+};
+const textStyleClass = (name: string) => 'ts-' + name.replace(/\//g, '-').toLowerCase();
 export function TrackMetadata({
   Title = 'Track title', Subtitle = 'Artist · Album', 'Show Subtitle Icon': showIcon = false, 'Subtitle Icon': subtitleIcon = 'Icon/cloud_done', fill = false,
+  titleStyle = 'M3/title_medium_emphasized', subtitleStyle = 'M3/body_small', titleLines = 1,
 }: TrackMetadataProps) {
+  const lines = titleLines > 1 ? ({ '--dd-title-lines': titleLines } as React.CSSProperties) : undefined;
   return (
     <div className={`dd-track-meta${fill ? ' dd-track-meta--fill' : ''}`}>
-      <div className="dd-track-meta__title ts-m3-title_medium_emphasized">{Title}</div>
+      <div className={`dd-track-meta__title ${textStyleClass(titleStyle)}`} data-lines={titleLines > 1 ? titleLines : undefined} style={lines}>{Title}</div>
       <div className="dd-track-meta__subtitle">
         {showIcon && <Icon name={subtitleIcon} size={16} />}
-        <span className="ts-m3-body_small">{Subtitle}</span>
+        <span className={textStyleClass(subtitleStyle)}>{Subtitle}</span>
       </div>
     </div>
   );
@@ -54,11 +62,12 @@ export function TrackMetadata({
 // ---------- Progress Indicator (Atom) ----------
 export type ProgressValue = '2' | '10' | '25' | '40' | '50' | '75' | '100';
 export const progressValues: ProgressValue[] = ['2', '10', '25', '40', '50', '75', '100'];
-export type ProgressIndicatorProps = { Value?: ProgressValue; fill?: boolean; label?: string };
-export function ProgressIndicator({ Value = '2', fill = false, label = 'Progress' }: ProgressIndicatorProps) {
+// `hideActive` is an instance override (Figma hides the Active Track layer, e.g. episodes not started yet).
+export type ProgressIndicatorProps = { Value?: ProgressValue; fill?: boolean; label?: string; hideActive?: boolean };
+export function ProgressIndicator({ Value = '2', fill = false, label = 'Progress', hideActive = false }: ProgressIndicatorProps) {
   return (
-    <div className={`dd-progress${fill ? ' dd-progress--fill' : ''}`} role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Number(Value)}>
-      <div className="dd-progress__active" style={{ width: `${Value}%` }} />
+    <div className={`dd-progress${fill ? ' dd-progress--fill' : ''}`} role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={hideActive ? 0 : Number(Value)}>
+      {!hideActive && <div className="dd-progress__active" style={{ width: `${Value}%` }} />}
     </div>
   );
 }

@@ -159,8 +159,9 @@ export function BottomNavigation({
 // ---------- Top App Bar (Organism) ----------
 // Figma: title (M3/headline_small_emphasized) then Top App Bar Actions: Notifications and Community Icon Buttons and the
 // Profile Avatar with a Plan Badge "plus".
-export type TopAppBarProps = { Title?: string; 'Show Actions'?: boolean; onAction?: (name: 'Notifications' | 'Community' | 'Profile') => void };
-export function TopAppBar({ Title = 'EXPLORE', 'Show Actions': showActions = true, onAction }: TopAppBarProps) {
+// `image` is the Profile Avatar photo (an image fill in Figma screens), like the `image` prop of the other components.
+export type TopAppBarProps = { Title?: string; 'Show Actions'?: boolean; image?: string; onAction?: (name: 'Notifications' | 'Community' | 'Profile') => void };
+export function TopAppBar({ Title = 'EXPLORE', 'Show Actions': showActions = true, image, onAction }: TopAppBarProps) {
   return (
     <header className="nav-top-bar">
       <h1 className="nav-top-bar__title ts-m3-headline_small_emphasized">{Title}</h1>
@@ -169,7 +170,7 @@ export function TopAppBar({ Title = 'EXPLORE', 'Show Actions': showActions = tru
           <IconButton Icon="Icon/notifications" label="Notifications" onClick={() => onAction?.('Notifications')} />
           <IconButton Icon="Icon/groups" label="Community" onClick={() => onAction?.('Community')} />
           <button type="button" className="nav-top-bar__profile" aria-label="Profile" onClick={() => onAction?.('Profile')}>
-            <Avatar />
+            <Avatar image={image} />
             <Badge Type="Plan" Label="plus" className="nav-top-bar__plan" />
           </button>
         </div>

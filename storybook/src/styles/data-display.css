@@ -41,7 +41,8 @@
 /* Figma: fill width x 36, space between, centered, gap 8; Title Stack vertical gap 4; More = Button Neutral 36 high. */
 .dd-section-header {
   display: flex; align-items: center; justify-content: space-between; gap: var(--md-sys-spacing-8);
-  width: 340px; /* Figma 340 (fills its parent in screens) */ max-width: 100%; min-height: 36px; /* Figma 36 */
+  width: 340px; /* Figma 340 (fills its parent in screens) */ max-width: 100%;
+  /* Figma hugs: 36 with the More button (its height), 24 with only the title, 44 with supporting text. */
 }
 .dd-section-header__titles { display: flex; flex-direction: column; gap: var(--md-sys-spacing-4); flex: 1 1 0; min-width: 0; }
 .dd-section-header__title { margin: 0; color: var(--md-sys-color-on_surface); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -73,7 +74,7 @@
 .dd-library-tile[data-color="Cyan"] .dd-library-tile__icon { color: var(--md-sys-color-category_cyan); }
 .dd-library-tile[data-color="Magenta"] .dd-library-tile__icon { color: var(--md-sys-color-category_magenta); }
 .dd-library-tile[data-color="Yellow"] .dd-library-tile__icon { color: var(--md-sys-color-category_yellow); }
-.dd-library-tile__label { align-self: stretch; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dd-library-tile__label { align-self: stretch; text-align: center; /* Figma: truncation off, height hugs, so long labels wrap */ }
 
 /* ---------- Media Card (Molecule) ---------- */
 /* Figma: vertical, gap 8, corner medium; Default 136 wide, Large 156 wide; Explicit Badge 4 from the artwork corner. */

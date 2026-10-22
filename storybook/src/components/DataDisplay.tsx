@@ -187,14 +187,16 @@ export function PlaylistListItem({
 // Figma: 360 wide, vertical, padding 12, gap 4, corner medium, surface_container, 1px inside outline_variant stroke.
 // Header: Artwork 64 + Track Metadata (gap 12). Description M3/body_medium, 2 lines. Footer 48 high, space between:
 // Progress Indicator 100 wide + Time Left M3/body_small (gap 8); Download + More Icon Buttons.
+// Instance overrides (not Figma properties): `titleLines` lets the title wrap like the screen's override (2 in Library);
+// `hideActiveTrack` hides the progress fill like the screen's hidden Active Track layer.
 export type PodcastEpisodeCardProps = {
   Description?: string; Artwork?: string; 'Track Metadata'?: string; 'Progress Indicator'?: string; 'Time Left'?: string; 'Show Download'?: boolean;
-  image?: string; title?: string; subtitle?: string; downloaded?: boolean; onMore?: () => void;
+  image?: string; title?: string; subtitle?: string; downloaded?: boolean; onMore?: () => void; titleLines?: number; hideActiveTrack?: boolean;
 };
 export function PodcastEpisodeCard({
   Description = 'Episode description continues across two concise lines.', 'Progress Indicator': progress = 'Value=40',
   'Time Left': timeLeft = '1h 42min left', 'Show Download': showDownload = true,
-  image, title = 'Track title', subtitle = 'Artist · Album', downloaded = false, onMore,
+  image, title = 'Track title', subtitle = 'Artist · Album', downloaded = false, onMore, titleLines, hideActiveTrack = false,
 }: PodcastEpisodeCardProps) {
   const [isDown, setDown] = useSynced(downloaded);
   const value = (parseVariant(progress).Value as ProgressValue) || '40';
@@ -202,12 +204,12 @@ export function PodcastEpisodeCard({
     <article className="dd-episode">
       <div className="dd-episode__header">
         <Artwork image={image} size={64} />
-        <TrackMetadata Title={title} Subtitle={subtitle} fill />
+        <TrackMetadata Title={title} Subtitle={subtitle} fill titleLines={titleLines} />
       </div>
       <p className="dd-episode__description ts-m3-body_medium">{Description}</p>
       <div className="dd-episode__footer">
         <div className="dd-episode__progress">
-          <ProgressIndicator Value={value} label="Listened" />
+          <ProgressIndicator Value={value} label="Listened" hideActive={hideActiveTrack} />
           <span className="ts-m3-body_small">{timeLeft}</span>
         </div>
         <div className="dd-episode__actions">

@@ -20,13 +20,8 @@ Opens http://localhost:6009. Type check: `npx tsc --noEmit` in this folder.
 
 The `Icon/*` components have no stories (they are shown on Foundations > Icons) and stay unmeasured.
 
-## Style check exceptions
+## Style check
 
-Differences that cannot be matched in CSS. Each one renders the same as Figma; only the measurement model differs.
+0 differences (5280/5280 properties, 2026-10-22). Figma inside strokes are drawn as an inset ring (`box-shadow: inset 0 0 0 Npx`), so the CSS padding is Figma's padding (Button: 0 24, focused stroke 3 with the first / last child taking 3 each for the 97 width). The style check reads that ring as the stroke (`tools/storybook_snap.cjs`, Live Prototype trial branch). Until that tool change is on master, run the snap from that branch, or the Button strokes read as missing.
 
-| Component | Variants | Property | Figma | Storybook | Reason |
-|---|---|---|---|---|---|
-| Button | Style=Outlined and Style=Outlined Accent, State=Enabled / Hovered / Pressed / Disabled (Light, Dark) | paddingTop, paddingBottom | 0 | 1 | Figma has vertical padding 0 with a 1px inside stroke on a fixed 48 height, so the stroke overlaps the padding. The check measures CSS padding + border width, and CSS padding cannot be negative, so a 1px border always reads as at least 1. The label is centred in the fixed 48 height either way, so the render is identical. |
-| Button | every Style, State=Focused (Light, Dark) | paddingTop, paddingBottom | 0 | 3 | Same cause with the 3px focus stroke (stroke included in the layout, vertical padding 0, fixed height 48). Horizontal padding and the 97 width match: CSS padding 21 + border 3, and the first / last child take the other 3. |
-
-56 measured differences in total (14 variants x 2 modes x 2 properties). They would disappear if `tools/storybook_snap.cjs` or `tools/style_parity.py` treated a Figma padding smaller than the stroke weight as equal to the stroke weight.
+Instance-override props (lower case, not Figma properties) that screens use: Track Metadata `titleStyle`, `subtitleStyle`, `titleLines`; Podcast Episode Card `titleLines`, `hideActiveTrack`; Progress Indicator `hideActive`; Top App Bar `image` (Profile Avatar photo).

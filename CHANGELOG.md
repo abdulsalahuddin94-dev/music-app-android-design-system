@@ -18,6 +18,18 @@ Entry format:
 - Deprecated / Removed: <name -> replacement, usage count> (only when something was deprecated or removed; `Workflow_References/governance/deprecation.md`)
 ```
 
+## 2026-10-22 - Storybook: 6 gaps found by the Live Prototype trial fixed (Figma is the source)
+- Storybook synced: yes
+- Tool: Claude Code (FigCli Yolo, Figma read only)
+- Changed: storybook/ only, names unchanged, tokens only. Player Utility Bar actions at the top (Figma counter axis MIN); Library Shortcut Tile label wraps (Figma truncation off); Section Header without min-height (Figma hugs: 24 / 36 / 44); Top App Bar `image` for the Profile Avatar photo; Track Metadata `titleStyle` / `subtitleStyle` / `titleLines`, Podcast Episode Card `titleLines` / `hideActiveTrack`, Progress Indicator `hideActive` (instance overrides used in the Listen screens: Now Playing title M3/title_large_emphasized, podcast titles 2 lines, Active Track hidden); Button inside strokes as an inset ring so the padding is Figma's 0 24. The Player Utility Bar padding 0 24 in the screens is an instance override, applied by the prototype, not in the component.
+- Figma file: Brownfield DS (read), Brownfield Design (read)
+- Library published: no (no Figma change)
+- Design files updated (Accept updates): none needed
+- Checks: storybook_parity 40/40, 0 name problems, 0 docs pages missing sections; style_parity 100% (5280/5280, 0 differences; was 98.9% with 56); mode_check 0 problems on the 8 changed docs pages in Light and Dark.
+- Live Prototype (Listen, 8 screens x Light/Dark) after the fixes: average 97.55% strict, 98.75% with 1px tolerance (was 97.21%); per screen in the trial PR.
+- Phase: Storybook
+- Storybook not pushed to the published repo (asked first).
+
 ## 2026-10-13 - Storybook: built and published
 - Storybook synced: yes
 - Tool: Claude Code
