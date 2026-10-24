@@ -2207,6 +2207,13 @@
               "computed": false
             }
           },
+          "image": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
           "onAction": {
             "required": false,
             "tsType": {
@@ -4507,6 +4514,24 @@
               }
             },
             "description": ""
+          },
+          "titleLines": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "hideActiveTrack": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            }
           }
         }
       },
@@ -4603,6 +4628,17 @@
             "description": "",
             "defaultValue": {
               "value": "'Progress'",
+              "computed": false
+            }
+          },
+          "hideActive": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "false",
               "computed": false
             }
           }
@@ -5104,6 +5140,39 @@
               "value": "false",
               "computed": false
             }
+          },
+          "titleStyle": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "'M3/title_medium_emphasized'",
+              "computed": false
+            }
+          },
+          "subtitleStyle": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "'M3/body_small'",
+              "computed": false
+            }
+          },
+          "titleLines": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "1",
+              "computed": false
+            }
           }
         }
       },
@@ -5174,6 +5243,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 1787
+    "durationMs": 1551
   }
 }

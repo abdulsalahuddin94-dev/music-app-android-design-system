@@ -1,0 +1,5 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{l as t,u as n}from"./blocks-7VqUv6TQ.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{i,r as a}from"./react-BXJ34t_g.js";import{d as o,s}from"./DocBlocks-BKLipGCb.js";function c(e){let n={h1:`h1`,p:`p`,...i(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[`
+`,(0,u.jsx)(t,{title:`Foundations/Icons`}),`
+`,(0,u.jsx)(n.h1,{id:`icons`,children:`Icons`}),`
+`,(0,u.jsx)(n.p,{children:`Icons are instances of the Icon component; components expose them as instance swap properties.`}),`
+`,(0,u.jsx)(s,{note:`Material Symbols names (existing set in the file) icons, named Icon/<name>, 24 dp. Glyph fill bound to md/sys/color/on_surface, recolored per component`})]})}function l(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;function d(){return(d=e((()=>{u=r(),a(),n(),o()})))()}d();export{l as default};

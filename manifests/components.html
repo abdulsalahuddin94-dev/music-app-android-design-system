@@ -626,7 +626,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>1.8s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>1.6s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -6978,7 +6978,7 @@ export const docs = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PodcastEpisodeCard</h2>
       <div class="badges">
-        <label for="c-24-data-display-podcast-episode-card-props" class="badge ok as-toggle">11 prop types</label>
+        <label for="c-24-data-display-podcast-episode-card-props" class="badge ok as-toggle">13 prop types</label>
         <label for="c-24-data-display-podcast-episode-card-info" class="badge info as-toggle">1 info</label>
         <label for="c-24-data-display-podcast-episode-card-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-24-data-display-podcast-episode-card-docs" class="badge ok as-toggle">1 doc</label>
@@ -7014,7 +7014,7 @@ export const docs = {
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">11 prop types</span>
+              <span class="badge ok">13 prop types</span>
             </div>
             <pre><code>Component: src\components\DataDisplay.tsx::PodcastEpisodeCard</code></pre>
             <pre><code>Props:</code></pre>
@@ -7023,6 +7023,8 @@ export const docs = {
 Description?: string = &#39;Episode description continues across two concise lines.&#39;
 
 downloaded?: boolean = false
+
+hideActiveTrack?: boolean = false
 
 image?: string
 
@@ -7037,6 +7039,8 @@ subtitle?: string = &#39;Artist · Album&#39;
 Time Left?: string = &#39;1h 42min left&#39;
 
 title?: string = &#39;Track title&#39;
+
+titleLines?: number
 
 Track Metadata?: string</code></pre>
           </div>
@@ -7434,7 +7438,7 @@ export const docs = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ProgressIndicator</h2>
       <div class="badges">
-        <label for="c-26-data-display-progress-indicator-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-26-data-display-progress-indicator-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-26-data-display-progress-indicator-info" class="badge info as-toggle">1 info</label>
         <label for="c-26-data-display-progress-indicator-stories" class="badge ok as-toggle">9 stories</label>
         <label for="c-26-data-display-progress-indicator-docs" class="badge ok as-toggle">1 doc</label>
@@ -7470,11 +7474,13 @@ export const docs = {
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">3 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
             <pre><code>Component: src\components\DataDisplayAtoms.tsx::ProgressIndicator</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>fill?: boolean = false
+
+hideActive?: boolean = false
 
 label?: string = &#39;Progress&#39;
 
@@ -10704,7 +10710,7 @@ export const docs = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TopAppBar</h2>
       <div class="badges">
-        <label for="c-38-navigation-top-app-bar-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-38-navigation-top-app-bar-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-38-navigation-top-app-bar-info" class="badge info as-toggle">1 info</label>
         <label for="c-38-navigation-top-app-bar-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-38-navigation-top-app-bar-docs" class="badge ok as-toggle">1 doc</label>
@@ -10740,11 +10746,13 @@ export const docs = {
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">3 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
             <pre><code>Component: src\components\Navigation.tsx::TopAppBar</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>onAction?: (name: &#39;Notifications&#39; | &#39;Community&#39; | &#39;Profile&#39;) =&gt; void
+            <pre><code>image?: string
+
+onAction?: (name: &#39;Notifications&#39; | &#39;Community&#39; | &#39;Profile&#39;) =&gt; void
 
 Show Actions?: boolean = true
 
@@ -10887,7 +10895,7 @@ export const docs = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TrackMetadata</h2>
       <div class="badges">
-        <label for="c-39-data-display-track-metadata-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-39-data-display-track-metadata-props" class="badge ok as-toggle">8 prop types</label>
         <label for="c-39-data-display-track-metadata-info" class="badge info as-toggle">1 info</label>
         <label for="c-39-data-display-track-metadata-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-39-data-display-track-metadata-docs" class="badge ok as-toggle">1 doc</label>
@@ -10923,7 +10931,7 @@ export const docs = {
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">5 prop types</span>
+              <span class="badge ok">8 prop types</span>
             </div>
             <pre><code>Component: src\components\DataDisplayAtoms.tsx::TrackMetadata</code></pre>
             <pre><code>Props:</code></pre>
@@ -10935,7 +10943,13 @@ Subtitle?: string = &#39;Artist · Album&#39;
 
 Subtitle Icon?: string = &#39;Icon/cloud_done&#39;
 
-Title?: string = &#39;Track title&#39;</code></pre>
+subtitleStyle?: string = &#39;M3/body_small&#39;
+
+Title?: string = &#39;Track title&#39;
+
+titleLines?: number = 1
+
+titleStyle?: string = &#39;M3/title_medium_emphasized&#39;</code></pre>
           </div>
         </div>
     
