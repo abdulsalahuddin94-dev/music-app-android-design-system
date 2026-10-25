@@ -51,7 +51,7 @@ export function Icon({ name = 'Icon/play_arrow', size = 24, className, title }: 
   const g = glyphs[key];
   if (!g) return <span className={className} style={{ display: 'inline-block', width: size, height: size }} />;
   return (
-    <svg className={['icon', className].filter(Boolean).join(' ')} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden={title ? undefined : true} role={title ? 'img' : undefined}
+    <svg data-icon={key} className={['icon', className].filter(Boolean).join(' ')} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden={title ? undefined : true} role={title ? 'img' : undefined}
       dangerouslySetInnerHTML={{ __html: (title ? `<title>${title}</title>` : '') + g }} />
   );
 }
