@@ -5,7 +5,7 @@
   "has_storybook": true,
   "storybook_plan": "yes",
   "storybook_ask_at": null,
-  "last_change": "2026-10-13",
+  "last_change": "2026-10-22",
   "unsynced_entries": 0,
   "unsynced_since": null,
   "last_storybook_sync": "2026-10-13",
@@ -65,5 +65,27 @@
   "_app_icon_help": "Set when ➜ App Icon is created (Intake section 7h): {status: waiting | presented, appearances: [names made, e.g. Default, Dark, Tinted / Foreground, Background, Monochrome / Light, Dark, Maskable], last_update: date}. A session that finds status waiting checks the drop zones once, read-only.",
   "storybook_publish": "pages",
   "storybook_repo": "https://github.com/abdulsalahuddin94-dev/music-app-android-design-system",
-  "storybook_url": "https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/"
+  "storybook_url": "https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/",
+  "prototype": {
+    "url": "https://abdulsalahuddin94-dev.github.io/atomica-live-prototype-test/",
+    "screens": {
+      "Explore - Full": {
+        "source": "code"
+      }
+    },
+    "pending_figma_sync": [
+      {
+        "comment": "4177a0cf-6945-4918-ab80-d10486510c74",
+        "override": "explore-full-remove-discover",
+        "file": "Brownfield Design",
+        "change": "Remove 'Discover What's New Rail' from Explore - Full Dark (27:1708) and Light (31:859); make both frames 236 shorter (1725 -> 1489) so the Mini Player and Bottom Navigation stay at the bottom."
+      }
+    ],
+    "rules": [
+      {
+        "comment": "f53a15dc-df00-46e4-86be-436c015c6eca",
+        "rule": "Viewport frames (no taller than the device, 812) are static in the prototype: no scrolling, content clipped under the pinned bars, as in Figma. Only Full frames scroll. Prototype generator rule; no Figma change."
+      }
+    ]
+  }
 }

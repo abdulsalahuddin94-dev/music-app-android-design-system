@@ -18,6 +18,11 @@ Entry format:
 - Deprecated / Removed: <name -> replacement, usage count> (only when something was deprecated or removed; `Workflow_References/governance/deprecation.md`)
 ```
 
+## 2026-10-25 · Live prototype: review comments applied code-first (Tool: Claude)
+- Comment 4177a0cf (Ahmed, Explore - Full): "Discover What's New" section removed in the prototype through prototype/data/overrides.json (Dark 27:1708, Light 31:859; frame 1725 -> 1489). **Pending Figma sync** (status.json > prototype.pending_figma_sync).
+- Comment f53a15dc (Ahmed, Explore - Viewport): Viewport frames no longer scroll in the prototype (generator rule, matches Figma). No Figma change.
+- Figma: not changed. Storybook synced: n/a (no component change).
+
 ## 2026-10-22 - Storybook: 6 gaps found by the Live Prototype trial fixed (Figma is the source)
 - Storybook synced: yes
 - Tool: Claude Code (FigCli Yolo, Figma read only)
