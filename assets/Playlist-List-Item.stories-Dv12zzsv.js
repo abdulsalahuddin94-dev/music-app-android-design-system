@@ -1,0 +1,21 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./react-Q1GcV6wX.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{n as i,r as a}from"./Icon-Dzxc4OEO.js";import{h as o,s,w as c}from"./DataDisplay-zzZKXRyA.js";var l=t({InUse:()=>p,Playground:()=>f,__namedExportsOrder:()=>m,default:()=>d}),u,d,f,p,m;function h(){return(h=e((()=>{n(),c(),a(),u=r(),d={title:`Data Display/Playlist List Item`,component:o,tags:[`!autodocs`,`tier-molecule`],argTypes:{Artwork:{control:`select`,options:i,description:`Figma instance swap (Icon component)`,table:{category:`Figma properties`,defaultValue:{summary:`Artwork`}}},"Track Metadata":{control:`select`,options:i,description:`Figma instance swap (Icon component)`,table:{category:`Figma properties`,defaultValue:{summary:`Track Metadata`}}},"Show More":{control:`boolean`,description:`Figma boolean property`,table:{category:`Figma properties`,defaultValue:{summary:`true`}}}},args:{Artwork:`Artwork`,"Track Metadata":`Track Metadata`,"Show More":!0},parameters:{figma:{name:`Playlist List Item`,page:`➜ Lists`,tier:`Molecule`,order:2},design:{type:`figma`,url:`https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-390`},docs:{description:{component:`**Figma:** \`Playlist List Item\` on page \`➜ Lists\` (Data Display). [Open in Figma](https://www.figma.com/design/igARrYUXQ2K2nGvQPKKhXl/Brownfield-DS?node-id=10-390)
+
+**Tier:** Molecule
+
+**Use:** 
+
+**Figma description:**
+
+> Purpose: Row for a playlist, album or artist with artwork, metadata and a More action.  
+> Usage rules: Library lists of playlists, albums and artists. Not for podcast episodes (use Podcast Episode Card).  
+> Accessibility: Title and subtitle: 4.5:1 (WCAG 1.4.3) in Light, Dark. The row and More are separate targets. Touch target: 48 x 48 dp (WCAG 2.5.8). Visual size may be smaller; the hit area stays 48 dp.  
+> Keywords: list item, playlist, row  
+
+**When to use:** Library lists of playlists, albums and artists
+
+**When not to use:** Podcast episodes (use Podcast Episode Card)
+
+Controls use the Figma variant and property names exactly. Switch the Figma modes from the toolbar.`}}}},f={},p={name:`In use (interactive)`,render:()=>(0,u.jsx)(s,{})},m=[`Playground`,`InUse`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  name: 'In use (interactive)',
+  render: () => <LibraryInUse />
+}`,...p.parameters?.docs?.source}}}})))()}export{h as n,l as t};
