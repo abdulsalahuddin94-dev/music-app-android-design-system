@@ -1,0 +1,18 @@
+{
+ "_note": "Code-first changes to the prototype on top of data/screens.json (the pure Figma export), applied by tools/build_prototype.py load_screens(). Each one is pending a Figma sync (status.json > prototype.pending_figma_sync); after the sync and a re-export its nodes are gone from the export and the change reports 'synced'.",
+ "changes": [
+  {
+   "id": "explore-full-remove-discover",
+   "comment": "4177a0cf-6945-4918-ab80-d10486510c74",
+   "screen": "Explore - Full",
+   "op": "remove",
+   "nodes": [
+    "27:1708",
+    "31:859"
+   ],
+   "close_gap": true,
+   "description": "Remove the Discover What's New section (Dark 27:1708, Light 31:859); the frame gets 236 shorter (1725 -> 1489) so the Mini Player and Bottom Navigation stay at the bottom.",
+   "approved": "Abdul, 2026-10-25"
+  }
+ ]
+}
