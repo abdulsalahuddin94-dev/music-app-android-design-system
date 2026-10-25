@@ -2,3 +2,9 @@ node_modules/
 storybook/node_modules
 storybook/storybook-static/
 .DS_Store
+
+# Live prototype: local Supabase keys and the comment inbox stay on this device
+prototype/.env*
+prototype/comments/
+prototype/node_modules/
+prototype/dist/
