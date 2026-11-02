@@ -65,9 +65,9 @@
   "_app_icon_help": "Set when ➜ App Icon is created (Intake section 7h): {status: waiting | presented, appearances: [names made, e.g. Default, Dark, Tinted / Foreground, Background, Monochrome / Light, Dark, Maskable], last_update: date}. A session that finds status waiting checks the drop zones once, read-only.",
   "storybook_publish": "pages",
   "storybook_repo": "https://github.com/abdulsalahuddin94-dev/music-app-android-design-system",
-  "storybook_url": "https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/",
+  "storybook_url": "https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/storybook/",
   "prototype": {
-    "url": "https://abdulsalahuddin94-dev.github.io/atomica-live-prototype-test/",
+    "url": "https://abdulsalahuddin94-dev.github.io/music-app-android-design-system/prototype/",
     "screens": {
       "Explore - Full": {
         "source": "code"
@@ -80,10 +80,54 @@
         "rule": "Viewport frames (no taller than the device, 812) are static in the prototype: no scrolling, content clipped under the pinned bars, as in Figma. Only Full frames scroll. Prototype generator rule; no Figma change."
       }
     ],
-    "design_mode": "code-first"
+    "design_mode": "code-first",
+    "repo": "abdulsalahuddin94-dev/music-app-android-design-system",
+    "previous_url": "https://abdulsalahuddin94-dev.github.io/atomica-live-prototype-test/"
   },
   "comments": {
     "supabase_url": "https://ihflajwbpwijyvcikesz.supabase.co",
     "anon_key": "sb_publishable_magZQCSCb9RjdlN9nGBxGQ_sgJ9ZwDf"
+  },
+  "github": {
+    "pages": "project-repo",
+    "repo": "abdulsalahuddin94-dev/music-app-android-design-system"
+  },
+  "storybook": {
+    "enabled": true,
+    "sections": [
+      "colors-primitives",
+      "colors-semantic",
+      "typography",
+      "spacing",
+      "radius",
+      "effects",
+      "sizes",
+      "breakpoints",
+      "icons",
+      "app-icon",
+      "variants",
+      "playground",
+      "show-code",
+      "usage",
+      "a11y",
+      "figma-link",
+      "patterns",
+      "screens",
+      "welcome",
+      "changelog",
+      "css-vars",
+      "tailwind",
+      "tokens-json",
+      "native",
+      "dark",
+      "rtl",
+      "platform-switch",
+      "pages",
+      "mcp",
+      "auto-update"
+    ],
+    "components": "all",
+    "preset": "full",
+    "updatedAt": "2026-11-02T09:39:14.819Z"
   }
 }
