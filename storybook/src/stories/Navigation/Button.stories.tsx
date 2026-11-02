@@ -34,7 +34,6 @@ const meta = {
       "Enabled",
       "Pressed",
       "Disabled",
-      "Hovered",
       "Focused"
     ],
     "description": "Figma variant property `State`",
@@ -97,14 +96,13 @@ export const OutlinedAccent: Story = { name: "Outlined Accent", args: { "Style":
 export const StateEnabled: Story = { name: "State=Enabled", args: { "State": "Enabled" } };
 export const StatePressed: Story = { name: "State=Pressed", args: { "State": "Pressed" } };
 export const StateDisabled: Story = { name: "State=Disabled", args: { "State": "Disabled" } };
-export const StateHovered: Story = { name: "State=Hovered", args: { "State": "Hovered" } };
 export const StateFocused: Story = { name: "State=Focused", args: { "State": "Focused" } };
 
 export const States: Story = {
   name: "States",
   render: (args) => (
     <div className="sb-row">
-      {["Enabled", "Pressed", "Disabled", "Hovered", "Focused"].map((x) => (
+      {["Enabled", "Pressed", "Disabled", "Focused"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">State={x}</div>
           <Button {...args} {...{ "State": x } as any} />
@@ -135,7 +133,7 @@ export const AllVariants: Story = {
       {["Filled", "Tonal", "Outlined", "Text", "Neutral", "Outlined Accent"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">Style={x}</div>
-          <div className="sb-row">{["Enabled", "Pressed", "Disabled", "Hovered", "Focused"].map((y) => <Button key={y} {...args} {...{ "Style": x, "State": y } as any} />)}</div>
+          <div className="sb-row">{["Enabled", "Pressed", "Disabled", "Focused"].map((y) => <Button key={y} {...args} {...{ "Style": x, "State": y } as any} />)}</div>
         </div>
       ))}
     </div>

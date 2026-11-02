@@ -13,7 +13,6 @@ const meta = {
     "control": "select",
     "options": [
       "Enabled",
-      "Hovered",
       "Focused",
       "Error",
       "Disabled"
@@ -49,7 +48,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
 export const Enabled: Story = { name: "Enabled", args: { "State": "Enabled" } };
-export const Hovered: Story = { name: "Hovered", args: { "State": "Hovered" } };
 export const Focused: Story = { name: "Focused", args: { "State": "Focused" } };
 export const Error: Story = { name: "Error", args: { "State": "Error" } };
 export const Disabled: Story = { name: "Disabled", args: { "State": "Disabled" } };
@@ -58,7 +56,7 @@ export const States: Story = {
   name: "States",
   render: (args) => (
     <div className="sb-row">
-      {["Enabled", "Hovered", "Focused", "Error", "Disabled"].map((x) => (
+      {["Enabled", "Focused", "Error", "Disabled"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">State={x}</div>
           <TextArea {...args} {...{ "State": x } as any} />
@@ -72,7 +70,7 @@ export const AllVariants: Story = {
   name: 'All variants',
   render: (args) => (
     <div className="sb-row">
-      {["Enabled", "Hovered", "Focused", "Error", "Disabled"].map((x) => (
+      {["Enabled", "Focused", "Error", "Disabled"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">State={x}</div>
           <TextArea {...args} {...{ "State": x } as any} />

@@ -8,7 +8,6 @@
 :where(.dd-shortcut-card, .dd-library-tile, .dd-media-card, .dd-genre-card, .dd-list-header__sort) {
   font: inherit; margin: 0; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent;
 }
-.dd-shortcut-card:hover, .dd-library-tile:hover, .dd-media-card:hover, .dd-genre-card:hover, .dd-list-item:hover, .dd-list-header__sort:hover { opacity: 0.88; /* Figma 0.88 (file hover opacity) */ }
 .dd-shortcut-card:active, .dd-library-tile:active, .dd-media-card:active, .dd-genre-card:active, .dd-list-item:active, .dd-list-header__sort:active { opacity: 0.82; /* Figma 0.82 (file pressed opacity) */ }
 .dd-shortcut-card:focus-visible, .dd-library-tile:focus-visible, .dd-media-card:focus-visible, .dd-genre-card:focus-visible,
 .dd-list-item:focus-visible, .dd-list-header__sort:focus-visible, .dd-lyrics-line:focus-visible, .dd-dialog__list li:focus-visible {
@@ -131,6 +130,22 @@
 }
 .dd-list-item__more { display: inline-flex; flex: none; }
 
+/* ---------- List Item (Molecule, code first 2026-10-28) ---------- */
+/* Fills its parent; height size/list_item/one_line 56 (two_line 72), padding 0 16, gap 16; icon on_surface_variant. */
+.dd-row {
+  display: flex; align-items: center; box-sizing: border-box; cursor: pointer; width: 100%;
+  height: var(--md-sys-size-list_item-one_line); padding: var(--md-sys-spacing-0) var(--md-sys-spacing-16); gap: var(--md-sys-spacing-16);
+  color: var(--md-sys-color-on_surface); -webkit-tap-highlight-color: transparent;
+}
+.dd-row[data-lines="Two"] { height: var(--md-sys-size-list_item-two_line); }
+.dd-row:active { opacity: 0.82; /* Figma 0.82 (file pressed opacity) */ }
+.dd-row:focus-visible { outline: 3px solid var(--md-sys-color-primary); outline-offset: -3px; /* Figma 3 focus stroke */ }
+.dd-row__icon { flex: none; color: var(--md-sys-color-on_surface_variant); }
+.dd-row__text { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; }
+.dd-row__headline, .dd-row__supporting { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-row__supporting { color: var(--md-sys-color-on_surface_variant); }
+.dd-row__trailing { display: inline-flex; flex: none; }
+
 /* ---------- Podcast Episode Card (Organism) ---------- */
 /* Figma: 360 wide, vertical, padding 12, gap 4, corner medium, surface_container, 1px inside outline_variant. */
 .dd-episode {
@@ -229,3 +244,6 @@
   background: color-mix(in srgb, var(--md-sys-color-scrim) 32%, transparent); /* M3 scrim @0.32 */
 }
 .dd-demo__scrim--bottom { align-items: flex-end; }
+
+/* Motion (DS motion tokens): Pressed eases in and out. No hover on mobile; Pressed comes from :active. */
+.dd-shortcut-card, .dd-library-tile, .dd-media-card, .dd-genre-card, .dd-list-item, .dd-list-header__sort, .dd-row { transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard), background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard); }

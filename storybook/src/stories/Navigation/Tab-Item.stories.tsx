@@ -27,7 +27,6 @@ const meta = {
     "control": "select",
     "options": [
       "Enabled",
-      "Hovered",
       "Focused",
       "Pressed",
       "Disabled"
@@ -65,7 +64,6 @@ export const Playground: Story = {};
 export const False: Story = { name: "False", args: { "Selected": "False" } };
 export const True: Story = { name: "True", args: { "Selected": "True" } };
 export const StateEnabled: Story = { name: "State=Enabled", args: { "State": "Enabled" } };
-export const StateHovered: Story = { name: "State=Hovered", args: { "State": "Hovered" } };
 export const StateFocused: Story = { name: "State=Focused", args: { "State": "Focused" } };
 export const StatePressed: Story = { name: "State=Pressed", args: { "State": "Pressed" } };
 export const StateDisabled: Story = { name: "State=Disabled", args: { "State": "Disabled" } };
@@ -74,7 +72,7 @@ export const States: Story = {
   name: "States",
   render: (args) => (
     <div className="sb-row">
-      {["Enabled", "Hovered", "Focused", "Pressed", "Disabled"].map((x) => (
+      {["Enabled", "Focused", "Pressed", "Disabled"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">State={x}</div>
           <TabItem {...args} {...{ "State": x } as any} />
@@ -91,7 +89,7 @@ export const AllVariants: Story = {
       {["False", "True"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">Selected={x}</div>
-          <div className="sb-row">{["Enabled", "Hovered", "Focused", "Pressed", "Disabled"].map((y) => <TabItem key={y} {...args} {...{ "Selected": x, "State": y } as any} />)}</div>
+          <div className="sb-row">{["Enabled", "Focused", "Pressed", "Disabled"].map((y) => <TabItem key={y} {...args} {...{ "Selected": x, "State": y } as any} />)}</div>
         </div>
       ))}
     </div>

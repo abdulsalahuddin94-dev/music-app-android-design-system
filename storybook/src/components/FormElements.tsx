@@ -1,12 +1,12 @@
 // ⭐Form Elements - working replicas of the Music App Android Figma components (Brownfield DS). Props use the Figma
 // property and variant names exactly, with the Figma defaults. States follow the Figma file: whole-variant opacity
-// (Hovered 0.88, Pressed 0.82, Disabled 0.38) over the Enabled look, Focused = 3px stroke, Error = error stroke / label.
-// The State prop forces a state for review; real :hover / :active / :focus-visible work too (styles/form-elements.css).
+// (Pressed 0.82, Disabled 0.38; no Hovered on mobile) over the Enabled look, Focused = 3px stroke, Error = error stroke / label.
+// The State prop forces a state for review; real :active / :focus-visible work too (styles/form-elements.css).
 import React from 'react';
 import { Icon } from '../lib/Icon';
 
-type FieldState = 'Enabled' | 'Hovered' | 'Focused' | 'Error' | 'Disabled';
-type ControlState = 'Enabled' | 'Hovered' | 'Focused' | 'Pressed' | 'Disabled' | 'Error';
+type FieldState = 'Enabled' | 'Focused' | 'Error' | 'Disabled';
+type ControlState = 'Enabled' | 'Focused' | 'Pressed' | 'Disabled' | 'Error';
 type Bool = 'False' | 'True';
 
 /** Keeps internal state in step with a prop (the Storybook control) while the component stays usable. */
@@ -98,7 +98,7 @@ export function Checkbox({ Selected = 'False', State = 'Enabled', label = 'Check
 }
 
 // ---------- Switch (Atom) ----------
-export type SwitchProps = { Selected?: Bool; State?: 'Enabled' | 'Pressed' | 'Disabled' | 'Hovered' | 'Focused'; label?: string; onChange?: (selected: boolean) => void };
+export type SwitchProps = { Selected?: Bool; State?: 'Enabled' | 'Pressed' | 'Disabled' | 'Focused'; label?: string; onChange?: (selected: boolean) => void };
 export function Switch({ Selected = 'False', State = 'Enabled', label = 'Switch', onChange }: SwitchProps) {
   const [on, setOn] = useSynced(Selected === 'True');
   return (

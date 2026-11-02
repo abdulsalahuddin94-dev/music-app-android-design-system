@@ -18,6 +18,72 @@ Entry format:
 - Deprecated / Removed: <name -> replacement, usage count> (only when something was deprecated or removed; `Workflow_References/governance/deprecation.md`)
 ```
 
+## 2026-11-01 - Live prototype: pulled from Figma (Tool: Claude Code, FigCli Yolo, Figma read only)
+- Storybook synced: n/a (no component change)
+- Tool: Claude Code (FigCli Yolo, read only)
+- Pulled (tools/screens_export.cjs --only, data/screens.json): Explore - Full, Explore - Viewport, Search & Discover - Full / Viewport, Library - Music, Library - Podcasts, Now Playing, Lyrics (Dark + Light) and the new Link Copied frames (115:4963 / 115:5046), which replace their code-first override. No screen was changed on both sides.
+- Share Sheet stays code-first: the screens export reads the Sheet instance as a leaf and drops its Content slot (header, targets, Divider, Cancel and their links), so its two frames were left out of screens.json and the `share-flow` override now carries the Figma ids 115:4806 / 115:4889 (Copy link -> 115:4963 / 115:5046). Profile stays code-first (not pulled; Section Header 24 / 36 question open).
+- Image crops: the crop step timed out (Brownfield Design was a background tab); the 10-22 crops.json was kept (Abdul's choice) and the 10 new image layers' crops were added from one read-only script; all 194 crops cut from local sources.
+- Build: raw values 0, unknown names 0, untranslated 0; overrides explore-full-remove-discover, explore-full-repeat-just-you, now-playing-share-link, lyrics-share-link now synced (in the export).
+- Checks: scripts/check_live.mjs stops at its second Code-toggle click (shell / check mismatch, not screen content; to look at). Screen smoke check instead: 11 screens x Light/Dark x EN/AR = 44 views, DS components present, 0 broken images, 0 console errors; click-through Now Playing -> Share -> Copy link -> Link Copied -> Now Playing and Explore -> Profile -> Back.
+- Fidelity: Explore Full 97.75 / 97.39, Viewport 96.82 / 96.48, Search Full 97.75 / 97.79, Viewport 97.61 / 97.56, Library Music 98.19 / 97.97, Podcasts 94.98 / 94.65, Now Playing 98.75 / 98.67, Lyrics 97.84 / 97.7, Link Copied 98.71 / 98.63 (Dark / Light %); Share Sheet 39.9 (transparent scrim artifact).
+- `figma_sync.cjs --mark` explore-full, explore-viewport, search-discover-full, search-discover-viewport, library-music, library-podcasts, now-playing, lyrics, link-copied, share-sheet: all in sync; profile-full prototype-only.
+- Figma: not changed.
+
+## 2026-11-01 - Sync to Figma: Share flow (Tool: Claude Code, FigCli Yolo)
+- Storybook synced: n/a for the screens (the Sheet Content slot is in the DS entry above)
+- Tool: Claude Code (FigCli Yolo)
+- Changed (Brownfield Design, section Listen / Now Playing, new rows): Listen / Share Sheet / Dark (115:4806) and / Light (115:4889), 375 x 813, Semantic mode pinned: Scrim (md/sys/color/scrim, layer opacity 32%, fills the top) + Sheet instance Position=Bottom (overrides: surface_container_low, padding and gap md/sys/spacing/16, top corners extra_large, bottom corners none; Title "Share") with its Content slot holding Share Content (gap 24: Track Header = Artwork 56 with the Now Playing photo + Track Metadata; Share Targets = 5 x Icon Button Tonal + M3/label_medium on_surface_variant, gap 8: Copy link, Messages, WhatsApp, Instagram Stories, More), Divider, Button Text "Cancel". Listen / Link Copied / Dark (115:4963) and / Light (115:5046) = copies of Now Playing + Tooltip Plain "Link copied" at 107.5, 701.
+- Icon stand-ins until the real icons exist in ➜ Icons: Copy link Icon/upload, Messages Icon/groups, WhatsApp Icon/share, Instagram Stories Icon/auto_awesome, More Icon/more_vert.
+- Prototype: Now Playing Share (27:866 / 31:747), Lyrics Header share (56:5361 / 56:5423) and the Link Copied share button -> Open overlay Share Sheet (same mode); Scrim, Messages, WhatsApp, Instagram Stories, More, Cancel -> Back; Copy link -> Navigate to Link Copied; Link Copied click -> Now Playing.
+- Design file audit (check_screens + readBack, Listen / Now Playing): 0 placeholders, 0 overflow, 0 squashed, 0 raw values (166 nodes); frame size 813 note only (same as the existing Now Playing frames).
+- Fidelity: Link Copied Dark 98.71% / Light 98.63%. Share Sheet 39.9%: the sheet matches (only anti-aliasing); the rest is the transparent scrim, exported over a light canvas by Figma and over the page by the prototype (a measuring artifact, not a layout difference).
+- Removed from status.json > prototype.pending_figma_sync (`share-flow`); `figma_sync.cjs --mark share-sheet,link-copied`.
+- Phase: Sync to Figma (all 5 items, one session)
+- Tokens: 26.5M (input 259, cache write 277.2K, cache read 26.1M, output 81K; 128 model calls)
+- Time: 29m active
+
+## 2026-11-01 - Sync to Figma: Profile (DS + screen) and No hover on mobile (Tool: Claude Code, FigCli Yolo)
+- Storybook synced: no (Avatar, Top App Bar, List Item and Sheet changed; stories and docs pages to regenerate)
+- Tool: Claude Code (FigCli Yolo)
+- Changed (Brownfield DS): Avatar became a set, Size = Small (40, existing component, key kept) / Large (96, width and height bound to md/sys/size/control/large). Top App Bar became a set, variant Show Navigation = False (existing) / True (Navigation Button = Icon Button Standard + Icon/arrow_back, padding-left and gap md/sys/spacing/4, title fills); a variant because a boolean cannot change padding (Abdul's choice); its unbound gap 16 now md/sys/spacing/16. New Molecule List Item on Lists: Trailing = None / Switch; Headline, Supporting Text, Show Supporting Text, Leading Icon (INSTANCE_SWAP), Switch (INSTANCE_SWAP, Switch set preferred); min height md/sys/size/list_item/one_line, two-line height from a hidden spacer bound to two_line (56 / 72), padding 0 16, gap 16. Sheet: Content SLOT in both variants (created with FigCli `createSlot`, one shared property), default supporting text inside. Descriptions from the registry docs (List Item, Top App Bar, Avatar). Light & Dark previews updated (Avatar, App Bar, Lists).
+- No hover on mobile (rule 2026-10-28): 24 Hovered variants removed (Text Field 3, Text Area 1, Checkbox 2, Switch 2, Radio 2, Button 6, Icon Button 4, Filter Chip 2, Tab Item 2) and their 22 preview instances; Pressed and Focused kept; 0 Hovered instances in Brownfield Design. Storybook: Hovered options, Hovered stories, docs state rows and every component :hover rule removed; `check_no_hover.cjs` 0 findings. Registry variant counts updated.
+- Deprecated / Removed: State=Hovered on 9 components -> Pressed (0 uses in Design files)
+- Library published: yes (Abdul) ; Design files updated (Accept updates): Brownfield Design: yes (10 Top App Bar titles checked, all kept)
+- DS audit (tools/check_bindings.figma.js on the 13 touched sets): 0 unbound after the Top App Bar gap fix; List Item `Switch` not referenced in Trailing=None (expected, no switch there).
+- Changed (Brownfield Design): new section Listen / Profile with Listen / Profile - Full / Dark (115:4327) and / Light (115:4431), 375 x 1380, Semantic mode pinned on the frame, built from library instances (Status Bar, Top App Bar Show Navigation True, Avatar Large with the profile photo, Badge Plan, Button Outlined + Icon Button Tonal, 3 Section Headers, 3 Media Cards, 3 Playlist List Items, 5 List Items with the Notifications Switch on, Button Text, Mini Player docked). Prototype: Navigation Button -> Back; Media Cards, Playlist List Items, Mini Player -> Now Playing; Explore Top App Bar Profile -> Profile (Search & Discover hides the actions, no link).
+- Design file audit (check_screens + readBack, Listen / Profile): 0 placeholders, 0 overflow, 0 squashed, 0 raw values (270 nodes); frame size note only (long-scroll frame).
+- Fidelity: Dark 95.24% (1px 96.75%), Light 95.27% (1px 96.87%). Remaining difference: Section Header without More hugs to 24 in the DS (as on Explore) while the prototype keeps 36, so Recently played and Account sit 12 / 24 higher in Figma. Open question to Abdul.
+- Removed from status.json > prototype.pending_figma_sync (`profile-screen`, `no-hover-on-mobile`); `figma_sync.cjs --mark profile-full` (the snapshot keeps the prototype's frame ids until the next Figma -> prototype export).
+
+## 2026-11-01 - Sync to Figma: Explore - Full sections (Tool: Claude Code, FigCli Yolo)
+- Storybook synced: n/a (no component change)
+- Tool: Claude Code (FigCli Yolo)
+- Changed (Brownfield Design, Listen / Explore - Full, Dark 27:1463 + Light 31:813): Discover What's New Rail removed (comment 4177a0cf, `explore-full-remove-discover`); Just You Rail repeated after Melancholic Egyptian Pop Rail, same content (`explore-full-repeat-just-you`). Frames 1725 -> 1489 -> 1753; Mini Player (1635) and Bottom Navigation (1695) re-docked at the bottom.
+- Design file audit (tools/check_screens.figma.js, Listen / Explore): 0 placeholders, 0 overflow, 0 squashed, 0 unbound frame values; only frame size notes (long-scroll Brownfield frames, expected).
+- Fidelity (prototype vs Figma): Dark 97.85% (1px 99.01%), Light 97.5% (1px 98.66%); was 82.9 / 82.6 before the sync.
+- Removed from status.json > prototype.pending_figma_sync; `figma_sync.cjs --mark explore-full`.
+
+## 2026-10-28 · Live prototype: Profile screen designed code-first (Tool: Claude)
+- Comment d931e611 (Ahmed, Explore - Full, Top App Bar): "صمم صفحة الـProfile". Flow map and screen spec approved by Abdul with the three DS gap fixes: Explore / Search Profile Avatar -> Profile -> Back; playlist cards, recent rows and the Mini Player -> Now Playing.
+- New screen `Listen / Profile - Full` (Dark + Light, 375 x 1380) through prototype/data/overrides.json (`profile-screen`): Top App Bar (back, PROFILE); header with Avatar Large, name, handle + Plan Badge, Edit profile (Button Outlined) + Share (Icon Button Tonal); Your playlists (Section Header + 3 Media Cards); Recently played (3 Playlist List Items); Account (5 List Items, Notifications with a Switch); Sign out (Button Text); Mini Player docked 12 from the bottom, no Bottom Navigation.
+- DS additions, code first (Storybook React components + data/component-registry.json `code_first`), pending Figma: Avatar `Size` Small 40 / Large 96 (md/sys/size/control/large); Top App Bar `Show Navigation` (Icon/arrow_back); new Molecule `List Item` (Trailing None / Switch, list_item heights, docs block). adapters.json: Top App Bar Profile -> Profile - Full, Navigation -> back. 16 Arabic strings added.
+- Generator: tools/screen_code.py accepts a pinned frame in the bottom dock (Mini Player Dock).
+- Checks: build raw values 0, Code panel unknown names 0 / raw values 0, untranslated 0; screenshots Dark EN and Light AR (RTL); click-through Explore -> Profile -> Back, no console errors.
+- **Pending Figma sync** (status.json > prototype.pending_figma_sync, `profile-screen`): the three DS changes in Brownfield DS + publish, then the Profile frames in Brownfield Design. Figma: not changed. Storybook synced: no (components changed in code; stories and docs pages to regenerate after the Figma sync).
+
+## 2026-10-27 · Live prototype: Share flow redesigned to the approved proposal (Tool: Claude)
+- Comment 33c04322 (Karem, Now Playing, Share Icon Button), approved proposal applied through prototype/data/overrides.json (`share-flow` rewritten, `now-playing-share-link`, new `lyrics-share-link`): flow map Now Playing / Lyrics -> Share -> Share Sheet -> Copy link -> Link Copied -> Now Playing; the other targets, Cancel and a scrim tap close the sheet. Share Sheet = bottom Sheet on surface_container_low over md/sys/color/scrim at 32%, padding 16: title "Share", Artwork + Track Metadata header, 24 above a row of 5 Tonal Icon Buttons with on_surface_variant labels (Copy link, Messages, WhatsApp, Instagram Stories, More, icon to label 8), Divider, Text Button "Cancel". Confirmation: Tooltip (Plain) "Link copied" (no Snackbar in the DS; no DS change).
+- Icon gap: no Icon/link, Icon/sms or WhatsApp / Instagram marks in the DS; stand-ins used (upload, groups, share, auto_awesome, more_vert) until they are added in Figma.
+- adapters.json: Lyrics Header reaction -> `onShare`. Arabic strings added (data/strings/ar.json; the artist name moved to content.json). Generator: text layers are now in the string list and render without the browser's `<p>` margin.
+- Checks: build raw values 0, unknown names 0, untranslated 0; click-through in Dark and Light (Share from Now Playing and Lyrics, Copy link, Cancel, scrim), no console errors; sheet 329 high as specified; AR checked.
+- **Pending Figma sync** (status.json > prototype.pending_figma_sync, `share-flow`). Figma: not changed. Storybook synced: n/a (no component change).
+
+## 2026-10-27 · Live prototype: Share flow designed code-first (Tool: Claude)
+- Comment 33c04322 (Karem, Now Playing, Share Icon Button): Share flow added through prototype/data/overrides.json (`now-playing-share-link`, `share-flow`): Share opens a Share Sheet overlay (Playlist List Item of the track, Divider, Buttons Copy link / Share to other apps / Cancel); Copy link -> Link Copied (Now Playing + Plain Tooltip "Link copied"). DS components and tokens only; build raw values 0, Code panel check 0 / 0; checked in Dark and Light. **Pending Figma sync** (status.json > prototype.pending_figma_sync).
+- Generator: tools/build_prototype.py overrides gained `add_screen`, `link` and per-corner radius tokens (`rts`).
+- Figma: not changed. Storybook synced: n/a (no component change).
+
 ## 2026-10-25 · Live prototype: review comments applied code-first (Tool: Claude)
 - Comment 4177a0cf (Ahmed, Explore - Full): "Discover What's New" section removed in the prototype through prototype/data/overrides.json (Dark 27:1708, Light 31:859; frame 1725 -> 1489). **Pending Figma sync** (status.json > prototype.pending_figma_sync).
 - Comment f53a15dc (Ahmed, Explore - Viewport): Viewport frames no longer scroll in the prototype (generator rule, matches Figma). No Figma change.

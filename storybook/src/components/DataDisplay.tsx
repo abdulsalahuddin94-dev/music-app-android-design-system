@@ -8,6 +8,7 @@ import React from 'react';
 import { Icon } from '../lib/Icon';
 import { Artwork, Badge, TrackMetadata, ProgressIndicator, type ProgressValue } from './DataDisplayAtoms';
 import { Button, IconButton } from './Navigation';
+import { Switch, type SwitchProps } from './FormElements';
 import '../styles/data-display.css';
 
 /** Keeps internal state in step with a prop (the Storybook control) while the component stays usable. */
@@ -177,6 +178,39 @@ export function PlaylistListItem({
       {showMore && (
         <span onClick={(e) => e.stopPropagation()} className="dd-list-item__more">
           <IconButton Icon="Icon/more_vert" label="More options" onClick={onMore} />
+        </span>
+      )}
+    </div>
+  );
+}
+
+// ---------- List Item (Molecule) ----------
+// Code first (2026-10-28, pending Figma sync; DS gap G3 of the Profile screen). M3 list item: Leading Icon 24
+// (on_surface_variant), Headline M3/body_large on_surface, Supporting Text M3/body_medium on_surface_variant (Show
+// Supporting Text); Trailing = None | Switch (the Switch atom, its variant through the Switch swap). Fills its parent,
+// height size/list_item/one_line 56 (two_line 72 with supporting text), padding 0 16, gap 16.
+export type ListItemProps = {
+  Trailing?: 'None' | 'Switch'; Headline?: string; 'Supporting Text'?: string; 'Show Supporting Text'?: boolean;
+  'Leading Icon'?: string; Switch?: string; onClick?: () => void; onSwitchChange?: (on: boolean) => void;
+};
+export function ListItem({
+  Trailing = 'None', Headline = 'List item', 'Supporting Text': supporting = 'Supporting text', 'Show Supporting Text': showSupporting = false,
+  'Leading Icon': icon = 'Icon/settings', Switch: switchVariant = 'Selected=False, State=Enabled', onClick, onSwitchChange,
+}: ListItemProps) {
+  const sw = parseVariant(switchVariant);
+  return (
+    <div
+      className="dd-row" data-lines={showSupporting ? 'Two' : 'One'} role="button" tabIndex={0} onClick={onClick}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); } }}
+    >
+      <Icon name={icon} size={24} className="dd-row__icon" />
+      <span className="dd-row__text">
+        <span className="dd-row__headline ts-m3-body_large">{Headline}</span>
+        {showSupporting && <span className="dd-row__supporting ts-m3-body_medium">{supporting}</span>}
+      </span>
+      {Trailing === 'Switch' && (
+        <span onClick={(e) => e.stopPropagation()} className="dd-row__trailing">
+          <Switch Selected={(sw.Selected as 'True' | 'False') || 'False'} State={(sw.State as SwitchProps['State']) || 'Enabled'} label={Headline} onChange={onSwitchChange} />
         </span>
       )}
     </div>

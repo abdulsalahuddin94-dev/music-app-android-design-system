@@ -17,6 +17,7 @@
   border-radius: var(--md-sys-shape-corner-full);
   background: var(--md-sys-color-tertiary_container);
 }
+.dd-avatar[data-size="Large"] { width: var(--md-sys-size-control-large); height: var(--md-sys-size-control-large); /* Figma 96 */ }
 
 /* ---------- Badge (Atom) ---------- */
 .dd-badge {

@@ -1,7 +1,7 @@
 // ⭐Navigation - working replicas of the Music App Android Figma components (Brownfield DS, read with FigCli 2026-10-13).
 // Props use the Figma property and variant names exactly, with the Figma defaults. States follow the Figma file:
-// whole-variant opacity or a state-layer fill over the Enabled look (Hovered 0.88, Pressed 0.82-0.9, Disabled 0.38),
-// Focused = 3px inside stroke included in the layout. The State prop forces a state for review; real :hover / :active /
+// whole-variant opacity or a state-layer fill over the Enabled look (Pressed 0.82-0.9, Disabled 0.38; no Hovered on mobile),
+// Focused = 3px inside stroke included in the layout. The State prop forces a state for review; real :active /
 // :focus-visible work too (styles/navigation.css). INSTANCE_SWAP properties that hold a nested component take the
 // Figma variant name of that component (e.g. "Selected=True, State=Enabled"), like the Figma swap menu.
 import React from 'react';
@@ -11,7 +11,7 @@ import { Artwork, Avatar, Badge, TrackMetadata, ProgressIndicator, progressValue
 import '../styles/navigation.css';
 
 type Bool = 'False' | 'True';
-type FullState = 'Enabled' | 'Pressed' | 'Disabled' | 'Hovered' | 'Focused';
+type FullState = 'Enabled' | 'Pressed' | 'Disabled' | 'Focused';
 
 /** Keeps internal state in step with a prop (the Storybook control) while the component stays usable. */
 function useSynced<T>(value: T): [T, React.Dispatch<React.SetStateAction<T>>] {
@@ -160,10 +160,16 @@ export function BottomNavigation({
 // Figma: title (M3/headline_small_emphasized) then Top App Bar Actions: Notifications and Community Icon Buttons and the
 // Profile Avatar with a Plan Badge "plus".
 // `image` is the Profile Avatar photo (an image fill in Figma screens), like the `image` prop of the other components.
-export type TopAppBarProps = { Title?: string; 'Show Actions'?: boolean; image?: string; onAction?: (name: 'Notifications' | 'Community' | 'Profile') => void };
-export function TopAppBar({ Title = 'EXPLORE', 'Show Actions': showActions = true, image, onAction }: TopAppBarProps) {
+// Show Navigation (code first, 2026-10-28, pending Figma sync): a leading Navigation Button (Icon Button Standard,
+// Icon/arrow_back) before the title, for screens opened on top of another (Profile); the bar's left padding becomes 4.
+export type TopAppBarProps = {
+  Title?: string; 'Show Actions'?: boolean; 'Show Navigation'?: boolean; image?: string;
+  onAction?: (name: 'Notifications' | 'Community' | 'Profile') => void; onNavigate?: () => void;
+};
+export function TopAppBar({ Title = 'EXPLORE', 'Show Actions': showActions = true, 'Show Navigation': showNav = false, image, onAction, onNavigate }: TopAppBarProps) {
   return (
-    <header className="nav-top-bar">
+    <header className="nav-top-bar" data-nav={showNav ? 'True' : undefined}>
+      {showNav && <IconButton Icon="Icon/arrow_back" label="Back" onClick={onNavigate} />}
       <h1 className="nav-top-bar__title ts-m3-headline_small_emphasized">{Title}</h1>
       {showActions && (
         <div className="nav-top-bar__actions">

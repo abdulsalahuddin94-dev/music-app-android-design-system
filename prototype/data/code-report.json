@@ -1,0 +1,154 @@
+{
+ "screens": [
+  {
+   "slug": "explore-full",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 421,
+    "swiftui": 361,
+    "flutter": 481,
+    "react-native": 307,
+    "web": 438
+   }
+  },
+  {
+   "slug": "explore-viewport",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 256,
+    "swiftui": 217,
+    "flutter": 286,
+    "react-native": 190,
+    "web": 255
+   }
+  },
+  {
+   "slug": "search-discover-full",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 233,
+    "swiftui": 208,
+    "flutter": 244,
+    "react-native": 208,
+    "web": 212
+   }
+  },
+  {
+   "slug": "search-discover-viewport",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 233,
+    "swiftui": 208,
+    "flutter": 244,
+    "react-native": 208,
+    "web": 212
+   }
+  },
+  {
+   "slug": "library-music",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 216,
+    "swiftui": 182,
+    "flutter": 214,
+    "react-native": 173,
+    "web": 190
+   }
+  },
+  {
+   "slug": "library-podcasts",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 184,
+    "swiftui": 152,
+    "flutter": 194,
+    "react-native": 153,
+    "web": 166
+   }
+  },
+  {
+   "slug": "now-playing",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 96,
+    "swiftui": 86,
+    "flutter": 102,
+    "react-native": 94,
+    "web": 108
+   }
+  },
+  {
+   "slug": "link-copied",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 97,
+    "swiftui": 87,
+    "flutter": 103,
+    "react-native": 95,
+    "web": 109
+   }
+  },
+  {
+   "slug": "lyrics",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 126,
+    "swiftui": 88,
+    "flutter": 130,
+    "react-native": 94,
+    "web": 111
+   }
+  },
+  {
+   "slug": "share-sheet",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 99,
+    "swiftui": 74,
+    "flutter": 134,
+    "react-native": 69,
+    "web": 128
+   }
+  },
+  {
+   "slug": "profile-full",
+   "unknown": [],
+   "raw": [],
+   "untranslated": [],
+   "lines": {
+    "compose": 264,
+    "swiftui": 223,
+    "flutter": 292,
+    "react-native": 210,
+    "web": 277
+   }
+  }
+ ],
+ "unknown": [],
+ "raw": [],
+ "code_connect": false,
+ "snapped": [
+  "empty frame 10 -> md/sys/spacing/12 (Tabs Spacer)",
+  "empty frame 10 -> md/sys/spacing/12 (Tabs Spacer)"
+ ]
+}

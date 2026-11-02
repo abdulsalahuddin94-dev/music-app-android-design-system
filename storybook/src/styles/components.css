@@ -1,3 +1,11 @@
 /* Component styles live next to each group (imported by the group .tsx files):
    form-elements.css, navigation.css, data-display-atoms.css, data-display.css. */
 @import "./form-elements.css";
+
+/* Reduce motion (OS setting): every DS transition becomes instant. */
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-semantic] {
+    --md-sys-motion-duration-short2: 0ms; --md-sys-motion-duration-short4: 0ms; --md-sys-motion-duration-medium2: 0ms;
+    --md-sys-motion-duration-medium4: 0ms; --md-sys-motion-duration-long2: 0ms;
+  }
+}

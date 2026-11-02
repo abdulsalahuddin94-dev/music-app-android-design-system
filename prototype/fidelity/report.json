@@ -1,0 +1,302 @@
+[
+ {
+  "slug": "explore-full",
+  "name": "Explore - Full",
+  "mode": "Dark",
+  "figma": "27:1463",
+  "codeAhead": false,
+  "score": 97.75,
+  "score1px": 98.92,
+  "size": {
+   "figma": [
+    375,
+    1753
+   ]
+  }
+ },
+ {
+  "slug": "explore-full",
+  "name": "Explore - Full",
+  "mode": "Light",
+  "figma": "31:813",
+  "codeAhead": false,
+  "score": 97.39,
+  "score1px": 98.57,
+  "size": {
+   "figma": [
+    375,
+    1753
+   ]
+  }
+ },
+ {
+  "slug": "explore-viewport",
+  "name": "Explore - Viewport",
+  "mode": "Dark",
+  "figma": "27:1765",
+  "codeAhead": false,
+  "score": 96.82,
+  "score1px": 98.06,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "explore-viewport",
+  "name": "Explore - Viewport",
+  "mode": "Light",
+  "figma": "31:868",
+  "codeAhead": false,
+  "score": 96.48,
+  "score1px": 97.69,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "search-discover-full",
+  "name": "Search & Discover - Full",
+  "mode": "Dark",
+  "figma": "56:5501",
+  "codeAhead": false,
+  "score": 97.75,
+  "score1px": 99.12,
+  "size": {
+   "figma": [
+    375,
+    1424
+   ]
+  }
+ },
+ {
+  "slug": "search-discover-full",
+  "name": "Search & Discover - Full",
+  "mode": "Light",
+  "figma": "56:6072",
+  "codeAhead": false,
+  "score": 97.79,
+  "score1px": 99.11,
+  "size": {
+   "figma": [
+    375,
+    1424
+   ]
+  }
+ },
+ {
+  "slug": "search-discover-viewport",
+  "name": "Search & Discover - Viewport",
+  "mode": "Dark",
+  "figma": "56:5926",
+  "codeAhead": false,
+  "score": 97.61,
+  "score1px": 98.91,
+  "size": {
+   "figma": [
+    375,
+    812
+   ]
+  }
+ },
+ {
+  "slug": "search-discover-viewport",
+  "name": "Search & Discover - Viewport",
+  "mode": "Light",
+  "figma": "56:6107",
+  "codeAhead": false,
+  "score": 97.56,
+  "score1px": 98.87,
+  "size": {
+   "figma": [
+    375,
+    812
+   ]
+  }
+ },
+ {
+  "slug": "library-music",
+  "name": "Library - Music",
+  "mode": "Dark",
+  "figma": "27:1155",
+  "codeAhead": false,
+  "score": 98.19,
+  "score1px": 98.9,
+  "size": {
+   "figma": [
+    375,
+    1132
+   ]
+  }
+ },
+ {
+  "slug": "library-music",
+  "name": "Library - Music",
+  "mode": "Light",
+  "figma": "31:780",
+  "codeAhead": false,
+  "score": 97.97,
+  "score1px": 98.65,
+  "size": {
+   "figma": [
+    375,
+    1132
+   ]
+  }
+ },
+ {
+  "slug": "library-podcasts",
+  "name": "Library - Podcasts",
+  "mode": "Dark",
+  "figma": "27:931",
+  "codeAhead": false,
+  "score": 94.98,
+  "score1px": 97.72,
+  "size": {
+   "figma": [
+    375,
+    1132
+   ]
+  }
+ },
+ {
+  "slug": "library-podcasts",
+  "name": "Library - Podcasts",
+  "mode": "Light",
+  "figma": "31:754",
+  "codeAhead": false,
+  "score": 94.65,
+  "score1px": 97.3,
+  "size": {
+   "figma": [
+    375,
+    1132
+   ]
+  }
+ },
+ {
+  "slug": "now-playing",
+  "name": "Now Playing",
+  "mode": "Dark",
+  "figma": "27:816",
+  "codeAhead": false,
+  "score": 98.75,
+  "score1px": 99.29,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "now-playing",
+  "name": "Now Playing",
+  "mode": "Light",
+  "figma": "31:740",
+  "codeAhead": false,
+  "score": 98.67,
+  "score1px": 99.2,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "link-copied",
+  "name": "Link Copied",
+  "mode": "Dark",
+  "figma": "115:4963",
+  "codeAhead": false,
+  "score": 98.71,
+  "score1px": 99.26,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "link-copied",
+  "name": "Link Copied",
+  "mode": "Light",
+  "figma": "115:5046",
+  "codeAhead": false,
+  "score": 98.63,
+  "score1px": 99.16,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "lyrics",
+  "name": "Lyrics",
+  "mode": "Dark",
+  "figma": "56:5281",
+  "codeAhead": false,
+  "score": 97.84,
+  "score1px": 98.61,
+  "size": {
+   "figma": [
+    375,
+    812
+   ]
+  }
+ },
+ {
+  "slug": "lyrics",
+  "name": "Lyrics",
+  "mode": "Light",
+  "figma": "56:5418",
+  "codeAhead": false,
+  "score": 97.7,
+  "score1px": 98.37,
+  "size": {
+   "figma": [
+    375,
+    812
+   ]
+  }
+ },
+ {
+  "slug": "share-sheet",
+  "name": "Share Sheet",
+  "mode": "Dark",
+  "figma": "115:4806",
+  "codeAhead": true,
+  "score": 39.92,
+  "score1px": 40.23,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ },
+ {
+  "slug": "share-sheet",
+  "name": "Share Sheet",
+  "mode": "Light",
+  "figma": "115:4889",
+  "codeAhead": true,
+  "score": 39.84,
+  "score1px": 40.02,
+  "size": {
+   "figma": [
+    375,
+    813
+   ]
+  }
+ }
+]

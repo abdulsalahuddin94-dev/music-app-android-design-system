@@ -28,7 +28,6 @@ const meta = {
     "control": "select",
     "options": [
       "Enabled",
-      "Hovered",
       "Focused",
       "Error",
       "Disabled"
@@ -77,7 +76,6 @@ export const Filled: Story = { name: "Filled", args: { "Type": "Filled" } };
 export const Outlined: Story = { name: "Outlined", args: { "Type": "Outlined" } };
 export const Dropdown: Story = { name: "Dropdown", args: { "Type": "Dropdown" } };
 export const StateEnabled: Story = { name: "State=Enabled", args: { "State": "Enabled" } };
-export const StateHovered: Story = { name: "State=Hovered", args: { "State": "Hovered" } };
 export const StateFocused: Story = { name: "State=Focused", args: { "State": "Focused" } };
 export const StateError: Story = { name: "State=Error", args: { "State": "Error" } };
 export const StateDisabled: Story = { name: "State=Disabled", args: { "State": "Disabled" } };
@@ -86,7 +84,7 @@ export const States: Story = {
   name: "States",
   render: (args) => (
     <div className="sb-row">
-      {["Enabled", "Hovered", "Focused", "Error", "Disabled"].map((x) => (
+      {["Enabled", "Focused", "Error", "Disabled"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">State={x}</div>
           <TextField {...args} {...{ "State": x } as any} />
@@ -103,7 +101,7 @@ export const AllVariants: Story = {
       {["Filled", "Outlined", "Dropdown"].map((x) => (
         <div key={x}>
           <div className="sb-cell-label ts-xs-medium">Type={x}</div>
-          <div className="sb-row">{["Enabled", "Hovered", "Focused", "Error", "Disabled"].map((y) => <TextField key={y} {...args} {...{ "Type": x, "State": y } as any} />)}</div>
+          <div className="sb-row">{["Enabled", "Focused", "Error", "Disabled"].map((y) => <TextField key={y} {...args} {...{ "Type": x, "State": y } as any} />)}</div>
         </div>
       ))}
     </div>

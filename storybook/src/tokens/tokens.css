@@ -257,6 +257,16 @@
   --md-sys-size-list_item-three_line: 88px; /* Size::md/sys/size/list_item/three_line */
   --md-sys-size-touch_target: 48px; /* Size::md/sys/size/touch_target */
   --md-sys-size-icon: 24px; /* Size::md/sys/size/icon */
+  --md-sys-motion-duration-short2: 100ms; /* Motion::md/sys/motion/duration/short2 */
+  --md-sys-motion-duration-short4: 200ms; /* Motion::md/sys/motion/duration/short4 */
+  --md-sys-motion-duration-medium2: 300ms; /* Motion::md/sys/motion/duration/medium2 */
+  --md-sys-motion-duration-medium4: 400ms; /* Motion::md/sys/motion/duration/medium4 */
+  --md-sys-motion-duration-long2: 500ms; /* Motion::md/sys/motion/duration/long2 */
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1); /* Motion::md/sys/motion/easing/standard */
+  --md-sys-motion-easing-standard_decelerate: cubic-bezier(0, 0, 0, 1); /* Motion::md/sys/motion/easing/standard_decelerate */
+  --md-sys-motion-easing-standard_accelerate: cubic-bezier(0.3, 0, 1, 1); /* Motion::md/sys/motion/easing/standard_accelerate */
+  --md-sys-motion-easing-emphasized_decelerate: cubic-bezier(0.05, 0.7, 0.1, 1); /* Motion::md/sys/motion/easing/emphasized_decelerate */
+  --md-sys-motion-easing-emphasized_accelerate: cubic-bezier(0.3, 0, 0.8, 0.15); /* Motion::md/sys/motion/easing/emphasized_accelerate */
 }
 
 [data-semantic="Light"] {

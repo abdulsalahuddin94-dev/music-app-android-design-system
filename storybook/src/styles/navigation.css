@@ -32,11 +32,6 @@
 .nav-btn[data-style="Outlined Accent"] { background: transparent; color: var(--md-sys-color-tertiary);
   --nav-btn-stroke: 1px; --nav-btn-stroke-color: var(--md-sys-color-tertiary); /* Figma 1 inside stroke */ }
 
-/* Hovered: Filled / Tonal / Neutral opacity 0.88; Outlined / Text / Outlined Accent primary layer 8% */
-.nav-btn:is([data-style="Filled"], [data-style="Tonal"], [data-style="Neutral"]):is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
-.nav-btn:is([data-style="Outlined"], [data-style="Text"], [data-style="Outlined Accent"]):is([data-state="Hovered"], [data-state="Enabled"]:hover) {
-  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent); /* Figma primary @0.08 */
-}
 /* Pressed: Filled / Neutral 0.9, Tonal 0.86; Outlined / Text / Outlined Accent primary layer 10% */
 .nav-btn:is([data-style="Filled"], [data-style="Neutral"]):is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.9; /* Figma 0.9 */ }
 .nav-btn[data-style="Tonal"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.86; /* Figma 0.86 */ }
@@ -69,13 +64,9 @@
 .nav-icon-btn[data-style="Tonal"] { background: var(--md-sys-color-surface_container_highest); color: var(--md-sys-color-on_surface); }
 .nav-icon-btn[data-style="Inverse"] { background: var(--md-sys-color-on_surface); color: var(--md-sys-color-surface); }
 
-.nav-icon-btn[data-style="Standard"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 8%, transparent); /* Figma @0.08 */ }
 .nav-icon-btn[data-style="Standard"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 10%, transparent); /* Figma @0.1 */ }
-.nav-icon-btn[data-style="Filled"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
 .nav-icon-btn[data-style="Filled"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
-.nav-icon-btn[data-style="Tonal"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-surface_container_highest) 92%, transparent); /* Figma @0.92 */ }
 .nav-icon-btn[data-style="Tonal"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-surface_container_highest) 88%, transparent); /* Figma @0.88 */ }
-.nav-icon-btn[data-style="Inverse"]:is([data-state="Hovered"], [data-state="Enabled"]:hover) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 92%, transparent); /* Figma @0.92 */ }
 .nav-icon-btn[data-style="Inverse"]:is([data-state="Pressed"], [data-state="Enabled"]:active) { background: color-mix(in srgb, var(--md-sys-color-on_surface) 88%, transparent); /* Figma @0.88 */ }
 /* Focused: 3px inside stroke, the icon shrinks to 18 inside the fixed 48 box (Figma) */
 .nav-icon-btn:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) { outline: none; border: 3px solid var(--md-sys-color-primary); /* Figma 3 */ }
@@ -99,7 +90,6 @@
   background: var(--md-sys-color-surface_container_high); color: var(--md-sys-color-on_surface);
 }
 .nav-chip[data-selected="True"] .nav-chip__container { background: var(--md-sys-color-primary); color: var(--md-sys-color-on_primary); }
-.nav-chip:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
 .nav-chip:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
 .nav-chip[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
 .nav-chip:focus-visible { outline: none; }
@@ -115,7 +105,6 @@
 .nav-tab__label { white-space: nowrap; }
 .nav-tab[data-selected="True"] { color: var(--md-sys-color-on_surface); }
 .nav-tab__indicator { display: block; align-self: stretch; flex: none; height: 3px; /* Figma 3 */ background: var(--md-sys-color-primary); }
-.nav-tab:is([data-state="Hovered"], [data-state="Enabled"]:hover) { opacity: 0.88; /* Figma 0.88 */ }
 .nav-tab:is([data-state="Pressed"], [data-state="Enabled"]:active) { opacity: 0.82; /* Figma 0.82 */ }
 .nav-tab[data-state="Disabled"] { opacity: 0.38; /* Figma 0.38 */ }
 .nav-tab:is([data-state="Focused"], [data-state="Enabled"]:focus-visible) {
@@ -154,6 +143,9 @@
   padding: var(--md-sys-spacing-16); gap: var(--md-sys-spacing-16); background: transparent; justify-content: space-between;
 }
 .nav-top-bar__title { margin: 0; color: var(--md-sys-color-on_surface); white-space: nowrap; }
+/* Show Navigation: Navigation Button (Icon Button 48) at the left edge + 4, gap 4 to the title, title takes the free width. */
+.nav-top-bar[data-nav] { padding-left: var(--md-sys-spacing-4); gap: var(--md-sys-spacing-4); justify-content: flex-start; }
+.nav-top-bar[data-nav] .nav-top-bar__title { flex: 1 1 0; min-width: 0; }
 .nav-top-bar__actions { display: flex; align-items: center; gap: var(--md-sys-spacing-4); }
 .nav-top-bar__profile {
   position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 0; border: 0; background: transparent;
@@ -210,7 +202,6 @@
   padding: var(--md-sys-spacing-4) var(--md-sys-spacing-12);
   background: var(--md-sys-color-inverse_surface); color: var(--md-sys-color-inverse_on_surface);
 }
-.nav-utility-bar__action:hover { opacity: 0.88; /* Figma 0.88 (file hover opacity) */ }
 .nav-utility-bar__action:active { opacity: 0.82; /* Figma 0.82 */ }
 .nav-utility-bar__action:focus-visible { outline: 3px solid var(--md-sys-color-primary); outline-offset: 0; /* Figma 3 focus stroke */ }
 
@@ -225,3 +216,6 @@
 .nav-demo--screen > .nav-mini-player { margin-bottom: var(--md-sys-spacing-4); }
 .nav-demo__spacer { flex: 1 1 0; }
 .nav-demo__player-body { display: flex; flex-direction: column; gap: var(--md-sys-spacing-24); width: 343px; /* Figma 343 */ max-width: 100%; padding-top: var(--md-sys-spacing-16); }
+
+/* Motion (DS motion tokens): Pressed eases in and out. No hover on mobile; Pressed comes from :active. */
+.nav-btn, .nav-icon-btn, .nav-chip, .nav-tab, .nav-item, .nav-utility-bar__action { transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard), background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard); }

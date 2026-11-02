@@ -19,11 +19,13 @@ export function Artwork({ image, size, alt = '' }: ArtworkProps) {
 
 // ---------- Avatar (Atom) ----------
 // Figma: 40 x 40, corner full, fill md/sys/color/tertiary_container.
-export type AvatarProps = { image?: string; size?: number; alt?: string };
-export function Avatar({ image, size, alt = '' }: AvatarProps) {
+// Size (code first, 2026-10-28, pending Figma sync): Small 40 (md/sys/size/control/small, the Top App Bar avatar) /
+// Large 96 (md/sys/size/control/large, the Profile header).
+export type AvatarProps = { Size?: 'Small' | 'Large'; image?: string; size?: number; alt?: string };
+export function Avatar({ Size = 'Small', image, size, alt = '' }: AvatarProps) {
   const style = size ? ({ width: size, height: size } as React.CSSProperties) : undefined;
   return (
-    <div className="dd-avatar" style={style} role={image ? 'img' : undefined} aria-label={image ? alt : undefined}>
+    <div className="dd-avatar" data-size={Size} style={style} role={image ? 'img' : undefined} aria-label={image ? alt : undefined}>
       {image && <img src={image} alt="" />}
     </div>
   );

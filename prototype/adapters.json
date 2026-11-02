@@ -1,0 +1,177 @@
+{
+  "_note": "Music App (Android) adapters for tools/build_prototype.py. Figma properties pass through by name; this file only adds what the Storybook components take as extra props (photos, nested texts) and the prototype links, because the Figma screens have no prototype reactions yet. Links follow audits/2026-10-13-flow-map-listen.md.",
+  "viewport": 812,
+  "components": {
+    "Shortcut Card": {
+      "props": {
+        "image": "img"
+      }
+    },
+    "Media Card": {
+      "props": {
+        "image": "img",
+        "title": "tx:Track Title",
+        "subtitle": "tx:Track Subtitle"
+      },
+      "events": {
+        "onClick": "screen:Now Playing"
+      }
+    },
+    "Genre Card": {
+      "props": {
+        "image": "img"
+      }
+    },
+    "Playlist List Item": {
+      "props": {
+        "image": "img",
+        "title": "tx:Track Title",
+        "subtitle": "tx:Track Subtitle"
+      },
+      "events": {
+        "onClick": "screen:Now Playing"
+      }
+    },
+    "Podcast Episode Card": {
+      "props": {
+        "image": "img",
+        "title": "tx:Track Title",
+        "subtitle": "tx:Track Subtitle",
+        "downloaded": {
+          "eq": [
+            "ni:Icon/cloud_done.c",
+            "Icon/cloud_done"
+          ]
+        },
+        "titleLines": "ml:Track Title",
+        "hideActiveTrack": "hid:Active Track"
+      }
+    },
+    "Mini Player": {
+      "props": {
+        "image": "img",
+        "title": "tx:Track Title",
+        "subtitle": "tx:Track Subtitle",
+        "playing": {
+          "eq": [
+            "ni:Icon/pause.c",
+            "Icon/pause"
+          ]
+        },
+        "liked": {
+          "eq": [
+            "ni:Icon/favorite.c",
+            "Icon/favorite"
+          ]
+        }
+      },
+      "events": {
+        "onOpen": "screen:Now Playing"
+      }
+    },
+    "Lyrics Header": {
+      "props": {
+        "image": "img",
+        "title": "tx:Track Title",
+        "subtitle": "tx:Track Subtitle"
+      },
+      "click": "onShare"
+    },
+    "Artwork": {
+      "props": {
+        "image": "img",
+        "size": "w:"
+      }
+    },
+    "Playback Controls": {
+      "props": {
+        "playing": {
+          "eq": [
+            "ni:Icon/pause.c",
+            "Icon/pause"
+          ]
+        },
+        "liked": {
+          "eq": [
+            "ni:Icon/favorite.c",
+            "Icon/favorite"
+          ]
+        },
+        "downloaded": {
+          "eq": [
+            "ni:Icon/cloud_done.c",
+            "Icon/cloud_done"
+          ]
+        }
+      }
+    },
+    "Playlist App Bar": {
+      "events": {
+        "onCollapse": "back"
+      }
+    },
+    "Bottom Navigation": {
+      "events": {
+        "onChange": {
+          "by_index": {
+            "0": "screen:Explore - Viewport",
+            "1": "screen:Search & Discover - Viewport",
+            "3": "screen:Library - Music"
+          }
+        }
+      }
+    },
+    "Primary Tabs": {
+      "events": {
+        "onChange": {
+          "by_index": {
+            "0": "screen:Library - Music",
+            "1": "screen:Library - Podcasts"
+          }
+        }
+      }
+    },
+    "Player Utility Bar": {
+      "events": {
+        "onChange": {
+          "by_index": {
+            "Lyrics": "screen:Lyrics",
+            "None": "screen:Now Playing"
+          }
+        }
+      }
+    },
+    "Track Metadata": {
+      "props": {
+        "titleStyle": "ts:Track Title",
+        "subtitleStyle": "ts:Track Subtitle",
+        "titleLines": "ml:Track Title"
+      }
+    },
+    "Top App Bar": {
+      "props": {
+        "image": "img"
+      },
+      "events": {
+        "onAction": {
+          "by_index": {
+            "Profile": "screen:Profile - Full"
+          }
+        },
+        "onNavigate": "back"
+      }
+    },
+    "Avatar": {
+      "props": {
+        "image": "img"
+      }
+    }
+  },
+  "instances": {
+    "Collapse Button": {
+      "events": {
+        "onClick": "back"
+      }
+    }
+  }
+}

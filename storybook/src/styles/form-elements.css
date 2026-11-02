@@ -1,7 +1,7 @@
 /* ⭐Form Elements (Music App Android, Brownfield DS), rendered as web for documentation. Tokens only (var(--...));
    px only for 0, hairlines and Figma geometry without a token (commented). Strokes are INSIDE in Figma: on a component
    root they are a real border (box-sizing: border-box) with the padding reduced by the border width, so padding +
-   border = the Figma padding and the box keeps its size; on inner parts (checkbox box, radio circle) inset box-shadows. States: Hovered 0.88, Pressed 0.82, Disabled 0.38 whole-component opacity (Figma),
+   border = the Figma padding and the box keeps its size; on inner parts (checkbox box, radio circle) inset box-shadows. States: Pressed 0.82, Disabled 0.38 whole-component opacity (Figma),
    Focused = 3px stroke, Error = error stroke (and error label on Text Field). */
 
 /* ---------- Text Field (Molecule) ---------- */
@@ -22,8 +22,7 @@
 .fe-field__input {
   width: 100%; min-width: 0; padding: 0; border: 0; margin: 0; outline: none; background: transparent; color: var(--md-sys-color-on_surface);
 }
-/* Hovered / Disabled */
-.fe-field:hover:not([data-state="Disabled"]):not(:focus-within):not(:focus-visible), .fe-field[data-state="Hovered"] { opacity: 0.88; }
+/* Disabled */
 .fe-field[data-state="Disabled"] { opacity: 0.38; cursor: default; }
 /* Focused: 3px primary stroke on every Type (Figma 3) */
 .fe-field:focus-within, .fe-field:focus-visible, .fe-field[data-state="Focused"] {
@@ -44,7 +43,6 @@
   display: flex; align-items: center; min-height: var(--md-sys-size-touch_target); padding: 0 var(--md-sys-spacing-16);
   color: var(--md-sys-color-on_surface); cursor: pointer;
 }
-.fe-menu__item:hover { background: var(--md-sys-color-surface_container_highest); }
 .fe-menu__item[aria-selected="true"] { background: var(--md-sys-color-secondary_container); color: var(--md-sys-color-on_secondary_container); }
 
 /* ---------- Text Area (Molecule) ---------- */
@@ -60,7 +58,6 @@
   color: var(--md-sys-color-on_surface);
 }
 .fe-textarea__input::placeholder { color: var(--md-sys-color-on_surface_variant); opacity: 1; }
-.fe-textarea:hover:not([data-state="Disabled"]):not(:focus-within), .fe-textarea[data-state="Hovered"] { opacity: 0.88; }
 .fe-textarea[data-state="Disabled"] { opacity: 0.38; }
 .fe-textarea:focus-within, .fe-textarea[data-state="Focused"] { --fe-stroke: 3px; /* Figma 3 */ border-color: var(--md-sys-color-primary); }
 .fe-textarea[data-state="Error"] { border-color: var(--md-sys-color-error); }
@@ -72,7 +69,6 @@
   width: var(--md-sys-size-touch_target); height: var(--md-sys-size-touch_target); cursor: pointer;
 }
 .fe-control__native { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
-.fe-control:hover:not([data-state="Disabled"]), .fe-control[data-state="Hovered"] { opacity: 0.88; }
 .fe-control:active:not([data-state="Disabled"]), .fe-control[data-state="Pressed"] { opacity: 0.82; }
 .fe-control[data-state="Disabled"] { opacity: 0.38; cursor: default; }
 
@@ -113,7 +109,9 @@
   border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-outline); pointer-events: none;
 }
 .fe-switch__thumb { width: 18px; height: 18px; /* Figma 18 */ border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-on_surface); }
-.fe-switch[data-selected="True"] .fe-switch__track { justify-content: flex-end; background: var(--md-sys-color-primary); }
+.fe-switch[data-selected="True"] .fe-switch__track { background: var(--md-sys-color-primary); }
+/* The thumb travels with a logical margin (same end position as Figma's end alignment, mirrored in RTL), so it can slide. */
+.fe-switch[data-selected="True"] .fe-switch__thumb { margin-inline-start: calc(44px - 18px); /* Figma track 44 - thumb 18 */ }
 .fe-switch[data-selected="True"] .fe-switch__thumb { background: var(--md-sys-color-on_primary); }
 .fe-switch[data-selected="True"]:has(.fe-control__native:focus-visible) .fe-switch__track,
 .fe-switch[data-selected="True"][data-state="Focused"] .fe-switch__track { box-shadow: inset 0 0 0 3px var(--md-sys-color-primary); /* Figma 3 */ }
@@ -138,7 +136,6 @@
   display: inline-flex; flex: none; padding: 0; margin: 0; border: 0; background: transparent; color: inherit; cursor: pointer;
   border-radius: var(--md-sys-shape-corner-full);
 }
-.fe-search__mic:hover { opacity: 0.88; }
 .fe-search__mic:active { opacity: 0.82; }
 .fe-search__mic:focus-visible { outline: 3px solid var(--md-sys-color-primary); /* Figma 3 */ }
 
@@ -146,3 +143,7 @@
 .fe-list { display: flex; flex-direction: column; width: 320px; /* Figma 320 */ color: var(--md-sys-color-on_surface); }
 .fe-list__row { display: flex; align-items: center; gap: var(--md-sys-spacing-8); min-height: var(--md-sys-size-list_item-one_line); }
 .fe-list__row--between { justify-content: space-between; padding: 0 var(--md-sys-spacing-4) 0 0; }
+
+/* Motion (DS motion tokens): state changes ease instead of jumping. No hover on mobile; Pressed comes from :active. */
+.fe-control, .fe-field, .fe-textarea, .fe-search__mic { transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard); }
+.fe-switch__track, .fe-switch__thumb { transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard), margin-inline-start var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard); }

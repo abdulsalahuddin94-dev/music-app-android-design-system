@@ -13,6 +13,5176 @@
    "close_gap": true,
    "description": "Remove the Discover What's New section (Dark 27:1708, Light 31:859); the frame gets 236 shorter (1725 -> 1489) so the Mini Player and Bottom Navigation stay at the bottom.",
    "approved": "Abdul, 2026-10-25"
+  },
+  {
+   "id": "explore-full-repeat-just-you",
+   "screen": "Explore - Full",
+   "op": "duplicate",
+   "nodes": [
+    "27:1626",
+    "31:845"
+   ],
+   "after": [
+    "27:1667",
+    "31:852"
+   ],
+   "description": "Repeat the Just You section (Section Header + 3 Media Cards, same content) under Melancholic Egyptian Pop (Dark 27:1626 after 27:1667, Light 31:845 after 31:852); the frame gets 264 taller so the Mini Player and Bottom Navigation stay at the bottom.",
+   "approved": "Abdul, 2026-10-27"
+  },
+  {
+   "id": "now-playing-share-link",
+   "comment": "33c04322-a203-4eb2-af6f-144bdb542d04",
+   "screen": "Now Playing",
+   "op": "link",
+   "nodes": [
+    "27:866",
+    "31:747"
+   ],
+   "re": [
+    {
+     "on": "ON_CLICK",
+     "a": "NODE",
+     "to": "115:4806",
+     "nav": "OVERLAY"
+    }
+   ],
+   "description": "Share Button (Icon Button, Dark 27:866, Light 31:747) opens the Share Sheet as an overlay.",
+   "approved": "Abdul, 2026-10-27"
+  },
+  {
+   "id": "lyrics-share-link",
+   "comment": "33c04322-a203-4eb2-af6f-144bdb542d04",
+   "screen": "Lyrics",
+   "op": "link",
+   "nodes": [
+    "56:5361",
+    "56:5423"
+   ],
+   "re": [
+    {
+     "on": "ON_CLICK",
+     "a": "NODE",
+     "to": "115:4806",
+     "nav": "OVERLAY"
+    }
+   ],
+   "description": "The Lyrics Header's Share Icon Button (Dark 56:5361, Light 56:5423) opens the Share Sheet as an overlay (adapters.json: Lyrics Header click -> onShare).",
+   "approved": "Abdul, 2026-10-27"
+  },
+  {
+   "id": "share-flow",
+   "comment": "33c04322-a203-4eb2-af6f-144bdb542d04",
+   "screen": "Share Sheet",
+   "op": "add_screen",
+   "frames": [
+    {
+     "id": "115:4806",
+     "n": "Listen / Share Sheet / Dark",
+     "modes": {
+      "Semantic": "Dark"
+     },
+     "section": "Listen / Now Playing",
+     "tree": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 813,
+      "s": {
+       "h": "FIXED",
+       "v": "FIXED"
+      },
+      "t": "F",
+      "l": {
+       "m": "VERTICAL",
+       "g": 0,
+       "gt": "md/sys/spacing/0",
+       "p": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "pt": [
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0"
+       ],
+       "pa": "MIN",
+       "ca": "MIN"
+      },
+      "ch": [
+       {
+        "id": "share-sheet-d:scrim",
+        "n": "Scrim",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 484,
+        "s": {
+         "h": "FILL",
+         "v": "FILL",
+         "grow": 1
+        },
+        "t": "F",
+        "f": "md/sys/color/scrim",
+        "o": 0.32,
+        "re": [
+         {
+          "on": "ON_CLICK",
+          "a": "BACK"
+         }
+        ]
+       },
+       {
+        "id": "share-sheet-d:sheet",
+        "n": "Sheet",
+        "x": 0,
+        "y": 484,
+        "w": 375,
+        "h": 329,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 16,
+         "gt": "md/sys/spacing/16",
+         "p": [
+          16,
+          16,
+          16,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "f": "md/sys/color/surface_container_low",
+        "rts": [
+         "md/sys/shape/corner/extra_large",
+         "md/sys/shape/corner/extra_large",
+         null,
+         null
+        ],
+        "ch": [
+         {
+          "id": "share-sheet-d:title",
+          "n": "Title",
+          "x": 16,
+          "y": 16,
+          "w": 343,
+          "h": 32,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "T",
+          "st": "M3/headline_small",
+          "f": "md/sys/color/on_surface",
+          "chars": "Share"
+         },
+         {
+          "id": "share-sheet-d:content",
+          "n": "Share Content",
+          "x": 16,
+          "y": 64,
+          "w": 343,
+          "h": 168,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 24,
+           "gt": "md/sys/spacing/24",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "share-sheet-d:header",
+            "n": "Track Header",
+            "x": 0,
+            "y": 0,
+            "w": 343,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 16,
+             "gt": "md/sys/spacing/16",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            },
+            "ch": [
+             {
+              "id": "share-sheet-d:artwork",
+              "n": "Artwork",
+              "x": 0,
+              "y": 0,
+              "w": 56,
+              "h": 56,
+              "s": {
+               "h": "FIXED",
+               "v": "FIXED"
+              },
+              "t": "I",
+              "c": "Artwork",
+              "v": {},
+              "p": {},
+              "img": [
+               {
+                "id": "27:849",
+                "n": "Artwork",
+                "w": 56,
+                "h": 56
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-d:metadata",
+              "n": "Track Metadata",
+              "x": 72,
+              "y": 6,
+              "w": 271,
+              "h": 44,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "I",
+              "c": "Track Metadata",
+              "v": {},
+              "p": {
+               "Title": "كيفك ع فراقى",
+               "Subtitle": "محمد شاكر وفضل شاكر",
+               "Show Subtitle Icon": false
+              }
+             }
+            ]
+           },
+           {
+            "id": "share-sheet-d:targets",
+            "n": "Share Targets",
+            "x": 0,
+            "y": 80,
+            "w": 343,
+            "h": 88,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 0,
+             "gt": "md/sys/spacing/0",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            },
+            "ch": [
+             {
+              "id": "share-sheet-d:target-copy",
+              "n": "Copy link Target",
+              "x": 0.0,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "NODE",
+                "to": "115:4963",
+                "nav": "NAVIGATE"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-d:target-copy:button",
+                "n": "Copy link Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/upload"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-d:target-copy:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Copy link"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-d:target-messages",
+              "n": "Messages Target",
+              "x": 68.6,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-d:target-messages:button",
+                "n": "Messages Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/groups"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-d:target-messages:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Messages"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-d:target-whatsapp",
+              "n": "WhatsApp Target",
+              "x": 137.2,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-d:target-whatsapp:button",
+                "n": "WhatsApp Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/share"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-d:target-whatsapp:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "WhatsApp"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-d:target-instagram",
+              "n": "Instagram Stories Target",
+              "x": 205.79999999999998,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-d:target-instagram:button",
+                "n": "Instagram Stories Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/auto_awesome"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-d:target-instagram:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Instagram Stories"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-d:target-more",
+              "n": "More Target",
+              "x": 274.4,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-d:target-more:button",
+                "n": "More Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/more_vert"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-d:target-more:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "More"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "id": "share-sheet-d:divider",
+          "n": "Divider",
+          "x": 16,
+          "y": 248,
+          "w": 343,
+          "h": 1,
+          "s": {
+           "h": "FILL",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Divider",
+          "v": {},
+          "p": {}
+         },
+         {
+          "id": "share-sheet-d:cancel",
+          "n": "Cancel Button",
+          "x": 16,
+          "y": 265,
+          "w": 343,
+          "h": 48,
+          "s": {
+           "h": "FILL",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Button",
+          "v": {
+           "Style": "Text",
+           "State": "Enabled"
+          },
+          "p": {
+           "Label text": "Cancel",
+           "Show Leading Icon": false
+          },
+          "tx": {
+           "Button": "Cancel"
+          },
+          "ts": {
+           "Button": "M3/label_large"
+          },
+          "re": [
+           {
+            "on": "ON_CLICK",
+            "a": "BACK"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "115:4889",
+     "n": "Listen / Share Sheet / Light",
+     "modes": {
+      "Semantic": "Light"
+     },
+     "section": "Listen / Now Playing",
+     "tree": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 813,
+      "s": {
+       "h": "FIXED",
+       "v": "FIXED"
+      },
+      "t": "F",
+      "l": {
+       "m": "VERTICAL",
+       "g": 0,
+       "gt": "md/sys/spacing/0",
+       "p": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "pt": [
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0"
+       ],
+       "pa": "MIN",
+       "ca": "MIN"
+      },
+      "ch": [
+       {
+        "id": "share-sheet-l:scrim",
+        "n": "Scrim",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 484,
+        "s": {
+         "h": "FILL",
+         "v": "FILL",
+         "grow": 1
+        },
+        "t": "F",
+        "f": "md/sys/color/scrim",
+        "o": 0.32,
+        "re": [
+         {
+          "on": "ON_CLICK",
+          "a": "BACK"
+         }
+        ]
+       },
+       {
+        "id": "share-sheet-l:sheet",
+        "n": "Sheet",
+        "x": 0,
+        "y": 484,
+        "w": 375,
+        "h": 329,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 16,
+         "gt": "md/sys/spacing/16",
+         "p": [
+          16,
+          16,
+          16,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "f": "md/sys/color/surface_container_low",
+        "rts": [
+         "md/sys/shape/corner/extra_large",
+         "md/sys/shape/corner/extra_large",
+         null,
+         null
+        ],
+        "ch": [
+         {
+          "id": "share-sheet-l:title",
+          "n": "Title",
+          "x": 16,
+          "y": 16,
+          "w": 343,
+          "h": 32,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "T",
+          "st": "M3/headline_small",
+          "f": "md/sys/color/on_surface",
+          "chars": "Share"
+         },
+         {
+          "id": "share-sheet-l:content",
+          "n": "Share Content",
+          "x": 16,
+          "y": 64,
+          "w": 343,
+          "h": 168,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 24,
+           "gt": "md/sys/spacing/24",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "share-sheet-l:header",
+            "n": "Track Header",
+            "x": 0,
+            "y": 0,
+            "w": 343,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 16,
+             "gt": "md/sys/spacing/16",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            },
+            "ch": [
+             {
+              "id": "share-sheet-l:artwork",
+              "n": "Artwork",
+              "x": 0,
+              "y": 0,
+              "w": 56,
+              "h": 56,
+              "s": {
+               "h": "FIXED",
+               "v": "FIXED"
+              },
+              "t": "I",
+              "c": "Artwork",
+              "v": {},
+              "p": {},
+              "img": [
+               {
+                "id": "31:744",
+                "n": "Artwork",
+                "w": 56,
+                "h": 56
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-l:metadata",
+              "n": "Track Metadata",
+              "x": 72,
+              "y": 6,
+              "w": 271,
+              "h": 44,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "I",
+              "c": "Track Metadata",
+              "v": {},
+              "p": {
+               "Title": "كيفك ع فراقى",
+               "Subtitle": "محمد شاكر وفضل شاكر",
+               "Show Subtitle Icon": false
+              }
+             }
+            ]
+           },
+           {
+            "id": "share-sheet-l:targets",
+            "n": "Share Targets",
+            "x": 0,
+            "y": 80,
+            "w": 343,
+            "h": 88,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 0,
+             "gt": "md/sys/spacing/0",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            },
+            "ch": [
+             {
+              "id": "share-sheet-l:target-copy",
+              "n": "Copy link Target",
+              "x": 0.0,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "NODE",
+                "to": "115:5046",
+                "nav": "NAVIGATE"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-l:target-copy:button",
+                "n": "Copy link Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/upload"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-l:target-copy:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Copy link"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-l:target-messages",
+              "n": "Messages Target",
+              "x": 68.6,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-l:target-messages:button",
+                "n": "Messages Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/groups"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-l:target-messages:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Messages"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-l:target-whatsapp",
+              "n": "WhatsApp Target",
+              "x": 137.2,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-l:target-whatsapp:button",
+                "n": "WhatsApp Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/share"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-l:target-whatsapp:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "WhatsApp"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-l:target-instagram",
+              "n": "Instagram Stories Target",
+              "x": 205.79999999999998,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-l:target-instagram:button",
+                "n": "Instagram Stories Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/auto_awesome"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-l:target-instagram:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "Instagram Stories"
+               }
+              ]
+             },
+             {
+              "id": "share-sheet-l:target-more",
+              "n": "More Target",
+              "x": 274.4,
+              "y": 0,
+              "w": 68.6,
+              "h": 88,
+              "s": {
+               "h": "FILL",
+               "v": "HUG"
+              },
+              "t": "F",
+              "l": {
+               "m": "VERTICAL",
+               "g": 8,
+               "gt": "md/sys/spacing/8",
+               "p": [
+                0,
+                0,
+                0,
+                0
+               ],
+               "pt": [
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0",
+                "md/sys/spacing/0"
+               ],
+               "pa": "MIN",
+               "ca": "CENTER"
+              },
+              "re": [
+               {
+                "on": "ON_CLICK",
+                "a": "BACK"
+               }
+              ],
+              "ch": [
+               {
+                "id": "share-sheet-l:target-more:button",
+                "n": "More Button",
+                "x": 10.3,
+                "y": 0,
+                "w": 48,
+                "h": 48,
+                "s": {
+                 "h": "FIXED",
+                 "v": "FIXED"
+                },
+                "t": "I",
+                "c": "Icon Button",
+                "v": {
+                 "Style": "Tonal",
+                 "State": "Enabled"
+                },
+                "p": {
+                 "Icon": {
+                  "swap": null,
+                  "name": "Icon/more_vert"
+                 }
+                }
+               },
+               {
+                "id": "share-sheet-l:target-more:label",
+                "n": "Label",
+                "x": 0,
+                "y": 56,
+                "w": 68.6,
+                "h": 16,
+                "s": {
+                 "h": "FILL",
+                 "v": "HUG"
+                },
+                "t": "T",
+                "st": "M3/label_medium",
+                "f": "md/sys/color/on_surface_variant",
+                "al": "CENTER",
+                "chars": "More"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "id": "share-sheet-l:divider",
+          "n": "Divider",
+          "x": 16,
+          "y": 248,
+          "w": 343,
+          "h": 1,
+          "s": {
+           "h": "FILL",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Divider",
+          "v": {},
+          "p": {}
+         },
+         {
+          "id": "share-sheet-l:cancel",
+          "n": "Cancel Button",
+          "x": 16,
+          "y": 265,
+          "w": 343,
+          "h": 48,
+          "s": {
+           "h": "FILL",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Button",
+          "v": {
+           "Style": "Text",
+           "State": "Enabled"
+          },
+          "p": {
+           "Label text": "Cancel",
+           "Show Leading Icon": false
+          },
+          "tx": {
+           "Button": "Cancel"
+          },
+          "ts": {
+           "Button": "M3/label_large"
+          },
+          "re": [
+           {
+            "on": "ON_CLICK",
+            "a": "BACK"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "link-copied-d",
+     "n": "Listen / Link Copied / Dark",
+     "modes": {
+      "Semantic": "Dark"
+     },
+     "section": "Listen / Now Playing",
+     "from": "27:816",
+     "re": [
+      {
+       "on": "ON_CLICK",
+       "a": "NODE",
+       "to": "27:816",
+       "nav": "NAVIGATE"
+      }
+     ],
+     "add": [
+      {
+       "id": "link-copied-d:toast",
+       "n": "Link Copied Tooltip",
+       "x": 107.5,
+       "y": 701,
+       "w": 160,
+       "h": 40,
+       "s": {
+        "h": "FIXED",
+        "v": "FIXED",
+        "abs": true
+       },
+       "t": "I",
+       "c": "Tooltip",
+       "v": {
+        "Type": "Plain"
+       },
+       "p": {
+        "Text": "Link copied"
+       },
+       "tx": {
+        "Text": "Link copied"
+       }
+      }
+     ]
+    },
+    {
+     "id": "link-copied-l",
+     "n": "Listen / Link Copied / Light",
+     "modes": {
+      "Semantic": "Light"
+     },
+     "section": "Listen / Now Playing",
+     "from": "31:740",
+     "re": [
+      {
+       "on": "ON_CLICK",
+       "a": "NODE",
+       "to": "31:740",
+       "nav": "NAVIGATE"
+      }
+     ],
+     "add": [
+      {
+       "id": "link-copied-l:toast",
+       "n": "Link Copied Tooltip",
+       "x": 107.5,
+       "y": 701,
+       "w": 160,
+       "h": 40,
+       "s": {
+        "h": "FIXED",
+        "v": "FIXED",
+        "abs": true
+       },
+       "t": "I",
+       "c": "Tooltip",
+       "v": {
+        "Type": "Plain"
+       },
+       "p": {
+        "Text": "Link copied"
+       },
+       "tx": {
+        "Text": "Link copied"
+       }
+      }
+     ]
+    }
+   ],
+   "description": "Share flow (flow map: Now Playing / Lyrics -> Share -> Share Sheet -> Copy link -> Link Copied -> Now Playing; the other targets, Cancel and the scrim close the sheet). Share Sheet = bottom Sheet (Position=Bottom) over md/sys/color/scrim at 0.32, on surface_container_low, top corners extra_large, padding 16, gap 16: title 'Share' (M3/headline_small, on_surface); header Artwork 56 + Track Metadata (track title, artist), 24 above a row of 5 share targets (Icon Button Tonal + label M3/label_medium on_surface_variant, 8 apart): Copy link, Messages, WhatsApp, Instagram Stories, More; Divider; Button Text 'Cancel'. Copy link -> Link Copied (Now Playing with a Plain Tooltip 'Link copied' as the confirmation; the DS has no Snackbar). Target icons are stand-ins from the DS set until the icons exist in Figma: Copy link Icon/upload, Messages Icon/groups, WhatsApp Icon/share, Instagram Stories Icon/auto_awesome, More Icon/more_vert.",
+   "approved": "Abdul, 2026-10-27",
+   "figma_note": "Share Sheet frames keep their code-first tree with the Figma ids (115:4806 / 115:4889): the screens export does not read Sheet slot content yet (2026-11-01)."
+  },
+  {
+   "id": "profile-screen",
+   "comment": "d931e611-3b53-49bd-ac3c-91d94de2ab4b",
+   "screen": "Profile - Full",
+   "op": "add_screen",
+   "frames": [
+    {
+     "id": "profile-full-d",
+     "n": "Listen / Profile - Full / Dark",
+     "modes": {
+      "Semantic": "Dark"
+     },
+     "section": "Listen / Profile",
+     "tree": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 1380,
+      "s": {
+       "h": "FIXED",
+       "v": "FIXED"
+      },
+      "t": "F",
+      "l": {
+       "m": "VERTICAL",
+       "g": 0,
+       "gt": "md/sys/spacing/0",
+       "p": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "pt": [
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0"
+       ],
+       "pa": "MIN",
+       "ca": "MIN"
+      },
+      "f": "md/sys/color/surface",
+      "clip": true,
+      "ch": [
+       {
+        "id": "profile-full-d:27:1464",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 32,
+        "s": {
+         "h": "FILL",
+         "v": "FIXED"
+        },
+        "t": "I",
+        "c": "Status Bar",
+        "v": {},
+        "p": {
+         "Time": "4:59"
+        },
+        "tx": {
+         "Status Time": "4:59"
+        },
+        "ni": {
+         "Icon wifi": {
+          "id": "I27:1464;16:804",
+          "c": "Icon/wifi",
+          "v": null
+         },
+         "Icon signal_cellular_alt": {
+          "id": "I27:1464;16:806",
+          "c": "Icon/signal_cellular_alt",
+          "v": null
+         },
+         "Icon battery_full": {
+          "id": "I27:1464;16:808",
+          "c": "Icon/battery_full",
+          "v": null
+         }
+        },
+        "ts": {
+         "Status Time": "M3/label_large"
+        },
+        "il": {
+         "m": "HORIZONTAL",
+         "g": 0,
+         "p": [
+          0,
+          24,
+          0,
+          24
+         ],
+         "pt": [
+          null,
+          "md/sys/spacing/24",
+          null,
+          "md/sys/spacing/24"
+         ],
+         "pa": "SPACE_BETWEEN",
+         "ca": "CENTER"
+        }
+       },
+       {
+        "id": "profile-full-d:27:1473",
+        "n": "Top App Bar",
+        "x": 0,
+        "y": 32,
+        "w": 375,
+        "h": 64,
+        "s": {
+         "h": "FILL",
+         "v": "FIXED"
+        },
+        "t": "I",
+        "c": "Top App Bar",
+        "v": {},
+        "p": {
+         "Show Actions": false,
+         "Show Navigation": true,
+         "Title": "PROFILE"
+        },
+        "tx": {
+         "EXPLORE": "PROFILE"
+        },
+        "ni": {
+         "Notifications Button": {
+          "id": "I27:1473;17:1003",
+          "c": "Icon Button",
+          "v": "Style=Standard, State=Enabled"
+         },
+         "Icon/notifications": {
+          "id": "I27:1473;17:1003;9:280",
+          "c": "Icon/notifications",
+          "v": null
+         },
+         "Community Button": {
+          "id": "I27:1473;17:1007",
+          "c": "Icon Button",
+          "v": "Style=Standard, State=Enabled"
+         },
+         "Icon/groups": {
+          "id": "I27:1473;17:1007;9:280",
+          "c": "Icon/groups",
+          "v": null
+         },
+         "Profile Avatar": {
+          "id": "I27:1473;17:1015",
+          "c": "Avatar",
+          "v": null
+         },
+         "Plan Badge": {
+          "id": "I27:1473;17:1016",
+          "c": "Badge",
+          "v": "Type=Plan",
+          "f": "md/sys/color/error"
+         }
+        },
+        "ts": {
+         "EXPLORE": "M3/headline_small_emphasized",
+         "E": "M3/label_small"
+        },
+        "il": {
+         "m": "HORIZONTAL",
+         "g": 4,
+         "gt": "md/sys/spacing/4",
+         "p": [
+          16,
+          16,
+          16,
+          4
+         ],
+         "pt": [
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/4"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        }
+       },
+       {
+        "id": "profile-full-d:header",
+        "n": "Profile Header",
+        "x": 0,
+        "y": 96,
+        "w": 375,
+        "h": 248,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 12,
+         "gt": "md/sys/spacing/12",
+         "p": [
+          8,
+          16,
+          16,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/8",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        },
+        "ch": [
+         {
+          "id": "profile-full-d:avatar",
+          "n": "Profile Avatar",
+          "x": 139.5,
+          "y": 8,
+          "w": 96,
+          "h": 96,
+          "s": {
+           "h": "FIXED",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Avatar",
+          "v": {
+           "Size": "Large"
+          },
+          "p": {},
+          "img": [
+           {
+            "id": "I27:1473;17:1015",
+            "n": "Profile Avatar",
+            "w": 96,
+            "h": 96
+           }
+          ]
+         },
+         {
+          "id": "profile-full-d:names",
+          "n": "Name Block",
+          "x": 16,
+          "y": 116,
+          "w": 343,
+          "h": 56,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 4,
+           "gt": "md/sys/spacing/4",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:name",
+            "n": "Name",
+            "x": 0,
+            "y": 0,
+            "w": 343,
+            "h": 32,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "T",
+            "st": "M3/headline_small",
+            "f": "md/sys/color/on_surface",
+            "chars": "Ahmed Salah",
+            "al": "CENTER"
+           },
+           {
+            "id": "profile-full-d:handle",
+            "n": "Handle Row",
+            "x": 113,
+            "y": 36,
+            "w": 117,
+            "h": 20,
+            "s": {
+             "h": "HUG",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            },
+            "ch": [
+             {
+              "id": "profile-full-d:handle-text",
+              "n": "Handle",
+              "x": 0,
+              "y": 0,
+              "w": 90,
+              "h": 20,
+              "s": {
+               "h": "HUG",
+               "v": "HUG"
+              },
+              "t": "T",
+              "st": "M3/body_medium",
+              "f": "md/sys/color/on_surface_variant",
+              "chars": "@ahmedsalah"
+             },
+             {
+              "id": "profile-full-d:plan",
+              "n": "Plan Badge",
+              "x": 98,
+              "y": 0,
+              "w": 19,
+              "h": 20,
+              "s": {
+               "h": "HUG",
+               "v": "HUG"
+              },
+              "t": "I",
+              "c": "Badge",
+              "v": {
+               "Type": "Plan"
+              },
+              "p": {
+               "Label": "plus"
+              }
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "id": "profile-full-d:actions",
+          "n": "Profile Actions",
+          "x": 94,
+          "y": 184,
+          "w": 187,
+          "h": 48,
+          "s": {
+           "h": "HUG",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "HORIZONTAL",
+           "g": 8,
+           "gt": "md/sys/spacing/8",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:edit",
+            "n": "Edit Profile Button",
+            "x": 0,
+            "y": 0,
+            "w": 131,
+            "h": 48,
+            "s": {
+             "h": "HUG",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Button",
+            "v": {
+             "Style": "Outlined",
+             "State": "Enabled"
+            },
+            "p": {
+             "Label text": "Edit profile",
+             "Show Leading Icon": false
+            }
+           },
+           {
+            "id": "profile-full-d:share",
+            "n": "Share Button",
+            "x": 139,
+            "y": 0,
+            "w": 48,
+            "h": 48,
+            "s": {
+             "h": "FIXED",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Icon Button",
+            "v": {
+             "Style": "Tonal",
+             "State": "Enabled"
+            },
+            "p": {
+             "Icon": {
+              "swap": null,
+              "name": "Icon/share"
+             }
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-d:27:1511",
+        "n": "Your playlists Rail",
+        "x": 0,
+        "y": 344,
+        "w": 375,
+        "h": 256,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          null,
+          null,
+          null
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "clip": true,
+        "ch": [
+         {
+          "id": "profile-full-d:pl:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:pl:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": true,
+             "Title": "Your playlists"
+            },
+            "tx": {
+             "Section Title": "Your playlists",
+             "Button": "More"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-d:27:1521",
+          "n": "Rail Cards",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 188,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "HORIZONTAL",
+           "g": 16,
+           "gt": "md/sys/spacing/16",
+           "p": [
+            0,
+            0,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            null,
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "clip": true,
+          "ch": [
+           {
+            "id": "profile-full-d:pl0:27:1522",
+            "n": "Media Card",
+            "x": 16,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Arabic Music Mix",
+             "Track Subtitle": "Playlist · 469 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1367;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           },
+           {
+            "id": "profile-full-d:pl1:27:1522",
+            "n": "Media Card",
+            "x": 168,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Music Mix",
+             "Track Subtitle": "Playlist · 541 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1385;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           },
+           {
+            "id": "profile-full-d:pl2:27:1522",
+            "n": "Media Card",
+            "x": 320,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Farah",
+             "Track Subtitle": "Playlist · 46 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1396;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-d:recent",
+        "n": "Recently played Section",
+        "x": 0,
+        "y": 600,
+        "w": 375,
+        "h": 284,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-d:rp:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:rp:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": false,
+             "Title": "Recently played"
+            },
+            "tx": {
+             "Section Title": "Recently played"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon",
+             "More Button"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-d:rp-list",
+          "n": "Recently played List",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 216,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "gt": "md/sys/spacing/0",
+           "p": [
+            0,
+            8,
+            0,
+            8
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/8",
+            null,
+            "md/sys/spacing/8"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:rp:27:1407",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 0,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Amr diab",
+             "Track Subtitle": "101 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1407;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1407;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1407;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1407;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1407;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           },
+           {
+            "id": "profile-full-d:rp:27:1418",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 72,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Fayrouz",
+             "Track Subtitle": "28 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1418;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1418;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1418;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1418;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1418;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           },
+           {
+            "id": "profile-full-d:rp:27:1429",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 144,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Massar Egbari - Maba'etsh Aktar",
+             "Track Subtitle": "10 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1429;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1429;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "Subtitle Icon": {
+              "id": "I27:1429;10:392;17:911",
+              "c": "Icon/cloud_done",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1429;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1429;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1429;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-d:account",
+        "n": "Account Section",
+        "x": 0,
+        "y": 884,
+        "w": 375,
+        "h": 364,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-d:ac:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:ac:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": false,
+             "Title": "Account"
+            },
+            "tx": {
+             "Section Title": "Account"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon",
+             "More Button"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-d:account-list",
+          "n": "Account List",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 296,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "gt": "md/sys/spacing/0",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-d:row-downloads",
+            "n": "Downloads Row",
+            "x": 0,
+            "y": 0,
+            "w": 375,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Downloads",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/download"
+             },
+             "Show Supporting Text": true,
+             "Supporting Text": "Songs and podcasts saved on this phone"
+            }
+           },
+           {
+            "id": "profile-full-d:row-notifications",
+            "n": "Notifications Row",
+            "x": 0,
+            "y": 72,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "Switch"
+            },
+            "p": {
+             "Headline": "Notifications",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/notifications"
+             },
+             "Show Supporting Text": false,
+             "Switch": {
+              "swap": null,
+              "set": "Switch",
+              "name": "Selected=True, State=Enabled"
+             }
+            }
+           },
+           {
+            "id": "profile-full-d:row-history",
+            "n": "Listening history Row",
+            "x": 0,
+            "y": 128,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Listening history",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/history"
+             },
+             "Show Supporting Text": false
+            }
+           },
+           {
+            "id": "profile-full-d:row-settings",
+            "n": "Settings Row",
+            "x": 0,
+            "y": 184,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Settings",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/settings"
+             },
+             "Show Supporting Text": false
+            }
+           },
+           {
+            "id": "profile-full-d:row-help",
+            "n": "Help & feedback Row",
+            "x": 0,
+            "y": 240,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Help & feedback",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/help"
+             },
+             "Show Supporting Text": false
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-d:signout",
+        "n": "Sign Out",
+        "x": 0,
+        "y": 1248,
+        "w": 375,
+        "h": 64,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 0,
+         "gt": "md/sys/spacing/0",
+         "p": [
+          8,
+          16,
+          8,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/8",
+          "md/sys/spacing/16",
+          "md/sys/spacing/8",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-d:signout-btn",
+          "n": "Sign Out Button",
+          "x": 16,
+          "y": 8,
+          "w": 92,
+          "h": 48,
+          "s": {
+           "h": "HUG",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Button",
+          "v": {
+           "Style": "Text",
+           "State": "Enabled"
+          },
+          "p": {
+           "Label text": "Sign out",
+           "Show Leading Icon": false
+          }
+         }
+        ]
+       },
+       {
+        "id": "profile-full-d:dock",
+        "n": "Mini Player Dock",
+        "x": 0,
+        "y": 1312,
+        "w": 375,
+        "h": 68,
+        "s": {
+         "h": "FIXED",
+         "v": "FIXED",
+         "abs": true
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 0,
+         "gt": "md/sys/spacing/0",
+         "p": [
+          0,
+          12,
+          12,
+          12
+         ],
+         "pt": [
+          "md/sys/spacing/0",
+          "md/sys/spacing/12",
+          "md/sys/spacing/12",
+          "md/sys/spacing/12"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        },
+        "ch": [
+         {
+          "id": "profile-full-d:27:1751",
+          "n": "Mini Player",
+          "x": 12,
+          "y": 0,
+          "w": 351,
+          "h": 56,
+          "s": {
+           "h": "FIXED",
+           "v": "FIXED"
+          },
+          "re": [
+           {
+            "on": "ON_CLICK",
+            "a": "NODE",
+            "nav": "NAVIGATE",
+            "to": "27:816",
+            "toName": "Listen / Now Playing / Dark"
+           }
+          ],
+          "t": "I",
+          "c": "Mini Player",
+          "v": {},
+          "p": {
+           "Track Metadata": {
+            "swap": "56:1687",
+            "name": "Track Metadata"
+           },
+           "Artwork": {
+            "swap": "56:1681",
+            "name": "Artwork"
+           }
+          },
+          "tx": {
+           "Track Title": "لو كنت غالى",
+           "Track Subtitle": "مصطفى قمر"
+          },
+          "ni": {
+           "Artwork": {
+            "id": "I27:1751;10:451",
+            "c": "Artwork",
+            "v": null
+           },
+           "Track Metadata": {
+            "id": "I27:1751;10:452",
+            "c": "Track Metadata",
+            "v": null
+           },
+           "Like Button": {
+            "id": "I27:1751;17:1037",
+            "c": "Icon Button",
+            "v": "Style=Standard, State=Enabled"
+           },
+           "Icon/favorite_outline": {
+            "id": "I27:1751;17:1037;9:280",
+            "c": "Icon/favorite_outline",
+            "v": null
+           },
+           "Play Button": {
+            "id": "I27:1751;17:1041",
+            "c": "Icon Button",
+            "v": "Style=Inverse, State=Enabled",
+            "f": "md/sys/color/on_surface"
+           },
+           "Icon/play_arrow": {
+            "id": "I27:1751;17:1041;17:896",
+            "c": "Icon/play_arrow",
+            "v": null
+           }
+          },
+          "img": [
+           {
+            "id": "I27:1751;10:451",
+            "n": "Artwork",
+            "w": 48,
+            "h": 48
+           }
+          ],
+          "ts": {
+           "Track Title": "M3/title_medium_emphasized",
+           "Track Subtitle": "M3/body_small"
+          },
+          "ml": {
+           "Track Title": 1,
+           "Track Subtitle": 1
+          },
+          "hid": [
+           "Subtitle Icon"
+          ],
+          "il": {
+           "m": "HORIZONTAL",
+           "g": 8,
+           "gt": "md/sys/spacing/8",
+           "p": [
+            4,
+            8,
+            4,
+            8
+           ],
+           "pt": [
+            "md/sys/spacing/4",
+            "md/sys/spacing/8",
+            "md/sys/spacing/4",
+            "md/sys/spacing/8"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "f": "md/sys/color/surface_container"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "profile-full-l",
+     "n": "Listen / Profile - Full / Light",
+     "modes": {
+      "Semantic": "Light"
+     },
+     "section": "Listen / Profile",
+     "tree": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 1380,
+      "s": {
+       "h": "FIXED",
+       "v": "FIXED"
+      },
+      "t": "F",
+      "l": {
+       "m": "VERTICAL",
+       "g": 0,
+       "gt": "md/sys/spacing/0",
+       "p": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "pt": [
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0",
+        "md/sys/spacing/0"
+       ],
+       "pa": "MIN",
+       "ca": "MIN"
+      },
+      "f": "md/sys/color/surface",
+      "clip": true,
+      "ch": [
+       {
+        "id": "profile-full-l:27:1464",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 32,
+        "s": {
+         "h": "FILL",
+         "v": "FIXED"
+        },
+        "t": "I",
+        "c": "Status Bar",
+        "v": {},
+        "p": {
+         "Time": "4:59"
+        },
+        "tx": {
+         "Status Time": "4:59"
+        },
+        "ni": {
+         "Icon wifi": {
+          "id": "I27:1464;16:804",
+          "c": "Icon/wifi",
+          "v": null
+         },
+         "Icon signal_cellular_alt": {
+          "id": "I27:1464;16:806",
+          "c": "Icon/signal_cellular_alt",
+          "v": null
+         },
+         "Icon battery_full": {
+          "id": "I27:1464;16:808",
+          "c": "Icon/battery_full",
+          "v": null
+         }
+        },
+        "ts": {
+         "Status Time": "M3/label_large"
+        },
+        "il": {
+         "m": "HORIZONTAL",
+         "g": 0,
+         "p": [
+          0,
+          24,
+          0,
+          24
+         ],
+         "pt": [
+          null,
+          "md/sys/spacing/24",
+          null,
+          "md/sys/spacing/24"
+         ],
+         "pa": "SPACE_BETWEEN",
+         "ca": "CENTER"
+        }
+       },
+       {
+        "id": "profile-full-l:27:1473",
+        "n": "Top App Bar",
+        "x": 0,
+        "y": 32,
+        "w": 375,
+        "h": 64,
+        "s": {
+         "h": "FILL",
+         "v": "FIXED"
+        },
+        "t": "I",
+        "c": "Top App Bar",
+        "v": {},
+        "p": {
+         "Show Actions": false,
+         "Show Navigation": true,
+         "Title": "PROFILE"
+        },
+        "tx": {
+         "EXPLORE": "PROFILE"
+        },
+        "ni": {
+         "Notifications Button": {
+          "id": "I27:1473;17:1003",
+          "c": "Icon Button",
+          "v": "Style=Standard, State=Enabled"
+         },
+         "Icon/notifications": {
+          "id": "I27:1473;17:1003;9:280",
+          "c": "Icon/notifications",
+          "v": null
+         },
+         "Community Button": {
+          "id": "I27:1473;17:1007",
+          "c": "Icon Button",
+          "v": "Style=Standard, State=Enabled"
+         },
+         "Icon/groups": {
+          "id": "I27:1473;17:1007;9:280",
+          "c": "Icon/groups",
+          "v": null
+         },
+         "Profile Avatar": {
+          "id": "I27:1473;17:1015",
+          "c": "Avatar",
+          "v": null
+         },
+         "Plan Badge": {
+          "id": "I27:1473;17:1016",
+          "c": "Badge",
+          "v": "Type=Plan",
+          "f": "md/sys/color/error"
+         }
+        },
+        "ts": {
+         "EXPLORE": "M3/headline_small_emphasized",
+         "E": "M3/label_small"
+        },
+        "il": {
+         "m": "HORIZONTAL",
+         "g": 4,
+         "gt": "md/sys/spacing/4",
+         "p": [
+          16,
+          16,
+          16,
+          4
+         ],
+         "pt": [
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/4"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        }
+       },
+       {
+        "id": "profile-full-l:header",
+        "n": "Profile Header",
+        "x": 0,
+        "y": 96,
+        "w": 375,
+        "h": 248,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 12,
+         "gt": "md/sys/spacing/12",
+         "p": [
+          8,
+          16,
+          16,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/8",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        },
+        "ch": [
+         {
+          "id": "profile-full-l:avatar",
+          "n": "Profile Avatar",
+          "x": 139.5,
+          "y": 8,
+          "w": 96,
+          "h": 96,
+          "s": {
+           "h": "FIXED",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Avatar",
+          "v": {
+           "Size": "Large"
+          },
+          "p": {},
+          "img": [
+           {
+            "id": "I27:1473;17:1015",
+            "n": "Profile Avatar",
+            "w": 96,
+            "h": 96
+           }
+          ]
+         },
+         {
+          "id": "profile-full-l:names",
+          "n": "Name Block",
+          "x": 16,
+          "y": 116,
+          "w": 343,
+          "h": 56,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 4,
+           "gt": "md/sys/spacing/4",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:name",
+            "n": "Name",
+            "x": 0,
+            "y": 0,
+            "w": 343,
+            "h": 32,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "T",
+            "st": "M3/headline_small",
+            "f": "md/sys/color/on_surface",
+            "chars": "Ahmed Salah",
+            "al": "CENTER"
+           },
+           {
+            "id": "profile-full-l:handle",
+            "n": "Handle Row",
+            "x": 113,
+            "y": 36,
+            "w": 117,
+            "h": 20,
+            "s": {
+             "h": "HUG",
+             "v": "HUG"
+            },
+            "t": "F",
+            "l": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            },
+            "ch": [
+             {
+              "id": "profile-full-l:handle-text",
+              "n": "Handle",
+              "x": 0,
+              "y": 0,
+              "w": 90,
+              "h": 20,
+              "s": {
+               "h": "HUG",
+               "v": "HUG"
+              },
+              "t": "T",
+              "st": "M3/body_medium",
+              "f": "md/sys/color/on_surface_variant",
+              "chars": "@ahmedsalah"
+             },
+             {
+              "id": "profile-full-l:plan",
+              "n": "Plan Badge",
+              "x": 98,
+              "y": 0,
+              "w": 19,
+              "h": 20,
+              "s": {
+               "h": "HUG",
+               "v": "HUG"
+              },
+              "t": "I",
+              "c": "Badge",
+              "v": {
+               "Type": "Plan"
+              },
+              "p": {
+               "Label": "plus"
+              }
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "id": "profile-full-l:actions",
+          "n": "Profile Actions",
+          "x": 94,
+          "y": 184,
+          "w": 187,
+          "h": 48,
+          "s": {
+           "h": "HUG",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "HORIZONTAL",
+           "g": 8,
+           "gt": "md/sys/spacing/8",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:edit",
+            "n": "Edit Profile Button",
+            "x": 0,
+            "y": 0,
+            "w": 131,
+            "h": 48,
+            "s": {
+             "h": "HUG",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Button",
+            "v": {
+             "Style": "Outlined",
+             "State": "Enabled"
+            },
+            "p": {
+             "Label text": "Edit profile",
+             "Show Leading Icon": false
+            }
+           },
+           {
+            "id": "profile-full-l:share",
+            "n": "Share Button",
+            "x": 139,
+            "y": 0,
+            "w": 48,
+            "h": 48,
+            "s": {
+             "h": "FIXED",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Icon Button",
+            "v": {
+             "Style": "Tonal",
+             "State": "Enabled"
+            },
+            "p": {
+             "Icon": {
+              "swap": null,
+              "name": "Icon/share"
+             }
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-l:27:1511",
+        "n": "Your playlists Rail",
+        "x": 0,
+        "y": 344,
+        "w": 375,
+        "h": 256,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          null,
+          null,
+          null
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "clip": true,
+        "ch": [
+         {
+          "id": "profile-full-l:pl:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:pl:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": true,
+             "Title": "Your playlists"
+            },
+            "tx": {
+             "Section Title": "Your playlists",
+             "Button": "More"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-l:27:1521",
+          "n": "Rail Cards",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 188,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "HORIZONTAL",
+           "g": 16,
+           "gt": "md/sys/spacing/16",
+           "p": [
+            0,
+            0,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            null,
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "clip": true,
+          "ch": [
+           {
+            "id": "profile-full-l:pl0:27:1522",
+            "n": "Media Card",
+            "x": 16,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Arabic Music Mix",
+             "Track Subtitle": "Playlist · 469 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1367;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           },
+           {
+            "id": "profile-full-l:pl1:27:1522",
+            "n": "Media Card",
+            "x": 168,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Music Mix",
+             "Track Subtitle": "Playlist · 541 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1385;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           },
+           {
+            "id": "profile-full-l:pl2:27:1522",
+            "n": "Media Card",
+            "x": 320,
+            "y": 0,
+            "w": 136,
+            "h": 188,
+            "s": {
+             "h": "FIXED",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Media Card",
+            "v": {
+             "Size": "Default"
+            },
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Description": "Your next favorite songs are in here",
+             "Show Badge": false
+            },
+            "tx": {
+             "Track Title": "Farah",
+             "Track Subtitle": "Playlist · 46 songs"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1522;10:386",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1522;10:387",
+              "c": "Track Metadata",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1396;10:391",
+              "n": "Artwork",
+              "w": 136,
+              "h": 136
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon",
+             "Explicit Badge"
+            ],
+            "il": {
+             "m": "VERTICAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "MIN",
+             "ca": "MIN"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-l:recent",
+        "n": "Recently played Section",
+        "x": 0,
+        "y": 600,
+        "w": 375,
+        "h": 284,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-l:rp:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:rp:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": false,
+             "Title": "Recently played"
+            },
+            "tx": {
+             "Section Title": "Recently played"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon",
+             "More Button"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-l:rp-list",
+          "n": "Recently played List",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 216,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "gt": "md/sys/spacing/0",
+           "p": [
+            0,
+            8,
+            0,
+            8
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/8",
+            null,
+            "md/sys/spacing/8"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:rp:27:1407",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 0,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Amr diab",
+             "Track Subtitle": "101 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1407;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1407;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1407;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1407;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1407;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           },
+           {
+            "id": "profile-full-l:rp:27:1418",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 72,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Fayrouz",
+             "Track Subtitle": "28 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1418;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1418;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1418;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1418;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1418;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "hid": [
+             "Subtitle Icon"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           },
+           {
+            "id": "profile-full-l:rp:27:1429",
+            "n": "Playlist List Item",
+            "x": 8,
+            "y": 144,
+            "w": 359,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "Playlist List Item",
+            "v": {},
+            "p": {
+             "Artwork": {
+              "swap": "56:1681",
+              "name": "Artwork"
+             },
+             "Track Metadata": {
+              "swap": "56:1687",
+              "name": "Track Metadata"
+             },
+             "Show More": true
+            },
+            "tx": {
+             "Track Title": "Massar Egbari - Maba'etsh Aktar",
+             "Track Subtitle": "10 songs · By you"
+            },
+            "ni": {
+             "Artwork": {
+              "id": "I27:1429;10:391",
+              "c": "Artwork",
+              "v": null
+             },
+             "Track Metadata": {
+              "id": "I27:1429;10:392",
+              "c": "Track Metadata",
+              "v": null
+             },
+             "Subtitle Icon": {
+              "id": "I27:1429;10:392;17:911",
+              "c": "Icon/cloud_done",
+              "v": null
+             },
+             "More Button": {
+              "id": "I27:1429;17:933",
+              "c": "Icon Button",
+              "v": "Style=Standard, State=Enabled"
+             },
+             "Icon/more_vert": {
+              "id": "I27:1429;17:933;9:280",
+              "c": "Icon/more_vert",
+              "v": null
+             }
+            },
+            "img": [
+             {
+              "id": "I27:1429;10:391",
+              "n": "Artwork",
+              "w": 56,
+              "h": 56
+             }
+            ],
+            "ts": {
+             "Track Title": "M3/title_medium_emphasized",
+             "Track Subtitle": "M3/body_small"
+            },
+            "ml": {
+             "Track Title": 1,
+             "Track Subtitle": 1
+            },
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 12,
+             "gt": "md/sys/spacing/12",
+             "p": [
+              8,
+              8,
+              8,
+              8
+             ],
+             "pt": [
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8",
+              "md/sys/spacing/8"
+             ],
+             "pa": "MIN",
+             "ca": "CENTER"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-l:account",
+        "n": "Account Section",
+        "x": 0,
+        "y": 884,
+        "w": 375,
+        "h": 364,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 8,
+         "gt": "md/sys/spacing/8",
+         "p": [
+          24,
+          0,
+          0,
+          0
+         ],
+         "pt": [
+          "md/sys/spacing/24",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0",
+          "md/sys/spacing/0"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-l:ac:rail-header",
+          "n": "Rail Header",
+          "x": 0,
+          "y": 24,
+          "w": 375,
+          "h": 36,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "p": [
+            0,
+            16,
+            0,
+            16
+           ],
+           "pt": [
+            null,
+            "md/sys/spacing/16",
+            null,
+            "md/sys/spacing/16"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:ac:27:1513",
+            "n": "Section Header",
+            "x": 16,
+            "y": 0,
+            "w": 343,
+            "h": 36,
+            "s": {
+             "h": "FILL",
+             "v": "HUG"
+            },
+            "t": "I",
+            "c": "Section Header",
+            "v": {},
+            "p": {
+             "Show Supporting Text": false,
+             "Supporting Text": "Discover music based on your recent activity",
+             "Show More": false,
+             "Title": "Account"
+            },
+            "tx": {
+             "Section Title": "Account"
+            },
+            "ni": {
+             "More Button": {
+              "id": "I27:1513;17:979",
+              "c": "Button",
+              "v": "Style=Neutral, State=Enabled",
+              "f": "md/sys/color/surface_container_highest"
+             }
+            },
+            "ts": {
+             "Section Title": "M3/title_medium_emphasized",
+             "Button": "M3/label_large"
+            },
+            "ml": {
+             "Section Title": 1
+            },
+            "hid": [
+             "Supporting Text",
+             "Leading Icon",
+             "More Button"
+            ],
+            "il": {
+             "m": "HORIZONTAL",
+             "g": 8,
+             "gt": "md/sys/spacing/8",
+             "p": [
+              0,
+              0,
+              0,
+              0
+             ],
+             "pt": [
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0",
+              "md/sys/spacing/0"
+             ],
+             "pa": "SPACE_BETWEEN",
+             "ca": "CENTER"
+            }
+           }
+          ],
+          "clip": true
+         },
+         {
+          "id": "profile-full-l:account-list",
+          "n": "Account List",
+          "x": 0,
+          "y": 68,
+          "w": 375,
+          "h": 296,
+          "s": {
+           "h": "FILL",
+           "v": "HUG"
+          },
+          "t": "F",
+          "l": {
+           "m": "VERTICAL",
+           "g": 0,
+           "gt": "md/sys/spacing/0",
+           "p": [
+            0,
+            0,
+            0,
+            0
+           ],
+           "pt": [
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0",
+            "md/sys/spacing/0"
+           ],
+           "pa": "MIN",
+           "ca": "MIN"
+          },
+          "ch": [
+           {
+            "id": "profile-full-l:row-downloads",
+            "n": "Downloads Row",
+            "x": 0,
+            "y": 0,
+            "w": 375,
+            "h": 72,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Downloads",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/download"
+             },
+             "Show Supporting Text": true,
+             "Supporting Text": "Songs and podcasts saved on this phone"
+            }
+           },
+           {
+            "id": "profile-full-l:row-notifications",
+            "n": "Notifications Row",
+            "x": 0,
+            "y": 72,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "Switch"
+            },
+            "p": {
+             "Headline": "Notifications",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/notifications"
+             },
+             "Show Supporting Text": false,
+             "Switch": {
+              "swap": null,
+              "set": "Switch",
+              "name": "Selected=True, State=Enabled"
+             }
+            }
+           },
+           {
+            "id": "profile-full-l:row-history",
+            "n": "Listening history Row",
+            "x": 0,
+            "y": 128,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Listening history",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/history"
+             },
+             "Show Supporting Text": false
+            }
+           },
+           {
+            "id": "profile-full-l:row-settings",
+            "n": "Settings Row",
+            "x": 0,
+            "y": 184,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Settings",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/settings"
+             },
+             "Show Supporting Text": false
+            }
+           },
+           {
+            "id": "profile-full-l:row-help",
+            "n": "Help & feedback Row",
+            "x": 0,
+            "y": 240,
+            "w": 375,
+            "h": 56,
+            "s": {
+             "h": "FILL",
+             "v": "FIXED"
+            },
+            "t": "I",
+            "c": "List Item",
+            "v": {
+             "Trailing": "None"
+            },
+            "p": {
+             "Headline": "Help & feedback",
+             "Leading Icon": {
+              "swap": null,
+              "name": "Icon/help"
+             },
+             "Show Supporting Text": false
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "profile-full-l:signout",
+        "n": "Sign Out",
+        "x": 0,
+        "y": 1248,
+        "w": 375,
+        "h": 64,
+        "s": {
+         "h": "FILL",
+         "v": "HUG"
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 0,
+         "gt": "md/sys/spacing/0",
+         "p": [
+          8,
+          16,
+          8,
+          16
+         ],
+         "pt": [
+          "md/sys/spacing/8",
+          "md/sys/spacing/16",
+          "md/sys/spacing/8",
+          "md/sys/spacing/16"
+         ],
+         "pa": "MIN",
+         "ca": "MIN"
+        },
+        "ch": [
+         {
+          "id": "profile-full-l:signout-btn",
+          "n": "Sign Out Button",
+          "x": 16,
+          "y": 8,
+          "w": 92,
+          "h": 48,
+          "s": {
+           "h": "HUG",
+           "v": "FIXED"
+          },
+          "t": "I",
+          "c": "Button",
+          "v": {
+           "Style": "Text",
+           "State": "Enabled"
+          },
+          "p": {
+           "Label text": "Sign out",
+           "Show Leading Icon": false
+          }
+         }
+        ]
+       },
+       {
+        "id": "profile-full-l:dock",
+        "n": "Mini Player Dock",
+        "x": 0,
+        "y": 1312,
+        "w": 375,
+        "h": 68,
+        "s": {
+         "h": "FIXED",
+         "v": "FIXED",
+         "abs": true
+        },
+        "t": "F",
+        "l": {
+         "m": "VERTICAL",
+         "g": 0,
+         "gt": "md/sys/spacing/0",
+         "p": [
+          0,
+          12,
+          12,
+          12
+         ],
+         "pt": [
+          "md/sys/spacing/0",
+          "md/sys/spacing/12",
+          "md/sys/spacing/12",
+          "md/sys/spacing/12"
+         ],
+         "pa": "MIN",
+         "ca": "CENTER"
+        },
+        "ch": [
+         {
+          "id": "profile-full-l:27:1751",
+          "n": "Mini Player",
+          "x": 12,
+          "y": 0,
+          "w": 351,
+          "h": 56,
+          "s": {
+           "h": "FIXED",
+           "v": "FIXED"
+          },
+          "re": [
+           {
+            "on": "ON_CLICK",
+            "a": "NODE",
+            "nav": "NAVIGATE",
+            "to": "27:816",
+            "toName": "Listen / Now Playing / Dark"
+           }
+          ],
+          "t": "I",
+          "c": "Mini Player",
+          "v": {},
+          "p": {
+           "Track Metadata": {
+            "swap": "56:1687",
+            "name": "Track Metadata"
+           },
+           "Artwork": {
+            "swap": "56:1681",
+            "name": "Artwork"
+           }
+          },
+          "tx": {
+           "Track Title": "لو كنت غالى",
+           "Track Subtitle": "مصطفى قمر"
+          },
+          "ni": {
+           "Artwork": {
+            "id": "I27:1751;10:451",
+            "c": "Artwork",
+            "v": null
+           },
+           "Track Metadata": {
+            "id": "I27:1751;10:452",
+            "c": "Track Metadata",
+            "v": null
+           },
+           "Like Button": {
+            "id": "I27:1751;17:1037",
+            "c": "Icon Button",
+            "v": "Style=Standard, State=Enabled"
+           },
+           "Icon/favorite_outline": {
+            "id": "I27:1751;17:1037;9:280",
+            "c": "Icon/favorite_outline",
+            "v": null
+           },
+           "Play Button": {
+            "id": "I27:1751;17:1041",
+            "c": "Icon Button",
+            "v": "Style=Inverse, State=Enabled",
+            "f": "md/sys/color/on_surface"
+           },
+           "Icon/play_arrow": {
+            "id": "I27:1751;17:1041;17:896",
+            "c": "Icon/play_arrow",
+            "v": null
+           }
+          },
+          "img": [
+           {
+            "id": "I27:1751;10:451",
+            "n": "Artwork",
+            "w": 48,
+            "h": 48
+           }
+          ],
+          "ts": {
+           "Track Title": "M3/title_medium_emphasized",
+           "Track Subtitle": "M3/body_small"
+          },
+          "ml": {
+           "Track Title": 1,
+           "Track Subtitle": 1
+          },
+          "hid": [
+           "Subtitle Icon"
+          ],
+          "il": {
+           "m": "HORIZONTAL",
+           "g": 8,
+           "gt": "md/sys/spacing/8",
+           "p": [
+            4,
+            8,
+            4,
+            8
+           ],
+           "pt": [
+            "md/sys/spacing/4",
+            "md/sys/spacing/8",
+            "md/sys/spacing/4",
+            "md/sys/spacing/8"
+           ],
+           "pa": "MIN",
+           "ca": "CENTER"
+          },
+          "f": "md/sys/color/surface_container"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ],
+   "description": "New Profile screen (Listen / Profile - Full, Dark + Light): Top App Bar with Show Navigation (back) and Title PROFILE; header with Avatar Size=Large, name, handle + Plan Badge, Edit profile (Button Outlined) and Share (Icon Button Tonal); Your playlists rail (Section Header + 3 Media Cards); Recently played (3 Playlist List Items); Account (5 List Items, Notifications with a Switch); Sign out (Button Text); Mini Player docked at the bottom. Opened from the Top App Bar Profile Avatar (adapters.json).",
+   "approved": "Abdul, 2026-10-28"
   }
  ]
 }

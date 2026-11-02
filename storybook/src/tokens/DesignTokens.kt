@@ -5,6 +5,7 @@ package designsystem.music_app
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -370,6 +371,18 @@ object AppTheme {
         val mdSysSizeListItemThreeLine = 88.dp // Size::md/sys/size/list_item/three_line
         val mdSysSizeTouchTarget = 48.dp // Size::md/sys/size/touch_target
         val mdSysSizeIcon = 24.dp // Size::md/sys/size/icon
+    }
+    object Motion {
+        const val durationShort2 = 100 // ms; Motion::md/sys/motion/duration/short2
+        const val durationShort4 = 200 // ms; Motion::md/sys/motion/duration/short4
+        const val durationMedium2 = 300 // ms; Motion::md/sys/motion/duration/medium2
+        const val durationMedium4 = 400 // ms; Motion::md/sys/motion/duration/medium4
+        const val durationLong2 = 500 // ms; Motion::md/sys/motion/duration/long2
+        val easingStandard = CubicBezierEasing(0.2f, 0f, 0f, 1f) // Motion::md/sys/motion/easing/standard
+        val easingStandardDecelerate = CubicBezierEasing(0f, 0f, 0f, 1f) // Motion::md/sys/motion/easing/standard_decelerate
+        val easingStandardAccelerate = CubicBezierEasing(0.3f, 0f, 1f, 1f) // Motion::md/sys/motion/easing/standard_accelerate
+        val easingEmphasizedDecelerate = CubicBezierEasing(0.05f, 0.7f, 0.1f, 1f) // Motion::md/sys/motion/easing/emphasized_decelerate
+        val easingEmphasizedAccelerate = CubicBezierEasing(0.3f, 0f, 0.8f, 0.15f) // Motion::md/sys/motion/easing/emphasized_accelerate
     }
 }
 

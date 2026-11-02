@@ -68,6 +68,14 @@ export const tokens = {
    "default": "Value",
    "attribute": "data-size",
    "role": "size"
+  },
+  "Motion": {
+   "modes": [
+    "Value"
+   ],
+   "default": "Value",
+   "attribute": "data-motion",
+   "role": "motion"
   }
  },
  "tokens": [
@@ -7489,6 +7497,276 @@ export const tokens = {
    },
    "resolved": {},
    "description": "Default icon size (Material Symbols, 24 dp)."
+  },
+  {
+   "figma": "Motion::md/sys/motion/duration/short2",
+   "collection": "Motion",
+   "name": "md/sys/motion/duration/short2",
+   "type": "number",
+   "css": "--md-sys-motion-duration-short2",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_duration_short2",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.durationShort2"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.duration.short2"
+    }
+   ],
+   "values": {
+    "Value": 100
+   },
+   "resolved": {},
+   "description": "100 ms. Press feedback: opacity or state layer change. (Material 3 md.sys.motion.duration.short2)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/duration/short4",
+   "collection": "Motion",
+   "name": "md/sys/motion/duration/short4",
+   "type": "number",
+   "css": "--md-sys-motion-duration-short4",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_duration_short4",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.durationShort4"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.duration.short4"
+    }
+   ],
+   "values": {
+    "Value": 200
+   },
+   "resolved": {},
+   "description": "200 ms. Small exits: sheet and overlay close, tooltip fade-out, Switch thumb. (Material 3 md.sys.motion.duration.short4)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/duration/medium2",
+   "collection": "Motion",
+   "name": "md/sys/motion/duration/medium2",
+   "type": "number",
+   "css": "--md-sys-motion-duration-medium2",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_duration_medium2",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.durationMedium2"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.duration.medium2"
+    }
+   ],
+   "values": {
+    "Value": 300
+   },
+   "resolved": {},
+   "description": "300 ms. Fades: scrim, tab fade-through, Lyrics and Now Playing. (Material 3 md.sys.motion.duration.medium2)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/duration/medium4",
+   "collection": "Motion",
+   "name": "md/sys/motion/duration/medium4",
+   "type": "number",
+   "css": "--md-sys-motion-duration-medium4",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_duration_medium4",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.durationMedium4"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.duration.medium4"
+    }
+   ],
+   "values": {
+    "Value": 400
+   },
+   "resolved": {},
+   "description": "400 ms. Screen push and back, sheet slide-up, player collapse. (Material 3 md.sys.motion.duration.medium4)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/duration/long2",
+   "collection": "Motion",
+   "name": "md/sys/motion/duration/long2",
+   "type": "number",
+   "css": "--md-sys-motion-duration-long2",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_duration_long2",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.durationLong2"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.duration.long2"
+    }
+   ],
+   "values": {
+    "Value": 500
+   },
+   "resolved": {},
+   "description": "500 ms. Large enters: Mini Player expanding into Now Playing. (Material 3 md.sys.motion.duration.long2)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/easing/standard",
+   "collection": "Motion",
+   "name": "md/sys/motion/easing/standard",
+   "type": "string",
+   "css": "--md-sys-motion-easing-standard",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_easing_standard",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.easingStandard"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.easing.standard"
+    }
+   ],
+   "values": {
+    "Value": "cubic-bezier(0.2, 0, 0, 1)"
+   },
+   "resolved": {},
+   "description": "Small utility motion that starts and ends on screen: press feedback, Switch, fades. (Material 3 md.sys.motion.easing.standard)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/easing/standard_decelerate",
+   "collection": "Motion",
+   "name": "md/sys/motion/easing/standard_decelerate",
+   "type": "string",
+   "css": "--md-sys-motion-easing-standard_decelerate",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_easing_standard_decelerate",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.easingStandardDecelerate"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.easing.standard_decelerate"
+    }
+   ],
+   "values": {
+    "Value": "cubic-bezier(0, 0, 0, 1)"
+   },
+   "resolved": {},
+   "description": "Small elements entering: tooltip in. (Material 3 md.sys.motion.easing.standard_decelerate)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/easing/standard_accelerate",
+   "collection": "Motion",
+   "name": "md/sys/motion/easing/standard_accelerate",
+   "type": "string",
+   "css": "--md-sys-motion-easing-standard_accelerate",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_easing_standard_accelerate",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.easingStandardAccelerate"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.easing.standard_accelerate"
+    }
+   ],
+   "values": {
+    "Value": "cubic-bezier(0.3, 0, 1, 1)"
+   },
+   "resolved": {},
+   "description": "Small elements leaving: tooltip out. (Material 3 md.sys.motion.easing.standard_accelerate)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/easing/emphasized_decelerate",
+   "collection": "Motion",
+   "name": "md/sys/motion/easing/emphasized_decelerate",
+   "type": "string",
+   "css": "--md-sys-motion-easing-emphasized_decelerate",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_easing_emphasized_decelerate",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.easingEmphasizedDecelerate"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.easing.emphasized_decelerate"
+    }
+   ],
+   "values": {
+    "Value": "cubic-bezier(0.05, 0.7, 0.1, 1)"
+   },
+   "resolved": {},
+   "description": "Anything entering the screen: screens, sheet, player. (Material 3 md.sys.motion.easing.emphasized_decelerate)"
+  },
+  {
+   "figma": "Motion::md/sys/motion/easing/emphasized_accelerate",
+   "collection": "Motion",
+   "name": "md/sys/motion/easing/emphasized_accelerate",
+   "type": "string",
+   "css": "--md-sys-motion-easing-emphasized_accelerate",
+   "code": [
+    {
+     "label": "Jetpack Compose",
+     "name": "md_sys_motion_easing_emphasized_accelerate",
+     "source": "figma"
+    },
+    {
+     "label": "DesignTokens.kt",
+     "name": "AppTheme.Motion.easingEmphasizedAccelerate"
+    },
+    {
+     "label": "M3 token",
+     "name": "md.sys.motion.easing.emphasized_accelerate"
+    }
+   ],
+   "values": {
+    "Value": "cubic-bezier(0.3, 0, 0.8, 0.15)"
+   },
+   "resolved": {},
+   "description": "Anything leaving the screen: sheet close, player collapse. (Material 3 md.sys.motion.easing.emphasized_accelerate)"
   }
  ]
 } as const;

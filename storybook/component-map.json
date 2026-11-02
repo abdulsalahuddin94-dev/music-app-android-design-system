@@ -313,5 +313,12 @@
   "example_imports": [
    "GenreGridInUse"
   ]
+ },
+ "List Item": {
+  "module": "DataDisplay",
+  "export": "ListItem",
+  "matrix": [
+   "Trailing"
+  ]
  }
 }

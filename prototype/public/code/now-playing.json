@@ -1,0 +1,348 @@
+{
+ "screen": "Now Playing",
+ "slug": "now-playing",
+ "figma": {
+  "Dark": "27:816",
+  "Light": "31:740"
+ },
+ "label": "Reference code",
+ "order": [
+  "compose",
+  "swiftui",
+  "flutter",
+  "react-native",
+  "web",
+  "strings"
+ ],
+ "platforms": {
+  "compose": {
+   "label": "Jetpack Compose",
+   "ext": "kt",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Now Playing by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\nimport androidx.compose.ui.res.stringResource\n\n@Composable\nfun NowPlayingScreen(navigate: (String) -> Unit) {\n    Column(\n        modifier = Modifier\n            .fillMaxSize()\n            .background(MaterialTheme.colorScheme.surfaceContainerHigh)\n            .verticalScroll(rememberScrollState()),\n        horizontalAlignment = Alignment.CenterHorizontally,\n    ) {\n        StatusBar(time = \"5:00\", modifier = Modifier.fillMaxWidth())\n        PlaylistAppBar(\n            title = \"Arabic Music Mix\",\n            aiMixLabel = stringResource(R.string.ai_mix),\n            sourceLabel = stringResource(R.string.playlist),\n            switch = Switch(),\n            onCollapse = { navigate(\"back\") },\n            modifier = Modifier.fillMaxWidth(),\n        )\n        // Artwork Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(top = AppTheme.spacing.spacing48, bottom = AppTheme.spacing.spacing64),\n            horizontalAlignment = Alignment.CenterHorizontally,\n        ) {\n            Artwork(image = painterResource(R.drawable.img_27_849))\n        }\n        // Track Header\n        Row(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, end = AppTheme.spacing.spacing8),\n            horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            verticalAlignment = Alignment.CenterVertically,\n        ) {\n            TrackMetadata(\n                title = \"كيفك ع فراقى\",\n                subtitle = \"محمد شاكر وفضل شاكر - كيفك ع فراقى\",\n                showSubtitleIcon = false,\n                subtitleIcon = AppIcons.CloudDone,\n                titleStyle = AppTheme.typography.titleLargeEmphasized,\n                subtitleStyle = MaterialTheme.typography.bodyMedium,\n                titleLines = 1,\n                modifier = Modifier.weight(1f),\n            )\n            IconButton(\n                style = IconButtonStyle.Tonal,\n                icon = AppIcons.Share,\n                onClick = { navigate(\"share-sheet\") },\n            )\n            IconButton(icon = AppIcons.MoreVert)\n        }\n        // Progress Section\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing12, end = AppTheme.spacing.spacing16),\n        ) {\n            PlaybackProgress(\n                elapsedTime = \"00:03\",\n                totalTime = \"03:48\",\n                progressIndicator = ProgressIndicator(),\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n        // Controls Section\n        Column(\n            modifier = Modifier\n                .weight(1f)\n                .fillMaxWidth()\n                .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing32, end = AppTheme.spacing.spacing16, bottom = AppTheme.spacing.spacing48),\n        ) {\n            PlaybackControls(modifier = Modifier.fillMaxWidth())\n        }\n        PlayerUtilityBar(\n            lyricsLabel = stringResource(R.string.lyrics),\n            queueLabel = stringResource(R.string.queue),\n            audioLabel = stringResource(R.string.audio),\n            iconLyrics = AppIcons.Lyrics,\n            iconQueueMusic = AppIcons.QueueMusic,\n            iconGraphicEq = AppIcons.Settings,\n            onChange = { index -> when (index) { \"Lyrics\" -> navigate(\"lyrics\"); \"None\" -> navigate(\"now-playing\") } },\n            modifier = Modifier.fillMaxWidth(),\n        )\n    }\n}\n",
+   "ranges": {
+    "27:817": [
+     20,
+     20
+    ],
+    "27:829": [
+     21,
+     28
+    ],
+    "27:849": [
+     36,
+     36
+    ],
+    "27:848": [
+     29,
+     37
+    ],
+    "27:859": [
+     46,
+     55
+    ],
+    "27:866": [
+     56,
+     60
+    ],
+    "27:871": [
+     61,
+     61
+    ],
+    "27:858": [
+     38,
+     62
+    ],
+    "27:877": [
+     69,
+     74
+    ],
+    "27:876": [
+     63,
+     75
+    ],
+    "27:885": [
+     83,
+     83
+    ],
+    "27:884": [
+     76,
+     84
+    ],
+    "27:911": [
+     85,
+     94
+    ],
+    "27:816": [
+     13,
+     95
+    ]
+   }
+  },
+  "swiftui": {
+   "label": "SwiftUI",
+   "ext": "swift",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Now Playing by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct NowPlayingScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .center, spacing: DS.Spacing.spacing0) {\n                StatusBar(time: \"5:00\")\n                    .frame(maxWidth: .infinity)\n                PlaylistAppBar(\n                    title: \"Arabic Music Mix\",\n                    aiMixLabel: String(localized: \"ai_mix\"),\n                    sourceLabel: String(localized: \"playlist\"),\n                    switchValue: Switch(),\n                    onCollapse: { navigate(\"back\") },\n                )\n                    .frame(maxWidth: .infinity)\n                // Artwork Section\n                VStack(alignment: .center, spacing: DS.Spacing.spacing0) {\n                    Artwork(image: Image(\"27-849\"))\n                }\n                .padding(.top, DS.Spacing.spacing48)\n                .padding(.bottom, DS.Spacing.spacing64)\n                .frame(maxWidth: .infinity)\n                // Track Header\n                HStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                    TrackMetadata(\n                        title: \"كيفك ع فراقى\",\n                        subtitle: \"محمد شاكر وفضل شاكر - كيفك ع فراقى\",\n                        showSubtitleIcon: false,\n                        subtitleIcon: DS.Icons.cloudDone,\n                        titleStyle: DS.Typography.titleLargeEmphasized,\n                        subtitleStyle: DS.Typography.bodyMedium,\n                        titleLines: 1,\n                    )\n                        .frame(maxWidth: .infinity)\n                    IconButton(\n                        style: .tonal,\n                        icon: DS.Icons.share,\n                        onClick: { navigate(\"share-sheet\") },\n                    )\n                    IconButton(icon: DS.Icons.moreVert)\n                }\n                .padding(.trailing, DS.Spacing.spacing8)\n                .padding(.leading, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Progress Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    PlaybackProgress(\n                        elapsedTime: \"00:03\",\n                        totalTime: \"03:48\",\n                        progressIndicator: ProgressIndicator(),\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing12)\n                .frame(maxWidth: .infinity)\n                // Controls Section\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                    PlaybackControls()\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing32)\n                .padding(.bottom, DS.Spacing.spacing48)\n                .frame(maxWidth: .infinity, maxHeight: .infinity)\n                PlayerUtilityBar(\n                    lyricsLabel: String(localized: \"lyrics\"),\n                    queueLabel: String(localized: \"queue\"),\n                    audioLabel: String(localized: \"audio\"),\n                    iconLyrics: DS.Icons.lyrics,\n                    iconQueueMusic: DS.Icons.queueMusic,\n                    iconGraphicEq: DS.Icons.settings,\n                    onChange: { index in switch index { case \"Lyrics\": navigate(\"lyrics\"); case \"None\": navigate(\"now-playing\"); default: break } },\n                )\n                    .frame(maxWidth: .infinity)\n            }\n        }\n        .background(DS.Colors.surfaceContainerHigh)\n    }\n}\n",
+   "ranges": {
+    "27:817": [
+     12,
+     13
+    ],
+    "27:829": [
+     14,
+     21
+    ],
+    "27:849": [
+     24,
+     24
+    ],
+    "27:848": [
+     22,
+     28
+    ],
+    "27:859": [
+     31,
+     40
+    ],
+    "27:866": [
+     41,
+     45
+    ],
+    "27:871": [
+     46,
+     46
+    ],
+    "27:858": [
+     29,
+     50
+    ],
+    "27:877": [
+     53,
+     58
+    ],
+    "27:876": [
+     51,
+     62
+    ],
+    "27:885": [
+     65,
+     66
+    ],
+    "27:884": [
+     63,
+     71
+    ],
+    "27:911": [
+     72,
+     81
+    ],
+    "27:816": [
+     10,
+     84
+    ]
+   }
+  },
+  "flutter": {
+   "label": "Flutter",
+   "ext": "dart",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Now Playing by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\nimport 'package:flutter_gen/gen_l10n/app_localizations.dart';\n\nclass NowPlayingScreen extends StatelessWidget {\n  const NowPlayingScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return ColoredBox(color: Theme.of(context).colorScheme.surfaceContainerHigh,\n      child: SingleChildScrollView(\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '5:00')),\n            SizedBox(width: double.infinity, child: PlaylistAppBar(\n              title: 'Arabic Music Mix',\n              aiMixLabel: AppLocalizations.of(context)!.aiMix,\n              sourceLabel: AppLocalizations.of(context)!.playlist,\n              switchValue: Switch(),\n              onCollapse: () => navigate('back'),\n            )),\n            // Artwork Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing48, bottom: AppSpacing.spacing64),\n                child: Column(\n                  children: [\n                    Artwork(image: const AssetImage('assets/figma-img/27-849.png')),\n                  ],\n                ),\n              ),\n            ),\n            // Track Header\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(end: AppSpacing.spacing8, start: AppSpacing.spacing16),\n                child: Row(\n                  spacing: AppSpacing.spacing8,\n                  children: [\n                    Expanded(child: TrackMetadata(\n                      title: 'كيفك ع فراقى',\n                      subtitle: 'محمد شاكر وفضل شاكر - كيفك ع فراقى',\n                      showSubtitleIcon: false,\n                      subtitleIcon: AppIcons.cloudDone,\n                      titleStyle: AppTextStyles.titleLargeEmphasized,\n                      subtitleStyle: Theme.of(context).textTheme.bodyMedium,\n                      titleLines: 1,\n                    )),\n                    IconButton(\n                      style: IconButtonStyle.tonal,\n                      icon: AppIcons.share,\n                      onClick: () => navigate('share-sheet'),\n                    ),\n                    IconButton(icon: AppIcons.moreVert),\n                  ],\n                ),\n              ),\n            ),\n            // Progress Section\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing12),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: PlaybackProgress(\n                      elapsedTime: '00:03',\n                      totalTime: '03:48',\n                      progressIndicator: ProgressIndicator(),\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Controls Section\n            Expanded(\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing32, bottom: AppSpacing.spacing48),\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    SizedBox(width: double.infinity, child: PlaybackControls()),\n                  ],\n                ),\n              ),\n            ),\n            SizedBox(width: double.infinity, child: PlayerUtilityBar(\n              lyricsLabel: AppLocalizations.of(context)!.lyrics,\n              queueLabel: AppLocalizations.of(context)!.queue,\n              audioLabel: AppLocalizations.of(context)!.audio,\n              iconLyrics: AppIcons.lyrics,\n              iconQueueMusic: AppIcons.queueMusic,\n              iconGraphicEq: AppIcons.settings,\n              onChange: (index) { switch (index) { case 'Lyrics': navigate('lyrics'); case 'None': navigate('now-playing'); } },\n            )),\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
+   "ranges": {
+    "27:817": [
+     19,
+     19
+    ],
+    "27:829": [
+     20,
+     26
+    ],
+    "27:849": [
+     32,
+     32
+    ],
+    "27:848": [
+     27,
+     36
+    ],
+    "27:859": [
+     43,
+     51
+    ],
+    "27:866": [
+     52,
+     56
+    ],
+    "27:871": [
+     57,
+     57
+    ],
+    "27:858": [
+     37,
+     61
+    ],
+    "27:877": [
+     68,
+     72
+    ],
+    "27:876": [
+     62,
+     76
+    ],
+    "27:885": [
+     83,
+     83
+    ],
+    "27:884": [
+     77,
+     87
+    ],
+    "27:911": [
+     88,
+     96
+    ],
+    "27:816": [
+     14,
+     100
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Now Playing by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { Artwork, IconButton, PlaybackControls, PlaybackProgress, PlayerUtilityBar, PlaylistAppBar, ProgressIndicator, StatusBar, Switch, TrackMetadata } from '@/design-system';\nimport { tokens, textStyles } from '@/design-system/tokens';\nimport { t } from '@/i18n';\n\nexport function NowPlayingScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <ScrollView style={{ backgroundColor: tokens.color.surfaceContainerHigh }} contentContainerStyle={{ alignItems: 'center' }}>\n      <StatusBar time=\"5:00\" style={{ alignSelf: 'stretch' }} />\n      <PlaylistAppBar\n        title=\"Arabic Music Mix\"\n        aiMixLabel={t('ai_mix')}\n        sourceLabel={t('playlist')}\n        switch={<Switch />}\n        onCollapse={() => navigate('back')}\n        style={{ alignSelf: 'stretch' }}\n      />\n      {/* Artwork Section */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          alignItems: 'center',\n          paddingTop: tokens.spacing.spacing48,\n          paddingBottom: tokens.spacing.spacing64,\n        }}\n      >\n        <Artwork image={require('./assets/figma-img/27-849.png')} />\n      </View>\n      {/* Track Header */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          flexDirection: 'row',\n          gap: tokens.spacing.spacing8,\n          alignItems: 'center',\n          paddingEnd: tokens.spacing.spacing8,\n          paddingStart: tokens.spacing.spacing16,\n        }}\n      >\n        <TrackMetadata\n          title=\"كيفك ع فراقى\"\n          subtitle=\"محمد شاكر وفضل شاكر - كيفك ع فراقى\"\n          showSubtitleIcon={false}\n          subtitleIcon=\"cloud_done\"\n          titleStyle={textStyles.titleLargeEmphasized}\n          subtitleStyle={textStyles.bodyMedium}\n          titleLines={1}\n          style={{ flex: 1 }}\n        />\n        <IconButton style=\"tonal\" icon=\"share\" onClick={() => navigate('share-sheet')} />\n        <IconButton icon=\"more_vert\" />\n      </View>\n      {/* Progress Section */}\n      <View\n        style={{\n          alignSelf: 'stretch',\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing12,\n        }}\n      >\n        <PlaybackProgress\n          elapsedTime=\"00:03\"\n          totalTime=\"03:48\"\n          progressIndicator={<ProgressIndicator />}\n        />\n      </View>\n      {/* Controls Section */}\n      <View\n        style={{\n          flex: 1,\n          paddingHorizontal: tokens.spacing.spacing16,\n          paddingTop: tokens.spacing.spacing32,\n          paddingBottom: tokens.spacing.spacing48,\n        }}\n      >\n        <PlaybackControls />\n      </View>\n      <PlayerUtilityBar\n        lyricsLabel={t('lyrics')}\n        queueLabel={t('queue')}\n        audioLabel={t('audio')}\n        iconLyrics=\"lyrics\"\n        iconQueueMusic=\"queue_music\"\n        iconGraphicEq=\"settings\"\n        onChange={(index) => navigate({ 'Lyrics': 'lyrics', 'None': 'now-playing' }[index])}\n        style={{ alignSelf: 'stretch' }}\n      />\n    </ScrollView>\n  );\n}\n",
+   "ranges": {
+    "27:817": [
+     13,
+     13
+    ],
+    "27:829": [
+     14,
+     21
+    ],
+    "27:849": [
+     31,
+     31
+    ],
+    "27:848": [
+     22,
+     32
+    ],
+    "27:859": [
+     44,
+     53
+    ],
+    "27:866": [
+     54,
+     54
+    ],
+    "27:871": [
+     55,
+     55
+    ],
+    "27:858": [
+     33,
+     56
+    ],
+    "27:877": [
+     65,
+     69
+    ],
+    "27:876": [
+     57,
+     70
+    ],
+    "27:885": [
+     80,
+     80
+    ],
+    "27:884": [
+     71,
+     81
+    ],
+    "27:911": [
+     82,
+     91
+    ],
+    "27:816": [
+     12,
+     92
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Now Playing by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { StatusBar } from '@ds/components/DataDisplay';\nimport { Artwork, ProgressIndicator, TrackMetadata } from '@ds/components/DataDisplayAtoms';\nimport { Switch } from '@ds/components/FormElements';\nimport { IconButton, PlaybackControls, PlaybackProgress, PlayerUtilityBar, PlaylistAppBar } from '@ds/components/Navigation';\nimport { t } from '@/i18n';\n\nexport function NowPlayingScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div\n      style={{\n        display: 'flex',\n        flexDirection: 'column',\n        alignItems: 'center',\n        background: 'var(--md-sys-color-surface_container_high)',\n        overflowY: 'auto',\n      }}\n    >\n      <div style={{ alignSelf: 'stretch' }}>\n        <StatusBar Time=\"5:00\" />\n      </div>\n      <div style={{ alignSelf: 'stretch' }}>\n        <PlaylistAppBar\n          Title=\"Arabic Music Mix\"\n          Switch={<Switch />}\n          onCollapse={() => navigate('back')}\n          {...{ 'AI Mix Label': t('ai_mix'), 'Source Label': t('playlist') }}\n        />\n      </div>\n      {/* Artwork Section */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'center',\n          paddingTop: 'var(--md-sys-spacing-48)',\n          paddingBottom: 'var(--md-sys-spacing-64)',\n        }}\n      >\n        <Artwork image=\"figma-img/27-849.png\" />\n      </div>\n      {/* Track Header */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'row',\n          gap: 'var(--md-sys-spacing-8)',\n          alignItems: 'center',\n          paddingInlineEnd: 'var(--md-sys-spacing-8)',\n          paddingInlineStart: 'var(--md-sys-spacing-16)',\n        }}\n      >\n        <div style={{ flex: 1 }}>\n          <TrackMetadata\n            Title=\"كيفك ع فراقى\"\n            Subtitle=\"محمد شاكر وفضل شاكر - كيفك ع فراقى\"\n            titleStyle=\"ts-m3-title_large_emphasized\"\n            subtitleStyle=\"ts-m3-body_medium\"\n            titleLines={1}\n            {...{ 'Show Subtitle Icon': false, 'Subtitle Icon': 'cloud_done' }}\n          />\n        </div>\n        <IconButton Style=\"Tonal\" Icon=\"share\" onClick={() => navigate('share-sheet')} />\n        <IconButton Icon=\"more_vert\" />\n      </div>\n      {/* Progress Section */}\n      <div\n        style={{\n          alignSelf: 'stretch',\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-12)',\n        }}\n      >\n        <PlaybackProgress\n          {...{ 'Elapsed Time': '00:03', 'Total Time': '03:48', 'Progress Indicator': <ProgressIndicator /> }}\n        />\n      </div>\n      {/* Controls Section */}\n      <div\n        style={{\n          flex: 1,\n          display: 'flex',\n          flexDirection: 'column',\n          alignItems: 'stretch',\n          paddingInline: 'var(--md-sys-spacing-16)',\n          paddingTop: 'var(--md-sys-spacing-32)',\n          paddingBottom: 'var(--md-sys-spacing-48)',\n        }}\n      >\n        <PlaybackControls />\n      </div>\n      <div style={{ alignSelf: 'stretch' }}>\n        <PlayerUtilityBar\n          onChange={(index) => navigate({ 'Lyrics': 'lyrics', 'None': 'now-playing' }[index])}\n          {...{ 'Lyrics Label': t('lyrics'), 'Queue Label': t('queue'), 'Audio Label': t('audio'), 'Icon lyrics': 'lyrics', 'Icon queue music': 'queue_music', 'Icon graphic eq': 'settings' }}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "27:817": [
+     22,
+     24
+    ],
+    "27:829": [
+     25,
+     32
+    ],
+    "27:849": [
+     44,
+     44
+    ],
+    "27:848": [
+     33,
+     45
+    ],
+    "27:859": [
+     58,
+     67
+    ],
+    "27:866": [
+     68,
+     68
+    ],
+    "27:871": [
+     69,
+     69
+    ],
+    "27:858": [
+     46,
+     70
+    ],
+    "27:877": [
+     82,
+     84
+    ],
+    "27:876": [
+     71,
+     85
+    ],
+    "27:885": [
+     98,
+     98
+    ],
+    "27:884": [
+     86,
+     99
+    ],
+    "27:911": [
+     100,
+     105
+    ],
+    "27:816": [
+     13,
+     106
+    ]
+   }
+  },
+  "strings": {
+   "label": "Strings (EN/AR)",
+   "ext": "json",
+   "ranges": {},
+   "code": "// UI strings of this screen: data/strings/en.json and ar.json (keys used by the code tabs).\n// Content (song, artist, playlist names) is not translated and stays in the code as data.\n{\n  \"ai_mix\": {\n    \"en\": \"AI MIX\",\n    \"ar\": \"مزيج ذكي\"\n  },\n  \"audio\": {\n    \"en\": \"AUDIO\",\n    \"ar\": \"الصوت\"\n  },\n  \"lyrics\": {\n    \"en\": \"LYRICS\",\n    \"ar\": \"الكلمات\"\n  },\n  \"playlist\": {\n    \"en\": \"PLAYLIST\",\n    \"ar\": \"قائمة تشغيل\"\n  },\n  \"queue\": {\n    \"en\": \"QUEUE\",\n    \"ar\": \"قائمة الانتظار\"\n  }\n}\n"
+  }
+ },
+ "alias_root": {
+  "31:740": "27:816"
+ },
+ "check": {
+  "unknown": 0,
+  "raw": 0,
+  "untranslated": 0
+ }
+}
