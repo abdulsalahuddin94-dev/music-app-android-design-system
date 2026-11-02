@@ -1,0 +1,1168 @@
+{
+ "screen": "Explore - Full",
+ "slug": "explore-full",
+ "figma": {
+  "Dark": "27:1463",
+  "Light": "31:813"
+ },
+ "label": "Reference code",
+ "order": [
+  "compose",
+  "swiftui",
+  "flutter",
+  "react-native",
+  "web",
+  "strings"
+ ],
+ "platforms": {
+  "compose": {
+   "label": "Jetpack Compose",
+   "ext": "kt",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Explore - Full by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\nimport androidx.compose.ui.res.stringResource\n\n@Composable\nfun ExploreFullScreen(navigate: (String) -> Unit) {\n    Scaffold(\n        bottomBar = {\n            Column(horizontalAlignment = Alignment.CenterHorizontally) {\n                MiniPlayer(\n                    image = painterResource(R.drawable.img_i_27_1751_10_451),\n                    title = \"لو كنت غالى\",\n                    subtitle = \"مصطفى قمر\",\n                    onOpen = { navigate(\"now-playing\") },\n                )\n                Spacer(modifier = Modifier.height(AppTheme.spacing.spacing4))\n                BottomNavigation(\n                    firstItem = NavigationItem(\n                        selected = true,\n                        label = stringResource(R.string.explore),\n                        icon = AppIcons.Explore,\n                    ),\n                    secondItem = NavigationItem(\n                        label = stringResource(R.string.search),\n                        icon = AppIcons.Search,\n                    ),\n                    thirdItem = NavigationItem(\n                        label = stringResource(R.string.connect),\n                        icon = AppIcons.Groups,\n                    ),\n                    fourthItem = NavigationItem(\n                        label = stringResource(R.string.your_library),\n                        icon = AppIcons.LibraryMusic,\n                    ),\n                    onChange = { index -> when (index) { 0 -> navigate(\"explore-viewport\"); 1 -> navigate(\"search-discover-viewport\"); 3 -> navigate(\"library-music\") } },\n                )\n            }\n        },\n    ) { innerPadding ->\n        Column(\n            modifier = Modifier\n                .fillMaxSize()\n                .padding(innerPadding)\n                .background(MaterialTheme.colorScheme.surface)\n                .verticalScroll(rememberScrollState()),\n        ) {\n            StatusBar(time = \"4:59\", modifier = Modifier.fillMaxWidth())\n            TopAppBar(\n                title = stringResource(R.string.explore_caps),\n                showActions = true,\n                image = painterResource(R.drawable.img_i_27_1473_17_1015),\n                onAction = { index -> when (index) { \"Profile\" -> navigate(\"profile-full\") } },\n                onNavigate = { navigate(\"back\") },\n                modifier = Modifier.fillMaxWidth(),\n            )\n            // Filter Chips\n            Row(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(horizontal = AppTheme.spacing.spacing16),\n                horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                FilterChip(selected = true, label = stringResource(R.string.all))\n                FilterChip(label = stringResource(R.string.arabic))\n                FilterChip(label = stringResource(R.string.international))\n                FilterChip(label = stringResource(R.string.podcasts))\n            }\n            // Shortcuts\n            Row(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(start = AppTheme.spacing.spacing16, top = AppTheme.spacing.spacing16, end = AppTheme.spacing.spacing16),\n                horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                ShortcutCard(\n                    label = stringResource(R.string.music_mix),\n                    image = painterResource(R.drawable.img_i_27_1505_10_383),\n                    modifier = Modifier.weight(1f),\n                )\n                ShortcutCard(\n                    label = stringResource(R.string.recently_played),\n                    image = painterResource(R.drawable.img_i_27_1508_10_383),\n                    modifier = Modifier.weight(1f),\n                )\n            }\n            // Your new music Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = stringResource(R.string.your_new_music),\n                        showMore = true,\n                        showSupportingText = false,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1522_10_386),\n                        title = \"ليالى\",\n                        subtitle = stringResource(R.string.song),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = true,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1538_10_386),\n                        title = \"The shadow beyond the...\",\n                        subtitle = stringResource(R.string.album_yawn),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1548_10_386),\n                        title = \"ماتمشيش\",\n                        subtitle = stringResource(R.string.song_2),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n            // For You Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = stringResource(R.string.for_you),\n                        showMore = true,\n                        showSupportingText = false,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        size = MediaCardSize.Large,\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1569_17_986),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        size = MediaCardSize.Large,\n                        showBadge = false,\n                        description = stringResource(R.string.songs_you_loved_but_haven_t),\n                        image = painterResource(R.drawable.img_i_27_1575_17_986),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        size = MediaCardSize.Large,\n                        showBadge = false,\n                        description = stringResource(R.string.throwback_hits_from_your_past),\n                        image = painterResource(R.drawable.img_i_27_1580_17_986),\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n            // Dance Floor Egyptian Pop Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = \"Dance Floor Egyptian Pop\",\n                        showMore = false,\n                        showSupportingText = false,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1596_10_386),\n                        title = \"بالضحكة دى\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1606_10_386),\n                        title = \"ونعيش\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1616_10_386),\n                        title = \"ومحمد...\",\n                        subtitle = \"Amr Diab\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n            // Just You Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = \"Just You\",\n                        showMore = false,\n                        showSupportingText = true,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1637_10_386),\n                        title = \"يا حبيبى\",\n                        subtitle = \"عبد الفتاح الجريني\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1647_10_386),\n                        title = \"مفهوش غلطة\",\n                        subtitle = \"تامر عاشور\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1657_10_386),\n                        title = \"انى خليك...\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n            // Melancholic Egyptian Pop Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = \"Melancholic Egyptian Pop\",\n                        showMore = false,\n                        showSupportingText = false,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1678_10_386),\n                        title = \"كنت فى بالى\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1688_10_386),\n                        title = \"معرفش حد بالأسم ده\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_27_1698_10_386),\n                        title = \"...يتى معاك\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n            // Just You Rail\n            Column(\n                modifier = Modifier\n                    .fillMaxWidth()\n                    .padding(top = AppTheme.spacing.spacing24),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n            ) {\n                // Rail Header\n                Column(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .padding(horizontal = AppTheme.spacing.spacing16),\n                ) {\n                    SectionHeader(\n                        title = \"Just You\",\n                        showMore = false,\n                        showSupportingText = true,\n                        supportingText = stringResource(R.string.discover_music_based_on_your_recent),\n                        modifier = Modifier.fillMaxWidth(),\n                    )\n                }\n                // Rail Cards\n                Row(\n                    modifier = Modifier\n                        .fillMaxWidth()\n                        .horizontalScroll(rememberScrollState())\n                        .padding(start = AppTheme.spacing.spacing16),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                ) {\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_115_2626_10_386),\n                        title = \"يا حبيبى\",\n                        subtitle = \"عبد الفتاح الجريني\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_115_2627_10_386),\n                        title = \"مفهوش غلطة\",\n                        subtitle = \"تامر عاشور\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                    MediaCard(\n                        showBadge = false,\n                        description = stringResource(R.string.your_next_favorite_songs_are_in),\n                        image = painterResource(R.drawable.img_i_115_2628_10_386),\n                        title = \"انى خليك...\",\n                        subtitle = \"عمرو دياب\",\n                        onClick = { navigate(\"now-playing\") },\n                    )\n                }\n            }\n        }\n    }\n}\n",
+   "ranges": {
+    "27:1751": [
+     16,
+     21
+    ],
+    "27:1734": [
+     23,
+     42
+    ],
+    "27:1464": [
+     53,
+     53
+    ],
+    "27:1473": [
+     54,
+     61
+    ],
+    "27:1492": [
+     69,
+     69
+    ],
+    "27:1495": [
+     70,
+     70
+    ],
+    "27:1498": [
+     71,
+     71
+    ],
+    "27:1501": [
+     72,
+     72
+    ],
+    "27:1491": [
+     62,
+     73
+    ],
+    "27:1505": [
+     81,
+     85
+    ],
+    "27:1508": [
+     86,
+     90
+    ],
+    "27:1504": [
+     74,
+     91
+    ],
+    "27:1513": [
+     105,
+     111
+    ],
+    "27:1512": [
+     99,
+     112
+    ],
+    "27:1522": [
+     121,
+     128
+    ],
+    "27:1538": [
+     129,
+     136
+    ],
+    "27:1548": [
+     137,
+     144
+    ],
+    "27:1521": [
+     113,
+     145
+    ],
+    "27:1511": [
+     92,
+     146
+    ],
+    "27:1560": [
+     160,
+     166
+    ],
+    "27:1559": [
+     154,
+     167
+    ],
+    "27:1569": [
+     176,
+     182
+    ],
+    "27:1575": [
+     183,
+     189
+    ],
+    "27:1580": [
+     190,
+     196
+    ],
+    "27:1568": [
+     168,
+     197
+    ],
+    "27:1558": [
+     147,
+     198
+    ],
+    "27:1587": [
+     212,
+     218
+    ],
+    "27:1586": [
+     206,
+     219
+    ],
+    "27:1596": [
+     228,
+     235
+    ],
+    "27:1606": [
+     236,
+     243
+    ],
+    "27:1616": [
+     244,
+     251
+    ],
+    "27:1595": [
+     220,
+     252
+    ],
+    "27:1585": [
+     199,
+     253
+    ],
+    "27:1628": [
+     267,
+     273
+    ],
+    "27:1627": [
+     261,
+     274
+    ],
+    "27:1637": [
+     283,
+     290
+    ],
+    "27:1647": [
+     291,
+     298
+    ],
+    "27:1657": [
+     299,
+     306
+    ],
+    "27:1636": [
+     275,
+     307
+    ],
+    "27:1626": [
+     254,
+     308
+    ],
+    "27:1669": [
+     322,
+     328
+    ],
+    "27:1668": [
+     316,
+     329
+    ],
+    "27:1678": [
+     338,
+     345
+    ],
+    "27:1688": [
+     346,
+     353
+    ],
+    "27:1698": [
+     354,
+     361
+    ],
+    "27:1677": [
+     330,
+     362
+    ],
+    "27:1667": [
+     309,
+     363
+    ],
+    "115:2624": [
+     377,
+     383
+    ],
+    "115:2623": [
+     371,
+     384
+    ],
+    "115:2626": [
+     393,
+     400
+    ],
+    "115:2627": [
+     401,
+     408
+    ],
+    "115:2628": [
+     409,
+     416
+    ],
+    "115:2625": [
+     385,
+     417
+    ],
+    "115:2622": [
+     364,
+     418
+    ],
+    "27:1463": [
+     13,
+     420
+    ]
+   }
+  },
+  "swiftui": {
+   "label": "SwiftUI",
+   "ext": "swift",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Explore - Full by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct ExploreFullScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                StatusBar(time: \"4:59\")\n                    .frame(maxWidth: .infinity)\n                TopAppBar(\n                    title: String(localized: \"explore_caps\"),\n                    showActions: true,\n                    image: Image(\"I27-1473-17-1015\"),\n                    onAction: { index in switch index { case \"Profile\": navigate(\"profile-full\"); default: break } },\n                    onNavigate: { navigate(\"back\") },\n                )\n                    .frame(maxWidth: .infinity)\n                // Filter Chips\n                HStack(alignment: .top, spacing: DS.Spacing.spacing8) {\n                    FilterChip(selected: true, label: String(localized: \"all\"))\n                    FilterChip(label: String(localized: \"arabic\"))\n                    FilterChip(label: String(localized: \"international\"))\n                    FilterChip(label: String(localized: \"podcasts\"))\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Shortcuts\n                HStack(alignment: .top, spacing: DS.Spacing.spacing8) {\n                    ShortcutCard(\n                        label: String(localized: \"music_mix\"),\n                        image: Image(\"I27-1505-10-383\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                    ShortcutCard(\n                        label: String(localized: \"recently_played\"),\n                        image: Image(\"I27-1508-10-383\"),\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(.horizontal, DS.Spacing.spacing16)\n                .padding(.top, DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                // Your new music Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: String(localized: \"your_new_music\"),\n                            showMore: true,\n                            showSupportingText: false,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1522-10-386\"),\n                                title: \"ليالى\",\n                                subtitle: String(localized: \"song\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: true,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1538-10-386\"),\n                                title: \"The shadow beyond the...\",\n                                subtitle: String(localized: \"album_yawn\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1548-10-386\"),\n                                title: \"ماتمشيش\",\n                                subtitle: String(localized: \"song_2\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n                // For You Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: String(localized: \"for_you\"),\n                            showMore: true,\n                            showSupportingText: false,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                size: .large,\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1569-17-986\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                size: .large,\n                                showBadge: false,\n                                description: String(localized: \"songs_you_loved_but_haven_t\"),\n                                image: Image(\"I27-1575-17-986\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                size: .large,\n                                showBadge: false,\n                                description: String(localized: \"throwback_hits_from_your_past\"),\n                                image: Image(\"I27-1580-17-986\"),\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n                // Dance Floor Egyptian Pop Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: \"Dance Floor Egyptian Pop\",\n                            showMore: false,\n                            showSupportingText: false,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1596-10-386\"),\n                                title: \"بالضحكة دى\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1606-10-386\"),\n                                title: \"ونعيش\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1616-10-386\"),\n                                title: \"ومحمد...\",\n                                subtitle: \"Amr Diab\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n                // Just You Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: \"Just You\",\n                            showMore: false,\n                            showSupportingText: true,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1637-10-386\"),\n                                title: \"يا حبيبى\",\n                                subtitle: \"عبد الفتاح الجريني\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1647-10-386\"),\n                                title: \"مفهوش غلطة\",\n                                subtitle: \"تامر عاشور\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1657-10-386\"),\n                                title: \"انى خليك...\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n                // Melancholic Egyptian Pop Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: \"Melancholic Egyptian Pop\",\n                            showMore: false,\n                            showSupportingText: false,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1678-10-386\"),\n                                title: \"كنت فى بالى\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1688-10-386\"),\n                                title: \"معرفش حد بالأسم ده\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I27-1698-10-386\"),\n                                title: \"...يتى معاك\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n                // Just You Rail\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing8) {\n                    // Rail Header\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                        SectionHeader(\n                            title: \"Just You\",\n                            showMore: false,\n                            showSupportingText: true,\n                            supportingText: String(localized: \"discover_music_based_on_your_recent\"),\n                        )\n                            .frame(maxWidth: .infinity)\n                    }\n                    .padding(.horizontal, DS.Spacing.spacing16)\n                    .frame(maxWidth: .infinity)\n                    // Rail Cards\n                    ScrollView(.horizontal, showsIndicators: false) {\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing16) {\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I115-2626-10-386\"),\n                                title: \"يا حبيبى\",\n                                subtitle: \"عبد الفتاح الجريني\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I115-2627-10-386\"),\n                                title: \"مفهوش غلطة\",\n                                subtitle: \"تامر عاشور\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                            MediaCard(\n                                showBadge: false,\n                                description: String(localized: \"your_next_favorite_songs_are_in\"),\n                                image: Image(\"I115-2628-10-386\"),\n                                title: \"انى خليك...\",\n                                subtitle: \"عمرو دياب\",\n                                onClick: { navigate(\"now-playing\") },\n                            )\n                        }\n                        .padding(.leading, DS.Spacing.spacing16)\n                    }\n                    .frame(maxWidth: .infinity)\n                }\n                .padding(.top, DS.Spacing.spacing24)\n                .frame(maxWidth: .infinity)\n            }\n        }\n        .background(DS.Colors.surface)\n        .safeAreaInset(edge: .bottom, spacing: 0) {\n            VStack(spacing: 0) {\n                MiniPlayer(\n                    image: Image(\"I27-1751-10-451\"),\n                    title: \"لو كنت غالى\",\n                    subtitle: \"مصطفى قمر\",\n                    onOpen: { navigate(\"now-playing\") },\n                )\n                Spacer().frame(height: DS.Spacing.spacing4)\n                BottomNavigation(\n                    firstItem: NavigationItem(\n                        selected: true,\n                        label: String(localized: \"explore\"),\n                        icon: DS.Icons.explore,\n                    ),\n                    secondItem: NavigationItem(label: String(localized: \"search\"), icon: DS.Icons.search),\n                    thirdItem: NavigationItem(label: String(localized: \"connect\"), icon: DS.Icons.groups),\n                    fourthItem: NavigationItem(\n                        label: String(localized: \"your_library\"),\n                        icon: DS.Icons.libraryMusic,\n                    ),\n                    onChange: { index in switch index { case 0: navigate(\"explore-viewport\"); case 1: navigate(\"search-discover-viewport\"); case 3: navigate(\"library-music\"); default: break } },\n                )\n            }\n        }\n    }\n}\n",
+   "ranges": {
+    "27:1464": [
+     12,
+     13
+    ],
+    "27:1473": [
+     14,
+     21
+    ],
+    "27:1492": [
+     24,
+     24
+    ],
+    "27:1495": [
+     25,
+     25
+    ],
+    "27:1498": [
+     26,
+     26
+    ],
+    "27:1501": [
+     27,
+     27
+    ],
+    "27:1491": [
+     22,
+     30
+    ],
+    "27:1505": [
+     33,
+     37
+    ],
+    "27:1508": [
+     38,
+     42
+    ],
+    "27:1504": [
+     31,
+     46
+    ],
+    "27:1513": [
+     51,
+     57
+    ],
+    "27:1512": [
+     49,
+     60
+    ],
+    "27:1522": [
+     64,
+     71
+    ],
+    "27:1538": [
+     72,
+     79
+    ],
+    "27:1548": [
+     80,
+     87
+    ],
+    "27:1521": [
+     61,
+     91
+    ],
+    "27:1511": [
+     47,
+     94
+    ],
+    "27:1560": [
+     99,
+     105
+    ],
+    "27:1559": [
+     97,
+     108
+    ],
+    "27:1569": [
+     112,
+     118
+    ],
+    "27:1575": [
+     119,
+     125
+    ],
+    "27:1580": [
+     126,
+     132
+    ],
+    "27:1568": [
+     109,
+     136
+    ],
+    "27:1558": [
+     95,
+     139
+    ],
+    "27:1587": [
+     144,
+     150
+    ],
+    "27:1586": [
+     142,
+     153
+    ],
+    "27:1596": [
+     157,
+     164
+    ],
+    "27:1606": [
+     165,
+     172
+    ],
+    "27:1616": [
+     173,
+     180
+    ],
+    "27:1595": [
+     154,
+     184
+    ],
+    "27:1585": [
+     140,
+     187
+    ],
+    "27:1628": [
+     192,
+     198
+    ],
+    "27:1627": [
+     190,
+     201
+    ],
+    "27:1637": [
+     205,
+     212
+    ],
+    "27:1647": [
+     213,
+     220
+    ],
+    "27:1657": [
+     221,
+     228
+    ],
+    "27:1636": [
+     202,
+     232
+    ],
+    "27:1626": [
+     188,
+     235
+    ],
+    "27:1669": [
+     240,
+     246
+    ],
+    "27:1668": [
+     238,
+     249
+    ],
+    "27:1678": [
+     253,
+     260
+    ],
+    "27:1688": [
+     261,
+     268
+    ],
+    "27:1698": [
+     269,
+     276
+    ],
+    "27:1677": [
+     250,
+     280
+    ],
+    "27:1667": [
+     236,
+     283
+    ],
+    "115:2624": [
+     288,
+     294
+    ],
+    "115:2623": [
+     286,
+     297
+    ],
+    "115:2626": [
+     301,
+     308
+    ],
+    "115:2627": [
+     309,
+     316
+    ],
+    "115:2628": [
+     317,
+     324
+    ],
+    "115:2625": [
+     298,
+     328
+    ],
+    "115:2622": [
+     284,
+     331
+    ],
+    "27:1751": [
+     337,
+     342
+    ],
+    "27:1734": [
+     344,
+     357
+    ],
+    "27:1463": [
+     10,
+     359
+    ]
+   }
+  },
+  "flutter": {
+   "label": "Flutter",
+   "ext": "dart",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Explore - Full by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\nimport 'package:flutter_gen/gen_l10n/app_localizations.dart';\n\nclass ExploreFullScreen extends StatelessWidget {\n  const ExploreFullScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      backgroundColor: Theme.of(context).colorScheme.surface,\n      body: SingleChildScrollView(\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            SizedBox(width: double.infinity, child: StatusBar(time: '4:59')),\n            SizedBox(width: double.infinity, child: TopAppBar(\n              title: AppLocalizations.of(context)!.exploreCaps,\n              showActions: true,\n              image: const AssetImage('assets/figma-img/I27-1473-17-1015.png'),\n              onAction: (index) { switch (index) { case 'Profile': navigate('profile-full'); } },\n              onNavigate: () => navigate('back'),\n            )),\n            // Filter Chips\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                child: Row(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    FilterChip(selected: true, label: AppLocalizations.of(context)!.all),\n                    FilterChip(label: AppLocalizations.of(context)!.arabic),\n                    FilterChip(label: AppLocalizations.of(context)!.international),\n                    FilterChip(label: AppLocalizations.of(context)!.podcasts),\n                  ],\n                ),\n              ),\n            ),\n            // Shortcuts\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16, end: AppSpacing.spacing16, top: AppSpacing.spacing16),\n                child: Row(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    Expanded(child: ShortcutCard(\n                      label: AppLocalizations.of(context)!.musicMix,\n                      image: const AssetImage('assets/figma-img/I27-1505-10-383.png'),\n                    )),\n                    Expanded(child: ShortcutCard(\n                      label: AppLocalizations.of(context)!.recentlyPlayed,\n                      image: const AssetImage('assets/figma-img/I27-1508-10-383.png'),\n                    )),\n                  ],\n                ),\n              ),\n            ),\n            // Your new music Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: AppLocalizations.of(context)!.yourNewMusic,\n                              showMore: true,\n                              showSupportingText: false,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1522-10-386.png'),\n                                title: 'ليالى',\n                                subtitle: AppLocalizations.of(context)!.song,\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: true,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1538-10-386.png'),\n                                title: 'The shadow beyond the...',\n                                subtitle: AppLocalizations.of(context)!.albumYawn,\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1548-10-386.png'),\n                                title: 'ماتمشيش',\n                                subtitle: AppLocalizations.of(context)!.song2,\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // For You Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: AppLocalizations.of(context)!.forYou,\n                              showMore: true,\n                              showSupportingText: false,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                size: MediaCardSize.large,\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1569-17-986.png'),\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                size: MediaCardSize.large,\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.songsYouLovedButHavenT,\n                                image: const AssetImage('assets/figma-img/I27-1575-17-986.png'),\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                size: MediaCardSize.large,\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.throwbackHitsFromYourPast,\n                                image: const AssetImage('assets/figma-img/I27-1580-17-986.png'),\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Dance Floor Egyptian Pop Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: 'Dance Floor Egyptian Pop',\n                              showMore: false,\n                              showSupportingText: false,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1596-10-386.png'),\n                                title: 'بالضحكة دى',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1606-10-386.png'),\n                                title: 'ونعيش',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1616-10-386.png'),\n                                title: 'ومحمد...',\n                                subtitle: 'Amr Diab',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Just You Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: 'Just You',\n                              showMore: false,\n                              showSupportingText: true,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1637-10-386.png'),\n                                title: 'يا حبيبى',\n                                subtitle: 'عبد الفتاح الجريني',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1647-10-386.png'),\n                                title: 'مفهوش غلطة',\n                                subtitle: 'تامر عاشور',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1657-10-386.png'),\n                                title: 'انى خليك...',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Melancholic Egyptian Pop Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: 'Melancholic Egyptian Pop',\n                              showMore: false,\n                              showSupportingText: false,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1678-10-386.png'),\n                                title: 'كنت فى بالى',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1688-10-386.png'),\n                                title: 'معرفش حد بالأسم ده',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I27-1698-10-386.png'),\n                                title: '...يتى معاك',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n            // Just You Rail\n            SizedBox(width: double.infinity,\n              child: Padding(padding: EdgeInsetsDirectional.only(top: AppSpacing.spacing24),\n                child: Column(\n                  spacing: AppSpacing.spacing8,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Rail Header\n                    SizedBox(width: double.infinity,\n                      child: Padding(padding: EdgeInsets.symmetric(horizontal: AppSpacing.spacing16),\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            SizedBox(width: double.infinity, child: SectionHeader(\n                              title: 'Just You',\n                              showMore: false,\n                              showSupportingText: true,\n                              supportingText: AppLocalizations.of(context)!.discoverMusicBasedOnYourRecent,\n                            )),\n                          ],\n                        ),\n                      ),\n                    ),\n                    // Rail Cards\n                    SizedBox(width: double.infinity,\n                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,\n                        child: Padding(padding: EdgeInsetsDirectional.only(start: AppSpacing.spacing16),\n                          child: Row(\n                            spacing: AppSpacing.spacing16,\n                            crossAxisAlignment: CrossAxisAlignment.start,\n                            mainAxisSize: MainAxisSize.min,\n                            children: [\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I115-2626-10-386.png'),\n                                title: 'يا حبيبى',\n                                subtitle: 'عبد الفتاح الجريني',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I115-2627-10-386.png'),\n                                title: 'مفهوش غلطة',\n                                subtitle: 'تامر عاشور',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                              MediaCard(\n                                showBadge: false,\n                                description: AppLocalizations.of(context)!.yourNextFavoriteSongsAreIn,\n                                image: const AssetImage('assets/figma-img/I115-2628-10-386.png'),\n                                title: 'انى خليك...',\n                                subtitle: 'عمرو دياب',\n                                onClick: () => navigate('now-playing'),\n                              ),\n                            ],\n                          ),\n                        ),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n            ),\n          ],\n        ),\n      ),\n      bottomNavigationBar: Column(\n        mainAxisSize: MainAxisSize.min,\n        children: [\n          MiniPlayer(\n            image: const AssetImage('assets/figma-img/I27-1751-10-451.png'),\n            title: 'لو كنت غالى',\n            subtitle: 'مصطفى قمر',\n            onOpen: () => navigate('now-playing'),\n          ),\n          SizedBox(height: AppSpacing.spacing4),\n          BottomNavigation(\n            firstItem: NavigationItem(\n              selected: true,\n              label: AppLocalizations.of(context)!.explore,\n              icon: AppIcons.explore,\n            ),\n            secondItem: NavigationItem(label: AppLocalizations.of(context)!.search, icon: AppIcons.search),\n            thirdItem: NavigationItem(label: AppLocalizations.of(context)!.connect, icon: AppIcons.groups),\n            fourthItem: NavigationItem(\n              label: AppLocalizations.of(context)!.yourLibrary,\n              icon: AppIcons.libraryMusic,\n            ),\n            onChange: (index) { switch (index) { case 0: navigate('explore-viewport'); case 1: navigate('search-discover-viewport'); case 3: navigate('library-music'); } },\n          ),\n        ],\n      ),\n    );\n  }\n}\n",
+   "ranges": {
+    "27:1464": [
+     21,
+     21
+    ],
+    "27:1473": [
+     22,
+     28
+    ],
+    "27:1492": [
+     36,
+     36
+    ],
+    "27:1495": [
+     37,
+     37
+    ],
+    "27:1498": [
+     38,
+     38
+    ],
+    "27:1501": [
+     39,
+     39
+    ],
+    "27:1491": [
+     29,
+     43
+    ],
+    "27:1505": [
+     51,
+     54
+    ],
+    "27:1508": [
+     55,
+     58
+    ],
+    "27:1504": [
+     44,
+     62
+    ],
+    "27:1513": [
+     76,
+     81
+    ],
+    "27:1512": [
+     70,
+     85
+    ],
+    "27:1522": [
+     95,
+     102
+    ],
+    "27:1538": [
+     103,
+     110
+    ],
+    "27:1548": [
+     111,
+     118
+    ],
+    "27:1521": [
+     86,
+     123
+    ],
+    "27:1511": [
+     63,
+     127
+    ],
+    "27:1560": [
+     141,
+     146
+    ],
+    "27:1559": [
+     135,
+     150
+    ],
+    "27:1569": [
+     160,
+     166
+    ],
+    "27:1575": [
+     167,
+     173
+    ],
+    "27:1580": [
+     174,
+     180
+    ],
+    "27:1568": [
+     151,
+     185
+    ],
+    "27:1558": [
+     128,
+     189
+    ],
+    "27:1587": [
+     203,
+     208
+    ],
+    "27:1586": [
+     197,
+     212
+    ],
+    "27:1596": [
+     222,
+     229
+    ],
+    "27:1606": [
+     230,
+     237
+    ],
+    "27:1616": [
+     238,
+     245
+    ],
+    "27:1595": [
+     213,
+     250
+    ],
+    "27:1585": [
+     190,
+     254
+    ],
+    "27:1628": [
+     268,
+     273
+    ],
+    "27:1627": [
+     262,
+     277
+    ],
+    "27:1637": [
+     287,
+     294
+    ],
+    "27:1647": [
+     295,
+     302
+    ],
+    "27:1657": [
+     303,
+     310
+    ],
+    "27:1636": [
+     278,
+     315
+    ],
+    "27:1626": [
+     255,
+     319
+    ],
+    "27:1669": [
+     333,
+     338
+    ],
+    "27:1668": [
+     327,
+     342
+    ],
+    "27:1678": [
+     352,
+     359
+    ],
+    "27:1688": [
+     360,
+     367
+    ],
+    "27:1698": [
+     368,
+     375
+    ],
+    "27:1677": [
+     343,
+     380
+    ],
+    "27:1667": [
+     320,
+     384
+    ],
+    "115:2624": [
+     398,
+     403
+    ],
+    "115:2623": [
+     392,
+     407
+    ],
+    "115:2626": [
+     417,
+     424
+    ],
+    "115:2627": [
+     425,
+     432
+    ],
+    "115:2628": [
+     433,
+     440
+    ],
+    "115:2625": [
+     408,
+     445
+    ],
+    "115:2622": [
+     385,
+     449
+    ],
+    "27:1751": [
+     456,
+     461
+    ],
+    "27:1734": [
+     463,
+     476
+    ],
+    "27:1463": [
+     14,
+     479
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Explore - Full by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { BottomNavigation, FilterChip, MediaCard, MiniPlayer, NavigationItem, SectionHeader, ShortcutCard, StatusBar, TopAppBar } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\nimport { t } from '@/i18n';\n\nexport function ExploreFullScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <View style={{ flex: 1, backgroundColor: tokens.color.surface }}>\n      <ScrollView contentContainerStyle={{  }}>\n        <StatusBar time=\"4:59\" />\n        <TopAppBar\n          title={t('explore_caps')}\n          showActions\n          image={require('./assets/figma-img/I27-1473-17-1015.png')}\n          onAction={(index) => navigate({ 'Profile': 'profile-full' }[index])}\n          onNavigate={() => navigate('back')}\n        />\n        {/* Filter Chips */}\n        <View\n          style={{\n            flexDirection: 'row',\n            gap: tokens.spacing.spacing8,\n            alignItems: 'flex-start',\n            paddingHorizontal: tokens.spacing.spacing16,\n          }}\n        >\n          <FilterChip selected label={t('all')} />\n          <FilterChip label={t('arabic')} />\n          <FilterChip label={t('international')} />\n          <FilterChip label={t('podcasts')} />\n        </View>\n        {/* Shortcuts */}\n        <View\n          style={{\n            flexDirection: 'row',\n            gap: tokens.spacing.spacing8,\n            alignItems: 'flex-start',\n            paddingHorizontal: tokens.spacing.spacing16,\n            paddingTop: tokens.spacing.spacing16,\n          }}\n        >\n          <ShortcutCard\n            label={t('music_mix')}\n            image={require('./assets/figma-img/I27-1505-10-383.png')}\n            style={{ flex: 1 }}\n          />\n          <ShortcutCard\n            label={t('recently_played')}\n            image={require('./assets/figma-img/I27-1508-10-383.png')}\n            style={{ flex: 1 }}\n          />\n        </View>\n        {/* Your new music Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title={t('your_new_music')}\n              showMore\n              showSupportingText={false}\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1522-10-386.png')}\n              title=\"ليالى\"\n              subtitle={t('song')}\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1538-10-386.png')}\n              title=\"The shadow beyond the...\"\n              subtitle={t('album_yawn')}\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1548-10-386.png')}\n              title=\"ماتمشيش\"\n              subtitle={t('song_2')}\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n        {/* For You Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title={t('for_you')}\n              showMore\n              showSupportingText={false}\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              size=\"large\"\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1569-17-986.png')}\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              size=\"large\"\n              showBadge={false}\n              description={t('songs_you_loved_but_haven_t')}\n              image={require('./assets/figma-img/I27-1575-17-986.png')}\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              size=\"large\"\n              showBadge={false}\n              description={t('throwback_hits_from_your_past')}\n              image={require('./assets/figma-img/I27-1580-17-986.png')}\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n        {/* Dance Floor Egyptian Pop Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title=\"Dance Floor Egyptian Pop\"\n              showMore={false}\n              showSupportingText={false}\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1596-10-386.png')}\n              title=\"بالضحكة دى\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1606-10-386.png')}\n              title=\"ونعيش\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1616-10-386.png')}\n              title=\"ومحمد...\"\n              subtitle=\"Amr Diab\"\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n        {/* Just You Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title=\"Just You\"\n              showMore={false}\n              showSupportingText\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1637-10-386.png')}\n              title=\"يا حبيبى\"\n              subtitle=\"عبد الفتاح الجريني\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1647-10-386.png')}\n              title=\"مفهوش غلطة\"\n              subtitle=\"تامر عاشور\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1657-10-386.png')}\n              title=\"انى خليك...\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n        {/* Melancholic Egyptian Pop Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title=\"Melancholic Egyptian Pop\"\n              showMore={false}\n              showSupportingText={false}\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1678-10-386.png')}\n              title=\"كنت فى بالى\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1688-10-386.png')}\n              title=\"معرفش حد بالأسم ده\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I27-1698-10-386.png')}\n              title=\"...يتى معاك\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n        {/* Just You Rail */}\n        <View style={{ gap: tokens.spacing.spacing8, paddingTop: tokens.spacing.spacing24 }}>\n          {/* Rail Header */}\n          <View style={{ paddingHorizontal: tokens.spacing.spacing16 }}>\n            <SectionHeader\n              title=\"Just You\"\n              showMore={false}\n              showSupportingText\n              supportingText={t('discover_music_based_on_your_recent')}\n            />\n          </View>\n          {/* Rail Cards */}\n          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', gap: tokens.spacing.spacing16, alignItems: 'flex-start', paddingStart: tokens.spacing.spacing16 }}>\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I115-2626-10-386.png')}\n              title=\"يا حبيبى\"\n              subtitle=\"عبد الفتاح الجريني\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I115-2627-10-386.png')}\n              title=\"مفهوش غلطة\"\n              subtitle=\"تامر عاشور\"\n              onClick={() => navigate('now-playing')}\n            />\n            <MediaCard\n              showBadge={false}\n              description={t('your_next_favorite_songs_are_in')}\n              image={require('./assets/figma-img/I115-2628-10-386.png')}\n              title=\"انى خليك...\"\n              subtitle=\"عمرو دياب\"\n              onClick={() => navigate('now-playing')}\n            />\n          </ScrollView>\n        </View>\n      </ScrollView>\n      <View style={{ alignItems: 'center' }}>\n        <MiniPlayer\n          image={require('./assets/figma-img/I27-1751-10-451.png')}\n          title=\"لو كنت غالى\"\n          subtitle=\"مصطفى قمر\"\n          onOpen={() => navigate('now-playing')}\n        />\n        <View style={{ height: tokens.spacing.spacing4 }} />\n        <BottomNavigation\n          firstItem={<NavigationItem selected label={t('explore')} icon=\"explore\" />}\n          secondItem={<NavigationItem label={t('search')} icon=\"search\" />}\n          thirdItem={<NavigationItem label={t('connect')} icon=\"groups\" />}\n          fourthItem={<NavigationItem label={t('your_library')} icon=\"library_music\" />}\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n        />\n      </View>\n    </View>\n  );\n}\n",
+   "ranges": {
+    "27:1464": [
+     14,
+     14
+    ],
+    "27:1473": [
+     15,
+     21
+    ],
+    "27:1492": [
+     31,
+     31
+    ],
+    "27:1495": [
+     32,
+     32
+    ],
+    "27:1498": [
+     33,
+     33
+    ],
+    "27:1501": [
+     34,
+     34
+    ],
+    "27:1491": [
+     22,
+     35
+    ],
+    "27:1505": [
+     46,
+     50
+    ],
+    "27:1508": [
+     51,
+     55
+    ],
+    "27:1504": [
+     36,
+     56
+    ],
+    "27:1513": [
+     61,
+     66
+    ],
+    "27:1512": [
+     59,
+     67
+    ],
+    "27:1522": [
+     70,
+     77
+    ],
+    "27:1538": [
+     78,
+     85
+    ],
+    "27:1548": [
+     86,
+     93
+    ],
+    "27:1521": [
+     68,
+     94
+    ],
+    "27:1511": [
+     57,
+     95
+    ],
+    "27:1560": [
+     100,
+     105
+    ],
+    "27:1559": [
+     98,
+     106
+    ],
+    "27:1569": [
+     109,
+     115
+    ],
+    "27:1575": [
+     116,
+     122
+    ],
+    "27:1580": [
+     123,
+     129
+    ],
+    "27:1568": [
+     107,
+     130
+    ],
+    "27:1558": [
+     96,
+     131
+    ],
+    "27:1587": [
+     136,
+     141
+    ],
+    "27:1586": [
+     134,
+     142
+    ],
+    "27:1596": [
+     145,
+     152
+    ],
+    "27:1606": [
+     153,
+     160
+    ],
+    "27:1616": [
+     161,
+     168
+    ],
+    "27:1595": [
+     143,
+     169
+    ],
+    "27:1585": [
+     132,
+     170
+    ],
+    "27:1628": [
+     175,
+     180
+    ],
+    "27:1627": [
+     173,
+     181
+    ],
+    "27:1637": [
+     184,
+     191
+    ],
+    "27:1647": [
+     192,
+     199
+    ],
+    "27:1657": [
+     200,
+     207
+    ],
+    "27:1636": [
+     182,
+     208
+    ],
+    "27:1626": [
+     171,
+     209
+    ],
+    "27:1669": [
+     214,
+     219
+    ],
+    "27:1668": [
+     212,
+     220
+    ],
+    "27:1678": [
+     223,
+     230
+    ],
+    "27:1688": [
+     231,
+     238
+    ],
+    "27:1698": [
+     239,
+     246
+    ],
+    "27:1677": [
+     221,
+     247
+    ],
+    "27:1667": [
+     210,
+     248
+    ],
+    "115:2624": [
+     253,
+     258
+    ],
+    "115:2623": [
+     251,
+     259
+    ],
+    "115:2626": [
+     262,
+     269
+    ],
+    "115:2627": [
+     270,
+     277
+    ],
+    "115:2628": [
+     278,
+     285
+    ],
+    "115:2625": [
+     260,
+     286
+    ],
+    "115:2622": [
+     249,
+     287
+    ],
+    "27:1751": [
+     290,
+     295
+    ],
+    "27:1734": [
+     297,
+     303
+    ],
+    "27:1463": [
+     12,
+     305
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Explore - Full by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { MediaCard, SectionHeader, ShortcutCard, StatusBar } from '@ds/components/DataDisplay';\nimport { BottomNavigation, FilterChip, MiniPlayer, NavigationItem, TopAppBar } from '@ds/components/Navigation';\nimport { t } from '@/i18n';\n\nexport function ExploreFullScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: 'var(--md-sys-color-surface)' }}>\n      <div style={{ flex: 1, minHeight: 0, overflowY: 'auto' }}>\n        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>\n          <StatusBar Time=\"4:59\" />\n          <TopAppBar\n            Title={t('explore_caps')}\n            image=\"figma-img/I27-1473-17-1015.png\"\n            onAction={(index) => navigate({ 'Profile': 'profile-full' }[index])}\n            onNavigate={() => navigate('back')}\n            {...{ 'Show Actions': true }}\n          />\n          {/* Filter Chips */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'row',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'flex-start',\n              paddingInline: 'var(--md-sys-spacing-16)',\n            }}\n          >\n            <FilterChip Selected Label={t('all')} />\n            <FilterChip Label={t('arabic')} />\n            <FilterChip Label={t('international')} />\n            <FilterChip Label={t('podcasts')} />\n          </div>\n          {/* Shortcuts */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'row',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'flex-start',\n              paddingInline: 'var(--md-sys-spacing-16)',\n              paddingTop: 'var(--md-sys-spacing-16)',\n            }}\n          >\n            <div style={{ flex: 1 }}>\n              <ShortcutCard Label={t('music_mix')} image=\"figma-img/I27-1505-10-383.png\" />\n            </div>\n            <div style={{ flex: 1 }}>\n              <ShortcutCard\n                Label={t('recently_played')}\n                image=\"figma-img/I27-1508-10-383.png\"\n              />\n            </div>\n          </div>\n          {/* Your new music Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title={t('your_new_music')}\n                {...{ 'Show More': true, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1522-10-386.png\"\n                title=\"ليالى\"\n                subtitle={t('song')}\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1538-10-386.png\"\n                title=\"The shadow beyond the...\"\n                subtitle={t('album_yawn')}\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': true }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1548-10-386.png\"\n                title=\"ماتمشيش\"\n                subtitle={t('song_2')}\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n          {/* For You Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title={t('for_you')}\n                {...{ 'Show More': true, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Size=\"Large\"\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1569-17-986.png\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Size=\"Large\"\n                Description={t('songs_you_loved_but_haven_t')}\n                image=\"figma-img/I27-1575-17-986.png\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Size=\"Large\"\n                Description={t('throwback_hits_from_your_past')}\n                image=\"figma-img/I27-1580-17-986.png\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n          {/* Dance Floor Egyptian Pop Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title=\"Dance Floor Egyptian Pop\"\n                {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1596-10-386.png\"\n                title=\"بالضحكة دى\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1606-10-386.png\"\n                title=\"ونعيش\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1616-10-386.png\"\n                title=\"ومحمد...\"\n                subtitle=\"Amr Diab\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n          {/* Just You Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title=\"Just You\"\n                {...{ 'Show More': false, 'Show Supporting Text': true, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1637-10-386.png\"\n                title=\"يا حبيبى\"\n                subtitle=\"عبد الفتاح الجريني\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1647-10-386.png\"\n                title=\"مفهوش غلطة\"\n                subtitle=\"تامر عاشور\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1657-10-386.png\"\n                title=\"انى خليك...\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n          {/* Melancholic Egyptian Pop Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title=\"Melancholic Egyptian Pop\"\n                {...{ 'Show More': false, 'Show Supporting Text': false, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1678-10-386.png\"\n                title=\"كنت فى بالى\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1688-10-386.png\"\n                title=\"معرفش حد بالأسم ده\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I27-1698-10-386.png\"\n                title=\"...يتى معاك\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n          {/* Just You Rail */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              gap: 'var(--md-sys-spacing-8)',\n              alignItems: 'stretch',\n              paddingTop: 'var(--md-sys-spacing-24)',\n            }}\n          >\n            {/* Rail Header */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'column',\n                alignItems: 'stretch',\n                paddingInline: 'var(--md-sys-spacing-16)',\n              }}\n            >\n              <SectionHeader\n                Title=\"Just You\"\n                {...{ 'Show More': false, 'Show Supporting Text': true, 'Supporting Text': t('discover_music_based_on_your_recent') }}\n              />\n            </div>\n            {/* Rail Cards */}\n            <div\n              style={{\n                display: 'flex',\n                flexDirection: 'row',\n                gap: 'var(--md-sys-spacing-16)',\n                alignItems: 'flex-start',\n                paddingInlineStart: 'var(--md-sys-spacing-16)',\n                overflowX: 'auto',\n              }}\n            >\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I115-2626-10-386.png\"\n                title=\"يا حبيبى\"\n                subtitle=\"عبد الفتاح الجريني\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I115-2627-10-386.png\"\n                title=\"مفهوش غلطة\"\n                subtitle=\"تامر عاشور\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n              <MediaCard\n                Description={t('your_next_favorite_songs_are_in')}\n                image=\"figma-img/I115-2628-10-386.png\"\n                title=\"انى خليك...\"\n                subtitle=\"عمرو دياب\"\n                onClick={() => navigate('now-playing')}\n                {...{ 'Show Badge': false }}\n              />\n            </div>\n          </div>\n        </div>\n      </div>\n      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>\n        <MiniPlayer\n          image=\"figma-img/I27-1751-10-451.png\"\n          title=\"لو كنت غالى\"\n          subtitle=\"مصطفى قمر\"\n          onOpen={() => navigate('now-playing')}\n        />\n        <div style={{ height: 'var(--md-sys-spacing-4)' }} />\n        <BottomNavigation\n          onChange={(index) => navigate({ 0: 'explore-viewport', 1: 'search-discover-viewport', 3: 'library-music' }[index])}\n          {...{ 'First Item': <NavigationItem Selected Label={t('explore')} Icon=\"explore\" />, 'Second Item': <NavigationItem Label={t('search')} Icon=\"search\" />, 'Third Item': <NavigationItem Label={t('connect')} Icon=\"groups\" />, 'Fourth Item': <NavigationItem Label={t('your_library')} Icon=\"library_music\" /> }}\n        />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "27:1464": [
+     14,
+     14
+    ],
+    "27:1473": [
+     15,
+     21
+    ],
+    "27:1492": [
+     32,
+     32
+    ],
+    "27:1495": [
+     33,
+     33
+    ],
+    "27:1498": [
+     34,
+     34
+    ],
+    "27:1501": [
+     35,
+     35
+    ],
+    "27:1491": [
+     22,
+     36
+    ],
+    "27:1505": [
+     48,
+     50
+    ],
+    "27:1508": [
+     51,
+     56
+    ],
+    "27:1504": [
+     37,
+     57
+    ],
+    "27:1513": [
+     77,
+     80
+    ],
+    "27:1512": [
+     68,
+     81
+    ],
+    "27:1522": [
+     93,
+     100
+    ],
+    "27:1538": [
+     101,
+     108
+    ],
+    "27:1548": [
+     109,
+     116
+    ],
+    "27:1521": [
+     82,
+     117
+    ],
+    "27:1511": [
+     58,
+     118
+    ],
+    "27:1560": [
+     138,
+     141
+    ],
+    "27:1559": [
+     129,
+     142
+    ],
+    "27:1569": [
+     154,
+     160
+    ],
+    "27:1575": [
+     161,
+     167
+    ],
+    "27:1580": [
+     168,
+     174
+    ],
+    "27:1568": [
+     143,
+     175
+    ],
+    "27:1558": [
+     119,
+     176
+    ],
+    "27:1587": [
+     196,
+     199
+    ],
+    "27:1586": [
+     187,
+     200
+    ],
+    "27:1596": [
+     212,
+     219
+    ],
+    "27:1606": [
+     220,
+     227
+    ],
+    "27:1616": [
+     228,
+     235
+    ],
+    "27:1595": [
+     201,
+     236
+    ],
+    "27:1585": [
+     177,
+     237
+    ],
+    "27:1628": [
+     257,
+     260
+    ],
+    "27:1627": [
+     248,
+     261
+    ],
+    "27:1637": [
+     273,
+     280
+    ],
+    "27:1647": [
+     281,
+     288
+    ],
+    "27:1657": [
+     289,
+     296
+    ],
+    "27:1636": [
+     262,
+     297
+    ],
+    "27:1626": [
+     238,
+     298
+    ],
+    "27:1669": [
+     318,
+     321
+    ],
+    "27:1668": [
+     309,
+     322
+    ],
+    "27:1678": [
+     334,
+     341
+    ],
+    "27:1688": [
+     342,
+     349
+    ],
+    "27:1698": [
+     350,
+     357
+    ],
+    "27:1677": [
+     323,
+     358
+    ],
+    "27:1667": [
+     299,
+     359
+    ],
+    "115:2624": [
+     379,
+     382
+    ],
+    "115:2623": [
+     370,
+     383
+    ],
+    "115:2626": [
+     395,
+     402
+    ],
+    "115:2627": [
+     403,
+     410
+    ],
+    "115:2628": [
+     411,
+     418
+    ],
+    "115:2625": [
+     384,
+     419
+    ],
+    "115:2622": [
+     360,
+     420
+    ],
+    "27:1751": [
+     424,
+     429
+    ],
+    "27:1734": [
+     431,
+     434
+    ],
+    "27:1463": [
+     11,
+     436
+    ]
+   }
+  },
+  "strings": {
+   "label": "Strings (EN/AR)",
+   "ext": "json",
+   "ranges": {},
+   "code": "// UI strings of this screen: data/strings/en.json and ar.json (keys used by the code tabs).\n// Content (song, artist, playlist names) is not translated and stays in the code as data.\n{\n  \"album_yawn\": {\n    \"en\": \"Album · Yawn\",\n    \"ar\": \"ألبوم · Yawn\"\n  },\n  \"all\": {\n    \"en\": \"All\",\n    \"ar\": \"الكل\"\n  },\n  \"arabic\": {\n    \"en\": \"Arabic\",\n    \"ar\": \"عربي\"\n  },\n  \"connect\": {\n    \"en\": \"Connect\",\n    \"ar\": \"تواصل\"\n  },\n  \"discover_music_based_on_your_recent\": {\n    \"en\": \"Discover music based on your recent activity\",\n    \"ar\": \"اكتشف موسيقى بناءً على نشاطك الأخير\"\n  },\n  \"explore\": {\n    \"en\": \"Explore\",\n    \"ar\": \"استكشاف\"\n  },\n  \"explore_caps\": {\n    \"en\": \"EXPLORE\",\n    \"ar\": \"استكشاف\"\n  },\n  \"for_you\": {\n    \"en\": \"For You\",\n    \"ar\": \"لك\"\n  },\n  \"international\": {\n    \"en\": \"International\",\n    \"ar\": \"عالمي\"\n  },\n  \"music_mix\": {\n    \"en\": \"Music Mix\",\n    \"ar\": \"مزيج موسيقي\"\n  },\n  \"podcasts\": {\n    \"en\": \"Podcasts\",\n    \"ar\": \"البودكاست\"\n  },\n  \"recently_played\": {\n    \"en\": \"Recently Played\",\n    \"ar\": \"شُغّلت مؤخرًا\"\n  },\n  \"search\": {\n    \"en\": \"Search\",\n    \"ar\": \"بحث\"\n  },\n  \"song\": {\n    \"en\": \"Song · سمر طارق\",\n    \"ar\": \"أغنية · سمر طارق\"\n  },\n  \"song_2\": {\n    \"en\": \"Song · عمرو دياب\",\n    \"ar\": \"أغنية · عمرو دياب\"\n  },\n  \"songs_you_loved_but_haven_t\": {\n    \"en\": \"Songs you loved but haven't heard in a while\",\n    \"ar\": \"أغانٍ أحببتها ولم تسمعها منذ فترة\"\n  },\n  \"throwback_hits_from_your_past\": {\n    \"en\": \"Throwback hits from your past\",\n    \"ar\": \"أغانٍ قديمة من ذكرياتك\"\n  },\n  \"your_library\": {\n    \"en\": \"Your Library\",\n    \"ar\": \"مكتبتك\"\n  },\n  \"your_new_music\": {\n    \"en\": \"Your new music\",\n    \"ar\": \"موسيقاك الجديدة\"\n  },\n  \"your_next_favorite_songs_are_in\": {\n    \"en\": \"Your next favorite songs are in here\",\n    \"ar\": \"أغانيك المفضلة القادمة هنا\"\n  }\n}\n"
+  }
+ },
+ "alias_root": {
+  "31:813": "27:1463"
+ },
+ "check": {
+  "unknown": 0,
+  "raw": 0,
+  "untranslated": 0
+ }
+}

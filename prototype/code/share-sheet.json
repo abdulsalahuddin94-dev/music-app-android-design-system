@@ -1,0 +1,468 @@
+{
+ "screen": "Share Sheet",
+ "slug": "share-sheet",
+ "figma": {
+  "Dark": "115:4806",
+  "Light": "115:4889"
+ },
+ "label": "Reference code",
+ "order": [
+  "compose",
+  "swiftui",
+  "flutter",
+  "react-native",
+  "web",
+  "strings"
+ ],
+ "platforms": {
+  "compose": {
+   "label": "Jetpack Compose",
+   "ext": "kt",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Share Sheet by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport androidx.compose.foundation.*\nimport androidx.compose.foundation.layout.*\nimport androidx.compose.material3.*\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.*\nimport androidx.compose.ui.res.stringResource\n\n@Composable\nfun ShareSheetScreen(navigate: (String) -> Unit) {\n    Column(\n        modifier = Modifier\n            .fillMaxSize()\n            .verticalScroll(rememberScrollState()),\n    ) {\n        Spacer(modifier = Modifier.weight(1f))\n        // Sheet\n        Column(\n            modifier = Modifier\n                .fillMaxWidth()\n                .background(MaterialTheme.colorScheme.surfaceContainerLow)\n                .padding(AppTheme.spacing.spacing16),\n            verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n        ) {\n            // Share Content\n            Column(\n                modifier = Modifier.fillMaxWidth(),\n                verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing24),\n            ) {\n                // Track Header\n                Row(\n                    modifier = Modifier.fillMaxWidth(),\n                    horizontalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing16),\n                    verticalAlignment = Alignment.CenterVertically,\n                ) {\n                    Artwork(image = painterResource(R.drawable.img_27_849))\n                    TrackMetadata(\n                        title = \"كيفك ع فراقى\",\n                        subtitle = \"محمد شاكر وفضل شاكر\",\n                        showSubtitleIcon = false,\n                        modifier = Modifier.weight(1f),\n                    )\n                }\n                // Share Targets\n                Row(modifier = Modifier.fillMaxWidth()) {\n                    // Copy link Target\n                    Column(\n                        modifier = Modifier.weight(1f),\n                        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n                        horizontalAlignment = Alignment.CenterHorizontally,\n                    ) {\n                        IconButton(style = IconButtonStyle.Tonal, icon = AppIcons.Upload)\n                    }\n                    // Messages Target\n                    Column(\n                        modifier = Modifier.weight(1f),\n                        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n                        horizontalAlignment = Alignment.CenterHorizontally,\n                    ) {\n                        IconButton(style = IconButtonStyle.Tonal, icon = AppIcons.Groups)\n                    }\n                    // WhatsApp Target\n                    Column(\n                        modifier = Modifier.weight(1f),\n                        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n                        horizontalAlignment = Alignment.CenterHorizontally,\n                    ) {\n                        IconButton(style = IconButtonStyle.Tonal, icon = AppIcons.Share)\n                    }\n                    // Instagram Stories Target\n                    Column(\n                        modifier = Modifier.weight(1f),\n                        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n                        horizontalAlignment = Alignment.CenterHorizontally,\n                    ) {\n                        IconButton(style = IconButtonStyle.Tonal, icon = AppIcons.AutoAwesome)\n                    }\n                    // More Target\n                    Column(\n                        modifier = Modifier.weight(1f),\n                        verticalArrangement = Arrangement.spacedBy(AppTheme.spacing.spacing8),\n                        horizontalAlignment = Alignment.CenterHorizontally,\n                    ) {\n                        IconButton(style = IconButtonStyle.Tonal, icon = AppIcons.MoreVert)\n                    }\n                }\n            }\n            Divider(modifier = Modifier.fillMaxWidth())\n            Button(\n                style = ButtonStyle.Text,\n                labelText = stringResource(R.string.cancel),\n                showLeadingIcon = false,\n                modifier = Modifier.fillMaxWidth(),\n            )\n        }\n    }\n}\n",
+   "ranges": {
+    "share-sheet-d:scrim": [
+     18,
+     18
+    ],
+    "share-sheet-d:artwork": [
+     38,
+     38
+    ],
+    "share-sheet-d:metadata": [
+     39,
+     44
+    ],
+    "share-sheet-d:header": [
+     32,
+     45
+    ],
+    "share-sheet-d:target-copy:button": [
+     54,
+     54
+    ],
+    "share-sheet-d:target-copy": [
+     48,
+     55
+    ],
+    "share-sheet-d:target-messages:button": [
+     62,
+     62
+    ],
+    "share-sheet-d:target-messages": [
+     56,
+     63
+    ],
+    "share-sheet-d:target-whatsapp:button": [
+     70,
+     70
+    ],
+    "share-sheet-d:target-whatsapp": [
+     64,
+     71
+    ],
+    "share-sheet-d:target-instagram:button": [
+     78,
+     78
+    ],
+    "share-sheet-d:target-instagram": [
+     72,
+     79
+    ],
+    "share-sheet-d:target-more:button": [
+     86,
+     86
+    ],
+    "share-sheet-d:target-more": [
+     80,
+     87
+    ],
+    "share-sheet-d:targets": [
+     46,
+     88
+    ],
+    "share-sheet-d:content": [
+     27,
+     89
+    ],
+    "share-sheet-d:divider": [
+     90,
+     90
+    ],
+    "share-sheet-d:cancel": [
+     91,
+     96
+    ],
+    "share-sheet-d:sheet": [
+     19,
+     97
+    ],
+    "115:4806": [
+     13,
+     98
+    ]
+   }
+  },
+  "swiftui": {
+   "label": "SwiftUI",
+   "ext": "swift",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Share Sheet by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport SwiftUI\n\nstruct ShareSheetScreen: View {\n    let navigate: (String) -> Void\n\n    var body: some View {\n        ScrollView {\n            VStack(alignment: .leading, spacing: DS.Spacing.spacing0) {\n                Spacer()\n                // Sheet\n                VStack(alignment: .leading, spacing: DS.Spacing.spacing16) {\n                    // Share Content\n                    VStack(alignment: .leading, spacing: DS.Spacing.spacing24) {\n                        // Track Header\n                        HStack(alignment: .center, spacing: DS.Spacing.spacing16) {\n                            Artwork(image: Image(\"27-849\"))\n                            TrackMetadata(\n                                title: \"كيفك ع فراقى\",\n                                subtitle: \"محمد شاكر وفضل شاكر\",\n                                showSubtitleIcon: false,\n                            )\n                                .frame(maxWidth: .infinity)\n                        }\n                        .frame(maxWidth: .infinity)\n                        // Share Targets\n                        HStack(alignment: .top, spacing: DS.Spacing.spacing0) {\n                            // Copy link Target\n                            VStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                                IconButton(style: .tonal, icon: DS.Icons.upload)\n                            }\n                            .frame(maxWidth: .infinity)\n                            // Messages Target\n                            VStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                                IconButton(style: .tonal, icon: DS.Icons.groups)\n                            }\n                            .frame(maxWidth: .infinity)\n                            // WhatsApp Target\n                            VStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                                IconButton(style: .tonal, icon: DS.Icons.share)\n                            }\n                            .frame(maxWidth: .infinity)\n                            // Instagram Stories Target\n                            VStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                                IconButton(style: .tonal, icon: DS.Icons.autoAwesome)\n                            }\n                            .frame(maxWidth: .infinity)\n                            // More Target\n                            VStack(alignment: .center, spacing: DS.Spacing.spacing8) {\n                                IconButton(style: .tonal, icon: DS.Icons.moreVert)\n                            }\n                            .frame(maxWidth: .infinity)\n                        }\n                        .frame(maxWidth: .infinity)\n                    }\n                    .frame(maxWidth: .infinity)\n                    Divider()\n                        .frame(maxWidth: .infinity)\n                    Button(\n                        style: .text,\n                        labelText: String(localized: \"cancel\"),\n                        showLeadingIcon: false,\n                    )\n                        .frame(maxWidth: .infinity)\n                }\n                .padding(DS.Spacing.spacing16)\n                .frame(maxWidth: .infinity)\n                .background(DS.Colors.surfaceContainerLow)\n            }\n        }\n    }\n}\n",
+   "ranges": {
+    "share-sheet-d:scrim": [
+     12,
+     12
+    ],
+    "share-sheet-d:artwork": [
+     19,
+     19
+    ],
+    "share-sheet-d:metadata": [
+     20,
+     25
+    ],
+    "share-sheet-d:header": [
+     17,
+     27
+    ],
+    "share-sheet-d:target-copy:button": [
+     32,
+     32
+    ],
+    "share-sheet-d:target-copy": [
+     30,
+     34
+    ],
+    "share-sheet-d:target-messages:button": [
+     37,
+     37
+    ],
+    "share-sheet-d:target-messages": [
+     35,
+     39
+    ],
+    "share-sheet-d:target-whatsapp:button": [
+     42,
+     42
+    ],
+    "share-sheet-d:target-whatsapp": [
+     40,
+     44
+    ],
+    "share-sheet-d:target-instagram:button": [
+     47,
+     47
+    ],
+    "share-sheet-d:target-instagram": [
+     45,
+     49
+    ],
+    "share-sheet-d:target-more:button": [
+     52,
+     52
+    ],
+    "share-sheet-d:target-more": [
+     50,
+     54
+    ],
+    "share-sheet-d:targets": [
+     28,
+     56
+    ],
+    "share-sheet-d:content": [
+     15,
+     58
+    ],
+    "share-sheet-d:divider": [
+     59,
+     60
+    ],
+    "share-sheet-d:cancel": [
+     61,
+     66
+    ],
+    "share-sheet-d:sheet": [
+     13,
+     70
+    ],
+    "115:4806": [
+     10,
+     72
+    ]
+   }
+  },
+  "flutter": {
+   "label": "Flutter",
+   "ext": "dart",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Share Sheet by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport 'package:flutter/material.dart';\nimport 'package:flutter_gen/gen_l10n/app_localizations.dart';\n\nclass ShareSheetScreen extends StatelessWidget {\n  const ShareSheetScreen({super.key, required this.navigate});\n\n  final void Function(String screen) navigate;\n\n  @override\n  Widget build(BuildContext context) {\n    return SingleChildScrollView(\n      child: Column(\n        crossAxisAlignment: CrossAxisAlignment.start,\n        mainAxisSize: MainAxisSize.min,\n        children: [\n          const Spacer(),\n          // Sheet\n          SizedBox(width: double.infinity,\n            child: ColoredBox(color: Theme.of(context).colorScheme.surfaceContainerLow,\n              child: Padding(padding: EdgeInsets.all(AppSpacing.spacing16),\n                child: Column(\n                  spacing: AppSpacing.spacing16,\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    // Share Content\n                    SizedBox(width: double.infinity,\n                      child: Column(\n                        spacing: AppSpacing.spacing24,\n                        crossAxisAlignment: CrossAxisAlignment.start,\n                        children: [\n                          // Track Header\n                          SizedBox(width: double.infinity,\n                            child: Row(\n                              spacing: AppSpacing.spacing16,\n                              children: [\n                                Artwork(image: const AssetImage('assets/figma-img/27-849.png')),\n                                Expanded(child: TrackMetadata(\n                                  title: 'كيفك ع فراقى',\n                                  subtitle: 'محمد شاكر وفضل شاكر',\n                                  showSubtitleIcon: false,\n                                )),\n                              ],\n                            ),\n                          ),\n                          // Share Targets\n                          SizedBox(width: double.infinity,\n                            child: Row(\n                              crossAxisAlignment: CrossAxisAlignment.start,\n                              children: [\n                                // Copy link Target\n                                Expanded(\n                                  child: Column(\n                                    spacing: AppSpacing.spacing8,\n                                    children: [\n                                      IconButton(\n                                        style: IconButtonStyle.tonal,\n                                        icon: AppIcons.upload,\n                                      ),\n                                    ],\n                                  ),\n                                ),\n                                // Messages Target\n                                Expanded(\n                                  child: Column(\n                                    spacing: AppSpacing.spacing8,\n                                    children: [\n                                      IconButton(\n                                        style: IconButtonStyle.tonal,\n                                        icon: AppIcons.groups,\n                                      ),\n                                    ],\n                                  ),\n                                ),\n                                // WhatsApp Target\n                                Expanded(\n                                  child: Column(\n                                    spacing: AppSpacing.spacing8,\n                                    children: [\n                                      IconButton(\n                                        style: IconButtonStyle.tonal,\n                                        icon: AppIcons.share,\n                                      ),\n                                    ],\n                                  ),\n                                ),\n                                // Instagram Stories Target\n                                Expanded(\n                                  child: Column(\n                                    spacing: AppSpacing.spacing8,\n                                    children: [\n                                      IconButton(\n                                        style: IconButtonStyle.tonal,\n                                        icon: AppIcons.autoAwesome,\n                                      ),\n                                    ],\n                                  ),\n                                ),\n                                // More Target\n                                Expanded(\n                                  child: Column(\n                                    spacing: AppSpacing.spacing8,\n                                    children: [\n                                      IconButton(\n                                        style: IconButtonStyle.tonal,\n                                        icon: AppIcons.moreVert,\n                                      ),\n                                    ],\n                                  ),\n                                ),\n                              ],\n                            ),\n                          ),\n                        ],\n                      ),\n                    ),\n                    SizedBox(width: double.infinity, child: Divider()),\n                    SizedBox(width: double.infinity, child: Button(\n                      style: ButtonStyle.text,\n                      labelText: AppLocalizations.of(context)!.cancel,\n                      showLeadingIcon: false,\n                    )),\n                  ],\n                ),\n              ),\n            ),\n          ),\n        ],\n      ),\n    );\n  }\n}\n",
+   "ranges": {
+    "share-sheet-d:scrim": [
+     19,
+     19
+    ],
+    "share-sheet-d:artwork": [
+     39,
+     39
+    ],
+    "share-sheet-d:metadata": [
+     40,
+     44
+    ],
+    "share-sheet-d:header": [
+     34,
+     47
+    ],
+    "share-sheet-d:target-copy:button": [
+     58,
+     61
+    ],
+    "share-sheet-d:target-copy": [
+     53,
+     64
+    ],
+    "share-sheet-d:target-messages:button": [
+     70,
+     73
+    ],
+    "share-sheet-d:target-messages": [
+     65,
+     76
+    ],
+    "share-sheet-d:target-whatsapp:button": [
+     82,
+     85
+    ],
+    "share-sheet-d:target-whatsapp": [
+     77,
+     88
+    ],
+    "share-sheet-d:target-instagram:button": [
+     94,
+     97
+    ],
+    "share-sheet-d:target-instagram": [
+     89,
+     100
+    ],
+    "share-sheet-d:target-more:button": [
+     106,
+     109
+    ],
+    "share-sheet-d:target-more": [
+     101,
+     112
+    ],
+    "share-sheet-d:targets": [
+     48,
+     115
+    ],
+    "share-sheet-d:content": [
+     28,
+     118
+    ],
+    "share-sheet-d:divider": [
+     119,
+     119
+    ],
+    "share-sheet-d:cancel": [
+     120,
+     124
+    ],
+    "share-sheet-d:sheet": [
+     20,
+     129
+    ],
+    "115:4806": [
+     14,
+     132
+    ]
+   }
+  },
+  "react-native": {
+   "label": "React Native",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Share Sheet by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { ScrollView, View } from 'react-native';\nimport { Artwork, Button, Divider, IconButton, TrackMetadata } from '@/design-system';\nimport { tokens } from '@/design-system/tokens';\nimport { t } from '@/i18n';\n\nexport function ShareSheetScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <ScrollView contentContainerStyle={{  }}>\n      <View style={{ flex: 1 }} />\n      {/* Sheet */}\n      <View\n        style={{\n          gap: tokens.spacing.spacing16,\n          padding: tokens.spacing.spacing16,\n          backgroundColor: tokens.color.surfaceContainerLow,\n        }}\n      >\n        {/* Share Content */}\n        <View style={{ gap: tokens.spacing.spacing24 }}>\n          {/* Track Header */}\n          <View\n            style={{\n              flexDirection: 'row',\n              gap: tokens.spacing.spacing16,\n              alignItems: 'center',\n            }}\n          >\n            <Artwork image={require('./assets/figma-img/27-849.png')} />\n            <TrackMetadata\n              title=\"كيفك ع فراقى\"\n              subtitle=\"محمد شاكر وفضل شاكر\"\n              showSubtitleIcon={false}\n              style={{ flex: 1 }}\n            />\n          </View>\n          {/* Share Targets */}\n          <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>\n            {/* Copy link Target */}\n            <View style={{ flex: 1, gap: tokens.spacing.spacing8, alignItems: 'center' }}>\n              <IconButton style=\"tonal\" icon=\"upload\" />\n            </View>\n            {/* Messages Target */}\n            <View style={{ flex: 1, gap: tokens.spacing.spacing8, alignItems: 'center' }}>\n              <IconButton style=\"tonal\" icon=\"groups\" />\n            </View>\n            {/* WhatsApp Target */}\n            <View style={{ flex: 1, gap: tokens.spacing.spacing8, alignItems: 'center' }}>\n              <IconButton style=\"tonal\" icon=\"share\" />\n            </View>\n            {/* Instagram Stories Target */}\n            <View style={{ flex: 1, gap: tokens.spacing.spacing8, alignItems: 'center' }}>\n              <IconButton style=\"tonal\" icon=\"auto_awesome\" />\n            </View>\n            {/* More Target */}\n            <View style={{ flex: 1, gap: tokens.spacing.spacing8, alignItems: 'center' }}>\n              <IconButton style=\"tonal\" icon=\"more_vert\" />\n            </View>\n          </View>\n        </View>\n        <Divider />\n        <Button style=\"text\" labelText={t('cancel')} showLeadingIcon={false} />\n      </View>\n    </ScrollView>\n  );\n}\n",
+   "ranges": {
+    "share-sheet-d:scrim": [
+     13,
+     13
+    ],
+    "share-sheet-d:artwork": [
+     32,
+     32
+    ],
+    "share-sheet-d:metadata": [
+     33,
+     38
+    ],
+    "share-sheet-d:header": [
+     24,
+     39
+    ],
+    "share-sheet-d:target-copy:button": [
+     44,
+     44
+    ],
+    "share-sheet-d:target-copy": [
+     42,
+     45
+    ],
+    "share-sheet-d:target-messages:button": [
+     48,
+     48
+    ],
+    "share-sheet-d:target-messages": [
+     46,
+     49
+    ],
+    "share-sheet-d:target-whatsapp:button": [
+     52,
+     52
+    ],
+    "share-sheet-d:target-whatsapp": [
+     50,
+     53
+    ],
+    "share-sheet-d:target-instagram:button": [
+     56,
+     56
+    ],
+    "share-sheet-d:target-instagram": [
+     54,
+     57
+    ],
+    "share-sheet-d:target-more:button": [
+     60,
+     60
+    ],
+    "share-sheet-d:target-more": [
+     58,
+     61
+    ],
+    "share-sheet-d:targets": [
+     40,
+     62
+    ],
+    "share-sheet-d:content": [
+     22,
+     63
+    ],
+    "share-sheet-d:divider": [
+     64,
+     64
+    ],
+    "share-sheet-d:cancel": [
+     65,
+     65
+    ],
+    "share-sheet-d:sheet": [
+     14,
+     66
+    ],
+    "115:4806": [
+     12,
+     67
+    ]
+   }
+  },
+  "web": {
+   "label": "React (Web)",
+   "ext": "tsx",
+   "code": "// Reference code (not production): generated from Figma \"Brownfield Design\" > Share Sheet by tools/screen_code.py.\n// DS names only (Music App Android design system); colors follow the Light / Dark theme.\n\nimport React from 'react';\nimport { Divider } from '@ds/components/DataDisplay';\nimport { Artwork, TrackMetadata } from '@ds/components/DataDisplayAtoms';\nimport { Button, IconButton } from '@ds/components/Navigation';\nimport { t } from '@/i18n';\n\nexport function ShareSheetScreen({ navigate }: { navigate: (screen: string) => void }) {\n  return (\n    <div\n      style={{\n        display: 'flex',\n        flexDirection: 'column',\n        alignItems: 'stretch',\n        overflowY: 'auto',\n      }}\n    >\n      <div style={{ flex: 1 }} />\n      {/* Sheet */}\n      <div\n        style={{\n          display: 'flex',\n          flexDirection: 'column',\n          gap: 'var(--md-sys-spacing-16)',\n          alignItems: 'stretch',\n          padding: 'var(--md-sys-spacing-16)',\n          background: 'var(--md-sys-color-surface_container_low)',\n        }}\n      >\n        {/* Share Content */}\n        <div\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            gap: 'var(--md-sys-spacing-24)',\n            alignItems: 'stretch',\n          }}\n        >\n          {/* Track Header */}\n          <div\n            style={{\n              display: 'flex',\n              flexDirection: 'row',\n              gap: 'var(--md-sys-spacing-16)',\n              alignItems: 'center',\n            }}\n          >\n            <Artwork image=\"figma-img/27-849.png\" />\n            <div style={{ flex: 1 }}>\n              <TrackMetadata\n                Title=\"كيفك ع فراقى\"\n                Subtitle=\"محمد شاكر وفضل شاكر\"\n                {...{ 'Show Subtitle Icon': false }}\n              />\n            </div>\n          </div>\n          {/* Share Targets */}\n          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>\n            {/* Copy link Target */}\n            <div\n              style={{\n                flex: 1,\n                display: 'flex',\n                flexDirection: 'column',\n                gap: 'var(--md-sys-spacing-8)',\n                alignItems: 'center',\n              }}\n            >\n              <IconButton Style=\"Tonal\" Icon=\"upload\" />\n            </div>\n            {/* Messages Target */}\n            <div\n              style={{\n                flex: 1,\n                display: 'flex',\n                flexDirection: 'column',\n                gap: 'var(--md-sys-spacing-8)',\n                alignItems: 'center',\n              }}\n            >\n              <IconButton Style=\"Tonal\" Icon=\"groups\" />\n            </div>\n            {/* WhatsApp Target */}\n            <div\n              style={{\n                flex: 1,\n                display: 'flex',\n                flexDirection: 'column',\n                gap: 'var(--md-sys-spacing-8)',\n                alignItems: 'center',\n              }}\n            >\n              <IconButton Style=\"Tonal\" Icon=\"share\" />\n            </div>\n            {/* Instagram Stories Target */}\n            <div\n              style={{\n                flex: 1,\n                display: 'flex',\n                flexDirection: 'column',\n                gap: 'var(--md-sys-spacing-8)',\n                alignItems: 'center',\n              }}\n            >\n              <IconButton Style=\"Tonal\" Icon=\"auto_awesome\" />\n            </div>\n            {/* More Target */}\n            <div\n              style={{\n                flex: 1,\n                display: 'flex',\n                flexDirection: 'column',\n                gap: 'var(--md-sys-spacing-8)',\n                alignItems: 'center',\n              }}\n            >\n              <IconButton Style=\"Tonal\" Icon=\"more_vert\" />\n            </div>\n          </div>\n        </div>\n        <Divider />\n        <Button Style=\"Text\" {...{ 'Label text': t('cancel'), 'Show Leading Icon': false }} />\n      </div>\n    </div>\n  );\n}\n",
+   "ranges": {
+    "share-sheet-d:scrim": [
+     20,
+     20
+    ],
+    "share-sheet-d:artwork": [
+     50,
+     50
+    ],
+    "share-sheet-d:metadata": [
+     51,
+     57
+    ],
+    "share-sheet-d:header": [
+     41,
+     58
+    ],
+    "share-sheet-d:target-copy:button": [
+     71,
+     71
+    ],
+    "share-sheet-d:target-copy": [
+     61,
+     72
+    ],
+    "share-sheet-d:target-messages:button": [
+     83,
+     83
+    ],
+    "share-sheet-d:target-messages": [
+     73,
+     84
+    ],
+    "share-sheet-d:target-whatsapp:button": [
+     95,
+     95
+    ],
+    "share-sheet-d:target-whatsapp": [
+     85,
+     96
+    ],
+    "share-sheet-d:target-instagram:button": [
+     107,
+     107
+    ],
+    "share-sheet-d:target-instagram": [
+     97,
+     108
+    ],
+    "share-sheet-d:target-more:button": [
+     119,
+     119
+    ],
+    "share-sheet-d:target-more": [
+     109,
+     120
+    ],
+    "share-sheet-d:targets": [
+     59,
+     121
+    ],
+    "share-sheet-d:content": [
+     32,
+     122
+    ],
+    "share-sheet-d:divider": [
+     123,
+     123
+    ],
+    "share-sheet-d:cancel": [
+     124,
+     124
+    ],
+    "share-sheet-d:sheet": [
+     21,
+     125
+    ],
+    "115:4806": [
+     12,
+     126
+    ]
+   }
+  },
+  "strings": {
+   "label": "Strings (EN/AR)",
+   "ext": "json",
+   "ranges": {},
+   "code": "// UI strings of this screen: data/strings/en.json and ar.json (keys used by the code tabs).\n// Content (song, artist, playlist names) is not translated and stays in the code as data.\n{\n  \"cancel\": {\n    \"en\": \"Cancel\",\n    \"ar\": \"إلغاء\"\n  }\n}\n"
+  }
+ },
+ "alias_root": {
+  "115:4889": "115:4806"
+ },
+ "check": {
+  "unknown": 0,
+  "raw": 0,
+  "untranslated": 0
+ }
+}
